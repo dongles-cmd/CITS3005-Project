@@ -1,3 +1,8 @@
+<<<<<<< Updated upstream
+=======
+# Python script to load and process ontology
+
+>>>>>>> Stashed changes
 from owlready2 import *
 
 onto = get_ontology("http://pc-procedures/")
@@ -10,6 +15,7 @@ with onto:
     class Image(Thing): pass
     class Part(Item): pass
 
+<<<<<<< Updated upstream
     class has_part(ObjectProperty, Item >> Part):  # Declare as ObjectProperty
         pass
    
@@ -62,6 +68,8 @@ with onto:
    
     procedure.uses_tool = [screwdriver]
 
+=======
+>>>>>>> Stashed changes
 # Save the ontology to a file
 onto.save(file="ifixit_ontology.owl")
  
