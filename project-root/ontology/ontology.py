@@ -1,6 +1,3 @@
-# Python script to load and process ontology
-
-import owlready2
 from owlready2 import *
 
 onto = get_ontology("http://pc-procedures/")
@@ -13,34 +10,34 @@ with onto:
     class Image(Thing): pass
     class Part(Item): pass
 
-    class has_part(Item >> Part):
+    class has_part(ObjectProperty, Item >> Part):  # Declare as ObjectProperty
         pass
    
-    class is_part_of(Part >> Item):
+    class is_part_of(ObjectProperty, Part >> Item):  # Declare as ObjectProperty
         inverse_property = has_part  # Define inverse property
  
-    class uses_tool(Procedure >> Tool):
+    class uses_tool(ObjectProperty, Procedure >> Tool):  # Declare as ObjectProperty
         pass
  
-    class part_of_procedure(Step >> Procedure):
+    class part_of_procedure(ObjectProperty, Step >> Procedure):  # Declare as ObjectProperty
         pass
    
-    class sub_procedure(Procedure >> Procedure):
+    class sub_procedure(ObjectProperty, Procedure >> Procedure):  # Declare as ObjectProperty
         pass
  
     # Data properties (attributes for instances)
-    class step_number(Step >> int, FunctionalProperty):
+    class step_number(DataProperty, FunctionalProperty, Step >> int):  # Declare as DataProperty
         pass
  
-    class step_description(Step >> str):
+    class step_description(DataProperty, Step >> str):  # Declare as DataProperty
         pass
  
-    class image_path(Image >> str):
+    class image_path(DataProperty, Image >> str):  # Declare as DataProperty
         pass
- 
+
     # Define constraints and axioms
     # Example of a transitive relationship
-    has_part.transitive = True
+    has_part.transitive = True  # Now `has_part` is a transitive object property
  
     # Example of using domain and range to define property usage
     uses_tool.domain = [Procedure]
@@ -64,9 +61,8 @@ with onto:
     step1.part_of_procedure = [procedure]
    
     procedure.uses_tool = [screwdriver]
- 
+
 # Save the ontology to a file
 onto.save(file="ifixit_ontology.owl")
  
 print("Ontology successfully saved to ifixit_ontology.owl")
- 
