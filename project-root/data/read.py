@@ -1,7 +1,7 @@
 import json
 
 # Load a sample JSON file (e.g., Apparel.json)
-with open('pc.json', 'r') as file:
+with open('PC.json', 'r') as file:
     data = json.load(file)
 
 # Print out the structure
