@@ -1,15 +1,15 @@
-Instructions
-iFixit: Know-How to Knowledge Graph
+# Instructions
+## iFixit: Know-How to Knowledge Graph
 This project is due on 11.59pm October 18, 2024 and is worth 30% of your final grade. You may choose to complete the project in a pair, or as an individual. If you complete the project as a pair, you must each submit a separate individual report. Each student should submit their work to cssubmit. If working in a pair, each student should submit the full set of files, but each file should clearly indicate both students who contributed to it.
 
-Overview:
+# Overview:
 iFixit is a community project built around the right to repair, and shares knowledge about procedures for fixing broken things, including computers, phones, cars, clothes appliances and so on. The guides are organised so that they are easy to browse and search, and have a standardized format, so they are easy to use and write. In this project, you will choose a subcategory of instruction manuals, and build a knowledge graph and ontology around those manuals.
 
 The iFixit corpus has already be partially processed and refined to build a dataset and related resources. The dataset is a github repository  which you can clone to your local machine, and explore the data which is in json format. Using this as a starting point, you should aim to build a lightweight ontology describing the procedures context of these manuals, populate the ontology with the data in the repository (or similar data you have sourced from elsewhere), and produce queries and processes demonstrating the operation of your ontology.
 
 Your ontology should run as a small standalone application, that may be implemented as a command line program running in a python shell, or a small flask application.  
 
-Deliverables:
+# Deliverables:
 You should deliver the following elements:
 
 25% An OWLReady 2 ontology (possibly including pySHACL) describing the concepts in the graph, including: procedure, item, part, tool, step, image. These should allow natural and useful queries over the knowledge graph, and should enforce, at least:
@@ -41,7 +41,7 @@ The individual report should be a pdf file.
 The marking criterion gives a rough indication of what is expected.
 
 
-Resources:
+## Resources:
 The resources page will be updated as the project progress. The basic tools that should be used when completing this project are:
 owlready2 for representing the ontology and applying reasoning, including RDFLib and Python for building the knowledge graph and executing SPARQL queries.
 pYSHACL for applying and validating constraints on the graph (optional).
