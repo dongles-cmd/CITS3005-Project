@@ -13,19 +13,19 @@
   <rdfs:range rdf:resource="#Item"/>
 </owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="#used_in">
-  <rdfs:domain rdf:resource="#Tool"/>
-  <rdfs:range rdf:resource="#Step"/>
+<owl:ObjectProperty rdf:about="#procedure_uses_tool">
+  <rdfs:domain rdf:resource="#Procedure"/>
+  <rdfs:range rdf:resource="#Tool"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#step_uses_tool">
+  <rdfs:domain rdf:resource="#Step"/>
+  <rdfs:range rdf:resource="#Tool"/>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#has_step">
   <rdfs:domain rdf:resource="#Procedure"/>
   <rdfs:range rdf:resource="#Step"/>
-</owl:ObjectProperty>
-
-<owl:ObjectProperty rdf:about="#has_tool">
-  <rdfs:domain rdf:resource="#Procedure"/>
-  <rdfs:range rdf:resource="#Tool"/>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#has_image">
@@ -57,37 +57,6 @@
 <owl:Class rdf:about="#Image">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
-
-<owl:NamedIndividual rdf:about="#Dell_Latitude_D620_CD_Drive_Replacement">
-  <rdf:type rdf:resource="#Procedure"/>
-  <has_step rdf:resource="#Step1_Power_Down_Remove_Battery"/>
-  <has_step rdf:resource="#Step2_Lift_Plastic_Cover"/>
-  <has_tool rdf:resource="#Phillips_00_Screwdriver"/>
-  <has_tool rdf:resource="#Spudger"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#Phillips_00_Screwdriver">
-  <rdf:type rdf:resource="#Tool"/>
-  <used_in rdf:resource="#Step1_Power_Down_Remove_Battery"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#Spudger">
-  <rdf:type rdf:resource="#Tool"/>
-  <used_in rdf:resource="#Step2_Lift_Plastic_Cover"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#Step1_Power_Down_Remove_Battery">
-  <rdf:type rdf:resource="#Step"/>
-  <has_image rdf:resource="#https://d3nevzfk7ii3be.cloudfront.net/igi/2ahoN1SZaDunCRlW.standard"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#Step2_Lift_Plastic_Cover">
-  <rdf:type rdf:resource="#Step"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#https://d3nevzfk7ii3be.cloudfront.net/igi/2ahoN1SZaDunCRlW.standard">
-  <rdf:type rdf:resource="#Image"/>
-</owl:NamedIndividual>
 
 
 </rdf:RDF>
