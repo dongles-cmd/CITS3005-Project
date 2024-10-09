@@ -1,7 +1,7 @@
 from owlready2 import *
  
 # Load an empty ontology
-onto = get_ontology("http://test.org/ifixit/")
+onto = get_ontology("http://test.org/ifixit.com#")
  
 with onto:
     # Define classes

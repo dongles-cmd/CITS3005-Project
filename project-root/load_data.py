@@ -14,10 +14,10 @@ existing_images = {}
 
 for procedure in data:
     # Process procedure
-    procedure_instance = onto.Procedure(procedure['Title']) # Use URL as unique identifier
+    procedure_instance = onto.Procedure(procedure['Title'].replace(' ', '_')) # Use URL as unique identifier
 
     # Process item of procedure
-    item_name = procedure['Category']
+    item_name = procedure['Category'].replace(' ', '_')
     if item_name not in existing_items:
         item_instance = onto.Item(item_name)
         existing_items[item_name] = item_instance
@@ -26,7 +26,7 @@ for procedure in data:
     procedure_instance.procedure_for.append(item_instance)
     
     # Process part
-    part_name = procedure['Subject']
+    part_name = procedure['Subject'].replace(' ', '_')
     if part_name not in existing_parts:
         part_instance = onto.Part(part_name)
         existing_parts[part_name] = part_instance
@@ -36,7 +36,7 @@ for procedure in data:
 
     # Process toolbox
     for tool in procedure['Toolbox']:
-        tool_name = tool['Name']
+        tool_name = tool['Name'].replace(' ', '_')
         if tool_name not in existing_tools:
             tool_instance = onto.Tool(tool_name)
             existing_tools[tool_name] = tool_instance

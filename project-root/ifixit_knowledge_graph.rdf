@@ -106,10 +106,10 @@
   <rdfs:subClassOf rdf:resource="Item"/>
 </owl:Class>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D620 CD Drive Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D620_CD_Drive_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude D620"/>
-  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_D620"/>
+  <procedure_uses_tool rdf:resource="ph00_phillips_screwdriver"/>
   <procedure_uses_tool rdf:resource="spudger"/>
   <has_step rdf:resource="11786"/>
   <has_step rdf:resource="12017"/>
@@ -122,16 +122,16 @@
   <has_step rdf:resource="13079"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D620">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D620">
   <rdf:type rdf:resource="Item"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="CD Drive">
+<owl:NamedIndividual rdf:about="CD_Drive">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude D620"/>
+  <part_of rdf:resource="Dell_Latitude_D620"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="ph00 phillips screwdriver">
+<owl:NamedIndividual rdf:about="ph00_phillips_screwdriver">
   <rdf:type rdf:resource="Tool"/>
 </owl:NamedIndividual>
 
@@ -248,10 +248,10 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D620 RAM Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D620_RAM_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude D620"/>
-  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_D620"/>
+  <procedure_uses_tool rdf:resource="ph00_phillips_screwdriver"/>
   <procedure_uses_tool rdf:resource="spudger"/>
   <has_step rdf:resource="11786"/>
   <has_step rdf:resource="12017"/>
@@ -268,10 +268,10 @@
 
 <owl:NamedIndividual rdf:about="RAM">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude D620"/>
-  <part_of rdf:resource="Dell Latitude CS"/>
-  <part_of rdf:resource="Dell Latitude E6410"/>
-  <part_of rdf:resource="Dell Latitude E7470"/>
+  <part_of rdf:resource="Dell_Latitude_D620"/>
+  <part_of rdf:resource="Dell_Latitude_CS"/>
+  <part_of rdf:resource="Dell_Latitude_E6410"/>
+  <part_of rdf:resource="Dell_Latitude_E7470"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="12592">
@@ -325,10 +325,10 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D620 Display Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D620_Display_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude D620"/>
-  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_D620"/>
+  <procedure_uses_tool rdf:resource="ph00_phillips_screwdriver"/>
   <procedure_uses_tool rdf:resource="spudger"/>
   <has_step rdf:resource="11786"/>
   <has_step rdf:resource="12017"/>
@@ -351,10 +351,10 @@
 
 <owl:NamedIndividual rdf:about="Display">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude D620"/>
-  <part_of rdf:resource="Dell Latitude D630"/>
-  <part_of rdf:resource="Dell Latitude D600"/>
-  <part_of rdf:resource="Dell Latitude E4310"/>
+  <part_of rdf:resource="Dell_Latitude_D620"/>
+  <part_of rdf:resource="Dell_Latitude_D630"/>
+  <part_of rdf:resource="Dell_Latitude_D600"/>
+  <part_of rdf:resource="Dell_Latitude_E4310"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="12634">
@@ -462,10 +462,10 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D620 Keyboard Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D620_Keyboard_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude D620"/>
-  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_D620"/>
+  <procedure_uses_tool rdf:resource="ph00_phillips_screwdriver"/>
   <procedure_uses_tool rdf:resource="spudger"/>
   <has_step rdf:resource="11786"/>
   <has_step rdf:resource="12017"/>
@@ -478,20 +478,20 @@
 
 <owl:NamedIndividual rdf:about="Keyboard">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude D620"/>
-  <part_of rdf:resource="Dell Latitude D630"/>
-  <part_of rdf:resource="Dell Latitude D610"/>
-  <part_of rdf:resource="Dell Latitude D820"/>
-  <part_of rdf:resource="Dell Latitude E4200"/>
-  <part_of rdf:resource="Dell Latitude E4310"/>
-  <part_of rdf:resource="Dell Latitude E6420"/>
+  <part_of rdf:resource="Dell_Latitude_D620"/>
+  <part_of rdf:resource="Dell_Latitude_D630"/>
+  <part_of rdf:resource="Dell_Latitude_D610"/>
+  <part_of rdf:resource="Dell_Latitude_D820"/>
+  <part_of rdf:resource="Dell_Latitude_E4200"/>
+  <part_of rdf:resource="Dell_Latitude_E4310"/>
+  <part_of rdf:resource="Dell_Latitude_E6420"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E6400 Heatsink Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E6400_Heatsink_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E6400"/>
-  <procedure_uses_tool rdf:resource="phillips 2 screwdriver"/>
-  <procedure_uses_tool rdf:resource="arctic silver thermal paste"/>
+  <procedure_for rdf:resource="Dell_Latitude_E6400"/>
+  <procedure_uses_tool rdf:resource="phillips_2_screwdriver"/>
+  <procedure_uses_tool rdf:resource="arctic_silver_thermal_paste"/>
   <has_step rdf:resource="13296"/>
   <has_step rdf:resource="13298"/>
   <has_step rdf:resource="13299"/>
@@ -500,20 +500,20 @@
   <has_step rdf:resource="13308"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E6400">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E6400">
   <rdf:type rdf:resource="Item"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Heatsink &amp; Thermal Paste">
+<owl:NamedIndividual rdf:about="Heatsink_&amp;_Thermal_Paste">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude E6400"/>
+  <part_of rdf:resource="Dell_Latitude_E6400"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="phillips 2 screwdriver">
+<owl:NamedIndividual rdf:about="phillips_2_screwdriver">
   <rdf:type rdf:resource="Tool"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="arctic silver thermal paste">
+<owl:NamedIndividual rdf:about="arctic_silver_thermal_paste">
   <rdf:type rdf:resource="Tool"/>
 </owl:NamedIndividual>
 
@@ -539,7 +539,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/mw3I2UOBeJwQQtrU.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/Ya1BmKtLOJtlQTYN.standard"/>
-  <step_uses_tool rdf:resource="arctic silver thermal paste"/>
+  <step_uses_tool rdf:resource="arctic_silver_thermal_paste"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/mw3I2UOBeJwQQtrU.standard">
@@ -555,7 +555,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/oOSQ6IskwWLPNTnH.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/w5ZCKZVE4M2a23mK.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/1DGvvOtcAYIA3RLT.standard"/>
-  <step_uses_tool rdf:resource="arctic silver thermal paste"/>
+  <step_uses_tool rdf:resource="arctic_silver_thermal_paste"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/oOSQ6IskwWLPNTnH.standard">
@@ -603,11 +603,11 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E6400 WiFi Card Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E6400_WiFi_Card_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E6400"/>
-  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="opening tool"/>
+  <procedure_for rdf:resource="Dell_Latitude_E6400"/>
+  <procedure_uses_tool rdf:resource="phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="opening_tool"/>
   <has_step rdf:resource="13318"/>
   <has_step rdf:resource="13319"/>
   <has_step rdf:resource="13320"/>
@@ -617,17 +617,17 @@
   <has_step rdf:resource="13325"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="WiFi Card">
+<owl:NamedIndividual rdf:about="WiFi_Card">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude E6400"/>
-  <part_of rdf:resource="Dell Latitude E6510"/>
+  <part_of rdf:resource="Dell_Latitude_E6400"/>
+  <part_of rdf:resource="Dell_Latitude_E6510"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="phillips screwdriver">
+<owl:NamedIndividual rdf:about="phillips_screwdriver">
   <rdf:type rdf:resource="Tool"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="opening tool">
+<owl:NamedIndividual rdf:about="opening_tool">
   <rdf:type rdf:resource="Tool"/>
 </owl:NamedIndividual>
 
@@ -649,7 +649,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/HaL1xZUWkhXRSLy2.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/udSddf1ZjUxvvvGm.standard"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/HaL1xZUWkhXRSLy2.standard">
@@ -664,7 +664,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/y3QaHVNhkJSmmRSj.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/dkXhDBOHjOFLFbQn.standard"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/y3QaHVNhkJSmmRSj.standard">
@@ -678,7 +678,7 @@
 <owl:NamedIndividual rdf:about="13321">
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/6iCH24SOCC4aaO1P.standard"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/6iCH24SOCC4aaO1P.standard">
@@ -727,11 +727,11 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude CS RAM Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_CS_RAM_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude CS"/>
-  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_CS"/>
+  <procedure_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="phillips_screwdriver"/>
   <has_step rdf:resource="24198"/>
   <has_step rdf:resource="24199"/>
   <has_step rdf:resource="24200"/>
@@ -739,11 +739,11 @@
   <has_step rdf:resource="24202"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude CS">
+<owl:NamedIndividual rdf:about="Dell_Latitude_CS">
   <rdf:type rdf:resource="Item"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="ph0 phillips screwdriver">
+<owl:NamedIndividual rdf:about="ph0_phillips_screwdriver">
   <rdf:type rdf:resource="Tool"/>
 </owl:NamedIndividual>
 
@@ -812,11 +812,11 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude X300 Built-In Speakers Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_X300_Built-In_Speakers_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude X300"/>
-  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_X300"/>
+  <procedure_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="ph00_phillips_screwdriver"/>
   <has_step rdf:resource="32613"/>
   <has_step rdf:resource="32620"/>
   <has_step rdf:resource="32615"/>
@@ -833,13 +833,13 @@
   <has_step rdf:resource="32632"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude X300">
+<owl:NamedIndividual rdf:about="Dell_Latitude_X300">
   <rdf:type rdf:resource="Item"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Built-In Speakers">
+<owl:NamedIndividual rdf:about="Built-In_Speakers">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude X300"/>
+  <part_of rdf:resource="Dell_Latitude_X300"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="32613">
@@ -863,7 +863,7 @@
 <owl:NamedIndividual rdf:about="32615">
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/fWK5E5Pb255TwcPK.standard"/>
-  <step_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <step_uses_tool rdf:resource="ph00_phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/fWK5E5Pb255TwcPK.standard">
@@ -974,11 +974,11 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude X300 Cooling Fan Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_X300_Cooling_Fan_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude X300"/>
-  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_X300"/>
+  <procedure_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="ph00_phillips_screwdriver"/>
   <has_step rdf:resource="32613"/>
   <has_step rdf:resource="32620"/>
   <has_step rdf:resource="32615"/>
@@ -996,9 +996,9 @@
   <has_step rdf:resource="32643"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Cooling Fan">
+<owl:NamedIndividual rdf:about="Cooling_Fan">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude X300"/>
+  <part_of rdf:resource="Dell_Latitude_X300"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="32640">
@@ -1037,10 +1037,10 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D630 Keyboard Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D630_Keyboard_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude D630"/>
-  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_D630"/>
+  <procedure_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
   <procedure_uses_tool rdf:resource="spudger"/>
   <has_step rdf:resource="45184"/>
   <has_step rdf:resource="45185"/>
@@ -1050,7 +1050,7 @@
   <has_step rdf:resource="45191"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D630">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D630">
   <rdf:type rdf:resource="Item"/>
 </owl:NamedIndividual>
 
@@ -1077,7 +1077,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/Mn2XCAkNhVVkcIms.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ETTXffVYnXerDmTR.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/XlQON1VATQVke2wC.standard"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/Mn2XCAkNhVVkcIms.standard">
@@ -1097,7 +1097,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/VktiIt2MAUrpZtxe.standard"/>
   <step_uses_tool rdf:resource="spudger"/>
   <step_uses_tool rdf:resource="tweezers"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/VktiIt2MAUrpZtxe.standard">
@@ -1122,7 +1122,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/gSxJhUBDCGZI3TEl.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/c4Xrdg1SC34CEW1Z.standard"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/gSxJhUBDCGZI3TEl.standard">
@@ -1133,10 +1133,10 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D630 RAM (Slot A) Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D630_RAM_(Slot_A)_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude D630"/>
-  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_D630"/>
+  <procedure_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
   <procedure_uses_tool rdf:resource="spudger"/>
   <has_step rdf:resource="45184"/>
   <has_step rdf:resource="45185"/>
@@ -1149,9 +1149,9 @@
   <has_step rdf:resource="45192"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="RAM (Slot A)">
+<owl:NamedIndividual rdf:about="RAM_(Slot_A)">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude D630"/>
+  <part_of rdf:resource="Dell_Latitude_D630"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="45193">
@@ -1186,10 +1186,10 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D630 Wireless Card Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D630_Wireless_Card_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude D630"/>
-  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_D630"/>
+  <procedure_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
   <procedure_uses_tool rdf:resource="spudger"/>
   <procedure_uses_tool rdf:resource="tweezers"/>
   <has_step rdf:resource="45184"/>
@@ -1202,11 +1202,11 @@
   <has_step rdf:resource="45213"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Wireless Card">
+<owl:NamedIndividual rdf:about="Wireless_Card">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude D630"/>
-  <part_of rdf:resource="Dell Latitude E5500"/>
-  <part_of rdf:resource="Dell Latitude E6420"/>
+  <part_of rdf:resource="Dell_Latitude_D630"/>
+  <part_of rdf:resource="Dell_Latitude_E5500"/>
+  <part_of rdf:resource="Dell_Latitude_E6420"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="tweezers">
@@ -1232,10 +1232,10 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D630 Display Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D630_Display_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude D630"/>
-  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_D630"/>
+  <procedure_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
   <procedure_uses_tool rdf:resource="spudger"/>
   <has_step rdf:resource="45184"/>
   <has_step rdf:resource="45185"/>
@@ -1255,7 +1255,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/hwX26EYyZhbBVyUV.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/gX6mjnGFA2CWVQHH.standard"/>
   <step_uses_tool rdf:resource="spudger"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/hwX26EYyZhbBVyUV.standard">
@@ -1271,7 +1271,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/IJqys1bKPtHL2kwT.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/aFOqOWs1FoGYbEvn.standard"/>
   <step_uses_tool rdf:resource="spudger"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/IJqys1bKPtHL2kwT.standard">
@@ -1286,7 +1286,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/g2BIgfAlAdBINKqC.standard"/>
   <step_uses_tool rdf:resource="spudger"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/g2BIgfAlAdBINKqC.standard">
@@ -1297,7 +1297,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/LYUTQTSyTfvCmbWR.standard"/>
   <step_uses_tool rdf:resource="spudger"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/LYUTQTSyTfvCmbWR.standard">
@@ -1313,10 +1313,10 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D630 Touchpad Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D630_Touchpad_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude D630"/>
-  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_D630"/>
+  <procedure_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
   <procedure_uses_tool rdf:resource="spudger"/>
   <has_step rdf:resource="45184"/>
   <has_step rdf:resource="45185"/>
@@ -1343,14 +1343,14 @@
 
 <owl:NamedIndividual rdf:about="Touchpad">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude D630"/>
+  <part_of rdf:resource="Dell_Latitude_D630"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="45258">
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/QBhYJhfKAYICZNeZ.standard"/>
   <step_uses_tool rdf:resource="spudger"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/QBhYJhfKAYICZNeZ.standard">
@@ -1384,7 +1384,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/rbwC3vTPuOwDSgIg.standard"/>
   <step_uses_tool rdf:resource="spudger"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/rbwC3vTPuOwDSgIg.standard">
@@ -1413,7 +1413,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/rrCwGthgBktWbDDF.standard"/>
   <step_uses_tool rdf:resource="spudger"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/rrCwGthgBktWbDDF.standard">
@@ -1425,7 +1425,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/VcYlIOqDycrD4gKt.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/g22LnooNR4EnNv2i.standard"/>
   <step_uses_tool rdf:resource="spudger"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/VcYlIOqDycrD4gKt.standard">
@@ -1449,17 +1449,17 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/MlMEwjEfOObiNj4T.standard"/>
   <step_uses_tool rdf:resource="spudger"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/MlMEwjEfOObiNj4T.standard">
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D630 CMOS Battery Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D630_CMOS_Battery_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude D630"/>
-  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_D630"/>
+  <procedure_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
   <procedure_uses_tool rdf:resource="spudger"/>
   <has_step rdf:resource="45184"/>
   <has_step rdf:resource="45185"/>
@@ -1470,17 +1470,17 @@
   <has_step rdf:resource="45258"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="CMOS Battery">
+<owl:NamedIndividual rdf:about="CMOS_Battery">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude D630"/>
+  <part_of rdf:resource="Dell_Latitude_D630"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D630 Speaker Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D630_Speaker_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude D630"/>
-  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_D630"/>
+  <procedure_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
   <procedure_uses_tool rdf:resource="spudger"/>
-  <procedure_uses_tool rdf:resource="opening tool"/>
+  <procedure_uses_tool rdf:resource="opening_tool"/>
   <has_step rdf:resource="45184"/>
   <has_step rdf:resource="45185"/>
   <has_step rdf:resource="45188"/>
@@ -1507,24 +1507,24 @@
 
 <owl:NamedIndividual rdf:about="Speaker">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude D630"/>
+  <part_of rdf:resource="Dell_Latitude_D630"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="45259">
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/jujY1NxdGYjIGXTl.standard"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/jujY1NxdGYjIGXTl.standard">
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D610 Keyboard Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D610_Keyboard_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude D610"/>
-  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="opening tool"/>
+  <procedure_for rdf:resource="Dell_Latitude_D610"/>
+  <procedure_uses_tool rdf:resource="phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="opening_tool"/>
   <has_step rdf:resource="59341"/>
   <has_step rdf:resource="59345"/>
   <has_step rdf:resource="59347"/>
@@ -1534,7 +1534,7 @@
   <has_step rdf:resource="59233"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D610">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D610">
   <rdf:type rdf:resource="Item"/>
 </owl:NamedIndividual>
 
@@ -1542,7 +1542,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/bqrUDExSOAYRh2P6.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/FFSbNeXlh3rQiCAL.standard"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/bqrUDExSOAYRh2P6.standard">
@@ -1586,7 +1586,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/QYWBpXsFCSaYHbP2.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/YoxamUQVHDMJSaqS.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/IwlDXesERZm1tXJh.standard"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/QYWBpXsFCSaYHbP2.standard">
@@ -1605,7 +1605,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/fSoQUqZPrBSOTXmP.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/vDOkHiAL3gDymaPO.standard"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/fSoQUqZPrBSOTXmP.standard">
@@ -1620,7 +1620,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/IBT6gjPwDYT5Xrxy.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/heiIXNYytj2CKfNb.standard"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/IBT6gjPwDYT5Xrxy.standard">
@@ -1650,9 +1650,9 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D600 Display Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D600_Display_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude D600"/>
+  <procedure_for rdf:resource="Dell_Latitude_D600"/>
   <procedure_uses_tool rdf:resource="spudger"/>
   <procedure_uses_tool rdf:resource="screwdriver"/>
   <has_step rdf:resource="67069"/>
@@ -1663,7 +1663,7 @@
   <has_step rdf:resource="67074"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D600">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D600">
   <rdf:type rdf:resource="Item"/>
 </owl:NamedIndividual>
 
@@ -1746,14 +1746,14 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D820 Motherboard Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D820_Motherboard_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude D820"/>
-  <procedure_uses_tool rdf:resource="opening tool"/>
-  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="anti-static wrist strap"/>
+  <procedure_for rdf:resource="Dell_Latitude_D820"/>
+  <procedure_uses_tool rdf:resource="opening_tool"/>
+  <procedure_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="ph00_phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="anti-static_wrist_strap"/>
   <has_step rdf:resource="68949"/>
   <has_step rdf:resource="69553"/>
   <has_step rdf:resource="70076"/>
@@ -1768,16 +1768,16 @@
   <has_step rdf:resource="70086"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D820">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D820">
   <rdf:type rdf:resource="Item"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Motherboard">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude D820"/>
+  <part_of rdf:resource="Dell_Latitude_D820"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="anti-static wrist strap">
+<owl:NamedIndividual rdf:about="anti-static_wrist_strap">
   <rdf:type rdf:resource="Tool"/>
 </owl:NamedIndividual>
 
@@ -1803,7 +1803,7 @@
 <owl:NamedIndividual rdf:about="69553">
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ZBqoqQ5cZY1R32VQ.standard"/>
-  <step_uses_tool rdf:resource="anti-static wrist strap"/>
+  <step_uses_tool rdf:resource="anti-static_wrist_strap"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/ZBqoqQ5cZY1R32VQ.standard">
@@ -1832,7 +1832,7 @@
 <owl:NamedIndividual rdf:about="68952">
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/RPRPWRBltZUQDAmq.standard"/>
-  <step_uses_tool rdf:resource="anti-static wrist strap"/>
+  <step_uses_tool rdf:resource="anti-static_wrist_strap"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/RPRPWRBltZUQDAmq.standard">
@@ -1909,7 +1909,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/OKg2WbYPOPKpPF3Y.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/sERMRVaJvQaA5Kqv.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/rnQquMdpjioELiou.standard"/>
-  <step_uses_tool rdf:resource="finger stalls"/>
+  <step_uses_tool rdf:resource="finger_stalls"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/OKg2WbYPOPKpPF3Y.standard">
@@ -1962,12 +1962,12 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D820 Keyboard Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D820_Keyboard_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude D820"/>
-  <procedure_uses_tool rdf:resource="opening tool"/>
-  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="anti-static wrist strap"/>
+  <procedure_for rdf:resource="Dell_Latitude_D820"/>
+  <procedure_uses_tool rdf:resource="opening_tool"/>
+  <procedure_uses_tool rdf:resource="phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="anti-static_wrist_strap"/>
   <has_step rdf:resource="69447"/>
   <has_step rdf:resource="69441"/>
   <has_step rdf:resource="69442"/>
@@ -2005,7 +2005,7 @@
 <owl:NamedIndividual rdf:about="69442">
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/5cKyeqdkPpojmpei.standard"/>
-  <step_uses_tool rdf:resource="anti-static wrist strap"/>
+  <step_uses_tool rdf:resource="anti-static_wrist_strap"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/5cKyeqdkPpojmpei.standard">
@@ -2021,12 +2021,12 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D820 Screen Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D820_Screen_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude D820"/>
-  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="opening tool"/>
-  <procedure_uses_tool rdf:resource="anti-static wrist strap"/>
+  <procedure_for rdf:resource="Dell_Latitude_D820"/>
+  <procedure_uses_tool rdf:resource="phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="opening_tool"/>
+  <procedure_uses_tool rdf:resource="anti-static_wrist_strap"/>
   <has_step rdf:resource="69447"/>
   <has_step rdf:resource="69441"/>
   <has_step rdf:resource="69442"/>
@@ -2039,9 +2039,9 @@
 
 <owl:NamedIndividual rdf:about="Screen">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude D820"/>
-  <part_of rdf:resource="Dell Latitude D530"/>
-  <part_of rdf:resource="Dell Latitude E6420"/>
+  <part_of rdf:resource="Dell_Latitude_D820"/>
+  <part_of rdf:resource="Dell_Latitude_D530"/>
+  <part_of rdf:resource="Dell_Latitude_E6420"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="69555">
@@ -2068,7 +2068,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/n1Tm12WPbYRVt4m6.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/WCFjCeJOuXk4YTWI.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/fSfwfOnclBrPnZUF.standard"/>
-  <step_uses_tool rdf:resource="anti-static wrist strap"/>
+  <step_uses_tool rdf:resource="anti-static_wrist_strap"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/n1Tm12WPbYRVt4m6.standard">
@@ -2116,13 +2116,13 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D820 Thermal Paste Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D820_Thermal_Paste_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude D820"/>
+  <procedure_for rdf:resource="Dell_Latitude_D820"/>
   <procedure_uses_tool rdf:resource="spudger"/>
-  <procedure_uses_tool rdf:resource="arcticlean thermal cleaner"/>
-  <procedure_uses_tool rdf:resource="lint-free cloth"/>
-  <procedure_uses_tool rdf:resource="finger stalls"/>
+  <procedure_uses_tool rdf:resource="arcticlean_thermal_cleaner"/>
+  <procedure_uses_tool rdf:resource="lint-free_cloth"/>
+  <procedure_uses_tool rdf:resource="finger_stalls"/>
   <has_step rdf:resource="68949"/>
   <has_step rdf:resource="69553"/>
   <has_step rdf:resource="70076"/>
@@ -2139,20 +2139,20 @@
   <has_step rdf:resource="69560"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Thermal Paste">
+<owl:NamedIndividual rdf:about="Thermal_Paste">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude D820"/>
+  <part_of rdf:resource="Dell_Latitude_D820"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="arcticlean thermal cleaner">
+<owl:NamedIndividual rdf:about="arcticlean_thermal_cleaner">
   <rdf:type rdf:resource="Tool"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="lint-free cloth">
+<owl:NamedIndividual rdf:about="lint-free_cloth">
   <rdf:type rdf:resource="Tool"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="finger stalls">
+<owl:NamedIndividual rdf:about="finger_stalls">
   <rdf:type rdf:resource="Tool"/>
 </owl:NamedIndividual>
 
@@ -2160,7 +2160,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/xRfgRhg5WtkTaLqE.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/l2DBIFIHM4VJZCAg.standard"/>
-  <step_uses_tool rdf:resource="finger stalls"/>
+  <step_uses_tool rdf:resource="finger_stalls"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/xRfgRhg5WtkTaLqE.standard">
@@ -2175,7 +2175,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/xkuLOVfoHivjdoWC.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/oeUGrLc2sQRF5evt.standard"/>
-  <step_uses_tool rdf:resource="finger stalls"/>
+  <step_uses_tool rdf:resource="finger_stalls"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/xkuLOVfoHivjdoWC.standard">
@@ -2186,11 +2186,11 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E4200 Keyboard Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E4200_Keyboard_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E4200"/>
-  <procedure_uses_tool rdf:resource="flathead screwdriver"/>
-  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_E4200"/>
+  <procedure_uses_tool rdf:resource="flathead_screwdriver"/>
+  <procedure_uses_tool rdf:resource="ph00_phillips_screwdriver"/>
   <has_step rdf:resource="92544"/>
   <has_step rdf:resource="92545"/>
   <has_step rdf:resource="92546"/>
@@ -2202,11 +2202,11 @@
   <has_step rdf:resource="93828"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E4200">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E4200">
   <rdf:type rdf:resource="Item"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="flathead screwdriver">
+<owl:NamedIndividual rdf:about="flathead_screwdriver">
   <rdf:type rdf:resource="Tool"/>
 </owl:NamedIndividual>
 
@@ -2222,7 +2222,7 @@
 <owl:NamedIndividual rdf:about="92545">
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/AXTsVbncvbFwk5ZJ.standard"/>
-  <step_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <step_uses_tool rdf:resource="ph00_phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/AXTsVbncvbFwk5ZJ.standard">
@@ -2241,7 +2241,7 @@
 <owl:NamedIndividual rdf:about="93809">
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ZeUUwoWbhJrbKdBH.standard"/>
-  <step_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <step_uses_tool rdf:resource="ph00_phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/ZeUUwoWbhJrbKdBH.standard">
@@ -2283,7 +2283,7 @@
 <owl:NamedIndividual rdf:about="93825">
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/bl4YlaRrZIYyaiiQ.standard"/>
-  <step_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <step_uses_tool rdf:resource="ph00_phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/bl4YlaRrZIYyaiiQ.standard">
@@ -2299,27 +2299,27 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E5410 Dell Latitude E5410 keyboard Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E5410_Dell_Latitude_E5410_keyboard_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E5410"/>
-  <procedure_uses_tool rdf:resource="jis driver set"/>
-  <procedure_uses_tool rdf:resource="opening tool"/>
+  <procedure_for rdf:resource="Dell_Latitude_E5410"/>
+  <procedure_uses_tool rdf:resource="jis_driver_set"/>
+  <procedure_uses_tool rdf:resource="opening_tool"/>
   <has_step rdf:resource="147064"/>
   <has_step rdf:resource="148585"/>
   <has_step rdf:resource="148586"/>
   <has_step rdf:resource="148587"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E5410">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E5410">
   <rdf:type rdf:resource="Item"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E5410 keyboard">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E5410_keyboard">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude E5410"/>
+  <part_of rdf:resource="Dell_Latitude_E5410"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="jis driver set">
+<owl:NamedIndividual rdf:about="jis_driver_set">
   <rdf:type rdf:resource="Tool"/>
 </owl:NamedIndividual>
 
@@ -2359,10 +2359,10 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E5500 Wireless Card Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E5500_Wireless_Card_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E5500"/>
-  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_E5500"/>
+  <procedure_uses_tool rdf:resource="phillips_screwdriver"/>
   <procedure_uses_tool rdf:resource="tweezers"/>
   <has_step rdf:resource="150653"/>
   <has_step rdf:resource="150654"/>
@@ -2372,7 +2372,7 @@
   <has_step rdf:resource="151046"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E5500">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E5500">
   <rdf:type rdf:resource="Item"/>
 </owl:NamedIndividual>
 
@@ -2448,10 +2448,10 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E5500 Bluetooth Card Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E5500_Bluetooth_Card_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E5500"/>
-  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_E5500"/>
+  <procedure_uses_tool rdf:resource="phillips_screwdriver"/>
   <procedure_uses_tool rdf:resource="tweezers"/>
   <has_step rdf:resource="150645"/>
   <has_step rdf:resource="150646"/>
@@ -2461,9 +2461,9 @@
   <has_step rdf:resource="151031"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Bluetooth Card">
+<owl:NamedIndividual rdf:about="Bluetooth_Card">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude E5500"/>
+  <part_of rdf:resource="Dell_Latitude_E5500"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="150645">
@@ -2538,14 +2538,14 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E5500 Thermal Compound Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E5500_Thermal_Compound_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E5500"/>
-  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="thermal grease"/>
-  <procedure_uses_tool rdf:resource="high content rubbing alcohol"/>
-  <procedure_uses_tool rdf:resource="cotton swab"/>
-  <procedure_uses_tool rdf:resource="cotton ball"/>
+  <procedure_for rdf:resource="Dell_Latitude_E5500"/>
+  <procedure_uses_tool rdf:resource="phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="thermal_grease"/>
+  <procedure_uses_tool rdf:resource="high_content_rubbing_alcohol"/>
+  <procedure_uses_tool rdf:resource="cotton_swab"/>
+  <procedure_uses_tool rdf:resource="cotton_ball"/>
   <has_step rdf:resource="149883"/>
   <has_step rdf:resource="149884"/>
   <has_step rdf:resource="149885"/>
@@ -2559,31 +2559,31 @@
   <has_step rdf:resource="151195"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Thermal Compound">
+<owl:NamedIndividual rdf:about="Thermal_Compound">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude E5500"/>
+  <part_of rdf:resource="Dell_Latitude_E5500"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="thermal grease">
+<owl:NamedIndividual rdf:about="thermal_grease">
   <rdf:type rdf:resource="Tool"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="high content rubbing alcohol">
+<owl:NamedIndividual rdf:about="high_content_rubbing_alcohol">
   <rdf:type rdf:resource="Tool"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="cotton swab">
+<owl:NamedIndividual rdf:about="cotton_swab">
   <rdf:type rdf:resource="Tool"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="cotton ball">
+<owl:NamedIndividual rdf:about="cotton_ball">
   <rdf:type rdf:resource="Tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="149883">
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/q1mDUhkQMtYPTVNI.standard"/>
-  <step_uses_tool rdf:resource="cotton ball"/>
+  <step_uses_tool rdf:resource="cotton_ball"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/q1mDUhkQMtYPTVNI.standard">
@@ -2618,7 +2618,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/Qc4LLo12d6xnkbPV.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/VLhKddpfwlIV6EGS.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/LcotmdcK2eYFow3y.standard"/>
-  <step_uses_tool rdf:resource="cotton ball"/>
+  <step_uses_tool rdf:resource="cotton_ball"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/Qc4LLo12d6xnkbPV.standard">
@@ -2646,7 +2646,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/d3VcRsQfbtB3kas4.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/CwPNsHwaL6UfDCXI.standard"/>
-  <step_uses_tool rdf:resource="cotton ball"/>
+  <step_uses_tool rdf:resource="cotton_ball"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/d3VcRsQfbtB3kas4.standard">
@@ -2690,7 +2690,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/vwFXOyYwsANOcMdB.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/4PY1U6BpBBr6G4DU.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ESM3Y3CILYpf1VFq.standard"/>
-  <step_uses_tool rdf:resource="cotton ball"/>
+  <step_uses_tool rdf:resource="cotton_ball"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/vwFXOyYwsANOcMdB.standard">
@@ -2709,7 +2709,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/gMjFn2NGpgROIBij.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/NneXrPd5vlFWJRkf.standard"/>
-  <step_uses_tool rdf:resource="cotton ball"/>
+  <step_uses_tool rdf:resource="cotton_ball"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/gMjFn2NGpgROIBij.standard">
@@ -2739,11 +2739,11 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E5270 Repairability Assessment">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E5270_Repairability_Assessment">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E5270"/>
-  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="opening tool"/>
+  <procedure_for rdf:resource="Dell_Latitude_E5270"/>
+  <procedure_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="opening_tool"/>
   <procedure_uses_tool rdf:resource="spudger"/>
   <has_step rdf:resource="158535"/>
   <has_step rdf:resource="158536"/>
@@ -2756,13 +2756,13 @@
   <has_step rdf:resource="158544"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E5270">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E5270">
   <rdf:type rdf:resource="Item"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="part1">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude E5270"/>
+  <part_of rdf:resource="Dell_Latitude_E5270"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="158535">
@@ -2798,7 +2798,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/jeBEKySUlDCjTVt3.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/KY1tgrlnkEVJcWEv.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/pKxJrdOMOcVDqtWk.standard"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/jeBEKySUlDCjTVt3.standard">
@@ -2892,7 +2892,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/GF5usUYNaZOHOXxu.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/GfSL6uK4rNRQfQxx.standard"/>
-  <step_uses_tool rdf:resource="opening tool"/>
+  <step_uses_tool rdf:resource="opening_tool"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/GF5usUYNaZOHOXxu.standard">
@@ -2903,23 +2903,23 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E5400 Memory Upgrade / Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E5400_Memory_Upgrade_/_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E5400"/>
+  <procedure_for rdf:resource="Dell_Latitude_E5400"/>
   <procedure_uses_tool rdf:resource="spudger"/>
-  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="phillips_screwdriver"/>
   <has_step rdf:resource="161064"/>
   <has_step rdf:resource="161065"/>
   <has_step rdf:resource="161066"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E5400">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E5400">
   <rdf:type rdf:resource="Item"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="memory Upgrade">
+<owl:NamedIndividual rdf:about="memory_Upgrade">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude E5400"/>
+  <part_of rdf:resource="Dell_Latitude_E5400"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="161064">
@@ -2935,7 +2935,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/2pSQPSYJFZKltKBk.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/sBoVLPtVEpEOadtq.standard"/>
-  <step_uses_tool rdf:resource="phillips screwdriver"/>
+  <step_uses_tool rdf:resource="phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/2pSQPSYJFZKltKBk.standard">
@@ -2955,10 +2955,10 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E6410 RAM Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E6410_RAM_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E6410"/>
-  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_E6410"/>
+  <procedure_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
   <has_step rdf:resource="188987"/>
   <has_step rdf:resource="188988"/>
   <has_step rdf:resource="189012"/>
@@ -2966,7 +2966,7 @@
   <has_step rdf:resource="189022"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E6410">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E6410">
   <rdf:type rdf:resource="Item"/>
 </owl:NamedIndividual>
 
@@ -3030,20 +3030,20 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E6510 WiFi Card Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E6510_WiFi_Card_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E6510"/>
+  <procedure_for rdf:resource="Dell_Latitude_E6510"/>
   <procedure_uses_tool rdf:resource="spudger"/>
-  <procedure_uses_tool rdf:resource="jis 1 screwdriver"/>
+  <procedure_uses_tool rdf:resource="jis_1_screwdriver"/>
   <has_step rdf:resource="190242"/>
   <has_step rdf:resource="190243"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E6510">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E6510">
   <rdf:type rdf:resource="Item"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="jis 1 screwdriver">
+<owl:NamedIndividual rdf:about="jis_1_screwdriver">
   <rdf:type rdf:resource="Tool"/>
 </owl:NamedIndividual>
 
@@ -3051,7 +3051,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/O4GjqQFYXLPBlMGF.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ZpUBa2aEqoiG1UJP.standard"/>
-  <step_uses_tool rdf:resource="jis 1 screwdriver"/>
+  <step_uses_tool rdf:resource="jis_1_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/O4GjqQFYXLPBlMGF.standard">
@@ -3065,27 +3065,27 @@
 <owl:NamedIndividual rdf:about="190243">
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/FmbdZuKiey4H4ENf.standard"/>
-  <step_uses_tool rdf:resource="jis 1 screwdriver"/>
+  <step_uses_tool rdf:resource="jis_1_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/FmbdZuKiey4H4ENf.standard">
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E6510 Hard Drive Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E6510_Hard_Drive_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E6510"/>
+  <procedure_for rdf:resource="Dell_Latitude_E6510"/>
   <procedure_uses_tool rdf:resource="spudger"/>
-  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="phillips_screwdriver"/>
   <has_step rdf:resource="190240"/>
   <has_step rdf:resource="190241"/>
   <has_step rdf:resource="190268"/>
   <has_step rdf:resource="190269"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Hard Drive">
+<owl:NamedIndividual rdf:about="Hard_Drive">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude E6510"/>
+  <part_of rdf:resource="Dell_Latitude_E6510"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="190240">
@@ -3115,7 +3115,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/2kr6CH3E5ShaOtrG.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/OXKdevMUmErdYg5Z.standard"/>
-  <step_uses_tool rdf:resource="phillips screwdriver"/>
+  <step_uses_tool rdf:resource="phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/2kr6CH3E5ShaOtrG.standard">
@@ -3130,7 +3130,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/LjIXSOx1ER1IU2vK.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/2sDoSdFjc1tKUKIi.standard"/>
-  <step_uses_tool rdf:resource="phillips screwdriver"/>
+  <step_uses_tool rdf:resource="phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/LjIXSOx1ER1IU2vK.standard">
@@ -3141,11 +3141,11 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E6420 Backplate Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E6420_Backplate_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E6420"/>
-  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_E6420"/>
+  <procedure_uses_tool rdf:resource="ph00_phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="phillips_screwdriver"/>
   <has_step rdf:resource="201115"/>
   <has_step rdf:resource="201122"/>
   <has_step rdf:resource="200495"/>
@@ -3154,13 +3154,13 @@
   <has_step rdf:resource="201173"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E6420">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E6420">
   <rdf:type rdf:resource="Item"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Backplate">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude E6420"/>
+  <part_of rdf:resource="Dell_Latitude_E6420"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="201115">
@@ -3218,9 +3218,9 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/1F1TdkhZQPvYqkJS.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/XfjMse6UumMZSm6D.standard"/>
-  <step_uses_tool rdf:resource="phillips screwdriver"/>
-  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
-  <step_uses_tool rdf:resource="jis 0 screwdriver"/>
+  <step_uses_tool rdf:resource="phillips_screwdriver"/>
+  <step_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
+  <step_uses_tool rdf:resource="jis_0_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/1F1TdkhZQPvYqkJS.standard">
@@ -3245,10 +3245,10 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E4310 MiniCard Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E4310_MiniCard_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E4310"/>
-  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_E4310"/>
+  <procedure_uses_tool rdf:resource="phillips_screwdriver"/>
   <procedure_uses_tool rdf:resource="spudger"/>
   <has_step rdf:resource="200350"/>
   <has_step rdf:resource="201537"/>
@@ -3256,13 +3256,13 @@
   <has_step rdf:resource="201540"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E4310">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E4310">
   <rdf:type rdf:resource="Item"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="MiniCard">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude E4310"/>
+  <part_of rdf:resource="Dell_Latitude_E4310"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="200350">
@@ -3334,23 +3334,23 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E7470 SSD Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E7470_SSD_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E7470"/>
-  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="opening tool"/>
-  <procedure_uses_tool rdf:resource="anti-static wrist strap"/>
+  <procedure_for rdf:resource="Dell_Latitude_E7470"/>
+  <procedure_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="opening_tool"/>
+  <procedure_uses_tool rdf:resource="anti-static_wrist_strap"/>
   <has_step rdf:resource="201613"/>
   <has_step rdf:resource="201614"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E7470">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E7470">
   <rdf:type rdf:resource="Item"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="SSD">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude E7470"/>
+  <part_of rdf:resource="Dell_Latitude_E7470"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="201613">
@@ -3358,7 +3358,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/nxgUcrDRBjhZFwsG.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/AIjLsAJCFLFYCCqr.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/JnCamPpxQsUUiFoI.standard"/>
-  <step_uses_tool rdf:resource="anti-static wrist strap"/>
+  <step_uses_tool rdf:resource="anti-static_wrist_strap"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/nxgUcrDRBjhZFwsG.standard">
@@ -3378,7 +3378,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ucflenRwAdrHluXt.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ZsiQwgJTrXqrVcTT.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/hLs6ptYWZpAJUOGV.standard"/>
-  <step_uses_tool rdf:resource="anti-static wrist strap"/>
+  <step_uses_tool rdf:resource="anti-static_wrist_strap"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/ucflenRwAdrHluXt.standard">
@@ -3393,12 +3393,12 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E7470 RAM Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E7470_RAM_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E7470"/>
-  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="opening tool"/>
-  <procedure_uses_tool rdf:resource="anti-static wrist strap"/>
+  <procedure_for rdf:resource="Dell_Latitude_E7470"/>
+  <procedure_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="opening_tool"/>
+  <procedure_uses_tool rdf:resource="anti-static_wrist_strap"/>
   <has_step rdf:resource="201624"/>
   <has_step rdf:resource="201628"/>
 </owl:NamedIndividual>
@@ -3408,7 +3408,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/isGtb5ZvxNjOByPi.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/rS1fkUZ5wcJZiCSk.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/Axxlb3PGCManiglx.standard"/>
-  <step_uses_tool rdf:resource="anti-static wrist strap"/>
+  <step_uses_tool rdf:resource="anti-static_wrist_strap"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/isGtb5ZvxNjOByPi.standard">
@@ -3442,13 +3442,13 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E6420 Fan Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E6420_Fan_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E6420"/>
-  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="opening tool"/>
-  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_E6420"/>
+  <procedure_uses_tool rdf:resource="ph00_phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="opening_tool"/>
+  <procedure_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
   <has_step rdf:resource="201115"/>
   <has_step rdf:resource="201122"/>
   <has_step rdf:resource="200495"/>
@@ -3462,14 +3462,14 @@
 
 <owl:NamedIndividual rdf:about="Fan">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude E6420"/>
+  <part_of rdf:resource="Dell_Latitude_E6420"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="202062">
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/2iLIAJOsQyDFxfob.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/FYYALRuoTCbdnS1H.standard"/>
-  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <step_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/2iLIAJOsQyDFxfob.standard">
@@ -3484,7 +3484,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/BrnBVIM3aYjJweXX.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/jpuWWFjEuAfMf1iI.standard"/>
-  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <step_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/BrnBVIM3aYjJweXX.standard">
@@ -3504,12 +3504,12 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E6420 Wireless Card Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E6420_Wireless_Card_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E6420"/>
-  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="jis 0 screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_E6420"/>
+  <procedure_uses_tool rdf:resource="ph00_phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="jis_0_screwdriver"/>
   <has_step rdf:resource="201115"/>
   <has_step rdf:resource="201122"/>
   <has_step rdf:resource="200495"/>
@@ -3522,7 +3522,7 @@
   <has_step rdf:resource="202750"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="jis 0 screwdriver">
+<owl:NamedIndividual rdf:about="jis_0_screwdriver">
   <rdf:type rdf:resource="Tool"/>
 </owl:NamedIndividual>
 
@@ -3530,7 +3530,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/qF4dPdPVbN1Z5wGR.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/kNGEYM2PYnKKZfMP.standard"/>
-  <step_uses_tool rdf:resource="jis 0 screwdriver"/>
+  <step_uses_tool rdf:resource="jis_0_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/qF4dPdPVbN1Z5wGR.standard">
@@ -3588,13 +3588,13 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E4310 Display Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E4310_Display_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E4310"/>
-  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="metal spudger"/>
-  <procedure_uses_tool rdf:resource="tweezers - pro esd angled"/>
-  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_E4310"/>
+  <procedure_uses_tool rdf:resource="phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="metal_spudger"/>
+  <procedure_uses_tool rdf:resource="tweezers_-_pro_esd_angled"/>
+  <procedure_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
   <has_step rdf:resource="200346"/>
   <has_step rdf:resource="200342"/>
   <has_step rdf:resource="205143"/>
@@ -3605,11 +3605,11 @@
   <has_step rdf:resource="205159"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="metal spudger">
+<owl:NamedIndividual rdf:about="metal_spudger">
   <rdf:type rdf:resource="Tool"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="tweezers - pro esd angled">
+<owl:NamedIndividual rdf:about="tweezers_-_pro_esd_angled">
   <rdf:type rdf:resource="Tool"/>
 </owl:NamedIndividual>
 
@@ -3641,7 +3641,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/NkkOkMffTv4yRhxs.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/URAE11EM5PGCGvpS.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/KKukPsBGlpt2HiRt.standard"/>
-  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <step_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/NkkOkMffTv4yRhxs.standard">
@@ -3660,7 +3660,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ZeY46GyKLNSj31wr.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/W6Cyqwi4lWJvE3c5.standard"/>
-  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <step_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/ZeY46GyKLNSj31wr.standard">
@@ -3675,7 +3675,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/riGM15qJBuf3w6gJ.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/LaGAmIS2KpYToY6A.standard"/>
-  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <step_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/riGM15qJBuf3w6gJ.standard">
@@ -3705,7 +3705,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/TDZhmaltJ2eC5CWW.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/WbuFBZkJDjIWVys3.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/OxCeg2xUBgFtZlbu.standard"/>
-  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <step_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/TDZhmaltJ2eC5CWW.standard">
@@ -3729,12 +3729,12 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D530 Screen Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D530_Screen_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude D530"/>
-  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="magnetic project mat"/>
-  <procedure_uses_tool rdf:resource="metal spudger"/>
+  <procedure_for rdf:resource="Dell_Latitude_D530"/>
+  <procedure_uses_tool rdf:resource="phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="magnetic_project_mat"/>
+  <procedure_uses_tool rdf:resource="metal_spudger"/>
   <has_step rdf:resource="203632"/>
   <has_step rdf:resource="203637"/>
   <has_step rdf:resource="203639"/>
@@ -3745,11 +3745,11 @@
   <has_step rdf:resource="203648"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude D530">
+<owl:NamedIndividual rdf:about="Dell_Latitude_D530">
   <rdf:type rdf:resource="Item"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="magnetic project mat">
+<owl:NamedIndividual rdf:about="magnetic_project_mat">
   <rdf:type rdf:resource="Tool"/>
 </owl:NamedIndividual>
 
@@ -3777,7 +3777,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/SeErAMVdLaRV3vFC.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/yuFL6BWH4GlOwbVN.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/WTaBDWbkgdrGejNq.standard"/>
-  <step_uses_tool rdf:resource="metal spudger"/>
+  <step_uses_tool rdf:resource="metal_spudger"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/SeErAMVdLaRV3vFC.standard">
@@ -3797,7 +3797,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/IBhxCMNEhRZaP6JJ.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/NEUZgsKL1wYUVPoT.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/TLTNZrHyDFKIC3CN.standard"/>
-  <step_uses_tool rdf:resource="metal spudger"/>
+  <step_uses_tool rdf:resource="metal_spudger"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/IBhxCMNEhRZaP6JJ.standard">
@@ -3815,7 +3815,7 @@
 <owl:NamedIndividual rdf:about="203641">
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/jmH6OIyB1RVYCbnS.standard"/>
-  <step_uses_tool rdf:resource="metal spudger"/>
+  <step_uses_tool rdf:resource="metal_spudger"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/jmH6OIyB1RVYCbnS.standard">
@@ -3825,7 +3825,7 @@
 <owl:NamedIndividual rdf:about="203642">
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/yMRAtAcHvkrNvZR3.standard"/>
-  <step_uses_tool rdf:resource="metal spudger"/>
+  <step_uses_tool rdf:resource="metal_spudger"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/yMRAtAcHvkrNvZR3.standard">
@@ -3884,12 +3884,12 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E4310 Keyboard Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E4310_Keyboard_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E4310"/>
-  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_E4310"/>
+  <procedure_uses_tool rdf:resource="phillips_screwdriver"/>
   <procedure_uses_tool rdf:resource="spudger"/>
-  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
   <has_step rdf:resource="200346"/>
   <has_step rdf:resource="200342"/>
   <has_step rdf:resource="203729"/>
@@ -3902,7 +3902,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/hBQeKN2LqYHNcZA2.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/2ivUj4KQLbaTAdqP.standard"/>
-  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <step_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/hBQeKN2LqYHNcZA2.standard">
@@ -3918,7 +3918,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/aWBFkELXUptMtCfK.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/P2eSsNbtQBoZPW5u.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/dN44EEbJ1CyUQrRJ.standard"/>
-  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <step_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/aWBFkELXUptMtCfK.standard">
@@ -3936,7 +3936,7 @@
 <owl:NamedIndividual rdf:about="203770">
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/DVQqHXcCgjeMC52b.standard"/>
-  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <step_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/DVQqHXcCgjeMC52b.standard">
@@ -3947,7 +3947,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/4KDJhD4p4OjsM25g.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/LFC3Q1qKhwOakITE.standard"/>
-  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <step_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/4KDJhD4p4OjsM25g.standard">
@@ -3958,11 +3958,11 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E6420 Screen Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E6420_Screen_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E6420"/>
+  <procedure_for rdf:resource="Dell_Latitude_E6420"/>
   <procedure_uses_tool rdf:resource="spudger"/>
-  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
   <has_step rdf:resource="201115"/>
   <has_step rdf:resource="201122"/>
   <has_step rdf:resource="203761"/>
@@ -3976,7 +3976,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/J5npRCMmZdXLilGo.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/fMJg5o3iM6ak5Zwr.standard"/>
-  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <step_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/J5npRCMmZdXLilGo.standard">
@@ -3992,7 +3992,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/NmR4SYsPIlbH1BFX.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/usoqHTNkHqQGAUTN.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/moEpOOvI3OwpKaal.standard"/>
-  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <step_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/NmR4SYsPIlbH1BFX.standard">
@@ -4044,14 +4044,14 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E6420 Keyboard Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E6420_Keyboard_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E6420"/>
-  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
-  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_E6420"/>
+  <procedure_uses_tool rdf:resource="ph00_phillips_screwdriver"/>
+  <procedure_uses_tool rdf:resource="phillips_screwdriver"/>
   <procedure_uses_tool rdf:resource="spudger"/>
-  <procedure_uses_tool rdf:resource="opening tool"/>
-  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="opening_tool"/>
+  <procedure_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
   <has_step rdf:resource="201115"/>
   <has_step rdf:resource="201122"/>
   <has_step rdf:resource="200495"/>
@@ -4069,7 +4069,7 @@
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/PjQcmVJY2QnfMaNQ.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/BwWXLsH5gbRoqlTv.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/lPT1YYFWNjP1DVqO.standard"/>
-  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <step_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/PjQcmVJY2QnfMaNQ.standard">
@@ -4088,7 +4088,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/HIXUdRHO3PKqEWPI.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/WRa1Vd4o3FnVNVnK.standard"/>
-  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <step_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/HIXUdRHO3PKqEWPI.standard">
@@ -4103,7 +4103,7 @@
   <rdf:type rdf:resource="Step"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/qrOb6FVES3JRgDHW.standard"/>
   <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/tlyFXeEiQadHJUdi.standard"/>
-  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <step_uses_tool rdf:resource="ph0_phillips_screwdriver"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/qrOb6FVES3JRgDHW.standard">
@@ -4123,10 +4123,10 @@
   <rdf:type rdf:resource="Image"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E5470 LC-Display Panel Replacement">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E5470_LC-Display_Panel_Replacement">
   <rdf:type rdf:resource="Procedure"/>
-  <procedure_for rdf:resource="Dell Latitude E5470"/>
-  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_for rdf:resource="Dell_Latitude_E5470"/>
+  <procedure_uses_tool rdf:resource="phillips_screwdriver"/>
   <procedure_uses_tool rdf:resource="spudger"/>
   <procedure_uses_tool rdf:resource="tweezers"/>
   <has_step rdf:resource="206225"/>
@@ -4136,13 +4136,13 @@
   <has_step rdf:resource="206237"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Dell Latitude E5470">
+<owl:NamedIndividual rdf:about="Dell_Latitude_E5470">
   <rdf:type rdf:resource="Item"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="LC-Display Panel">
+<owl:NamedIndividual rdf:about="LC-Display_Panel">
   <rdf:type rdf:resource="Part"/>
-  <part_of rdf:resource="Dell Latitude E5470"/>
+  <part_of rdf:resource="Dell_Latitude_E5470"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="206225">
