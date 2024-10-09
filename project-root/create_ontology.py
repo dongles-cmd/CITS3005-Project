@@ -12,12 +12,13 @@ with onto:
     class Step(Thing): pass
     class Image(Thing): pass
 
+    class has_name(DataProperty):
+        domain = [Procedure, Item, Part, Tool, Step, Image] 
+        range = [str] 
+
     # Define relationships
-    class procedure_uses_tool(ObjectProperty):
-        domain = [Procedure]
-        range = [Tool]
-    class step_uses_tool(ObjectProperty):
-        domain = [Step]
+    class uses_tool(ObjectProperty):
+        domain = [Procedure, Step]
         range = [Tool]
     class has_step(ObjectProperty):
         domain = [Procedure]
@@ -31,6 +32,7 @@ with onto:
     class procedure_for(ObjectProperty):
         domain = [Procedure]
         range = [Item]
+
     
     # An item, with a subclass relation that is transitive
     # and a part-of relation that identifies when one item is a part of another item
@@ -38,9 +40,9 @@ with onto:
         domain = [Item] # Will allow Part to be used as it is a subclass of Item
         range = [Item]
         transitive = True
-    # Tools used in a step of the procedure appear in the toolbox of the procedure
+    # Tools used in a step of the procedure must appear in the toolbox of the procedure
     class Procedure(Thing):
-        equivalent_to = [Thing & has_step.some(step_uses_tool) & procedure_uses_tool.only(step_uses_tool)]
+        equivalent_to = [Thing & has_step.some(Step) & uses_tool.some(Tool)]
     # A sub-procedure of a procedure must be a procedure for the same item or a part of that item
     class Procedure(Thing):
         equivalent_to = [Thing & sub_procedure_for.only(procedure_for.some(Item) | procedure_for.some(part_of))]

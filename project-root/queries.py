@@ -45,3 +45,17 @@ query = """
         FILTER (CONTAINS(LCASE(?text), "careful") || CONTAINS(LCASE(?text), "dangerous"))
     }
 """
+
+query = """
+    PREFIX ex: <http://test.org/ifixit.com#>
+
+    SELECT ?procedure_name
+    WHERE {
+        ?procedure a ex:Procedure ;
+            ex:has_name ?procedure_name .
+    }
+    LIMIT 10
+"""
+
+for result in g.query(query):
+    print(result['procedure_name'])
