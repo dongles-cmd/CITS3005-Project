@@ -46,7 +46,7 @@ for procedure in data:
 
     # Process steps
     for step in procedure['Steps']:
-        stepid = step['StepId']
+        stepid = str(step['StepId'])
         step_instance = onto.Step(stepid)
         step_instance.order = step['Order']
         step_instance.text = step['Text_raw']
@@ -67,5 +67,26 @@ for procedure in data:
             tool_instance = existing_tools[tool_name] # Should already be defined
             step_instance.step_uses_tool.append(tool_instance)
 
-for procedure in list(onto.Step.instances()):
-    print(procedure)
+# # Function to output relationships of Procedures and their Steps
+# def print_procedure_relationships():
+#     for procedure in onto.Procedure.instances():
+#         print(f"Procedure: {procedure}")
+        
+#         # Print related Items
+#         for item in procedure.procedure_for:
+#             print(f"  Related Item: {item}")
+
+#         # Print related Steps
+#         for step in procedure.has_step:
+#             print(f"  Step: {step}, Order: {step.order}, Text: {step.text}")
+            
+#             # Print related Tools in the step
+#             for tool in step.step_uses_tool:
+#                 print(f"    Uses Tool: {tool}")
+
+#         # Print related Tools in the procedure toolbox
+#         for tool in procedure.procedure_uses_tool:
+#             print(f"  Uses Toolbox Tool: {tool}")
+
+# # Call the function to print relationships
+# print_procedure_relationships()
