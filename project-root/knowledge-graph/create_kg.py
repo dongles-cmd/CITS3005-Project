@@ -1,1 +1,0 @@
-# Script to populate KG and run SPARQL queries

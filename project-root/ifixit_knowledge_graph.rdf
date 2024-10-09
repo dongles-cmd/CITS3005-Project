@@ -1,0 +1,4213 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://test.org/ifixit/"
+         xmlns="http://test.org/ifixit/">
+
+<owl:Ontology rdf:about="http://test.org/ifixit"/>
+
+<owl:ObjectProperty rdf:about="procedure_uses_tool">
+  <rdfs:domain rdf:resource="Procedure"/>
+  <rdfs:range rdf:resource="Tool"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="step_uses_tool">
+  <rdfs:domain rdf:resource="Step"/>
+  <rdfs:range rdf:resource="Tool"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="has_step">
+  <rdfs:domain rdf:resource="Procedure"/>
+  <rdfs:range rdf:resource="Step"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="has_image">
+  <rdfs:domain rdf:resource="Step"/>
+  <rdfs:range rdf:resource="Image"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="sub_procedure_for">
+  <rdfs:domain rdf:resource="Procedure"/>
+  <rdfs:range rdf:resource="Procedure"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="procedure_for">
+  <rdfs:domain rdf:resource="Procedure"/>
+  <rdfs:range rdf:resource="Item"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="part_of">
+  <rdfs:domain rdf:resource="Item"/>
+  <rdfs:range rdf:resource="Item"/>
+</owl:ObjectProperty>
+
+<owl:Class rdf:about="Procedure">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="has_step"/>
+          <owl:someValuesFrom rdf:resource="step_uses_tool"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="procedure_uses_tool"/>
+          <owl:allValuesFrom rdf:resource="step_uses_tool"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="sub_procedure_for"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <owl:Restriction>
+                  <owl:onProperty rdf:resource="procedure_for"/>
+                  <owl:someValuesFrom rdf:resource="Item"/>
+                </owl:Restriction>
+                <owl:Restriction>
+                  <owl:onProperty rdf:resource="procedure_for"/>
+                  <owl:someValuesFrom rdf:resource="part_of"/>
+                </owl:Restriction>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="Tool">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="Step">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="Image">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="Item">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="Part">
+  <rdfs:subClassOf rdf:resource="Item"/>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D620 CD Drive Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude D620"/>
+  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <has_step rdf:resource="11786"/>
+  <has_step rdf:resource="12017"/>
+  <has_step rdf:resource="12019"/>
+  <has_step rdf:resource="12020"/>
+  <has_step rdf:resource="12021"/>
+  <has_step rdf:resource="12022"/>
+  <has_step rdf:resource="12458"/>
+  <has_step rdf:resource="13075"/>
+  <has_step rdf:resource="13079"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D620">
+  <rdf:type rdf:resource="Item"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="CD Drive">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude D620"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="ph00 phillips screwdriver">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="spudger">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="11786">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/2ahoN1SZaDunCRlW.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/2ahoN1SZaDunCRlW.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="12017">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/bDghaIwVmHtPtMZQ.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/C3GMiqK2KQ3YLX1n.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/aSPCQC6EeTlfKx5Z.standard"/>
+  <step_uses_tool rdf:resource="spudger"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/bDghaIwVmHtPtMZQ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/C3GMiqK2KQ3YLX1n.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/aSPCQC6EeTlfKx5Z.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="12019">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/BwGFsYFJ1MNJADcV.standard"/>
+  <step_uses_tool rdf:resource="spudger"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/BwGFsYFJ1MNJADcV.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="12020">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/QA5Oqh3xJYJcYJAc.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/QA5Oqh3xJYJcYJAc.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="12021">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/GBUxtBDHiMMIo24Y.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/EsL12USdc1aGVj4E.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/GBUxtBDHiMMIo24Y.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/EsL12USdc1aGVj4E.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="12022">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/TAuWhDomSD6ICOYh.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/gUBVXCcjkITVFUG1.standard"/>
+  <step_uses_tool rdf:resource="spudger"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/TAuWhDomSD6ICOYh.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/gUBVXCcjkITVFUG1.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="12458">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/WxSRNoB5gxVV6DaX.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/WxSRNoB5gxVV6DaX.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="13075">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/eZTRTWQhAnwxWcjT.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/X1iGHHZrIUe6VE6Q.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/eZTRTWQhAnwxWcjT.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/X1iGHHZrIUe6VE6Q.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="13079">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/TgPTif6VHSFgNIim.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/TgPTif6VHSFgNIim.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D620 RAM Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude D620"/>
+  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <has_step rdf:resource="11786"/>
+  <has_step rdf:resource="12017"/>
+  <has_step rdf:resource="12019"/>
+  <has_step rdf:resource="12020"/>
+  <has_step rdf:resource="12021"/>
+  <has_step rdf:resource="12022"/>
+  <has_step rdf:resource="12458"/>
+  <has_step rdf:resource="12592"/>
+  <has_step rdf:resource="12597"/>
+  <has_step rdf:resource="12599"/>
+  <has_step rdf:resource="12602"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="RAM">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude D620"/>
+  <part_of rdf:resource="Dell Latitude CS"/>
+  <part_of rdf:resource="Dell Latitude E6410"/>
+  <part_of rdf:resource="Dell Latitude E7470"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="12592">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/IoGbjTKJQp6RWEAK.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/FQGjSnLOHl56KxjH.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/IoGbjTKJQp6RWEAK.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/FQGjSnLOHl56KxjH.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="12597">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/w3bFhHGPQXkjA6XN.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/w3bFhHGPQXkjA6XN.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="12599">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ydWsElGhPISVEEHq.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/yO2ciI1T3kbwmfLD.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/ydWsElGhPISVEEHq.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/yO2ciI1T3kbwmfLD.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="12602">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/JhaYOagIyQMsCP14.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/3VERq1cRdDwWmtnE.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/JhaYOagIyQMsCP14.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/3VERq1cRdDwWmtnE.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D620 Display Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude D620"/>
+  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <has_step rdf:resource="11786"/>
+  <has_step rdf:resource="12017"/>
+  <has_step rdf:resource="12019"/>
+  <has_step rdf:resource="12020"/>
+  <has_step rdf:resource="12021"/>
+  <has_step rdf:resource="12022"/>
+  <has_step rdf:resource="12458"/>
+  <has_step rdf:resource="12634"/>
+  <has_step rdf:resource="13723"/>
+  <has_step rdf:resource="12730"/>
+  <has_step rdf:resource="12735"/>
+  <has_step rdf:resource="12742"/>
+  <has_step rdf:resource="12894"/>
+  <has_step rdf:resource="12896"/>
+  <has_step rdf:resource="12903"/>
+  <has_step rdf:resource="12905"/>
+  <has_step rdf:resource="12906"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Display">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude D620"/>
+  <part_of rdf:resource="Dell Latitude D630"/>
+  <part_of rdf:resource="Dell Latitude D600"/>
+  <part_of rdf:resource="Dell Latitude E4310"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="12634">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/AXETMAE5oQh3liX6.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/AXETMAE5oQh3liX6.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="13723">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/IbyYnxj54ILOYvMl.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/IbyYnxj54ILOYvMl.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="12730">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/TnhQCCCqMahMBduE.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/AMje4HWWoJWvMTJ3.standard"/>
+  <step_uses_tool rdf:resource="spudger"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/TnhQCCCqMahMBduE.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/AMje4HWWoJWvMTJ3.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="12735">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/Pg6NxY6oETGon6LW.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/AHkd5sDIJ4AwopW5.standard"/>
+  <step_uses_tool rdf:resource="spudger"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/Pg6NxY6oETGon6LW.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/AHkd5sDIJ4AwopW5.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="12742">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/3ahW1UGOvOgphFVT.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/3ahW1UGOvOgphFVT.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="12894">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/W3U1uh1WF125SJJZ.standard"/>
+  <step_uses_tool rdf:resource="spudger"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/W3U1uh1WF125SJJZ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="12896">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/T2CTpH1GrOVcJdPh.standard"/>
+  <step_uses_tool rdf:resource="spudger"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/T2CTpH1GrOVcJdPh.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="12903">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ZWm64RneGspCFUWh.standard"/>
+  <step_uses_tool rdf:resource="spudger"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/ZWm64RneGspCFUWh.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="12905">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/5g2OAHpwVSCouPZq.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/5g2OAHpwVSCouPZq.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="12906">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/aH3LIgIZjCMl46nO.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/aH3LIgIZjCMl46nO.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D620 Keyboard Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude D620"/>
+  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <has_step rdf:resource="11786"/>
+  <has_step rdf:resource="12017"/>
+  <has_step rdf:resource="12019"/>
+  <has_step rdf:resource="12020"/>
+  <has_step rdf:resource="12021"/>
+  <has_step rdf:resource="12022"/>
+  <has_step rdf:resource="12458"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Keyboard">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude D620"/>
+  <part_of rdf:resource="Dell Latitude D630"/>
+  <part_of rdf:resource="Dell Latitude D610"/>
+  <part_of rdf:resource="Dell Latitude D820"/>
+  <part_of rdf:resource="Dell Latitude E4200"/>
+  <part_of rdf:resource="Dell Latitude E4310"/>
+  <part_of rdf:resource="Dell Latitude E6420"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E6400 Heatsink Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E6400"/>
+  <procedure_uses_tool rdf:resource="phillips 2 screwdriver"/>
+  <procedure_uses_tool rdf:resource="arctic silver thermal paste"/>
+  <has_step rdf:resource="13296"/>
+  <has_step rdf:resource="13298"/>
+  <has_step rdf:resource="13299"/>
+  <has_step rdf:resource="13303"/>
+  <has_step rdf:resource="13306"/>
+  <has_step rdf:resource="13308"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E6400">
+  <rdf:type rdf:resource="Item"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Heatsink &amp; Thermal Paste">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude E6400"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="phillips 2 screwdriver">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="arctic silver thermal paste">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="13296">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/srvpHNKyqrgfkIbs.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/srvpHNKyqrgfkIbs.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="13298">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/pccv26TjEPUUk5tp.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/pccv26TjEPUUk5tp.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="13299">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/mw3I2UOBeJwQQtrU.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/Ya1BmKtLOJtlQTYN.standard"/>
+  <step_uses_tool rdf:resource="arctic silver thermal paste"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/mw3I2UOBeJwQQtrU.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/Ya1BmKtLOJtlQTYN.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="13303">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/oOSQ6IskwWLPNTnH.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/w5ZCKZVE4M2a23mK.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/1DGvvOtcAYIA3RLT.standard"/>
+  <step_uses_tool rdf:resource="arctic silver thermal paste"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/oOSQ6IskwWLPNTnH.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/w5ZCKZVE4M2a23mK.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/1DGvvOtcAYIA3RLT.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="13306">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/TUQsCPsojCBLWPlf.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/HLF1mrTj31xF1B65.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/TUQsCPsojCBLWPlf.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/HLF1mrTj31xF1B65.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="13308">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/dILjPP1e35jmHxlj.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/WLceqMXvxYEOFrOn.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/YAsWTXdOFbLNpfwP.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/dILjPP1e35jmHxlj.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/WLceqMXvxYEOFrOn.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/YAsWTXdOFbLNpfwP.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E6400 WiFi Card Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E6400"/>
+  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="opening tool"/>
+  <has_step rdf:resource="13318"/>
+  <has_step rdf:resource="13319"/>
+  <has_step rdf:resource="13320"/>
+  <has_step rdf:resource="13321"/>
+  <has_step rdf:resource="13322"/>
+  <has_step rdf:resource="13324"/>
+  <has_step rdf:resource="13325"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="WiFi Card">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude E6400"/>
+  <part_of rdf:resource="Dell Latitude E6510"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="phillips screwdriver">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="opening tool">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="13318">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/DRIPu2E5hONkqOn1.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/uS2xK64F1i6EGMOB.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/DRIPu2E5hONkqOn1.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/uS2xK64F1i6EGMOB.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="13319">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/HaL1xZUWkhXRSLy2.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/udSddf1ZjUxvvvGm.standard"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/HaL1xZUWkhXRSLy2.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/udSddf1ZjUxvvvGm.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="13320">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/y3QaHVNhkJSmmRSj.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/dkXhDBOHjOFLFbQn.standard"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/y3QaHVNhkJSmmRSj.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/dkXhDBOHjOFLFbQn.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="13321">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/6iCH24SOCC4aaO1P.standard"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/6iCH24SOCC4aaO1P.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="13322">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/e2Zs51cGmNETVMnI.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/G5RnANS5NarK2lUP.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/e2Zs51cGmNETVMnI.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/G5RnANS5NarK2lUP.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="13324">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/A16amcPjdcXFjkRT.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/AQTfDDKygvxbX6P2.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/A16amcPjdcXFjkRT.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/AQTfDDKygvxbX6P2.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="13325">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/XTm1loMOtClQOKpO.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/QuTjLUsQLb6QpMKq.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/XTm1loMOtClQOKpO.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/QuTjLUsQLb6QpMKq.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude CS RAM Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude CS"/>
+  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <has_step rdf:resource="24198"/>
+  <has_step rdf:resource="24199"/>
+  <has_step rdf:resource="24200"/>
+  <has_step rdf:resource="24201"/>
+  <has_step rdf:resource="24202"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude CS">
+  <rdf:type rdf:resource="Item"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="ph0 phillips screwdriver">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="24198">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/uFW6i6GKDIGlOeAV.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/RGxQvvGIBmBsWlkD.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/uFW6i6GKDIGlOeAV.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/RGxQvvGIBmBsWlkD.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="24199">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/s2kY1Q4sLBwStS3j.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/UfjlVb5vwLvHVx3g.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/s2kY1Q4sLBwStS3j.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/UfjlVb5vwLvHVx3g.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="24200">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/2MarneJE4lIAVWal.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ONPL6S4CWaAGU6by.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/2MarneJE4lIAVWal.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/ONPL6S4CWaAGU6by.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="24201">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/VvQu2i2lNlGJyeEn.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/j1Cx3csPvuylgNDY.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/VvQu2i2lNlGJyeEn.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/j1Cx3csPvuylgNDY.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="24202">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/c2ackdjoyW4XVI1V.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/c2ackdjoyW4XVI1V.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude X300 Built-In Speakers Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude X300"/>
+  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <has_step rdf:resource="32613"/>
+  <has_step rdf:resource="32620"/>
+  <has_step rdf:resource="32615"/>
+  <has_step rdf:resource="32617"/>
+  <has_step rdf:resource="32621"/>
+  <has_step rdf:resource="32627"/>
+  <has_step rdf:resource="32628"/>
+  <has_step rdf:resource="32616"/>
+  <has_step rdf:resource="32618"/>
+  <has_step rdf:resource="32619"/>
+  <has_step rdf:resource="32626"/>
+  <has_step rdf:resource="32629"/>
+  <has_step rdf:resource="32630"/>
+  <has_step rdf:resource="32632"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude X300">
+  <rdf:type rdf:resource="Item"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Built-In Speakers">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude X300"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="32613">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/2SRYYKxxfpsQpI3P.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/2SRYYKxxfpsQpI3P.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="32620">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/YWUnQZarvEKRYGVD.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/YWUnQZarvEKRYGVD.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="32615">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/fWK5E5Pb255TwcPK.standard"/>
+  <step_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/fWK5E5Pb255TwcPK.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="32617">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/rbCgtTXZXMZHANyY.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/rGpNKObhjS63iZvU.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/rbCgtTXZXMZHANyY.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/rGpNKObhjS63iZvU.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="32621">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/boEVdtVrJcKA6RxD.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/boEVdtVrJcKA6RxD.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="32627">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/Ji6KpX3URiY3jA2V.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/Ji6KpX3URiY3jA2V.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="32628">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/kOeXhhLvvOSDPENM.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/kOeXhhLvvOSDPENM.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="32616">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/h14Ce4Af6oBSelPi.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/h14Ce4Af6oBSelPi.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="32618">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/cV3S2FAOGUwTKMcv.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/cV3S2FAOGUwTKMcv.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="32619">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/cDWFvMIUpCAxDpqV.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/cDWFvMIUpCAxDpqV.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="32626">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/OojQt6dqyIalFE2E.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/OojQt6dqyIalFE2E.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="32629">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/AJSQmGEQqUFBXgGO.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/AJSQmGEQqUFBXgGO.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="32630">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/OAEgBcxmWElJLHZb.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/OAEgBcxmWElJLHZb.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="32632">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/y6IKKVWUi5JFcPHI.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/y6IKKVWUi5JFcPHI.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude X300 Cooling Fan Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude X300"/>
+  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <has_step rdf:resource="32613"/>
+  <has_step rdf:resource="32620"/>
+  <has_step rdf:resource="32615"/>
+  <has_step rdf:resource="32617"/>
+  <has_step rdf:resource="32621"/>
+  <has_step rdf:resource="32627"/>
+  <has_step rdf:resource="32628"/>
+  <has_step rdf:resource="32616"/>
+  <has_step rdf:resource="32618"/>
+  <has_step rdf:resource="32619"/>
+  <has_step rdf:resource="32626"/>
+  <has_step rdf:resource="32640"/>
+  <has_step rdf:resource="32641"/>
+  <has_step rdf:resource="32642"/>
+  <has_step rdf:resource="32643"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Cooling Fan">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude X300"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="32640">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/5udHSeGGtGf5NUtl.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/5udHSeGGtGf5NUtl.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="32641">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/WftGHQDSGnesFbWA.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/WftGHQDSGnesFbWA.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="32642">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/gKEph6SQLXajDIdN.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/gKEph6SQLXajDIdN.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="32643">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/aTEXfvuuFoRvNO2l.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/aTEXfvuuFoRvNO2l.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D630 Keyboard Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude D630"/>
+  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <has_step rdf:resource="45184"/>
+  <has_step rdf:resource="45185"/>
+  <has_step rdf:resource="45188"/>
+  <has_step rdf:resource="45189"/>
+  <has_step rdf:resource="45190"/>
+  <has_step rdf:resource="45191"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D630">
+  <rdf:type rdf:resource="Item"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45184">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/BUMuKHBgGWmE1WDP.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/BUMuKHBgGWmE1WDP.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45185">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/U6U2bBvNcI2ndqvl.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/U6U2bBvNcI2ndqvl.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45188">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/Mn2XCAkNhVVkcIms.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ETTXffVYnXerDmTR.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/XlQON1VATQVke2wC.standard"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/Mn2XCAkNhVVkcIms.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/ETTXffVYnXerDmTR.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/XlQON1VATQVke2wC.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45189">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/VktiIt2MAUrpZtxe.standard"/>
+  <step_uses_tool rdf:resource="spudger"/>
+  <step_uses_tool rdf:resource="tweezers"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/VktiIt2MAUrpZtxe.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45190">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/gv6OdyUtxA6wLlDa.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/x6KoYMkq665jVKQG.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/gv6OdyUtxA6wLlDa.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/x6KoYMkq665jVKQG.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45191">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/gSxJhUBDCGZI3TEl.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/c4Xrdg1SC34CEW1Z.standard"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/gSxJhUBDCGZI3TEl.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/c4Xrdg1SC34CEW1Z.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D630 RAM (Slot A) Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude D630"/>
+  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <has_step rdf:resource="45184"/>
+  <has_step rdf:resource="45185"/>
+  <has_step rdf:resource="45188"/>
+  <has_step rdf:resource="45189"/>
+  <has_step rdf:resource="45190"/>
+  <has_step rdf:resource="45191"/>
+  <has_step rdf:resource="45193"/>
+  <has_step rdf:resource="45194"/>
+  <has_step rdf:resource="45192"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="RAM (Slot A)">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude D630"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45193">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/vuZVcoRZpaNgXDdU.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/vuZVcoRZpaNgXDdU.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45194">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/Z4OXaLVCEkuOxRQn.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/Z4OXaLVCEkuOxRQn.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45192">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/3tqdDpkCvPVucI2m.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/6l3ypirCYWPnJLqn.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/3tqdDpkCvPVucI2m.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/6l3ypirCYWPnJLqn.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D630 Wireless Card Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude D630"/>
+  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <procedure_uses_tool rdf:resource="tweezers"/>
+  <has_step rdf:resource="45184"/>
+  <has_step rdf:resource="45185"/>
+  <has_step rdf:resource="45188"/>
+  <has_step rdf:resource="45189"/>
+  <has_step rdf:resource="45190"/>
+  <has_step rdf:resource="45191"/>
+  <has_step rdf:resource="45212"/>
+  <has_step rdf:resource="45213"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Wireless Card">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude D630"/>
+  <part_of rdf:resource="Dell Latitude E5500"/>
+  <part_of rdf:resource="Dell Latitude E6420"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="tweezers">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45212">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/RlhrCfQtDWGQsUTH.standard"/>
+  <step_uses_tool rdf:resource="tweezers"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/RlhrCfQtDWGQsUTH.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45213">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ALmBXJmqJXwnGuXg.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/ALmBXJmqJXwnGuXg.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D630 Display Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude D630"/>
+  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <has_step rdf:resource="45184"/>
+  <has_step rdf:resource="45185"/>
+  <has_step rdf:resource="45188"/>
+  <has_step rdf:resource="45189"/>
+  <has_step rdf:resource="45190"/>
+  <has_step rdf:resource="45191"/>
+  <has_step rdf:resource="45216"/>
+  <has_step rdf:resource="45275"/>
+  <has_step rdf:resource="45218"/>
+  <has_step rdf:resource="45220"/>
+  <has_step rdf:resource="45221"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45216">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/hwX26EYyZhbBVyUV.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/gX6mjnGFA2CWVQHH.standard"/>
+  <step_uses_tool rdf:resource="spudger"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/hwX26EYyZhbBVyUV.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/gX6mjnGFA2CWVQHH.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45275">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/IJqys1bKPtHL2kwT.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/aFOqOWs1FoGYbEvn.standard"/>
+  <step_uses_tool rdf:resource="spudger"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/IJqys1bKPtHL2kwT.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/aFOqOWs1FoGYbEvn.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45218">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/g2BIgfAlAdBINKqC.standard"/>
+  <step_uses_tool rdf:resource="spudger"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/g2BIgfAlAdBINKqC.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45220">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/LYUTQTSyTfvCmbWR.standard"/>
+  <step_uses_tool rdf:resource="spudger"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/LYUTQTSyTfvCmbWR.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45221">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/UQpxLes2tGq5HEAD.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/UQpxLes2tGq5HEAD.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D630 Touchpad Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude D630"/>
+  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <has_step rdf:resource="45184"/>
+  <has_step rdf:resource="45185"/>
+  <has_step rdf:resource="45188"/>
+  <has_step rdf:resource="45189"/>
+  <has_step rdf:resource="45190"/>
+  <has_step rdf:resource="45191"/>
+  <has_step rdf:resource="45216"/>
+  <has_step rdf:resource="45275"/>
+  <has_step rdf:resource="45218"/>
+  <has_step rdf:resource="45220"/>
+  <has_step rdf:resource="45221"/>
+  <has_step rdf:resource="45258"/>
+  <has_step rdf:resource="45254"/>
+  <has_step rdf:resource="45397"/>
+  <has_step rdf:resource="45395"/>
+  <has_step rdf:resource="45366"/>
+  <has_step rdf:resource="45393"/>
+  <has_step rdf:resource="45255"/>
+  <has_step rdf:resource="45256"/>
+  <has_step rdf:resource="45257"/>
+  <has_step rdf:resource="45305"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Touchpad">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude D630"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45258">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/QBhYJhfKAYICZNeZ.standard"/>
+  <step_uses_tool rdf:resource="spudger"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/QBhYJhfKAYICZNeZ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45254">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/CdANwHpLWKqWMTGb.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/CdANwHpLWKqWMTGb.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45397">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/qEHePbcZAr31amDu.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/cUAPjRPPbJLY63GO.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/qEHePbcZAr31amDu.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/cUAPjRPPbJLY63GO.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45395">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/rbwC3vTPuOwDSgIg.standard"/>
+  <step_uses_tool rdf:resource="spudger"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/rbwC3vTPuOwDSgIg.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45366">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/EODiYiOk5FrJZXSo.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/EODiYiOk5FrJZXSo.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45393">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/B25VMTsMq1KLBKRx.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/B25VMTsMq1KLBKRx.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45255">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/rrCwGthgBktWbDDF.standard"/>
+  <step_uses_tool rdf:resource="spudger"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/rrCwGthgBktWbDDF.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45256">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/VcYlIOqDycrD4gKt.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/g22LnooNR4EnNv2i.standard"/>
+  <step_uses_tool rdf:resource="spudger"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/VcYlIOqDycrD4gKt.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/g22LnooNR4EnNv2i.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45257">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/Gqp6jLc6or4jMWTk.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/Gqp6jLc6or4jMWTk.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45305">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/MlMEwjEfOObiNj4T.standard"/>
+  <step_uses_tool rdf:resource="spudger"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/MlMEwjEfOObiNj4T.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D630 CMOS Battery Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude D630"/>
+  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <has_step rdf:resource="45184"/>
+  <has_step rdf:resource="45185"/>
+  <has_step rdf:resource="45188"/>
+  <has_step rdf:resource="45189"/>
+  <has_step rdf:resource="45190"/>
+  <has_step rdf:resource="45191"/>
+  <has_step rdf:resource="45258"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="CMOS Battery">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude D630"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D630 Speaker Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude D630"/>
+  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <procedure_uses_tool rdf:resource="opening tool"/>
+  <has_step rdf:resource="45184"/>
+  <has_step rdf:resource="45185"/>
+  <has_step rdf:resource="45188"/>
+  <has_step rdf:resource="45189"/>
+  <has_step rdf:resource="45190"/>
+  <has_step rdf:resource="45191"/>
+  <has_step rdf:resource="45216"/>
+  <has_step rdf:resource="45275"/>
+  <has_step rdf:resource="45218"/>
+  <has_step rdf:resource="45220"/>
+  <has_step rdf:resource="45221"/>
+  <has_step rdf:resource="45258"/>
+  <has_step rdf:resource="45254"/>
+  <has_step rdf:resource="45397"/>
+  <has_step rdf:resource="45395"/>
+  <has_step rdf:resource="45366"/>
+  <has_step rdf:resource="45393"/>
+  <has_step rdf:resource="45255"/>
+  <has_step rdf:resource="45256"/>
+  <has_step rdf:resource="45257"/>
+  <has_step rdf:resource="45305"/>
+  <has_step rdf:resource="45259"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Speaker">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude D630"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="45259">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/jujY1NxdGYjIGXTl.standard"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/jujY1NxdGYjIGXTl.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D610 Keyboard Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude D610"/>
+  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="opening tool"/>
+  <has_step rdf:resource="59341"/>
+  <has_step rdf:resource="59345"/>
+  <has_step rdf:resource="59347"/>
+  <has_step rdf:resource="59229"/>
+  <has_step rdf:resource="59231"/>
+  <has_step rdf:resource="59232"/>
+  <has_step rdf:resource="59233"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D610">
+  <rdf:type rdf:resource="Item"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="59341">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/bqrUDExSOAYRh2P6.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/FFSbNeXlh3rQiCAL.standard"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/bqrUDExSOAYRh2P6.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/FFSbNeXlh3rQiCAL.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="59345">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/SsHykOKKdmGJsqSQ.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/VEwYSPURCVOlKsQw.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/jKvHoruB6PQQIRZI.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/SsHykOKKdmGJsqSQ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/VEwYSPURCVOlKsQw.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/jKvHoruB6PQQIRZI.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="59347">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ytK5wt2yqZpGnojd.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/ytK5wt2yqZpGnojd.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="59229">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/QYWBpXsFCSaYHbP2.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/YoxamUQVHDMJSaqS.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/IwlDXesERZm1tXJh.standard"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/QYWBpXsFCSaYHbP2.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/YoxamUQVHDMJSaqS.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/IwlDXesERZm1tXJh.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="59231">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/fSoQUqZPrBSOTXmP.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/vDOkHiAL3gDymaPO.standard"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/fSoQUqZPrBSOTXmP.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/vDOkHiAL3gDymaPO.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="59232">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/IBT6gjPwDYT5Xrxy.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/heiIXNYytj2CKfNb.standard"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/IBT6gjPwDYT5Xrxy.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/heiIXNYytj2CKfNb.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="59233">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/mKtpZyVrVstlPwEZ.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/pUgIJ5gkcqtqPVde.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/RkdIrTqaQMGKltdO.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/mKtpZyVrVstlPwEZ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/pUgIJ5gkcqtqPVde.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/RkdIrTqaQMGKltdO.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D600 Display Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude D600"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <procedure_uses_tool rdf:resource="screwdriver"/>
+  <has_step rdf:resource="67069"/>
+  <has_step rdf:resource="67070"/>
+  <has_step rdf:resource="67071"/>
+  <has_step rdf:resource="67072"/>
+  <has_step rdf:resource="67073"/>
+  <has_step rdf:resource="67074"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D600">
+  <rdf:type rdf:resource="Item"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="screwdriver">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="67069">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/yKWCvFibyvUIwx1D.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/yKWCvFibyvUIwx1D.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="67070">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/GhLKCxPpCvLj1flZ.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/xYApP6QpG2CuTT4t.standard"/>
+  <step_uses_tool rdf:resource="screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/GhLKCxPpCvLj1flZ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/xYApP6QpG2CuTT4t.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="67071">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/UGRskLKGLgdQ1g5A.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/UGRskLKGLgdQ1g5A.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="67072">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/W5Tgd1Euv5FLspJa.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/PWEgGRpmpNtiBMiE.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/LZTGDhEKgcOMRBxT.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/W5Tgd1Euv5FLspJa.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/PWEgGRpmpNtiBMiE.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/LZTGDhEKgcOMRBxT.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="67073">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/VFmjSCSEBGZMkM5G.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/VFmjSCSEBGZMkM5G.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="67074">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/6YRGJXWi6WrlOHig.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/hoRGXFfApjcA6lZZ.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/6YRGJXWi6WrlOHig.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/hoRGXFfApjcA6lZZ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D820 Motherboard Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude D820"/>
+  <procedure_uses_tool rdf:resource="opening tool"/>
+  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="anti-static wrist strap"/>
+  <has_step rdf:resource="68949"/>
+  <has_step rdf:resource="69553"/>
+  <has_step rdf:resource="70076"/>
+  <has_step rdf:resource="68952"/>
+  <has_step rdf:resource="68962"/>
+  <has_step rdf:resource="69552"/>
+  <has_step rdf:resource="69554"/>
+  <has_step rdf:resource="70077"/>
+  <has_step rdf:resource="70083"/>
+  <has_step rdf:resource="70655"/>
+  <has_step rdf:resource="70277"/>
+  <has_step rdf:resource="70086"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D820">
+  <rdf:type rdf:resource="Item"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Motherboard">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude D820"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="anti-static wrist strap">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="68949">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/YYm6Qx4fgqiSHtyn.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/PIZquZIcAsbsEsEw.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/3IviWPF2xMdPOyJr.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/YYm6Qx4fgqiSHtyn.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/PIZquZIcAsbsEsEw.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/3IviWPF2xMdPOyJr.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="69553">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ZBqoqQ5cZY1R32VQ.standard"/>
+  <step_uses_tool rdf:resource="anti-static wrist strap"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/ZBqoqQ5cZY1R32VQ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="70076">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/5KJJ4AGiRV65pf6k.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/2E2xNadQGemuqSLG.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/Lq2QlKXSJhHo4Smy.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/5KJJ4AGiRV65pf6k.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/2E2xNadQGemuqSLG.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/Lq2QlKXSJhHo4Smy.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="68952">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/RPRPWRBltZUQDAmq.standard"/>
+  <step_uses_tool rdf:resource="anti-static wrist strap"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/RPRPWRBltZUQDAmq.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="68962">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/QIhWRsTSTiNFHRHm.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/CnofPVqckrH546mJ.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/QIhWRsTSTiNFHRHm.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/CnofPVqckrH546mJ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="69552">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/GLOgHxSQuWBobCnZ.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/IcbrUsYDssPDsGxU.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/GLOgHxSQuWBobCnZ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/IcbrUsYDssPDsGxU.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="69554">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/At56EWXTJX12OQrA.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/caIHf6BmCCDiagxR.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/tQUp2BojvkU3ospO.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/At56EWXTJX12OQrA.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/caIHf6BmCCDiagxR.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/tQUp2BojvkU3ospO.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="70077">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/D5ZFvOYxw1vOXvrn.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/D5ZFvOYxw1vOXvrn.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="70083">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/2ACaHU3MTP6GxRgk.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/2ACaHU3MTP6GxRgk.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="70655">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/OKg2WbYPOPKpPF3Y.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/sERMRVaJvQaA5Kqv.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/rnQquMdpjioELiou.standard"/>
+  <step_uses_tool rdf:resource="finger stalls"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/OKg2WbYPOPKpPF3Y.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/sERMRVaJvQaA5Kqv.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/rnQquMdpjioELiou.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="70277">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/oOJXaVE4lyMiXdEZ.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/hLPfsKewDJ2TKjY5.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/GdQpDZCkmV1hNU42.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/oOJXaVE4lyMiXdEZ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/hLPfsKewDJ2TKjY5.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/GdQpDZCkmV1hNU42.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="70086">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/UDfi6IwmdtsMIKEv.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/NLTwc1IoigcENP3W.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/KJFCWBxIHSMETOLq.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/UDfi6IwmdtsMIKEv.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/NLTwc1IoigcENP3W.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/KJFCWBxIHSMETOLq.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D820 Keyboard Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude D820"/>
+  <procedure_uses_tool rdf:resource="opening tool"/>
+  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="anti-static wrist strap"/>
+  <has_step rdf:resource="69447"/>
+  <has_step rdf:resource="69441"/>
+  <has_step rdf:resource="69442"/>
+  <has_step rdf:resource="69443"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="69447">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/u2o3TDELAKAXaKRK.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/u2o3TDELAKAXaKRK.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="69441">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/SUWsiOtZUOi5exHl.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/iCrfJTyUmPZFGiRl.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/p4hUgInKL6HuVEXb.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/SUWsiOtZUOi5exHl.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/iCrfJTyUmPZFGiRl.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/p4hUgInKL6HuVEXb.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="69442">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/5cKyeqdkPpojmpei.standard"/>
+  <step_uses_tool rdf:resource="anti-static wrist strap"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/5cKyeqdkPpojmpei.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="69443">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/bycy1hjociXVNoLY.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/bycy1hjociXVNoLY.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D820 Screen Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude D820"/>
+  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="opening tool"/>
+  <procedure_uses_tool rdf:resource="anti-static wrist strap"/>
+  <has_step rdf:resource="69447"/>
+  <has_step rdf:resource="69441"/>
+  <has_step rdf:resource="69442"/>
+  <has_step rdf:resource="69443"/>
+  <has_step rdf:resource="69555"/>
+  <has_step rdf:resource="69684"/>
+  <has_step rdf:resource="69685"/>
+  <has_step rdf:resource="69686"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Screen">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude D820"/>
+  <part_of rdf:resource="Dell Latitude D530"/>
+  <part_of rdf:resource="Dell Latitude E6420"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="69555">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/jCoZS2StIQ6WaXVZ.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/FkxGJivPrBR5v1Cw.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/SEGDYRQoXBFdFtBr.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/jCoZS2StIQ6WaXVZ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/FkxGJivPrBR5v1Cw.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/SEGDYRQoXBFdFtBr.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="69684">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/n1Tm12WPbYRVt4m6.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/WCFjCeJOuXk4YTWI.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/fSfwfOnclBrPnZUF.standard"/>
+  <step_uses_tool rdf:resource="anti-static wrist strap"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/n1Tm12WPbYRVt4m6.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/WCFjCeJOuXk4YTWI.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/fSfwfOnclBrPnZUF.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="69685">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/to2A6mUJhwMOGA4L.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/BLfRIXJfHE3FVyN6.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/to2A6mUJhwMOGA4L.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/BLfRIXJfHE3FVyN6.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="69686">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/c1ObvblBPMS1AOiH.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/N4xJCWrc1lYhMsNb.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/sZoSOkujBmF5n6r3.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/c1ObvblBPMS1AOiH.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/N4xJCWrc1lYhMsNb.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/sZoSOkujBmF5n6r3.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D820 Thermal Paste Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude D820"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <procedure_uses_tool rdf:resource="arcticlean thermal cleaner"/>
+  <procedure_uses_tool rdf:resource="lint-free cloth"/>
+  <procedure_uses_tool rdf:resource="finger stalls"/>
+  <has_step rdf:resource="68949"/>
+  <has_step rdf:resource="69553"/>
+  <has_step rdf:resource="70076"/>
+  <has_step rdf:resource="68952"/>
+  <has_step rdf:resource="68962"/>
+  <has_step rdf:resource="69552"/>
+  <has_step rdf:resource="69554"/>
+  <has_step rdf:resource="70077"/>
+  <has_step rdf:resource="70083"/>
+  <has_step rdf:resource="70655"/>
+  <has_step rdf:resource="70277"/>
+  <has_step rdf:resource="70086"/>
+  <has_step rdf:resource="69557"/>
+  <has_step rdf:resource="69560"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Thermal Paste">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude D820"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="arcticlean thermal cleaner">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="lint-free cloth">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="finger stalls">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="69557">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/xRfgRhg5WtkTaLqE.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/l2DBIFIHM4VJZCAg.standard"/>
+  <step_uses_tool rdf:resource="finger stalls"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/xRfgRhg5WtkTaLqE.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/l2DBIFIHM4VJZCAg.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="69560">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/xkuLOVfoHivjdoWC.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/oeUGrLc2sQRF5evt.standard"/>
+  <step_uses_tool rdf:resource="finger stalls"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/xkuLOVfoHivjdoWC.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/oeUGrLc2sQRF5evt.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E4200 Keyboard Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E4200"/>
+  <procedure_uses_tool rdf:resource="flathead screwdriver"/>
+  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <has_step rdf:resource="92544"/>
+  <has_step rdf:resource="92545"/>
+  <has_step rdf:resource="92546"/>
+  <has_step rdf:resource="93809"/>
+  <has_step rdf:resource="93811"/>
+  <has_step rdf:resource="93820"/>
+  <has_step rdf:resource="94193"/>
+  <has_step rdf:resource="93825"/>
+  <has_step rdf:resource="93828"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E4200">
+  <rdf:type rdf:resource="Item"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="flathead screwdriver">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="92544">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/YMDTlXgeOFImt4go.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/YMDTlXgeOFImt4go.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="92545">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/AXTsVbncvbFwk5ZJ.standard"/>
+  <step_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/AXTsVbncvbFwk5ZJ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="92546">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/QCrQPY6xvWWyUEAj.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/QCrQPY6xvWWyUEAj.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="93809">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ZeUUwoWbhJrbKdBH.standard"/>
+  <step_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/ZeUUwoWbhJrbKdBH.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="93811">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/4DrEFQFIwSGA124T.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/Mi6RG6GjB5RdexPZ.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/4DrEFQFIwSGA124T.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/Mi6RG6GjB5RdexPZ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="93820">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/uJEfZCHS1UTl212U.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/uJEfZCHS1UTl212U.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="94193">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/xYGk2waqCZHGTvum.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/xYGk2waqCZHGTvum.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="93825">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/bl4YlaRrZIYyaiiQ.standard"/>
+  <step_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/bl4YlaRrZIYyaiiQ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="93828">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/UiUTPZ4pQ3IwiQge.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/UiUTPZ4pQ3IwiQge.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E5410 Dell Latitude E5410 keyboard Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E5410"/>
+  <procedure_uses_tool rdf:resource="jis driver set"/>
+  <procedure_uses_tool rdf:resource="opening tool"/>
+  <has_step rdf:resource="147064"/>
+  <has_step rdf:resource="148585"/>
+  <has_step rdf:resource="148586"/>
+  <has_step rdf:resource="148587"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E5410">
+  <rdf:type rdf:resource="Item"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E5410 keyboard">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude E5410"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="jis driver set">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="147064">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/PgorXqvcQfFMusPm.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/PgorXqvcQfFMusPm.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="148585">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/DnwwBJuO5SGHTsOI.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/DnwwBJuO5SGHTsOI.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="148586">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/wlxWT4v2okBNiQVH.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/wlxWT4v2okBNiQVH.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="148587">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/FCKOJZvCQsZJlKwf.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/FCKOJZvCQsZJlKwf.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E5500 Wireless Card Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E5500"/>
+  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="tweezers"/>
+  <has_step rdf:resource="150653"/>
+  <has_step rdf:resource="150654"/>
+  <has_step rdf:resource="150657"/>
+  <has_step rdf:resource="151040"/>
+  <has_step rdf:resource="151043"/>
+  <has_step rdf:resource="151046"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E5500">
+  <rdf:type rdf:resource="Item"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="150653">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/Hs2TLO2OWSFvv5KK.standard"/>
+  <step_uses_tool rdf:resource="tweezers"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/Hs2TLO2OWSFvv5KK.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="150654">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/vEVaHOkFD1Ys444t.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/yQVWWTOQdC321TaO.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/vEVaHOkFD1Ys444t.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/yQVWWTOQdC321TaO.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="150657">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/L1NVBdYTy3RlHNpv.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/AAArLundukOOiiIc.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/L1NVBdYTy3RlHNpv.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/AAArLundukOOiiIc.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="151040">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/juwP54mjL1WHqehF.standard"/>
+  <step_uses_tool rdf:resource="tweezers"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/juwP54mjL1WHqehF.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="151043">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/NCdRUxShksLqCh1P.standard"/>
+  <step_uses_tool rdf:resource="tweezers"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/NCdRUxShksLqCh1P.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="151046">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/FGns4VlZrSqcsPXZ.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/PmW63Qtjq2Rkiiwu.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/FGns4VlZrSqcsPXZ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/PmW63Qtjq2Rkiiwu.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E5500 Bluetooth Card Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E5500"/>
+  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="tweezers"/>
+  <has_step rdf:resource="150645"/>
+  <has_step rdf:resource="150646"/>
+  <has_step rdf:resource="150656"/>
+  <has_step rdf:resource="151018"/>
+  <has_step rdf:resource="151025"/>
+  <has_step rdf:resource="151031"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Bluetooth Card">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude E5500"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="150645">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/Aa2AkOqIRV3iBSMn.standard"/>
+  <step_uses_tool rdf:resource="tweezers"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/Aa2AkOqIRV3iBSMn.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="150646">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/1sHi4sARecoPDSKJ.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/PM14jFgZ55blcfe1.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/1sHi4sARecoPDSKJ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/PM14jFgZ55blcfe1.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="150656">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/SsHbH5DwRZmtGyX2.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/RV4u3QiVpBmSLlHZ.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/SsHbH5DwRZmtGyX2.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/RV4u3QiVpBmSLlHZ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="151018">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/mFMcRkrCLe6BsiZh.standard"/>
+  <step_uses_tool rdf:resource="tweezers"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/mFMcRkrCLe6BsiZh.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="151025">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/Yp52CV5kcPj13RvR.standard"/>
+  <step_uses_tool rdf:resource="tweezers"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/Yp52CV5kcPj13RvR.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="151031">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/YhUUqwQJapKRrQ5r.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ePAPv3UpSeqDYcrO.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/YhUUqwQJapKRrQ5r.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/ePAPv3UpSeqDYcrO.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E5500 Thermal Compound Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E5500"/>
+  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="thermal grease"/>
+  <procedure_uses_tool rdf:resource="high content rubbing alcohol"/>
+  <procedure_uses_tool rdf:resource="cotton swab"/>
+  <procedure_uses_tool rdf:resource="cotton ball"/>
+  <has_step rdf:resource="149883"/>
+  <has_step rdf:resource="149884"/>
+  <has_step rdf:resource="149885"/>
+  <has_step rdf:resource="149886"/>
+  <has_step rdf:resource="149887"/>
+  <has_step rdf:resource="151179"/>
+  <has_step rdf:resource="151184"/>
+  <has_step rdf:resource="151189"/>
+  <has_step rdf:resource="151192"/>
+  <has_step rdf:resource="151193"/>
+  <has_step rdf:resource="151195"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Thermal Compound">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude E5500"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="thermal grease">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="high content rubbing alcohol">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="cotton swab">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="cotton ball">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="149883">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/q1mDUhkQMtYPTVNI.standard"/>
+  <step_uses_tool rdf:resource="cotton ball"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/q1mDUhkQMtYPTVNI.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="149884">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/YADfLkRGmO3Xsuy5.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/UoPTDrIRPOCbluNR.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/YADfLkRGmO3Xsuy5.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/UoPTDrIRPOCbluNR.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="149885">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/pIC6sR6mIt5DEFya.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/pIC6sR6mIt5DEFya.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="149886">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/Qc4LLo12d6xnkbPV.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/VLhKddpfwlIV6EGS.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/LcotmdcK2eYFow3y.standard"/>
+  <step_uses_tool rdf:resource="cotton ball"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/Qc4LLo12d6xnkbPV.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/VLhKddpfwlIV6EGS.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/LcotmdcK2eYFow3y.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="149887">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/gKEbthIGVWOodQRA.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/gKEbthIGVWOodQRA.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="151179">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/d3VcRsQfbtB3kas4.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/CwPNsHwaL6UfDCXI.standard"/>
+  <step_uses_tool rdf:resource="cotton ball"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/d3VcRsQfbtB3kas4.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/CwPNsHwaL6UfDCXI.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="151184">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/X2sFUXKHDMEZbNtH.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/FeyUR5v1iMeenb4n.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/j2E1Mo1InsyuvXuK.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/X2sFUXKHDMEZbNtH.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/FeyUR5v1iMeenb4n.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/j2E1Mo1InsyuvXuK.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="151189">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/vCDnT45MhaFnwFey.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/vCDnT45MhaFnwFey.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="151192">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/vwFXOyYwsANOcMdB.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/4PY1U6BpBBr6G4DU.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ESM3Y3CILYpf1VFq.standard"/>
+  <step_uses_tool rdf:resource="cotton ball"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/vwFXOyYwsANOcMdB.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/4PY1U6BpBBr6G4DU.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/ESM3Y3CILYpf1VFq.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="151193">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/gMjFn2NGpgROIBij.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/NneXrPd5vlFWJRkf.standard"/>
+  <step_uses_tool rdf:resource="cotton ball"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/gMjFn2NGpgROIBij.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/NneXrPd5vlFWJRkf.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="151195">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/XCPxSKNJDLpODdtY.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/eYSS52n4mWhKv6Vb.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/OHLIZMCNhjpNDQKp.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/XCPxSKNJDLpODdtY.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/eYSS52n4mWhKv6Vb.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/OHLIZMCNhjpNDQKp.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E5270 Repairability Assessment">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E5270"/>
+  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="opening tool"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <has_step rdf:resource="158535"/>
+  <has_step rdf:resource="158536"/>
+  <has_step rdf:resource="158537"/>
+  <has_step rdf:resource="158538"/>
+  <has_step rdf:resource="158539"/>
+  <has_step rdf:resource="158540"/>
+  <has_step rdf:resource="158541"/>
+  <has_step rdf:resource="158543"/>
+  <has_step rdf:resource="158544"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E5270">
+  <rdf:type rdf:resource="Item"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="part1">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude E5270"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="158535">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/bAORnrEt3jM2Y1xX.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/bAORnrEt3jM2Y1xX.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="158536">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/f3dMsACG4UsHmgGE.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/YXILUWUIUmgpavMg.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/aXPgA5RWUJAQm1In.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/f3dMsACG4UsHmgGE.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/YXILUWUIUmgpavMg.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/aXPgA5RWUJAQm1In.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="158537">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/jeBEKySUlDCjTVt3.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/KY1tgrlnkEVJcWEv.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/pKxJrdOMOcVDqtWk.standard"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/jeBEKySUlDCjTVt3.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/KY1tgrlnkEVJcWEv.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/pKxJrdOMOcVDqtWk.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="158538">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/uekYeKBmrm64rJuO.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/NKQOyjvyFJMWrlLE.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/uekYeKBmrm64rJuO.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/NKQOyjvyFJMWrlLE.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="158539">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/FcU43TFWCQNOOiSp.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/mVhTrVNsWOTh1LDD.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/FcU43TFWCQNOOiSp.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/mVhTrVNsWOTh1LDD.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="158540">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/JImiWOqmPiSHugRF.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/PlasotyWWUfXRhAM.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/FFOEF1JIoQIPbcAO.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/JImiWOqmPiSHugRF.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/PlasotyWWUfXRhAM.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/FFOEF1JIoQIPbcAO.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="158541">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/bCMNWCQBlnE2LUYj.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/qRGVJxEQlLiLJPBJ.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/bCMNWCQBlnE2LUYj.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/qRGVJxEQlLiLJPBJ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="158543">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/PsofEKXl1JJmpqnZ.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/eIVWB4iAyj5JgUl2.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/PsofEKXl1JJmpqnZ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/eIVWB4iAyj5JgUl2.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="158544">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/GF5usUYNaZOHOXxu.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/GfSL6uK4rNRQfQxx.standard"/>
+  <step_uses_tool rdf:resource="opening tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/GF5usUYNaZOHOXxu.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/GfSL6uK4rNRQfQxx.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E5400 Memory Upgrade / Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E5400"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <has_step rdf:resource="161064"/>
+  <has_step rdf:resource="161065"/>
+  <has_step rdf:resource="161066"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E5400">
+  <rdf:type rdf:resource="Item"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="memory Upgrade">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude E5400"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="161064">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ufNRe6AOFogBpAPm.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/ufNRe6AOFogBpAPm.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="161065">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/2pSQPSYJFZKltKBk.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/sBoVLPtVEpEOadtq.standard"/>
+  <step_uses_tool rdf:resource="phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/2pSQPSYJFZKltKBk.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/sBoVLPtVEpEOadtq.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="161066">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/IMwGUW1btSIGu1CY.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/IMwGUW1btSIGu1CY.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E6410 RAM Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E6410"/>
+  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <has_step rdf:resource="188987"/>
+  <has_step rdf:resource="188988"/>
+  <has_step rdf:resource="189012"/>
+  <has_step rdf:resource="189020"/>
+  <has_step rdf:resource="189022"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E6410">
+  <rdf:type rdf:resource="Item"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="188987">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/wysgCcOT5RpiYU5B.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/wysgCcOT5RpiYU5B.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="188988">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/HT2N6QVrWWLMJxGx.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/4blXcNEPBKW6M1Gu.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/HT2N6QVrWWLMJxGx.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/4blXcNEPBKW6M1Gu.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="189012">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/xA4SriyMcWa32wT2.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/cEDl1TXI1osMBpZs.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/xA4SriyMcWa32wT2.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/cEDl1TXI1osMBpZs.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="189020">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/KDDZ4UOeuePBBASI.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/KDDZ4UOeuePBBASI.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="189022">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/QP2NNDeHHjH5QHMu.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/fnpDwQJdtUaBcpCx.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/QP2NNDeHHjH5QHMu.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/fnpDwQJdtUaBcpCx.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E6510 WiFi Card Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E6510"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <procedure_uses_tool rdf:resource="jis 1 screwdriver"/>
+  <has_step rdf:resource="190242"/>
+  <has_step rdf:resource="190243"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E6510">
+  <rdf:type rdf:resource="Item"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="jis 1 screwdriver">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="190242">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/O4GjqQFYXLPBlMGF.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ZpUBa2aEqoiG1UJP.standard"/>
+  <step_uses_tool rdf:resource="jis 1 screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/O4GjqQFYXLPBlMGF.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/ZpUBa2aEqoiG1UJP.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="190243">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/FmbdZuKiey4H4ENf.standard"/>
+  <step_uses_tool rdf:resource="jis 1 screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/FmbdZuKiey4H4ENf.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E6510 Hard Drive Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E6510"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <has_step rdf:resource="190240"/>
+  <has_step rdf:resource="190241"/>
+  <has_step rdf:resource="190268"/>
+  <has_step rdf:resource="190269"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Hard Drive">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude E6510"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="190240">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/UvYGbvf26YZRu3MN.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/UvYGbvf26YZRu3MN.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="190241">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/WLMVrTxf1GtWJNFG.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/bNioxPduxXMUVfGP.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/WLMVrTxf1GtWJNFG.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/bNioxPduxXMUVfGP.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="190268">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/2kr6CH3E5ShaOtrG.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/OXKdevMUmErdYg5Z.standard"/>
+  <step_uses_tool rdf:resource="phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/2kr6CH3E5ShaOtrG.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/OXKdevMUmErdYg5Z.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="190269">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/LjIXSOx1ER1IU2vK.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/2sDoSdFjc1tKUKIi.standard"/>
+  <step_uses_tool rdf:resource="phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/LjIXSOx1ER1IU2vK.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/2sDoSdFjc1tKUKIi.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E6420 Backplate Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E6420"/>
+  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <has_step rdf:resource="201115"/>
+  <has_step rdf:resource="201122"/>
+  <has_step rdf:resource="200495"/>
+  <has_step rdf:resource="200496"/>
+  <has_step rdf:resource="201169"/>
+  <has_step rdf:resource="201173"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E6420">
+  <rdf:type rdf:resource="Item"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Backplate">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude E6420"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="201115">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/AMgacCrKPmMSAF1r.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/kXNDGAolSDHSwySJ.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/AMgacCrKPmMSAF1r.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/kXNDGAolSDHSwySJ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="201122">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/RCsHVdWPLbDGNJ62.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/RCsHVdWPLbDGNJ62.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="200495">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ALrYRveYmIM1QfDj.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/1Rgr3yTKxsHsxKbA.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/ALrYRveYmIM1QfDj.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/1Rgr3yTKxsHsxKbA.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="200496">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/AGsagT4uS2cQ1OVM.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/thM565cKyQkjKwBB.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/AGsagT4uS2cQ1OVM.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/thM565cKyQkjKwBB.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="201169">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/1F1TdkhZQPvYqkJS.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/XfjMse6UumMZSm6D.standard"/>
+  <step_uses_tool rdf:resource="phillips screwdriver"/>
+  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <step_uses_tool rdf:resource="jis 0 screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/1F1TdkhZQPvYqkJS.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/XfjMse6UumMZSm6D.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="201173">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/bNAVsYbrI1AkT6Pb.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/yeYw24rxUEnBUoHL.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/bNAVsYbrI1AkT6Pb.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/yeYw24rxUEnBUoHL.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E4310 MiniCard Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E4310"/>
+  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <has_step rdf:resource="200350"/>
+  <has_step rdf:resource="201537"/>
+  <has_step rdf:resource="201538"/>
+  <has_step rdf:resource="201540"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E4310">
+  <rdf:type rdf:resource="Item"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="MiniCard">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude E4310"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="200350">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/IvpIr6DSTwFIH2Mw.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/BSdSMNLmEWwSZvIw.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/kJRXOVcTiSuUXIpI.standard"/>
+  <step_uses_tool rdf:resource="spudger"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/IvpIr6DSTwFIH2Mw.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/BSdSMNLmEWwSZvIw.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/kJRXOVcTiSuUXIpI.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="201537">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/cLnalFHMTHIoXfQS.standard"/>
+  <step_uses_tool rdf:resource="spudger"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/cLnalFHMTHIoXfQS.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="201538">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/vtllMG2QQZmZHc5g.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/icdLJeFICSobPxbM.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/LZESjcLPEauH2ZtC.standard"/>
+  <step_uses_tool rdf:resource="spudger"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/vtllMG2QQZmZHc5g.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/icdLJeFICSobPxbM.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/LZESjcLPEauH2ZtC.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="201540">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/tKQSeAuvtv4S1PiB.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/FCEiJECrEIneIcKL.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/NGERyIXcxa6oawru.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/tKQSeAuvtv4S1PiB.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/FCEiJECrEIneIcKL.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/NGERyIXcxa6oawru.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E7470 SSD Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E7470"/>
+  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="opening tool"/>
+  <procedure_uses_tool rdf:resource="anti-static wrist strap"/>
+  <has_step rdf:resource="201613"/>
+  <has_step rdf:resource="201614"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E7470">
+  <rdf:type rdf:resource="Item"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="SSD">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude E7470"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="201613">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/nxgUcrDRBjhZFwsG.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/AIjLsAJCFLFYCCqr.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/JnCamPpxQsUUiFoI.standard"/>
+  <step_uses_tool rdf:resource="anti-static wrist strap"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/nxgUcrDRBjhZFwsG.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/AIjLsAJCFLFYCCqr.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/JnCamPpxQsUUiFoI.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="201614">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ucflenRwAdrHluXt.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ZsiQwgJTrXqrVcTT.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/hLs6ptYWZpAJUOGV.standard"/>
+  <step_uses_tool rdf:resource="anti-static wrist strap"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/ucflenRwAdrHluXt.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/ZsiQwgJTrXqrVcTT.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/hLs6ptYWZpAJUOGV.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E7470 RAM Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E7470"/>
+  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="opening tool"/>
+  <procedure_uses_tool rdf:resource="anti-static wrist strap"/>
+  <has_step rdf:resource="201624"/>
+  <has_step rdf:resource="201628"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="201624">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/isGtb5ZvxNjOByPi.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/rS1fkUZ5wcJZiCSk.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/Axxlb3PGCManiglx.standard"/>
+  <step_uses_tool rdf:resource="anti-static wrist strap"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/isGtb5ZvxNjOByPi.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/rS1fkUZ5wcJZiCSk.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/Axxlb3PGCManiglx.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="201628">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/DbELJCpFZItxPoyX.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/poMkhGEerPJMxaOp.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/KRwpSwHWmj2qBGeG.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/DbELJCpFZItxPoyX.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/poMkhGEerPJMxaOp.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/KRwpSwHWmj2qBGeG.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E6420 Fan Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E6420"/>
+  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="opening tool"/>
+  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <has_step rdf:resource="201115"/>
+  <has_step rdf:resource="201122"/>
+  <has_step rdf:resource="200495"/>
+  <has_step rdf:resource="200496"/>
+  <has_step rdf:resource="201169"/>
+  <has_step rdf:resource="201173"/>
+  <has_step rdf:resource="202062"/>
+  <has_step rdf:resource="202064"/>
+  <has_step rdf:resource="202065"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Fan">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude E6420"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="202062">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/2iLIAJOsQyDFxfob.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/FYYALRuoTCbdnS1H.standard"/>
+  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/2iLIAJOsQyDFxfob.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/FYYALRuoTCbdnS1H.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="202064">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/BrnBVIM3aYjJweXX.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/jpuWWFjEuAfMf1iI.standard"/>
+  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/BrnBVIM3aYjJweXX.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/jpuWWFjEuAfMf1iI.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="202065">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/56XFTKDmXbPjG42O.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/56XFTKDmXbPjG42O.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E6420 Wireless Card Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E6420"/>
+  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="jis 0 screwdriver"/>
+  <has_step rdf:resource="201115"/>
+  <has_step rdf:resource="201122"/>
+  <has_step rdf:resource="200495"/>
+  <has_step rdf:resource="200496"/>
+  <has_step rdf:resource="201169"/>
+  <has_step rdf:resource="201173"/>
+  <has_step rdf:resource="202095"/>
+  <has_step rdf:resource="202749"/>
+  <has_step rdf:resource="202097"/>
+  <has_step rdf:resource="202750"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="jis 0 screwdriver">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="202095">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/qF4dPdPVbN1Z5wGR.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/kNGEYM2PYnKKZfMP.standard"/>
+  <step_uses_tool rdf:resource="jis 0 screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/qF4dPdPVbN1Z5wGR.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/kNGEYM2PYnKKZfMP.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="202749">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/jZsRls5BTYwLet4c.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/HJkhStHiF3RjYFMi.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/qL6KFDGfdwDyDQmP.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/jZsRls5BTYwLet4c.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/HJkhStHiF3RjYFMi.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/qL6KFDGfdwDyDQmP.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="202097">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/KqGXSEKxygSeKjni.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/KqGXSEKxygSeKjni.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="202750">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/FTUSdYMajWncdceW.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/J5ZkU2ekwvlSdNNE.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/SJ1pDHxFilBZCYeL.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/FTUSdYMajWncdceW.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/J5ZkU2ekwvlSdNNE.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/SJ1pDHxFilBZCYeL.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E4310 Display Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E4310"/>
+  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="metal spudger"/>
+  <procedure_uses_tool rdf:resource="tweezers - pro esd angled"/>
+  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <has_step rdf:resource="200346"/>
+  <has_step rdf:resource="200342"/>
+  <has_step rdf:resource="205143"/>
+  <has_step rdf:resource="205146"/>
+  <has_step rdf:resource="205147"/>
+  <has_step rdf:resource="205148"/>
+  <has_step rdf:resource="205149"/>
+  <has_step rdf:resource="205159"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="metal spudger">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="tweezers - pro esd angled">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="200346">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/Hw6TLUabUv2QPgCG.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/Hw6TLUabUv2QPgCG.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="200342">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/QbJwOvlGxBDVDc1q.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/4RnOB4DcIOqMSXdL.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/QbJwOvlGxBDVDc1q.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/4RnOB4DcIOqMSXdL.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="205143">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/NkkOkMffTv4yRhxs.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/URAE11EM5PGCGvpS.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/KKukPsBGlpt2HiRt.standard"/>
+  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/NkkOkMffTv4yRhxs.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/URAE11EM5PGCGvpS.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/KKukPsBGlpt2HiRt.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="205146">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/ZeY46GyKLNSj31wr.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/W6Cyqwi4lWJvE3c5.standard"/>
+  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/ZeY46GyKLNSj31wr.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/W6Cyqwi4lWJvE3c5.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="205147">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/riGM15qJBuf3w6gJ.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/LaGAmIS2KpYToY6A.standard"/>
+  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/riGM15qJBuf3w6gJ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/LaGAmIS2KpYToY6A.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="205148">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/Q12KEvqLPY1cEdII.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/fsAqOSvhneUOHMSu.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/Q12KEvqLPY1cEdII.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/fsAqOSvhneUOHMSu.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="205149">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/TDZhmaltJ2eC5CWW.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/WbuFBZkJDjIWVys3.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/OxCeg2xUBgFtZlbu.standard"/>
+  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/TDZhmaltJ2eC5CWW.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/WbuFBZkJDjIWVys3.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/OxCeg2xUBgFtZlbu.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="205159">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/3lV3BhOENDLVb6B6.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/3lV3BhOENDLVb6B6.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D530 Screen Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude D530"/>
+  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="magnetic project mat"/>
+  <procedure_uses_tool rdf:resource="metal spudger"/>
+  <has_step rdf:resource="203632"/>
+  <has_step rdf:resource="203637"/>
+  <has_step rdf:resource="203639"/>
+  <has_step rdf:resource="203641"/>
+  <has_step rdf:resource="203642"/>
+  <has_step rdf:resource="203643"/>
+  <has_step rdf:resource="203644"/>
+  <has_step rdf:resource="203648"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude D530">
+  <rdf:type rdf:resource="Item"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="magnetic project mat">
+  <rdf:type rdf:resource="Tool"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="203632">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/OuKmQArbyDTLoqfJ.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/HlUWkItF6ekUFS4G.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/e2kGKAAhJCCi2lCn.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/OuKmQArbyDTLoqfJ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/HlUWkItF6ekUFS4G.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/e2kGKAAhJCCi2lCn.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="203637">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/SeErAMVdLaRV3vFC.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/yuFL6BWH4GlOwbVN.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/WTaBDWbkgdrGejNq.standard"/>
+  <step_uses_tool rdf:resource="metal spudger"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/SeErAMVdLaRV3vFC.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/yuFL6BWH4GlOwbVN.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/WTaBDWbkgdrGejNq.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="203639">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/IBhxCMNEhRZaP6JJ.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/NEUZgsKL1wYUVPoT.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/TLTNZrHyDFKIC3CN.standard"/>
+  <step_uses_tool rdf:resource="metal spudger"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/IBhxCMNEhRZaP6JJ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/NEUZgsKL1wYUVPoT.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/TLTNZrHyDFKIC3CN.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="203641">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/jmH6OIyB1RVYCbnS.standard"/>
+  <step_uses_tool rdf:resource="metal spudger"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/jmH6OIyB1RVYCbnS.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="203642">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/yMRAtAcHvkrNvZR3.standard"/>
+  <step_uses_tool rdf:resource="metal spudger"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/yMRAtAcHvkrNvZR3.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="203643">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/EbcYmrGpyuUIBmyC.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/NOlX6KP2XJESDax3.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/kATuUPD1RpjMS1rl.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/EbcYmrGpyuUIBmyC.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/NOlX6KP2XJESDax3.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/kATuUPD1RpjMS1rl.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="203644">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/FNNWcUrJXgALeyiT.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/cva65dUIxxlHQSZS.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/FNNWcUrJXgALeyiT.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/cva65dUIxxlHQSZS.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="203648">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/Z4DdTrdDmQXgYs6K.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/1We1QUhU6FeMQnHg.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/byyKTYeLsTk1jMdH.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/Z4DdTrdDmQXgYs6K.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/1We1QUhU6FeMQnHg.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/byyKTYeLsTk1jMdH.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E4310 Keyboard Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E4310"/>
+  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <has_step rdf:resource="200346"/>
+  <has_step rdf:resource="200342"/>
+  <has_step rdf:resource="203729"/>
+  <has_step rdf:resource="203738"/>
+  <has_step rdf:resource="203770"/>
+  <has_step rdf:resource="203773"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="203729">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/hBQeKN2LqYHNcZA2.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/2ivUj4KQLbaTAdqP.standard"/>
+  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/hBQeKN2LqYHNcZA2.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/2ivUj4KQLbaTAdqP.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="203738">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/aWBFkELXUptMtCfK.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/P2eSsNbtQBoZPW5u.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/dN44EEbJ1CyUQrRJ.standard"/>
+  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/aWBFkELXUptMtCfK.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/P2eSsNbtQBoZPW5u.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/dN44EEbJ1CyUQrRJ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="203770">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/DVQqHXcCgjeMC52b.standard"/>
+  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/DVQqHXcCgjeMC52b.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="203773">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/4KDJhD4p4OjsM25g.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/LFC3Q1qKhwOakITE.standard"/>
+  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/4KDJhD4p4OjsM25g.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/LFC3Q1qKhwOakITE.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E6420 Screen Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E6420"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <has_step rdf:resource="201115"/>
+  <has_step rdf:resource="201122"/>
+  <has_step rdf:resource="203761"/>
+  <has_step rdf:resource="203766"/>
+  <has_step rdf:resource="203768"/>
+  <has_step rdf:resource="203767"/>
+  <has_step rdf:resource="203769"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="203761">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/J5npRCMmZdXLilGo.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/fMJg5o3iM6ak5Zwr.standard"/>
+  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/J5npRCMmZdXLilGo.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/fMJg5o3iM6ak5Zwr.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="203766">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/NmR4SYsPIlbH1BFX.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/usoqHTNkHqQGAUTN.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/moEpOOvI3OwpKaal.standard"/>
+  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/NmR4SYsPIlbH1BFX.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/usoqHTNkHqQGAUTN.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/moEpOOvI3OwpKaal.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="203768">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/oGMtRkcB2NWBDoCw.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/oGMtRkcB2NWBDoCw.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="203767">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/GpJCg1ZbDLvSeEci.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/NifENbMXGKZBLJKM.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/GpJCg1ZbDLvSeEci.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/NifENbMXGKZBLJKM.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="203769">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/KBCJJxdt2VfQLLJR.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/OXsDZZHNdH4cSsCM.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/KBCJJxdt2VfQLLJR.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/OXsDZZHNdH4cSsCM.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E6420 Keyboard Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E6420"/>
+  <procedure_uses_tool rdf:resource="ph00 phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <procedure_uses_tool rdf:resource="opening tool"/>
+  <procedure_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+  <has_step rdf:resource="201115"/>
+  <has_step rdf:resource="201122"/>
+  <has_step rdf:resource="200495"/>
+  <has_step rdf:resource="200496"/>
+  <has_step rdf:resource="201169"/>
+  <has_step rdf:resource="201173"/>
+  <has_step rdf:resource="203774"/>
+  <has_step rdf:resource="203775"/>
+  <has_step rdf:resource="203776"/>
+  <has_step rdf:resource="203777"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="203774">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/PjQcmVJY2QnfMaNQ.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/BwWXLsH5gbRoqlTv.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/lPT1YYFWNjP1DVqO.standard"/>
+  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/PjQcmVJY2QnfMaNQ.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/BwWXLsH5gbRoqlTv.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/lPT1YYFWNjP1DVqO.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="203775">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/HIXUdRHO3PKqEWPI.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/WRa1Vd4o3FnVNVnK.standard"/>
+  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/HIXUdRHO3PKqEWPI.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/WRa1Vd4o3FnVNVnK.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="203776">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/qrOb6FVES3JRgDHW.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/tlyFXeEiQadHJUdi.standard"/>
+  <step_uses_tool rdf:resource="ph0 phillips screwdriver"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/qrOb6FVES3JRgDHW.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/tlyFXeEiQadHJUdi.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="203777">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/LMmJM54ZURpt6gbE.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/LMmJM54ZURpt6gbE.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E5470 LC-Display Panel Replacement">
+  <rdf:type rdf:resource="Procedure"/>
+  <procedure_for rdf:resource="Dell Latitude E5470"/>
+  <procedure_uses_tool rdf:resource="phillips screwdriver"/>
+  <procedure_uses_tool rdf:resource="spudger"/>
+  <procedure_uses_tool rdf:resource="tweezers"/>
+  <has_step rdf:resource="206225"/>
+  <has_step rdf:resource="206226"/>
+  <has_step rdf:resource="206228"/>
+  <has_step rdf:resource="206230"/>
+  <has_step rdf:resource="206237"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dell Latitude E5470">
+  <rdf:type rdf:resource="Item"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="LC-Display Panel">
+  <rdf:type rdf:resource="Part"/>
+  <part_of rdf:resource="Dell Latitude E5470"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="206225">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/DNY3qrGgMxpG5qiV.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/AxVXCpSARpmZnuIn.standard"/>
+  <step_uses_tool rdf:resource="tweezers"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/DNY3qrGgMxpG5qiV.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/AxVXCpSARpmZnuIn.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="206226">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/gBnjpIqri6JDuJJt.standard"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/gBnjpIqri6JDuJJt.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="206228">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/rNN1jot5OQcJU4Dp.standard"/>
+  <step_uses_tool rdf:resource="tweezers"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/rNN1jot5OQcJU4Dp.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="206230">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/Ayy4DMExuxZgDQ5Z.standard"/>
+  <step_uses_tool rdf:resource="tweezers"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/Ayy4DMExuxZgDQ5Z.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="206237">
+  <rdf:type rdf:resource="Step"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/QhHOtTXsWJbUiSEE.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/MQ3fhyVFAfDXfbXg.standard"/>
+  <has_image rdf:resource="https://d3nevzfk7ii3be.cloudfront.net/igi/xqAQiSCDnCPYmOCY.standard"/>
+  <step_uses_tool rdf:resource="tweezers"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/QhHOtTXsWJbUiSEE.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/MQ3fhyVFAfDXfbXg.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="https://d3nevzfk7ii3be.cloudfront.net/igi/xqAQiSCDnCPYmOCY.standard">
+  <rdf:type rdf:resource="Image"/>
+</owl:NamedIndividual>
+
+
+</rdf:RDF>

@@ -3,59 +3,59 @@
          xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
          xmlns:owl="http://www.w3.org/2002/07/owl#"
-         xml:base="http://test.org/ifixit.owl"
-         xmlns="http://test.org/ifixit.owl#">
+         xml:base="http://test.org/ifixit/"
+         xmlns="http://test.org/ifixit/">
 
-<owl:Ontology rdf:about="http://test.org/ifixit.owl"/>
+<owl:Ontology rdf:about="http://test.org/ifixit"/>
 
-<owl:ObjectProperty rdf:about="#procedure_uses_tool">
-  <rdfs:domain rdf:resource="#Procedure"/>
-  <rdfs:range rdf:resource="#Tool"/>
+<owl:ObjectProperty rdf:about="procedure_uses_tool">
+  <rdfs:domain rdf:resource="Procedure"/>
+  <rdfs:range rdf:resource="Tool"/>
 </owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="#step_uses_tool">
-  <rdfs:domain rdf:resource="#Step"/>
-  <rdfs:range rdf:resource="#Tool"/>
+<owl:ObjectProperty rdf:about="step_uses_tool">
+  <rdfs:domain rdf:resource="Step"/>
+  <rdfs:range rdf:resource="Tool"/>
 </owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="#has_step">
-  <rdfs:domain rdf:resource="#Procedure"/>
-  <rdfs:range rdf:resource="#Step"/>
+<owl:ObjectProperty rdf:about="has_step">
+  <rdfs:domain rdf:resource="Procedure"/>
+  <rdfs:range rdf:resource="Step"/>
 </owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="#has_image">
-  <rdfs:domain rdf:resource="#Step"/>
-  <rdfs:range rdf:resource="#Image"/>
+<owl:ObjectProperty rdf:about="has_image">
+  <rdfs:domain rdf:resource="Step"/>
+  <rdfs:range rdf:resource="Image"/>
 </owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="#sub_procedure_for">
-  <rdfs:domain rdf:resource="#Procedure"/>
-  <rdfs:range rdf:resource="#Procedure"/>
+<owl:ObjectProperty rdf:about="sub_procedure_for">
+  <rdfs:domain rdf:resource="Procedure"/>
+  <rdfs:range rdf:resource="Procedure"/>
 </owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="#procedure_for">
-  <rdfs:domain rdf:resource="#Procedure"/>
-  <rdfs:range rdf:resource="#Item"/>
+<owl:ObjectProperty rdf:about="procedure_for">
+  <rdfs:domain rdf:resource="Procedure"/>
+  <rdfs:range rdf:resource="Item"/>
 </owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="#part_of">
-  <rdfs:domain rdf:resource="#Item"/>
-  <rdfs:range rdf:resource="#Item"/>
+<owl:ObjectProperty rdf:about="part_of">
+  <rdfs:domain rdf:resource="Item"/>
+  <rdfs:range rdf:resource="Item"/>
 </owl:ObjectProperty>
 
-<owl:Class rdf:about="#Procedure">
+<owl:Class rdf:about="Procedure">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <owl:equivalentClass>
     <owl:Class>
       <owl:intersectionOf rdf:parseType="Collection">
         <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
         <owl:Restriction>
-          <owl:onProperty rdf:resource="#has_step"/>
-          <owl:someValuesFrom rdf:resource="#step_uses_tool"/>
+          <owl:onProperty rdf:resource="has_step"/>
+          <owl:someValuesFrom rdf:resource="step_uses_tool"/>
         </owl:Restriction>
         <owl:Restriction>
-          <owl:onProperty rdf:resource="#procedure_uses_tool"/>
-          <owl:allValuesFrom rdf:resource="#step_uses_tool"/>
+          <owl:onProperty rdf:resource="procedure_uses_tool"/>
+          <owl:allValuesFrom rdf:resource="step_uses_tool"/>
         </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
@@ -65,17 +65,17 @@
       <owl:intersectionOf rdf:parseType="Collection">
         <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
         <owl:Restriction>
-          <owl:onProperty rdf:resource="#sub_procedure_for"/>
+          <owl:onProperty rdf:resource="sub_procedure_for"/>
           <owl:allValuesFrom>
             <owl:Class>
               <owl:unionOf rdf:parseType="Collection">
                 <owl:Restriction>
-                  <owl:onProperty rdf:resource="#procedure_for"/>
-                  <owl:someValuesFrom rdf:resource="#Item"/>
+                  <owl:onProperty rdf:resource="procedure_for"/>
+                  <owl:someValuesFrom rdf:resource="Item"/>
                 </owl:Restriction>
                 <owl:Restriction>
-                  <owl:onProperty rdf:resource="#procedure_for"/>
-                  <owl:someValuesFrom rdf:resource="#part_of"/>
+                  <owl:onProperty rdf:resource="procedure_for"/>
+                  <owl:someValuesFrom rdf:resource="part_of"/>
                 </owl:Restriction>
               </owl:unionOf>
             </owl:Class>
@@ -86,23 +86,23 @@
   </owl:equivalentClass>
 </owl:Class>
 
-<owl:Class rdf:about="#Item">
+<owl:Class rdf:about="Item">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Part">
-  <rdfs:subClassOf rdf:resource="#Item"/>
+<owl:Class rdf:about="Part">
+  <rdfs:subClassOf rdf:resource="Item"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Tool">
+<owl:Class rdf:about="Tool">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Step">
+<owl:Class rdf:about="Step">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Image">
+<owl:Class rdf:about="Image">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
