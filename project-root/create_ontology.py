@@ -13,8 +13,14 @@ with onto:
     class Image(Thing): pass
 
     class has_name(DataProperty):
-        domain = [Procedure, Item, Part, Tool, Step, Image] 
+        domain = [Procedure, Item, Part, Tool] 
         range = [str] 
+    class has_order(DataProperty):
+        domain = [Step]
+        range = [int]
+    class has_text(DataProperty):
+        domain = [Step]
+        range = [str]
 
     # Define relationships
     class uses_tool(ObjectProperty):
@@ -33,7 +39,6 @@ with onto:
         domain = [Procedure]
         range = [Item]
 
-    
     # An item, with a subclass relation that is transitive
     # and a part-of relation that identifies when one item is a part of another item
     class part_of(ObjectProperty): 

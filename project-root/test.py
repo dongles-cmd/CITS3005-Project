@@ -1,39 +1,21 @@
-    # Example instance creation from the dataset
-    dell_procedure = Procedure("Dell_Latitude_D620_CD_Drive_Replacement")
-    screwdriver = Tool("Phillips_00_Screwdriver")
-    spudger = Tool("Spudger")
-    step1 = Step("Step1_Power_Down_Remove_Battery")
-    step2 = Step("Step2_Lift_Plastic_Cover")
-    # Relations
-    dell_procedure.has_step.append(step1)
-    dell_procedure.has_step.append(step2)
-    dell_procedure.has_tool.append(screwdriver)
-    dell_procedure.has_tool.append(spudger)
- 
-    # Step Images
-    img1 = Image("https://d3nevzfk7ii3be.cloudfront.net/igi/2ahoN1SZaDunCRlW.standard")
-    step1.has_image.append(img1)
- 
+import json
+import os
 
-    # Specify that tool is used in step
-    screwdriver.used_in.append(step1)
-    spudger.used_in.append(step2)
+def pretty_print_json(input_file):
+    # Open and read the input JSON file
+    with open(input_file, 'r') as f:
+        data = json.load(f)
 
-    # Ensure sub-procedures are for the same item or a part of that item
-    sub_procedure.domain = [Procedure]
-    sub_procedure.range = [Procedure]
-   
-    # Add example individuals (instances)
-    pc = Item("PC")
-    hard_drive = Part("HardDrive")
-    screwdriver = Tool("Screwdriver")
-   
-    # Add relationships
-    pc.has_part = [hard_drive]
-    procedure = Procedure("ReplaceHardDriveProcedure")
-    step1 = Step("Step1")
-    step1.step_number = 1
-    step1.step_description = "Unscrew the back cover using a screwdriver"
-    step1.part_of_procedure = [procedure]
-   
-    procedure.uses_tool = [screwdriver]
+    # Create the output file name by appending "-prettyprinted" to the input file name
+    file_name, file_ext = os.path.splitext(input_file)
+    output_file = f"{file_name}-prettyprinted{file_ext}"
+
+    # Write the pretty-printed JSON to the output file
+    with open(output_file, 'w') as f:
+        json.dump(data, f, indent=4)
+
+    print(f"Pretty-printed JSON saved to {output_file}")
+
+# Example usage
+input_file = 'test.json'  # Replace this with your actual file
+pretty_print_json(input_file)

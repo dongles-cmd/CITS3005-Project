@@ -56,8 +56,8 @@ for procedure in data:
     for step in procedure['Steps']:
         stepid = str(step['StepId'])
         step_instance = onto.Step(stepid)
-        step_instance.order = step['Order']
-        step_instance.text = step['Text_raw']
+        step_instance.has_order.append(step['Order'])
+        step_instance.has_text.append(step['Text_raw'])
         procedure_instance.has_step.append(step_instance)
 
         # Process images in step
@@ -72,10 +72,13 @@ for procedure in data:
         # Process tools in step:
         for tool in step['Tools_extracted']:
             if tool == 'NA': break
+            if tool not in tool_name_url: continue # not sure what to do here, occurs when tool in toolbox but not in step
+            tool_id = tool_name_url[tool]
             tool_instance = existing_tools[tool_id] # Should already be defined
             step_instance.uses_tool.append(tool_instance)
 
 onto.save(file = "ifixit_knowledge_graph.rdf", format='rdfxml')
+
 # # Function to output relationships of Procedures and their Steps
 # def print_procedure_relationships():
 #     for procedure in onto.Procedure.instances():
