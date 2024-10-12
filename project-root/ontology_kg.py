@@ -50,26 +50,24 @@ with onto:
     class sub_procedure_of(ObjectProperty):
         domain = [Procedure]
         range = [Procedure]
-        inverse = True
     class procedure_for(ObjectProperty):
         domain = [Procedure]
         range = [Item]
+    
+    # An item, with a subclass relation that is transitive, and a part-of relation that identifies when one item is a part of another item
     class part_of(ObjectProperty): 
         domain = [Item]  # Will allow Part to be used as it is a subclass of Item
         range = [Item]
         transitive = True
 
-    class Procedure(Thing):
-        equivalent_to = [
-            has_step.some(Step) &
-            procedure_uses_tool.some(Tool) &
-            has_step.some(step_uses_tool.some(Tool))
-        ]
-    class Procedure(Thing):
-        equivalent_to = [
-            procedure_for.some(Item) & 
-            sub_procedure_of.only(procedure_for.some(Item))  # Sub-procedures share the same item
-        ]
+    # Tools used in a step of the procedure appear in the toolbox of the procedure
+    PropertyChain([[has_step, step_uses_tool], procedure_uses_tool])
+
+    # A sub-procedure of a procedure must be a procedure for the same item or a part of that item
+    Procedure.equivalent_to.append(
+        procedure_for.some(Item) & 
+        sub_procedure_of.only(procedure_for.some(Item))  # Sub-procedures share the same item
+        )   
 
 # Save the ontology
 onto.save(file="ifixit_ontology.owl", format='rdfxml')
@@ -77,14 +75,10 @@ onto.save(file="ifixit_ontology.owl", format='rdfxml')
 
 onto = get_ontology('ifixit_ontology.owl').load()
 # Use small test JSON file first
-with open('test_1_proc.json', 'r') as file:
+with open('test.json', 'r') as file:
     data = json.load(file)
 
 tool_name_url = {}
-existing_tools = {}
-existing_items = {}
-existing_parts = {}
-existing_images = {}
 
 with onto:
     # Use unique identifier (preferably URL for URI), then set the attribute name for pretty print name
@@ -95,35 +89,26 @@ with onto:
 
         # Process item of procedure
         item_name = procedure['Category']
-        if item_name not in existing_items:
-            item_instance = onto.Item(item_name.replace(' ', '_'))  # Prevent serialization error by removing spaces
+        item_instance = onto.Item(item_name.replace(' ', '_'))  # Prevent serialization error by removing spaces
+        if item_name not in item_instance.item_has_name:
             item_instance.item_has_name.append(item_name)
-            existing_items[item_name] = item_instance
-        else:
-            item_instance = existing_items[item_name]
         procedure_instance.procedure_for.append(item_instance)
         
         # Process part
         part_name = procedure['Subject']
-        if part_name not in existing_parts:
-            part_instance = onto.Part(part_name.replace(' ', '_'))  # Prevent serialization error by removing spaces
+        part_instance = onto.Part(part_name.replace(' ', '_'))
+        if part_name not in part_instance.part_has_name:
             part_instance.part_has_name.append(part_name)
-            existing_parts[part_name] = part_instance
-        else:
-            part_instance = existing_parts[part_name]
         part_instance.part_of.append(item_instance)
 
         # Process toolbox
         for tool in procedure['Toolbox']:
             tool_id = tool['Url']
             tool_name = tool['Name']
-            if tool_id not in existing_tools:
-                tool_instance = onto.Tool(tool_id)  # Initialize instance
+            tool_instance = onto.Tool(tool_id)
+            tool_name_url[tool_name] = tool_id
+            if tool_name not in tool_instance.tool_has_name:
                 tool_instance.tool_has_name.append(tool_name)  # Set name attribute
-                existing_tools[tool_id] = tool_instance
-                tool_name_url[tool_name] = tool_id
-            else:
-                tool_instance = existing_tools[tool_id]
             procedure_instance.procedure_uses_tool.append(tool_instance)
 
         # Process steps
@@ -139,11 +124,7 @@ with onto:
 
             # Process images in step
             for url in step['Images']:
-                if url not in existing_images:
-                    image_instance = onto.Image(url)
-                    existing_images[url] = image_instance
-                else:
-                    image_instance = existing_images[url]
+                image_instance = onto.Image(url)
                 step_instance.has_image.append(image_instance)
             
             # Process tools in step
@@ -151,7 +132,7 @@ with onto:
                 if tool == 'NA': break
                 if tool not in tool_name_url: continue  # Not sure what to do here, occurs when tool is in toolbox but not in step
                 tool_id = tool_name_url[tool]
-                tool_instance = existing_tools[tool_id]  # Should already be defined
+                tool_instance = onto.Tool(tool_id)
                 step_instance.step_uses_tool.append(tool_instance)
 
     # Sync the reasoner
