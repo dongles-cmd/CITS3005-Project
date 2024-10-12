@@ -102,10 +102,6 @@
     <owl:Class>
       <owl:intersectionOf rdf:parseType="Collection">
         <owl:Restriction>
-          <owl:onProperty rdf:resource="#has_step"/>
-          <owl:someValuesFrom rdf:resource="#Step"/>
-        </owl:Restriction>
-        <owl:Restriction>
           <owl:onProperty rdf:resource="#procedure_for"/>
           <owl:someValuesFrom rdf:resource="#Item"/>
         </owl:Restriction>

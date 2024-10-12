@@ -77,7 +77,6 @@ with onto:
 
     class Procedure(Thing):
         equivalent_to = [
-            has_step.some(Step) & 
             procedure_for.some(Item) & 
             sub_procedure_of.only(procedure_for.some(Item))  # Sub-procedures share the same item
         ]
