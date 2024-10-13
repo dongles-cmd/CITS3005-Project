@@ -185,10 +185,19 @@ with onto:
                     tool_id = tool_name_url.get(tool)
                     if not tool_id:
                         # NOTE to Lewei: Skip tools that aren't in the toolbox
-                        # logger.warning(f"Line {line_number}: Tool '{tool}' extracted in step but not in toolbox.")
+                        logger.warning(f"Line {line_number}: Tool '{tool}' extracted in step but not in toolbox.")
                         continue
                     tool_instance = get_or_create_instance(onto.Tool, tool_id)
                     safe_append(step_instance.uses_tool, tool_instance)
+            
+            # Example: Check if the procedure has steps
+            if not procedure_instance.has_step:
+                logger.warning(f"Line {line_number}: Procedure '{procedure['Title']}' has no steps defined. ")
+
+            # Check if a step is missing a text or order
+            for step in procedure.get('Steps', []):
+                if 'Text_raw' not in step or 'Order' not in step:
+                    logger.warning(f"Line {line_number}: Step with ID '{step.get('StepId')}' in procedure '{procedure['Title']}' is missing required data. ")
         
         except KeyError as e:
             logger.error(f"Line {line_number}: Missing field {str(e)} in procedure {procedure.get('Title', 'Unknown')}")
