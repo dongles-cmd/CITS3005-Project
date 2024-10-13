@@ -6,7 +6,7 @@ import logging
 
 DATASET = "../data/test.json"
 ONTOLOGY = "ifixit_ontology.owl"
-KNOWLEDGE_GRAPH = "ifixit_knowledge_graph.rdf"
+KNOWLEDGE_GRAPH = "../graph/ifixit_knowledge_graph.rdf"
 
 # basic logging for error checking
 logging.basicConfig(level=logging.INFO)
