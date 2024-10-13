@@ -1,5 +1,5 @@
 # Python script to load and manage the ontology (uses OWLReady2)
-# NOTE: Run `python3 -m ontology.ifixit_ontology.py` in /project-root
+# NOTE: Run `python3 -m ontology.ifixit_ontology` in /project-root
 
 from owlready2 import *
 import json
@@ -110,6 +110,9 @@ with open(DATASET, 'r') as file:
 # Dictionary to cache tool name-URL mappings
 tool_name_url = {}
 
+# Cache to store instances and avoid repeated `search_one` calls
+instance_cache = {}
+
 def safe_append(property_list, value):
     """"Helper function for checking and appending to avoid duplication."""
     if value not in property_list:
@@ -117,11 +120,19 @@ def safe_append(property_list, value):
 
 def get_or_create_instance(cls, identifier):
     """Helper function to create/get new/existing instance."""
-    existing_instance = onto.search_one(iri=f"*{identifier}")
+    if identifier in instance_cache:
+        return instance_cache[identifier]
+    
+    base_uri = onto.base_iri  # Get base IRI of the ontology
+    existing_instance = onto.search_one(iri=f"{base_uri}{identifier}")
+    
     if existing_instance: 
+        instance_cache[identifier] = existing_instance
         return existing_instance
     else: 
-        return cls(identifier)
+        new_instance = cls(identifier)
+        instance_cache[identifier] = new_instance
+        return new_instance
 
 # Begin ontology population
 with onto:
@@ -191,3 +202,7 @@ sync_reasoner(infer_property_values=True)
 # Save the updated ontology
 onto.save(file=KNOWLEDGE_GRAPH, format='rdfxml')
 logger.info(f"Knowledge graph saved successfully as '{KNOWLEDGE_GRAPH}'.")
+
+# Count the number of procedures
+number_of_procedures = len(list(onto.Item.instances()))
+print(f"Number of items: {number_of_procedures}")

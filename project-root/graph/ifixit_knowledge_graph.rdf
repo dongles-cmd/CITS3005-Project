@@ -601,9 +601,7 @@
 <owl:NamedIndividual rdf:about="#Heatsink_&amp;_Thermal_Paste">
   <rdf:type rdf:resource="#Part"/>
   <part_of rdf:resource="#Dell_Latitude_E6400"/>
-  <part_of rdf:resource="#Dell_Latitude_D820"/>
   <has_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Heatsink &amp; Thermal Paste</has_name>
-  <has_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Thermal Paste</has_name>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#http://www.ifixit.com/Tools/Phillips-2-Screwdriver/IF145-032">
@@ -1177,9 +1175,7 @@
 <owl:NamedIndividual rdf:about="#Cooling_Fan">
   <rdf:type rdf:resource="#Part"/>
   <part_of rdf:resource="#Dell_Latitude_X300"/>
-  <part_of rdf:resource="#Dell_Latitude_E6420"/>
   <has_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cooling Fan</has_name>
-  <has_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fan</has_name>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#32640">
@@ -2458,7 +2454,7 @@
 <owl:NamedIndividual rdf:about="#https://www.ifixit.com/Guide/Dell+Latitude+D820+Thermal+Paste+Replacement/29154">
   <rdf:type rdf:resource="#Procedure"/>
   <procedure_for rdf:resource="#Dell_Latitude_D820"/>
-  <procedure_for rdf:resource="#Heatsink_&amp;_Thermal_Paste"/>
+  <procedure_for rdf:resource="#Thermal_Paste"/>
   <uses_tool rdf:resource="#http://www.ifixit.com/Tools/Spudger/IF145-002"/>
   <uses_tool rdf:resource="#/Item/ArctiClean_Thermal_Cleaner"/>
   <uses_tool rdf:resource="#http://www.amazon.com/AmazonBasics-Microfiber-Cleaning-Cloth-Pack/dp/B009FUF6DM/ref=sr_1_1?ie=UTF8&amp;qid=1407516035&amp;sr=8-1&amp;keywords=lint-free+cloth"/>
@@ -2478,6 +2474,12 @@
   <has_step rdf:resource="#69557"/>
   <has_step rdf:resource="#69560"/>
   <has_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dell Latitude D820 Thermal Paste Replacement</has_name>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Thermal_Paste">
+  <rdf:type rdf:resource="#Part"/>
+  <part_of rdf:resource="#Dell_Latitude_D820"/>
+  <has_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Thermal Paste</has_name>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#/Item/ArctiClean_Thermal_Cleaner">
@@ -3180,7 +3182,7 @@
 <owl:NamedIndividual rdf:about="#https://www.ifixit.com/Guide/Dell+Latitude+E5270+Repairability+Assessment/79140">
   <rdf:type rdf:resource="#Procedure"/>
   <procedure_for rdf:resource="#Dell_Latitude_E5270"/>
-  <procedure_for rdf:resource="http://anonymous"/>
+  <procedure_for rdf:resource="#part1"/>
   <uses_tool rdf:resource="#http://www.ifixit.com/Tools/Phillips-0-Screwdriver/IF145-005"/>
   <uses_tool rdf:resource="#https://www.ifixit.com/Store/Tools/iFixit-Opening-Tool/IF145-335"/>
   <uses_tool rdf:resource="#http://www.ifixit.com/Tools/Spudger/IF145-002"/>
@@ -3200,6 +3202,12 @@
 <owl:NamedIndividual rdf:about="#Dell_Latitude_E5270">
   <rdf:type rdf:resource="#Item"/>
   <has_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dell Latitude E5270</has_name>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#part1">
+  <rdf:type rdf:resource="#Part"/>
+  <part_of rdf:resource="#Dell_Latitude_E5270"/>
+  <has_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></has_name>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#https://www.ifixit.com/Store/Tools/iFixit-Opening-Tool/IF145-335">
@@ -4006,7 +4014,7 @@
 <owl:NamedIndividual rdf:about="#https://www.ifixit.com/Guide/Dell+Latitude+E6420+Fan+Replacement/106418">
   <rdf:type rdf:resource="#Procedure"/>
   <procedure_for rdf:resource="#Dell_Latitude_E6420"/>
-  <procedure_for rdf:resource="#Cooling_Fan"/>
+  <procedure_for rdf:resource="#Fan"/>
   <uses_tool rdf:resource="#https://www.ifixit.com/Store/Parts/Phillips-00-Screwdriver/IF145-006"/>
   <uses_tool rdf:resource="#http://www.ifixit.com/Tools/Phillips-1-Screwdriver/IF145-021"/>
   <uses_tool rdf:resource="#https://www.ifixit.com/Store/Parts/iFixit-Opening-Tool/IF145-335"/>
@@ -4021,6 +4029,12 @@
   <has_step rdf:resource="#202064"/>
   <has_step rdf:resource="#202065"/>
   <has_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dell Latitude E6420 Fan Replacement</has_name>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Fan">
+  <rdf:type rdf:resource="#Part"/>
+  <part_of rdf:resource="#Dell_Latitude_E6420"/>
+  <has_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fan</has_name>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#202062">
@@ -4876,11 +4890,6 @@
 <owl:NamedIndividual rdf:about="#https://d3nevzfk7ii3be.cloudfront.net/igi/xqAQiSCDnCPYmOCY.standard">
   <rdf:type rdf:resource="#Image"/>
 </owl:NamedIndividual>
-
-<rdf:Description rdf:about="http://anonymous">
-  <part_of rdf:resource="#Dell_Latitude_E5270"/>
-  <has_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></has_name>
-</rdf:Description>
 
 
 </rdf:RDF>
