@@ -202,7 +202,3 @@ sync_reasoner(infer_property_values=True)
 # Save the updated ontology
 onto.save(file=KNOWLEDGE_GRAPH, format='rdfxml')
 logger.info(f"Knowledge graph saved successfully as '{KNOWLEDGE_GRAPH}'.")
-
-# Count the number of procedures
-number_of_procedures = len(list(onto.Item.instances()))
-print(f"Number of items: {number_of_procedures}")
