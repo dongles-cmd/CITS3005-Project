@@ -64,14 +64,13 @@
 </owl:DatatypeProperty>
 
 <owl:Class rdf:about="#Procedure">
-  <owl:equivalentClass>
+  <rdfs:subClassOf>
     <owl:Restriction>
-      <owl:onClass rdf:resource="#Step"/>
+      <owl:someValuesFrom rdf:resource="#Step"/>
       <owl:onProperty rdf:resource="#has_step"/>
-      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
-  </owl:equivalentClass>
-  <owl:equivalentClass>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
     <owl:Restriction>
       <owl:allValuesFrom>
         <owl:Restriction>
@@ -81,8 +80,8 @@
       </owl:allValuesFrom>
       <owl:onProperty rdf:resource="#uses_tool"/>
     </owl:Restriction>
-  </owl:equivalentClass>
-  <owl:equivalentClass>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
     <owl:Class>
       <owl:intersectionOf rdf:parseType="Collection">
         <owl:Restriction>
@@ -100,7 +99,7 @@
         </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
-  </owl:equivalentClass>
+  </rdfs:subClassOf>
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
@@ -117,18 +116,35 @@
 </owl:Class>
 
 <owl:Class rdf:about="#Step">
-  <owl:equivalentClass>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      <owl:onProperty rdf:resource="#has_text"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
     <owl:Restriction>
       <owl:allValuesFrom rdf:resource="#Step"/>
       <owl:onProperty rdf:resource="#precedes"/>
     </owl:Restriction>
-  </owl:equivalentClass>
-  <owl:equivalentClass>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
     <owl:Restriction>
-      <owl:someValuesFrom rdf:resource="#Procedure"/>
-      <owl:onProperty rdf:resource="#has_step"/>
+      <owl:allValuesFrom>
+        <owl:Restriction>
+          <owl:someValuesFrom rdf:resource="#Procedure"/>
+          <owl:onProperty rdf:resource="#in_toolbox"/>
+        </owl:Restriction>
+      </owl:allValuesFrom>
+      <owl:onProperty rdf:resource="#uses_tool"/>
     </owl:Restriction>
-  </owl:equivalentClass>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:someValuesFrom rdf:resource="#Tool"/>
+      <owl:onProperty rdf:resource="#uses_tool"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 

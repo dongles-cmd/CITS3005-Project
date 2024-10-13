@@ -38,7 +38,7 @@ with onto:
 
     # Define object properties
     class uses_tool(ObjectProperty):
-        domain = [Thing]
+        domain = [Thing]    # Both Procedure and Step can use tools
         range = [Tool]
 
     class has_step(ObjectProperty):
@@ -64,16 +64,6 @@ with onto:
         range = [Item]
         transitive = True
 
-    """Tools used in a step of the procedure appear in the toolbox of the procedure. """
-    PropertyChain([[has_step, uses_tool], uses_tool])
-
-    """A sub-procedure of a procedure must be a procedure for the same item or a part of that item. 
-        Sub-procedures share the same item."""
-    Procedure.equivalent_to.append(
-        procedure_for.some(Item) & 
-        sub_procedure_of.only(procedure_for.some(Item))
-        )     
-    
     class precedes(ObjectProperty):
         """Enforce that each step has a sequential order, e.g., step 1 comes before step 2. """
         domain = [Step]
@@ -83,21 +73,30 @@ with onto:
         """Ensure that if a tool is used in a step, it must be in the toolbox of the procedure. """
         domain = [Tool]
         range = [Procedure]
+
+
+    # Define relationships 
+
+    """A sub-procedure of a procedure must be a procedure for the same item or a part of that item. 
+        Sub-procedures share the same item."""
+    Procedure.is_a.append(
+        procedure_for.some(Item) & 
+        sub_procedure_of.only(procedure_for.some(Item))
+        )     
     
-    Procedure.equivalent_to.append(
-        uses_tool.only(in_toolbox.some(Procedure))
-    )
+    """A Procedure uses tools that are in its toolbox."""
+    Procedure.is_a.append(uses_tool.only(in_toolbox.some(Procedure)))  # Tools in the Procedure's toolbox
 
-    """Procedure cannot exist without at least one step. """
-    Procedure.equivalent_to.append(has_step.min(1, Step))
+    """Procedure has at least one Step. """
+    Procedure.is_a.append(has_step.some(Step))
 
-    """Every step must belong to a procedure. """
-    Step.equivalent_to.append(has_step.some(Procedure))
+    """A Step uses tools, but only those in the Procedure's toolbox."""
+    Step.is_a.append(uses_tool.some(Tool))  # Steps can use tools
+    Step.is_a.append(uses_tool.only(in_toolbox.some(Procedure)))  # Step tools must be in Procedure's toolbox
 
-    """Ensure that each step has a predecessor (for steps after the first). """
-    Step.equivalent_to.append(
-        precedes.only(Step)
-    )
+    """Step relationships."""
+    Step.is_a.append(precedes.only(Step))  # Each step has a predecessor
+    Step.is_a.append(has_text.some(str))  # Each step has some text description
 
 # Save the ontology
 onto.save(file=ONTOLOGY)
@@ -202,3 +201,10 @@ sync_reasoner(infer_property_values=True)
 # Save the updated ontology
 onto.save(file=KNOWLEDGE_GRAPH, format='rdfxml')
 logger.info(f"Knowledge graph saved successfully as '{KNOWLEDGE_GRAPH}'.")
+
+print(f"Procedures {len(list(onto.Procedure.instances()))}")
+print(f"Items {len(list(onto.Item.instances()))}")
+print(f"Tools {len(list(onto.Tool.instances()))}")
+print(f"Parts {len(list(onto.Part.instances()))}")
+print(f"Steps {len(list(onto.Step.instances()))}")
+print(f"Images {len(list(onto.Image.instances()))}")
