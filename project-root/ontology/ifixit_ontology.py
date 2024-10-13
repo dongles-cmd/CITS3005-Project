@@ -136,7 +136,7 @@ def get_or_create_instance(cls, identifier):
 # Begin ontology population
 with onto:
     # Use unique identifier (preferably URL for URI), then set the attribute name for pretty print name
-    for procedure in data:
+    for line_number, procedure in enumerate(data, start=1):
         try:
             # Process procedure using its URL as a unique identifier
             procedure_url = procedure['Url']
@@ -185,15 +185,15 @@ with onto:
                     tool_id = tool_name_url.get(tool)
                     if not tool_id:
                         # NOTE to Lewei: Skip tools that aren't in the toolbox
-                        logger.warning(f"Tool '{tool}' extracted in step but not in toolbox.")
+                        # logger.warning(f"Line {line_number}: Tool '{tool}' extracted in step but not in toolbox.")
                         continue
                     tool_instance = get_or_create_instance(onto.Tool, tool_id)
                     safe_append(step_instance.uses_tool, tool_instance)
         
         except KeyError as e:
-            logger.error(f"Missing field {str(e)} in procedure {procedure.get('Title', 'Unknown')}")
+            logger.error(f"Line {line_number}: Missing field {str(e)} in procedure {procedure.get('Title', 'Unknown')}")
         except Exception as e: 
-            logger.error(f"Unexpected error while processing procedure {procedure.get('Title', 'Unknown')}: {str(e)}")
+            logger.error(f"Line {line_number}: Unexpected error while processing procedure {procedure.get('Title', 'Unknown')}: {str(e)}")
     
 # Sync the reasoner
 sync_reasoner(infer_property_values=True)
