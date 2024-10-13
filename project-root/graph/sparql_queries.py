@@ -22,13 +22,17 @@ def print_procedure_relationships(onto):
             for tool in step.uses_tool:
                 print(f"\t\tUses Tool: {tool}")
 
+            # Print related Images in the step
+            for image in step.has_image:
+                print(f"\t\tUses Image: {image}")
+
         # Print related Tools in the procedure toolbox
         for tool in procedure.uses_tool:
             print(f"\tUses Toolbox Tool: {tool}")
 
 # Call the function to print relationships
 onto = get_ontology(KNOWLEDGE_GRAPH).load()
-#print_procedure_relationships(onto)
+print_procedure_relationships(onto)
 
 # Load in the knowledge graph from RDF file
 g = Graph()
