@@ -132,13 +132,14 @@ def get_or_create_instance(cls, identifier):
 
 def check_in_toolbox(tool_name, toolbox_name_url):
     """Function to match tool name with names in toolbox"""
+    matches = []
     for key, value in toolbox_name_url.items():
         for word in tool_name.split(): # Look through each word in tool extracted and check if it is in key
             match = True # Match is true unless proven otherwise
             if word not in key:
                 match = False 
-        if match: return value # Return tool_id if match is found
-    return None
+        if match: matches.append(value) # Return tool_id if match is found
+    return matches
 
 # Begin ontology population
 with onto:
@@ -194,13 +195,14 @@ with onto:
                 for tool_name in step.get('Tools_extracted', []):
                     if tool_name == 'NA':    # Ignore 'NA' tools
                         break
-                    tool_id = check_in_toolbox(tool_name, toolbox_name_url)
-                    if not tool_id:
+                    tool_ids = check_in_toolbox(tool_name, toolbox_name_url)
+                    if len(tool_ids) == 0:
                         # NOTE to Lewei: Skip tools that aren't in the toolbox
                         logger.warning(f"Tool '{tool_name}' extracted in step but not in toolbox for procedure {procedure['Title']}")
                         continue
-                    tool_instance = get_or_create_instance(onto.Tool, tool_id)
-                    safe_append(step_instance.uses_tool, tool_instance)
+                    for tool_id in tool_ids:
+                        tool_instance = get_or_create_instance(onto.Tool, tool_id)
+                        safe_append(step_instance.uses_tool, tool_instance)
         
         except KeyError as e:
             logger.error(f"Missing field {str(e)} in procedure {procedure.get('Title', 'Unknown')}")

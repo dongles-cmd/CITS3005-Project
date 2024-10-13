@@ -4,31 +4,41 @@
 from rdflib import Graph
 from config import KNOWLEDGE_GRAPH
 from owlready2 import get_ontology
+import logging
 
-# Function to output relationships of Procedures and their Steps
+# Configure logging to output to a file
+logging.basicConfig(
+    filename="graph/procedure_relationships.log",  # Log file name
+    level=logging.INFO,                      # Set logging level to INFO
+    format="%(asctime)s - %(levelname)s - %(message)s",  # Log format
+    filemode='w'                             # Overwrite the log file each time
+)
+
+logger = logging.getLogger(__name__)  # Create a logger
+
 def print_procedure_relationships(onto):
     for procedure in onto.Procedure.instances():
-        print(f"Procedure: {procedure}")
+        logger.info(f"Procedure: {procedure}")
         
-        # Print related Items
+        # Log related Items
         for item in procedure.procedure_for:
-            print(f"\tRelated Item: {item}")
+            logger.info(f"\tRelated Item: {item}")
 
-        # Print related Steps
-        for step in procedure.has_step:
-            print(f"\tStep: {step}, Order: {step.has_order}, Text: {step.has_text}")
-            
-            # Print related Tools in the step
-            for tool in step.uses_tool:
-                print(f"\t\tUses Tool: {tool}")
-
-            # Print related Images in the step
-            for image in step.has_image:
-                print(f"\t\tUses Image: {image}")
-
-        # Print related Tools in the procedure toolbox
+        # Log related Tools in the procedure toolbox
         for tool in procedure.uses_tool:
-            print(f"\tUses Toolbox Tool: {tool}")
+            logger.info(f"\tUses Toolbox Tool: {tool}")
+
+        # Log related Steps
+        for step in procedure.has_step:
+            logger.info(f"\tStep: {step}, Order: {step.has_order}, Text: {step.has_text}")
+            
+            # Log related Tools in the step
+            for tool in step.uses_tool:
+                logger.info(f"\t\tUses Tool: {tool}")
+
+            # Log related Images in the step
+            for image in step.has_image:
+                logger.info(f"\t\tUses Image: {image}")
 
 # Call the function to print relationships
 onto = get_ontology(KNOWLEDGE_GRAPH).load()
