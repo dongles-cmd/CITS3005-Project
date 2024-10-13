@@ -106,9 +106,6 @@ onto = get_ontology(ONTOLOGY).load()
 with open(DATASET, 'r') as file:
     data = json.load(file)
 
-# Dictionary to cache tool name-URL mappings
-tool_name_url = {}
-
 # Cache to store instances and avoid repeated `search_one` calls
 instance_cache = {}
 
@@ -133,11 +130,24 @@ def get_or_create_instance(cls, identifier):
         instance_cache[identifier] = new_instance
         return new_instance
 
+def check_in_toolbox(tool_name, toolbox_name_url):
+    """Function to match tool name with names in toolbox"""
+    for key, value in toolbox_name_url.items():
+        for word in tool_name.split(): # Look through each word in tool extracted and check if it is in key
+            match = True # Match is true unless proven otherwise
+            if word not in key:
+                match = False 
+        if match: return value # Return tool_id if match is found
+    return None
+
 # Begin ontology population
 with onto:
     # Use unique identifier (preferably URL for URI), then set the attribute name for pretty print name
     for procedure in data:
         try:
+            # Dictionary to cache tool name-URL mappings for each procedure
+            toolbox_name_url = {}
+
             # Process procedure using its URL as a unique identifier
             procedure_url = procedure['Url']
             procedure_instance = get_or_create_instance(onto.Procedure, procedure_url)
@@ -160,8 +170,10 @@ with onto:
             for tool in procedure.get('Toolbox', []):
                 tool_id = tool['Url']
                 tool_name = tool['Name']
+                if not tool_id:
+                    tool_id = tool_name
                 tool_instance = get_or_create_instance(onto.Tool, tool_id)
-                tool_name_url[tool_name] = tool_id
+                toolbox_name_url[tool_name] = tool_id
                 safe_append(tool_instance.has_name, tool_name)
                 safe_append(procedure_instance.uses_tool, tool_instance)
 
@@ -179,13 +191,13 @@ with onto:
                     safe_append(step_instance.has_image, image_instance)
                 
                 # Process tools extracted in the step (ensuring tools are in the toolbox)
-                for tool in step.get('Tools_extracted', []):
-                    if tool == 'NA':    # Ignore 'NA' tools
-                        continue
-                    tool_id = tool_name_url.get(tool)
+                for tool_name in step.get('Tools_extracted', []):
+                    if tool_name == 'NA':    # Ignore 'NA' tools
+                        break
+                    tool_id = check_in_toolbox(tool_name, toolbox_name_url)
                     if not tool_id:
                         # NOTE to Lewei: Skip tools that aren't in the toolbox
-                        logger.warning(f"Tool '{tool}' extracted in step but not in toolbox.")
+                        logger.warning(f"Tool '{tool_name}' extracted in step but not in toolbox for procedure {procedure['Title']}")
                         continue
                     tool_instance = get_or_create_instance(onto.Tool, tool_id)
                     safe_append(step_instance.uses_tool, tool_instance)
