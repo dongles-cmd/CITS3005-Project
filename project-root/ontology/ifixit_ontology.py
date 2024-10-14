@@ -158,6 +158,11 @@ with onto:
             item_instance = get_or_create_instance(onto.Item, item_name)
             safe_append(item_instance.has_name, procedure['Category'])
             safe_append(procedure_instance.procedure_for, item_instance)
+
+            for ancestor_name in procedure['Ancestors']:
+                ancestor_instance = get_or_create_instance(onto.Item, ancestor_name.replace(' ', '_').replace('"', '-Inch').strip("'")     )
+                safe_append(procedure_instance.procedure_for, ancestor_instance)
+                safe_append(item_instance.part_of, ancestor_instance)
             
             # Process part (subject or procedure)
             part_name = procedure['Subject'].replace('"', '-Inch').strip("'").replace(' ', '_')
