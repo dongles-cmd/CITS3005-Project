@@ -156,11 +156,6 @@
 <owl:NamedIndividual rdf:about="#https://www.ifixit.com/Guide/Dell+Latitude+D620+CD+Drive+Replacement/2230">
   <rdf:type rdf:resource="#Procedure"/>
   <procedure_for rdf:resource="#Dell_Latitude_D620"/>
-  <procedure_for rdf:resource="#Dell_Latitude"/>
-  <procedure_for rdf:resource="#Dell_Laptop"/>
-  <procedure_for rdf:resource="#PC_Laptop"/>
-  <procedure_for rdf:resource="#PC"/>
-  <procedure_for rdf:resource="#Root"/>
   <procedure_for rdf:resource="#CD_Drive"/>
   <uses_tool rdf:resource="#https://www.ifixit.com/Store/Parts/Phillips-00-Screwdriver/IF145-006"/>
   <uses_tool rdf:resource="#http://www.ifixit.com/Tools/Spudger/IF145-002"/>
@@ -173,6 +168,8 @@
   <has_step rdf:resource="#12458"/>
   <has_step rdf:resource="#13075"/>
   <has_step rdf:resource="#13079"/>
+  <sub_procedure_of rdf:resource="#https://www.ifixit.com/Guide/Dell+Latitude+D620+RAM+Replacement/2395"/>
+  <sub_procedure_of rdf:resource="#https://www.ifixit.com/Guide/Dell+Latitude+D620+CD+Drive+Replacement/2230"/>
   <has_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dell Latitude D620 CD Drive Replacement</has_name>
 </owl:NamedIndividual>
 
@@ -208,6 +205,7 @@
 
 <owl:NamedIndividual rdf:about="#CD_Drive">
   <rdf:type rdf:resource="#Part"/>
+  <part_of rdf:resource="#CD_Drive"/>
   <part_of rdf:resource="#Dell_Latitude_D620"/>
   <has_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CD Drive</has_name>
 </owl:NamedIndividual>
@@ -352,11 +350,6 @@
 <owl:NamedIndividual rdf:about="#https://www.ifixit.com/Guide/Dell+Latitude+D620+RAM+Replacement/2395">
   <rdf:type rdf:resource="#Procedure"/>
   <procedure_for rdf:resource="#Dell_Latitude_D620"/>
-  <procedure_for rdf:resource="#Dell_Latitude"/>
-  <procedure_for rdf:resource="#Dell_Laptop"/>
-  <procedure_for rdf:resource="#PC_Laptop"/>
-  <procedure_for rdf:resource="#PC"/>
-  <procedure_for rdf:resource="#Root"/>
   <procedure_for rdf:resource="#RAM"/>
   <uses_tool rdf:resource="#https://www.ifixit.com/Store/Parts/Phillips-00-Screwdriver/IF145-006"/>
   <uses_tool rdf:resource="#http://www.ifixit.com/Tools/Spudger/IF145-002"/>
@@ -371,11 +364,14 @@
   <has_step rdf:resource="#12597"/>
   <has_step rdf:resource="#12599"/>
   <has_step rdf:resource="#12602"/>
+  <sub_procedure_of rdf:resource="#https://www.ifixit.com/Guide/Dell+Latitude+D620+RAM+Replacement/2395"/>
+  <sub_procedure_of rdf:resource="#https://www.ifixit.com/Guide/Dell+Latitude+D620+CD+Drive+Replacement/2230"/>
   <has_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dell Latitude D620 RAM Replacement</has_name>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#RAM">
   <rdf:type rdf:resource="#Part"/>
+  <part_of rdf:resource="#RAM"/>
   <part_of rdf:resource="#Dell_Latitude_D620"/>
   <has_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RAM</has_name>
 </owl:NamedIndividual>

@@ -32,8 +32,7 @@ with onto:
         Procedure(?p1) ^ 
         Procedure(?p2) ^ 
         procedure_for(?p1, ?item) ^ 
-        procedure_for(?p2, ?item) ^ 
-        differentFrom(?p1, ?p2))
+        procedure_for(?p2, ?item)
         -> 
         sub_procedure_of(?p1, ?p2) ^ 
         sub_procedure_of(?p2, ?p1)
@@ -50,6 +49,3 @@ print(f"Procedure 2 sub-procedures: {[str(sub) for sub in procedure2.sub_procedu
 print("Procedures and their procedures_for relationships:")
 for proc in onto.Procedure.instances():
     print(f"{proc.name} is for item: {[str(i) for i in proc.procedure_for]}")
-
-part_of_rule = Imp()
-part_of_rule.set_as_rule("""Procedure(?p), Item(?a), """)

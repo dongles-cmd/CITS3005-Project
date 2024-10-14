@@ -1,98 +1,90 @@
-2024-10-14 20:32:57,093 - INFO - Procedure: ifixit_knowledge_graph.https://www.ifixit.com/Guide/Dell+Latitude+D620+CD+Drive+Replacement/2230
-2024-10-14 20:32:57,094 - INFO - 	Procedure for: ifixit_knowledge_graph.Dell_Latitude_D620
-2024-10-14 20:32:57,094 - INFO - 			Part of: ifixit_knowledge_graph.Dell_Latitude
-2024-10-14 20:32:57,094 - INFO - 			Part of: ifixit_knowledge_graph.Dell_Laptop
-2024-10-14 20:32:57,094 - INFO - 			Part of: ifixit_knowledge_graph.PC_Laptop
-2024-10-14 20:32:57,094 - INFO - 			Part of: ifixit_knowledge_graph.PC
-2024-10-14 20:32:57,094 - INFO - 			Part of: ifixit_knowledge_graph.Root
-2024-10-14 20:32:57,094 - INFO - 	Procedure for: ifixit_knowledge_graph.Dell_Latitude
-2024-10-14 20:32:57,094 - INFO - 	Procedure for: ifixit_knowledge_graph.Dell_Laptop
-2024-10-14 20:32:57,094 - INFO - 	Procedure for: ifixit_knowledge_graph.PC_Laptop
-2024-10-14 20:32:57,094 - INFO - 	Procedure for: ifixit_knowledge_graph.PC
-2024-10-14 20:32:57,094 - INFO - 	Procedure for: ifixit_knowledge_graph.Root
-2024-10-14 20:32:57,094 - INFO - 	Procedure for: ifixit_knowledge_graph.RAM
-2024-10-14 20:32:57,094 - INFO - 			Part of: ifixit_knowledge_graph.Dell_Latitude_D620
-2024-10-14 20:32:57,094 - INFO - 	Procedure for: ifixit_knowledge_graph.CD_Drive
-2024-10-14 20:32:57,095 - INFO - 			Part of: ifixit_knowledge_graph.Dell_Latitude_D620
-2024-10-14 20:32:57,095 - INFO - 	Uses Toolbox Tool: ifixit_knowledge_graph.https://www.ifixit.com/Store/Parts/Phillips-00-Screwdriver/IF145-006
-2024-10-14 20:32:57,095 - INFO - 	Uses Toolbox Tool: ifixit_knowledge_graph.http://www.ifixit.com/Tools/Spudger/IF145-002
-2024-10-14 20:32:57,095 - INFO - 	Step: ifixit_knowledge_graph.11786, Order: [0], Text: ['Power down the laptop and remove the battery. Open the laptop cover all of the way.']
-2024-10-14 20:32:57,095 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/2ahoN1SZaDunCRlW.standard
-2024-10-14 20:32:57,095 - INFO - 	Step: ifixit_knowledge_graph.12017, Order: [1], Text: ['Locate the notch under the cover at the top of the keyboard Using the spudger as a lever, lift the plastic covering Carefully remove the rest of the covering from right to left']
-2024-10-14 20:32:57,095 - INFO - 		Uses Tool: ifixit_knowledge_graph.http://www.ifixit.com/Tools/Spudger/IF145-002
-2024-10-14 20:32:57,096 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/bDghaIwVmHtPtMZQ.standard
-2024-10-14 20:32:57,096 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/C3GMiqK2KQ3YLX1n.standard
-2024-10-14 20:32:57,096 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/aSPCQC6EeTlfKx5Z.standard
-2024-10-14 20:32:57,096 - INFO - 	Step: ifixit_knowledge_graph.12019, Order: [2], Text: ['Unscrew the top portion of the keyboard using a #00 screwdriver']
-2024-10-14 20:32:57,096 - INFO - 		Uses Tool: ifixit_knowledge_graph.https://www.ifixit.com/Store/Parts/Phillips-00-Screwdriver/IF145-006
-2024-10-14 20:32:57,096 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/BwGFsYFJ1MNJADcV.standard
-2024-10-14 20:32:57,096 - INFO - 	Step: ifixit_knowledge_graph.12020, Order: [3], Text: ["Hold keyboard from the top and gently pull towards the LCD screen to remove the keyboard from the case Don't pull on the keyboard too forcefully because it is attached to the motherboard with a short, thin ribbon cable"]
-2024-10-14 20:32:57,096 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/QA5Oqh3xJYJcYJAc.standard
-2024-10-14 20:32:57,096 - INFO - 	Step: ifixit_knowledge_graph.12021, Order: [4], Text: ['Once keyboard is out of the case, lay it face-down on the track pad']
-2024-10-14 20:32:57,096 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/GBUxtBDHiMMIo24Y.standard
-2024-10-14 20:32:57,096 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/EsL12USdc1aGVj4E.standard
-2024-10-14 20:32:57,096 - INFO - 	Step: ifixit_knowledge_graph.12022, Order: [5], Text: ['Using a small spudger, pull back on the black bar to release the blue lever']
-2024-10-14 20:32:57,097 - INFO - 		Uses Tool: ifixit_knowledge_graph.http://www.ifixit.com/Tools/Spudger/IF145-002
-2024-10-14 20:32:57,097 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/TAuWhDomSD6ICOYh.standard
-2024-10-14 20:32:57,097 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/gUBVXCcjkITVFUG1.standard
-2024-10-14 20:32:57,097 - INFO - 	Step: ifixit_knowledge_graph.12458, Order: [6], Text: ['Pull up on the metal bar connected to the socket to detach the ribbon cable']
-2024-10-14 20:32:57,097 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/WxSRNoB5gxVV6DaX.standard
-2024-10-14 20:32:57,097 - INFO - 	Step: ifixit_knowledge_graph.13075, Order: [7], Text: ['Press in the tab on the bottom right side of the CD drive The tab comes out on its own; there is no need to pull it out manually.']
-2024-10-14 20:32:57,097 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/eZTRTWQhAnwxWcjT.standard
-2024-10-14 20:32:57,097 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/X1iGHHZrIUe6VE6Q.standard
-2024-10-14 20:32:57,097 - INFO - 	Step: ifixit_knowledge_graph.13079, Order: [8], Text: ['Gently pull the tab to remove the disk tray.']
-2024-10-14 20:32:57,097 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/TgPTif6VHSFgNIim.standard
-2024-10-14 20:32:57,097 - INFO - Procedure is a sub-procedure of: ifixit_knowledge_graph.https://www.ifixit.com/Guide/Dell+Latitude+D620+CD+Drive+Replacement/2230
-2024-10-14 20:32:57,097 - INFO - Procedure is a sub-procedure of: ifixit_knowledge_graph.https://www.ifixit.com/Guide/Dell+Latitude+D620+RAM+Replacement/2395
-2024-10-14 20:32:57,097 - INFO - Procedure: ifixit_knowledge_graph.https://www.ifixit.com/Guide/Dell+Latitude+D620+RAM+Replacement/2395
-2024-10-14 20:32:57,097 - INFO - 	Procedure for: ifixit_knowledge_graph.Dell_Latitude_D620
-2024-10-14 20:32:57,098 - INFO - 			Part of: ifixit_knowledge_graph.Dell_Latitude
-2024-10-14 20:32:57,098 - INFO - 			Part of: ifixit_knowledge_graph.Dell_Laptop
-2024-10-14 20:32:57,098 - INFO - 			Part of: ifixit_knowledge_graph.PC_Laptop
-2024-10-14 20:32:57,098 - INFO - 			Part of: ifixit_knowledge_graph.PC
-2024-10-14 20:32:57,098 - INFO - 			Part of: ifixit_knowledge_graph.Root
-2024-10-14 20:32:57,098 - INFO - 	Procedure for: ifixit_knowledge_graph.Dell_Latitude
-2024-10-14 20:32:57,098 - INFO - 	Procedure for: ifixit_knowledge_graph.Dell_Laptop
-2024-10-14 20:32:57,098 - INFO - 	Procedure for: ifixit_knowledge_graph.PC_Laptop
-2024-10-14 20:32:57,098 - INFO - 	Procedure for: ifixit_knowledge_graph.PC
-2024-10-14 20:32:57,098 - INFO - 	Procedure for: ifixit_knowledge_graph.Root
-2024-10-14 20:32:57,098 - INFO - 	Procedure for: ifixit_knowledge_graph.RAM
-2024-10-14 20:32:57,098 - INFO - 			Part of: ifixit_knowledge_graph.Dell_Latitude_D620
-2024-10-14 20:32:57,098 - INFO - 	Procedure for: ifixit_knowledge_graph.CD_Drive
-2024-10-14 20:32:57,098 - INFO - 			Part of: ifixit_knowledge_graph.Dell_Latitude_D620
-2024-10-14 20:32:57,098 - INFO - 	Uses Toolbox Tool: ifixit_knowledge_graph.https://www.ifixit.com/Store/Parts/Phillips-00-Screwdriver/IF145-006
-2024-10-14 20:32:57,098 - INFO - 	Uses Toolbox Tool: ifixit_knowledge_graph.http://www.ifixit.com/Tools/Spudger/IF145-002
-2024-10-14 20:32:57,098 - INFO - 	Step: ifixit_knowledge_graph.11786, Order: [0], Text: ['Power down the laptop and remove the battery. Open the laptop cover all of the way.']
-2024-10-14 20:32:57,098 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/2ahoN1SZaDunCRlW.standard
-2024-10-14 20:32:57,099 - INFO - 	Step: ifixit_knowledge_graph.12017, Order: [1], Text: ['Locate the notch under the cover at the top of the keyboard Using the spudger as a lever, lift the plastic covering Carefully remove the rest of the covering from right to left']
-2024-10-14 20:32:57,099 - INFO - 		Uses Tool: ifixit_knowledge_graph.http://www.ifixit.com/Tools/Spudger/IF145-002
-2024-10-14 20:32:57,099 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/bDghaIwVmHtPtMZQ.standard
-2024-10-14 20:32:57,099 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/C3GMiqK2KQ3YLX1n.standard
-2024-10-14 20:32:57,099 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/aSPCQC6EeTlfKx5Z.standard
-2024-10-14 20:32:57,099 - INFO - 	Step: ifixit_knowledge_graph.12019, Order: [2], Text: ['Unscrew the top portion of the keyboard using a #00 screwdriver']
-2024-10-14 20:32:57,099 - INFO - 		Uses Tool: ifixit_knowledge_graph.https://www.ifixit.com/Store/Parts/Phillips-00-Screwdriver/IF145-006
-2024-10-14 20:32:57,099 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/BwGFsYFJ1MNJADcV.standard
-2024-10-14 20:32:57,099 - INFO - 	Step: ifixit_knowledge_graph.12020, Order: [3], Text: ["Hold keyboard from the top and gently pull towards the LCD screen to remove the keyboard from the case Don't pull on the keyboard too forcefully because it is attached to the motherboard with a short, thin ribbon cable"]
-2024-10-14 20:32:57,099 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/QA5Oqh3xJYJcYJAc.standard
-2024-10-14 20:32:57,099 - INFO - 	Step: ifixit_knowledge_graph.12021, Order: [4], Text: ['Once keyboard is out of the case, lay it face-down on the track pad']
-2024-10-14 20:32:57,099 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/GBUxtBDHiMMIo24Y.standard
-2024-10-14 20:32:57,099 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/EsL12USdc1aGVj4E.standard
-2024-10-14 20:32:57,099 - INFO - 	Step: ifixit_knowledge_graph.12022, Order: [5], Text: ['Using a small spudger, pull back on the black bar to release the blue lever']
-2024-10-14 20:32:57,099 - INFO - 		Uses Tool: ifixit_knowledge_graph.http://www.ifixit.com/Tools/Spudger/IF145-002
-2024-10-14 20:32:57,099 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/TAuWhDomSD6ICOYh.standard
-2024-10-14 20:32:57,099 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/gUBVXCcjkITVFUG1.standard
-2024-10-14 20:32:57,099 - INFO - 	Step: ifixit_knowledge_graph.12458, Order: [6], Text: ['Pull up on the metal bar connected to the socket to detach the ribbon cable']
-2024-10-14 20:32:57,099 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/WxSRNoB5gxVV6DaX.standard
-2024-10-14 20:32:57,099 - INFO - 	Step: ifixit_knowledge_graph.12592, Order: [7], Text: ['With the keyboard removed, you should be able to see ram slot A. Place new ram into the slot making sure it is aligned']
-2024-10-14 20:32:57,100 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/IoGbjTKJQp6RWEAK.standard
-2024-10-14 20:32:57,100 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/FQGjSnLOHl56KxjH.standard
-2024-10-14 20:32:57,100 - INFO - 	Step: ifixit_knowledge_graph.12597, Order: [8], Text: ['Replace the keyboard by following the previous steps in reverse Close the laptop, and flip it over onto its backside']
-2024-10-14 20:32:57,100 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/w3bFhHGPQXkjA6XN.standard
-2024-10-14 20:32:57,100 - INFO - 	Step: ifixit_knowledge_graph.12599, Order: [9], Text: ['Loosen the screw that holds the RAM cover in place. The screw cannot be fully removed since it is attached to the RAM cover.']
-2024-10-14 20:32:57,100 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/ydWsElGhPISVEEHq.standard
-2024-10-14 20:32:57,100 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/yO2ciI1T3kbwmfLD.standard
-2024-10-14 20:32:57,100 - INFO - 	Step: ifixit_knowledge_graph.12602, Order: [10], Text: ['Insert new ram into slot B']
-2024-10-14 20:32:57,100 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/JhaYOagIyQMsCP14.standard
-2024-10-14 20:32:57,100 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/3VERq1cRdDwWmtnE.standard
-2024-10-14 20:32:57,100 - INFO - Procedure is a sub-procedure of: ifixit_knowledge_graph.https://www.ifixit.com/Guide/Dell+Latitude+D620+CD+Drive+Replacement/2230
-2024-10-14 20:32:57,100 - INFO - Procedure is a sub-procedure of: ifixit_knowledge_graph.https://www.ifixit.com/Guide/Dell+Latitude+D620+RAM+Replacement/2395
+2024-10-14 20:58:06,811 - INFO - Procedure: ifixit_knowledge_graph.https://www.ifixit.com/Guide/Dell+Latitude+D620+CD+Drive+Replacement/2230
+2024-10-14 20:58:06,812 - INFO - 	Procedure for: ifixit_knowledge_graph.Dell_Latitude_D620
+2024-10-14 20:58:06,812 - INFO - 			Part of: ifixit_knowledge_graph.Dell_Latitude
+2024-10-14 20:58:06,812 - INFO - 			Part of: ifixit_knowledge_graph.Dell_Laptop
+2024-10-14 20:58:06,812 - INFO - 			Part of: ifixit_knowledge_graph.PC_Laptop
+2024-10-14 20:58:06,812 - INFO - 			Part of: ifixit_knowledge_graph.PC
+2024-10-14 20:58:06,812 - INFO - 			Part of: ifixit_knowledge_graph.Root
+2024-10-14 20:58:06,812 - INFO - 	Procedure for: ifixit_knowledge_graph.Dell_Latitude
+2024-10-14 20:58:06,812 - INFO - 	Procedure for: ifixit_knowledge_graph.Dell_Laptop
+2024-10-14 20:58:06,812 - INFO - 	Procedure for: ifixit_knowledge_graph.PC_Laptop
+2024-10-14 20:58:06,812 - INFO - 	Procedure for: ifixit_knowledge_graph.PC
+2024-10-14 20:58:06,812 - INFO - 	Procedure for: ifixit_knowledge_graph.Root
+2024-10-14 20:58:06,812 - INFO - 	Procedure for: ifixit_knowledge_graph.CD_Drive
+2024-10-14 20:58:06,812 - INFO - 			Part of: ifixit_knowledge_graph.Dell_Latitude_D620
+2024-10-14 20:58:06,812 - INFO - 	Uses Toolbox Tool: ifixit_knowledge_graph.https://www.ifixit.com/Store/Parts/Phillips-00-Screwdriver/IF145-006
+2024-10-14 20:58:06,812 - INFO - 	Uses Toolbox Tool: ifixit_knowledge_graph.http://www.ifixit.com/Tools/Spudger/IF145-002
+2024-10-14 20:58:06,813 - INFO - 	Step: ifixit_knowledge_graph.11786, Order: [0], Text: ['Power down the laptop and remove the battery. Open the laptop cover all of the way.']
+2024-10-14 20:58:06,813 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/2ahoN1SZaDunCRlW.standard
+2024-10-14 20:58:06,813 - INFO - 	Step: ifixit_knowledge_graph.12017, Order: [1], Text: ['Locate the notch under the cover at the top of the keyboard Using the spudger as a lever, lift the plastic covering Carefully remove the rest of the covering from right to left']
+2024-10-14 20:58:06,813 - INFO - 		Uses Tool: ifixit_knowledge_graph.http://www.ifixit.com/Tools/Spudger/IF145-002
+2024-10-14 20:58:06,813 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/bDghaIwVmHtPtMZQ.standard
+2024-10-14 20:58:06,813 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/C3GMiqK2KQ3YLX1n.standard
+2024-10-14 20:58:06,813 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/aSPCQC6EeTlfKx5Z.standard
+2024-10-14 20:58:06,813 - INFO - 	Step: ifixit_knowledge_graph.12019, Order: [2], Text: ['Unscrew the top portion of the keyboard using a #00 screwdriver']
+2024-10-14 20:58:06,815 - INFO - 		Uses Tool: ifixit_knowledge_graph.https://www.ifixit.com/Store/Parts/Phillips-00-Screwdriver/IF145-006
+2024-10-14 20:58:06,815 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/BwGFsYFJ1MNJADcV.standard
+2024-10-14 20:58:06,815 - INFO - 	Step: ifixit_knowledge_graph.12020, Order: [3], Text: ["Hold keyboard from the top and gently pull towards the LCD screen to remove the keyboard from the case Don't pull on the keyboard too forcefully because it is attached to the motherboard with a short, thin ribbon cable"]
+2024-10-14 20:58:06,815 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/QA5Oqh3xJYJcYJAc.standard
+2024-10-14 20:58:06,815 - INFO - 	Step: ifixit_knowledge_graph.12021, Order: [4], Text: ['Once keyboard is out of the case, lay it face-down on the track pad']
+2024-10-14 20:58:06,815 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/GBUxtBDHiMMIo24Y.standard
+2024-10-14 20:58:06,815 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/EsL12USdc1aGVj4E.standard
+2024-10-14 20:58:06,815 - INFO - 	Step: ifixit_knowledge_graph.12022, Order: [5], Text: ['Using a small spudger, pull back on the black bar to release the blue lever']
+2024-10-14 20:58:06,815 - INFO - 		Uses Tool: ifixit_knowledge_graph.http://www.ifixit.com/Tools/Spudger/IF145-002
+2024-10-14 20:58:06,815 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/TAuWhDomSD6ICOYh.standard
+2024-10-14 20:58:06,815 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/gUBVXCcjkITVFUG1.standard
+2024-10-14 20:58:06,815 - INFO - 	Step: ifixit_knowledge_graph.12458, Order: [6], Text: ['Pull up on the metal bar connected to the socket to detach the ribbon cable']
+2024-10-14 20:58:06,816 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/WxSRNoB5gxVV6DaX.standard
+2024-10-14 20:58:06,816 - INFO - 	Step: ifixit_knowledge_graph.13075, Order: [7], Text: ['Press in the tab on the bottom right side of the CD drive The tab comes out on its own; there is no need to pull it out manually.']
+2024-10-14 20:58:06,816 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/eZTRTWQhAnwxWcjT.standard
+2024-10-14 20:58:06,816 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/X1iGHHZrIUe6VE6Q.standard
+2024-10-14 20:58:06,816 - INFO - 	Step: ifixit_knowledge_graph.13079, Order: [8], Text: ['Gently pull the tab to remove the disk tray.']
+2024-10-14 20:58:06,816 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/TgPTif6VHSFgNIim.standard
+2024-10-14 20:58:06,816 - INFO - Procedure: ifixit_knowledge_graph.https://www.ifixit.com/Guide/Dell+Latitude+D620+RAM+Replacement/2395
+2024-10-14 20:58:06,816 - INFO - 	Procedure for: ifixit_knowledge_graph.Dell_Latitude_D620
+2024-10-14 20:58:06,816 - INFO - 			Part of: ifixit_knowledge_graph.Dell_Latitude
+2024-10-14 20:58:06,816 - INFO - 			Part of: ifixit_knowledge_graph.Dell_Laptop
+2024-10-14 20:58:06,816 - INFO - 			Part of: ifixit_knowledge_graph.PC_Laptop
+2024-10-14 20:58:06,816 - INFO - 			Part of: ifixit_knowledge_graph.PC
+2024-10-14 20:58:06,816 - INFO - 			Part of: ifixit_knowledge_graph.Root
+2024-10-14 20:58:06,816 - INFO - 	Procedure for: ifixit_knowledge_graph.Dell_Latitude
+2024-10-14 20:58:06,816 - INFO - 	Procedure for: ifixit_knowledge_graph.Dell_Laptop
+2024-10-14 20:58:06,816 - INFO - 	Procedure for: ifixit_knowledge_graph.PC_Laptop
+2024-10-14 20:58:06,816 - INFO - 	Procedure for: ifixit_knowledge_graph.PC
+2024-10-14 20:58:06,816 - INFO - 	Procedure for: ifixit_knowledge_graph.Root
+2024-10-14 20:58:06,816 - INFO - 	Procedure for: ifixit_knowledge_graph.RAM
+2024-10-14 20:58:06,816 - INFO - 			Part of: ifixit_knowledge_graph.Dell_Latitude_D620
+2024-10-14 20:58:06,817 - INFO - 	Uses Toolbox Tool: ifixit_knowledge_graph.https://www.ifixit.com/Store/Parts/Phillips-00-Screwdriver/IF145-006
+2024-10-14 20:58:06,817 - INFO - 	Uses Toolbox Tool: ifixit_knowledge_graph.http://www.ifixit.com/Tools/Spudger/IF145-002
+2024-10-14 20:58:06,817 - INFO - 	Step: ifixit_knowledge_graph.11786, Order: [0], Text: ['Power down the laptop and remove the battery. Open the laptop cover all of the way.']
+2024-10-14 20:58:06,817 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/2ahoN1SZaDunCRlW.standard
+2024-10-14 20:58:06,817 - INFO - 	Step: ifixit_knowledge_graph.12017, Order: [1], Text: ['Locate the notch under the cover at the top of the keyboard Using the spudger as a lever, lift the plastic covering Carefully remove the rest of the covering from right to left']
+2024-10-14 20:58:06,817 - INFO - 		Uses Tool: ifixit_knowledge_graph.http://www.ifixit.com/Tools/Spudger/IF145-002
+2024-10-14 20:58:06,817 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/bDghaIwVmHtPtMZQ.standard
+2024-10-14 20:58:06,817 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/C3GMiqK2KQ3YLX1n.standard
+2024-10-14 20:58:06,817 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/aSPCQC6EeTlfKx5Z.standard
+2024-10-14 20:58:06,817 - INFO - 	Step: ifixit_knowledge_graph.12019, Order: [2], Text: ['Unscrew the top portion of the keyboard using a #00 screwdriver']
+2024-10-14 20:58:06,817 - INFO - 		Uses Tool: ifixit_knowledge_graph.https://www.ifixit.com/Store/Parts/Phillips-00-Screwdriver/IF145-006
+2024-10-14 20:58:06,817 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/BwGFsYFJ1MNJADcV.standard
+2024-10-14 20:58:06,817 - INFO - 	Step: ifixit_knowledge_graph.12020, Order: [3], Text: ["Hold keyboard from the top and gently pull towards the LCD screen to remove the keyboard from the case Don't pull on the keyboard too forcefully because it is attached to the motherboard with a short, thin ribbon cable"]
+2024-10-14 20:58:06,818 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/QA5Oqh3xJYJcYJAc.standard
+2024-10-14 20:58:06,818 - INFO - 	Step: ifixit_knowledge_graph.12021, Order: [4], Text: ['Once keyboard is out of the case, lay it face-down on the track pad']
+2024-10-14 20:58:06,818 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/GBUxtBDHiMMIo24Y.standard
+2024-10-14 20:58:06,818 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/EsL12USdc1aGVj4E.standard
+2024-10-14 20:58:06,818 - INFO - 	Step: ifixit_knowledge_graph.12022, Order: [5], Text: ['Using a small spudger, pull back on the black bar to release the blue lever']
+2024-10-14 20:58:06,818 - INFO - 		Uses Tool: ifixit_knowledge_graph.http://www.ifixit.com/Tools/Spudger/IF145-002
+2024-10-14 20:58:06,818 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/TAuWhDomSD6ICOYh.standard
+2024-10-14 20:58:06,818 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/gUBVXCcjkITVFUG1.standard
+2024-10-14 20:58:06,818 - INFO - 	Step: ifixit_knowledge_graph.12458, Order: [6], Text: ['Pull up on the metal bar connected to the socket to detach the ribbon cable']
+2024-10-14 20:58:06,818 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/WxSRNoB5gxVV6DaX.standard
+2024-10-14 20:58:06,818 - INFO - 	Step: ifixit_knowledge_graph.12592, Order: [7], Text: ['With the keyboard removed, you should be able to see ram slot A. Place new ram into the slot making sure it is aligned']
+2024-10-14 20:58:06,818 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/IoGbjTKJQp6RWEAK.standard
+2024-10-14 20:58:06,818 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/FQGjSnLOHl56KxjH.standard
+2024-10-14 20:58:06,819 - INFO - 	Step: ifixit_knowledge_graph.12597, Order: [8], Text: ['Replace the keyboard by following the previous steps in reverse Close the laptop, and flip it over onto its backside']
+2024-10-14 20:58:06,819 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/w3bFhHGPQXkjA6XN.standard
+2024-10-14 20:58:06,819 - INFO - 	Step: ifixit_knowledge_graph.12599, Order: [9], Text: ['Loosen the screw that holds the RAM cover in place. The screw cannot be fully removed since it is attached to the RAM cover.']
+2024-10-14 20:58:06,819 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/ydWsElGhPISVEEHq.standard
+2024-10-14 20:58:06,819 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/yO2ciI1T3kbwmfLD.standard
+2024-10-14 20:58:06,819 - INFO - 	Step: ifixit_knowledge_graph.12602, Order: [10], Text: ['Insert new ram into slot B']
+2024-10-14 20:58:06,819 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/JhaYOagIyQMsCP14.standard
+2024-10-14 20:58:06,820 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/3VERq1cRdDwWmtnE.standard
