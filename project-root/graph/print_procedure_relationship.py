@@ -21,7 +21,7 @@ def print_procedure_relationships(onto):
         
         # Log related Items
         for item in procedure.procedure_for:
-            logger.info(f"\tRelated Item: {item}")
+            logger.info(f"\tProcedure for: {item}")
             
             # Lewei oppsie
             for part in item.part_of:
@@ -42,6 +42,9 @@ def print_procedure_relationships(onto):
             # Log related Images in the step
             for image in step.has_image:
                 logger.info(f"\t\tUses Image: {image}")
+
+        for procedure in procedure.sub_procedure_of:
+            logger.info(f"Procedure is a sub-procedure of: {procedure}")
 
 # Call the function to print relationships
 graph = get_ontology(KNOWLEDGE_GRAPH).load()

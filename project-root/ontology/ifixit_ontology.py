@@ -84,6 +84,17 @@ with onto:
         sub_procedure_of.only(procedure_for.some(Item))
         )     
     
+    sub_procedure_rule = Imp()
+    sub_procedure_rule.set_as_rule("""Procedure(?p1), Item(?i), procedure_for(?p1, ?i), 
+                                Procedure(?p2), procedure_for(?p2, ?i)->
+                                sub_procedure_of(?p1, ?p2), sub_procedure_of(?p2, ?p1)""")
+
+
+    # part_of_rule = Imp()
+    # part_of_rule.set_as_rule("""Procedure(?p), Part(?i), procedure_for(?p, ?i), Item(?i1), procedure_for(?p, ?i1) ->
+    #                         part_of(?i, ?i1)
+    # """)
+
     """A Procedure uses tools that are in its toolbox."""
     Procedure.is_a.append(uses_tool.only(in_toolbox.some(Procedure)))  # Tools in the Procedure's toolbox
 
@@ -160,7 +171,7 @@ with onto:
             safe_append(procedure_instance.procedure_for, item_instance)
 
             for ancestor_name in procedure['Ancestors']:
-                ancestor_instance = get_or_create_instance(onto.Item, ancestor_name.replace(' ', '_').replace('"', '-Inch').strip("'")     )
+                ancestor_instance = get_or_create_instance(onto.Item, ancestor_name.replace(' ', '_').replace('"', '-Inch').strip("'"))
                 safe_append(procedure_instance.procedure_for, ancestor_instance)
                 safe_append(item_instance.part_of, ancestor_instance)
             
