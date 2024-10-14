@@ -22,6 +22,10 @@ def print_procedure_relationships(onto):
         # Log related Items
         for item in procedure.procedure_for:
             logger.info(f"\tRelated Item: {item}")
+            
+            # Lewei oppsie
+            for part in item.part_of:
+                logger.info(f"\t\t\tPart of: {part}")
 
         # Log related Tools in the procedure toolbox
         for tool in procedure.uses_tool:
