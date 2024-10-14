@@ -155,13 +155,13 @@ with onto:
             safe_append(procedure_instance.has_name, procedure['Title'])
 
             # Process item category of procedure
-            item_name = procedure['Category'].replace(' ', '_')     # Prevent serialisation errors
+            item_name = procedure['Category'].replace(' ', '_').replace('"', '-Inch').strip("'")     # Prevent serialisation errors
             item_instance = get_or_create_instance(onto.Item, item_name)
             safe_append(item_instance.has_name, procedure['Category'])
             safe_append(procedure_instance.procedure_for, item_instance)
             
             # Process part (subject or procedure)
-            part_name = procedure['Subject'].replace(' ','_')
+            part_name = procedure['Subject'].replace('"', '-Inch').strip("'")
             part_instance = get_or_create_instance(onto.Part, part_name)
             safe_append(part_instance.has_name, procedure['Subject'])
             safe_append(part_instance.part_of, item_instance)
