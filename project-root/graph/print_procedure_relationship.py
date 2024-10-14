@@ -1,13 +1,13 @@
 # Simple program to represent knowledge graph based around procedures
 # NOTE: Run `python3 -m graph.print_procedure_relationship` in /project-root
 
-from config import KNOWLEDGE_GRAPH
+from config import KNOWLEDGE_GRAPH, PROCEDURE_RELATIONSHIP
 from owlready2 import get_ontology
 import logging
 
 # Configure logging to output to a file
 logging.basicConfig(
-    filename="graph/procedure_relationships.log",  # Log file name
+    filename=PROCEDURE_RELATIONSHIP,  # Log file name
     level=logging.INFO,                      # Set logging level to INFO
     format="%(asctime)s - %(levelname)s - %(message)s",  # Log format
     filemode='w'                             # Overwrite the log file each time
