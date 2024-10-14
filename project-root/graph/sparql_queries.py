@@ -3,46 +3,6 @@
 
 from rdflib import Graph
 from config import KNOWLEDGE_GRAPH
-from owlready2 import get_ontology
-import logging
-
-# Configure logging to output to a file
-logging.basicConfig(
-    filename="graph/procedure_relationships.log",  # Log file name
-    level=logging.INFO,                      # Set logging level to INFO
-    format="%(asctime)s - %(levelname)s - %(message)s",  # Log format
-    filemode='w'                             # Overwrite the log file each time
-)
-
-logger = logging.getLogger(__name__)  # Create a logger
-
-def print_procedure_relationships(onto):
-    for procedure in onto.Procedure.instances():
-        logger.info(f"Procedure: {procedure}")
-        
-        # Log related Items
-        for item in procedure.procedure_for:
-            logger.info(f"\tRelated Item: {item}")
-
-        # Log related Tools in the procedure toolbox
-        for tool in procedure.uses_tool:
-            logger.info(f"\tUses Toolbox Tool: {tool}")
-
-        # Log related Steps
-        for step in procedure.has_step:
-            logger.info(f"\tStep: {step}, Order: {step.has_order}, Text: {step.has_text}")
-            
-            # Log related Tools in the step
-            for tool in step.uses_tool:
-                logger.info(f"\t\tUses Tool: {tool}")
-
-            # Log related Images in the step
-            for image in step.has_image:
-                logger.info(f"\t\tUses Image: {image}")
-
-# Call the function to print relationships
-onto = get_ontology(KNOWLEDGE_GRAPH).load()
-print_procedure_relationships(onto)
 
 # Load in the knowledge graph from RDF file
 g = Graph()
