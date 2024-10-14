@@ -141,10 +141,9 @@ def check_in_toolbox(tool_name, toolbox_name_url):
         if match: matches.append(value) # Return tool_id if match is found
     return matches
 
-# Begin ontology population
 with onto:
     # Use unique identifier (preferably URL for URI), then set the attribute name for pretty print name
-    for line_number, procedure in enumerate(data, start=1):
+    for procedure in data:
         try:
             # Dictionary to cache tool name-URL mappings for each procedure
             toolbox_name_url = {}
@@ -161,7 +160,7 @@ with onto:
             safe_append(procedure_instance.procedure_for, item_instance)
             
             # Process part (subject or procedure)
-            part_name = procedure['Subject'].replace('"', '-Inch').strip("'")
+            part_name = procedure['Subject'].replace('"', '-Inch').strip("'").replace(' ', '_')
             part_instance = get_or_create_instance(onto.Part, part_name)
             safe_append(part_instance.has_name, procedure['Subject'])
             safe_append(part_instance.part_of, item_instance)
@@ -198,29 +197,16 @@ with onto:
                     tool_ids = check_in_toolbox(tool_name, toolbox_name_url)
                     if len(tool_ids) == 0:
                         # NOTE to Lewei: Skip tools that aren't in the toolbox
-                        logger.warning(f"Line {line_number}: Tool '{tool}' extracted in step but not in toolbox.")
+                        logger.warning(f"Tool '{tool_name}' extracted in step but not in toolbox for procedure {procedure['Title']}")
                         continue
-                    tool_instance = get_or_create_instance(onto.Tool, tool_id)
-                    safe_append(step_instance.uses_tool, tool_instance)
-            
-            # Example: Check if the procedure has steps
-            if not procedure_instance.has_step:
-                logger.warning(f"Line {line_number}: Procedure '{procedure['Title']}' has no steps defined. ")
-
-            # Check if a step is missing a text or order
-            for step in procedure.get('Steps', []):
-                if 'Text_raw' not in step or 'Order' not in step:
-                    logger.warning(f"Line {line_number}: Step with ID '{step.get('StepId')}' in procedure '{procedure['Title']}' is missing required data. ")
-                    continue
-                
-                for tool_id in tool_ids:
-                    tool_instance = get_or_create_instance(onto.Tool, tool_id)
-                    safe_append(step_instance.uses_tool, tool_instance)
+                    for tool_id in tool_ids:
+                        tool_instance = get_or_create_instance(onto.Tool, tool_id)
+                        safe_append(step_instance.uses_tool, tool_instance)
         
         except KeyError as e:
-            logger.error(f"Line {line_number}: Missing field {str(e)} in procedure {procedure.get('Title', 'Unknown')}")
+            logger.error(f"Missing field {str(e)} in procedure {procedure.get('Title', 'Unknown')}")
         except Exception as e: 
-            logger.error(f"Line {line_number}: Unexpected error while processing procedure {procedure.get('Title', 'Unknown')}: {str(e)}")
+            logger.error(f"Unexpected error while processing procedure {procedure.get('Title', 'Unknown')}: {str(e)}")
     
 # Sync the reasoner
 sync_reasoner(infer_property_values=True)
