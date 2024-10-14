@@ -17,5 +17,5 @@ def pretty_print_json(input_file):
     print(f"Pretty-printed JSON saved to {output_file}")
 
 # Example usage
-input_file = 'test.json'  # Replace this with your actual file
+input_file = 'desktop_pcs.json'  # Replace this with your actual file
 pretty_print_json(input_file)

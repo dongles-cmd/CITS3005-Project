@@ -84,6 +84,16 @@ with onto:
         sub_procedure_of.only(procedure_for.some(Item))
         )     
     
+    sub_procedure_rule = Imp()
+    sub_procedure_rule.set_as_rule("""Procedure(?p1), Item(?i), procedure_for(?p1, ?i), 
+                                Procedure(?p2), procedure_for(?p2, ?i)->
+                                sub_procedure_of(?p1, ?p2), sub_procedure_of(?p2, ?p1)""")
+
+    part_of_rule = Imp()
+    part_of_rule.set_as_rule("""Procedure(?p), Part(?i), procedure_for(?p, ?i), Item(?i1), procedure_for(?p, ?i1) ->
+                            part_of(?i, ?i1)
+    """)
+
     """A Procedure uses tools that are in its toolbox."""
     Procedure.is_a.append(uses_tool.only(in_toolbox.some(Procedure)))  # Tools in the Procedure's toolbox
 
@@ -160,15 +170,15 @@ with onto:
             safe_append(procedure_instance.procedure_for, item_instance)
 
             for ancestor_name in procedure['Ancestors']:
-                ancestor_instance = get_or_create_instance(onto.Item, ancestor_name.replace(' ', '_').replace('"', '-Inch').strip("'")     )
-                safe_append(procedure_instance.procedure_for, ancestor_instance)
+                ancestor_instance = get_or_create_instance(onto.Item, ancestor_name.replace(' ', '_').replace('"', '-Inch').strip("'"))
+                # safe_append(procedure_instance.procedure_for, ancestor_instance)
                 safe_append(item_instance.part_of, ancestor_instance)
             
             # Process part (subject or procedure)
             part_name = procedure['Subject'].replace('"', '-Inch').strip("'").replace(' ', '_')
             part_instance = get_or_create_instance(onto.Part, part_name)
             safe_append(part_instance.has_name, procedure['Subject'])
-            safe_append(part_instance.part_of, item_instance)
+            # safe_append(part_instance.part_of, item_instance)
             safe_append(procedure_instance.procedure_for, part_instance)
 
             # Process toolbox (tools used in procedure)
@@ -213,16 +223,16 @@ with onto:
         except Exception as e: 
             logger.error(f"Unexpected error while processing procedure {procedure.get('Title', 'Unknown')}: {str(e)}")
     
-# Sync the reasoner
-sync_reasoner(infer_property_values=True)
+    # Sync the reasoner
+    sync_reasoner(infer_property_values=True)
 
-# Save the updated ontology
-onto.save(file=KNOWLEDGE_GRAPH, format='rdfxml')
-logger.info(f"Knowledge graph saved successfully as '{KNOWLEDGE_GRAPH}'.")
+    # Save the updated ontology
+    onto.save(file=KNOWLEDGE_GRAPH, format='rdfxml')
+    logger.info(f"Knowledge graph saved successfully as '{KNOWLEDGE_GRAPH}'.")
 
-print(f"Procedures {len(list(onto.Procedure.instances()))}")
-print(f"Items {len(list(onto.Item.instances()))}")
-print(f"Tools {len(list(onto.Tool.instances()))}")
-print(f"Parts {len(list(onto.Part.instances()))}")
-print(f"Steps {len(list(onto.Step.instances()))}")
-print(f"Images {len(list(onto.Image.instances()))}")
+    print(f"Procedures {len(list(onto.Procedure.instances()))}")
+    print(f"Items {len(list(onto.Item.instances()))}")
+    print(f"Tools {len(list(onto.Tool.instances()))}")
+    print(f"Parts {len(list(onto.Part.instances()))}")
+    print(f"Steps {len(list(onto.Step.instances()))}")
+    print(f"Images {len(list(onto.Image.instances()))}")
