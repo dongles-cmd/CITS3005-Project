@@ -212,6 +212,7 @@ with onto:
                 if 'Text_raw' not in step or 'Order' not in step:
                     logger.warning(f"Line {line_number}: Step with ID '{step.get('StepId')}' in procedure '{procedure['Title']}' is missing required data. ")
                     continue
+                
                 for tool_id in tool_ids:
                     tool_instance = get_or_create_instance(onto.Tool, tool_id)
                     safe_append(step_instance.uses_tool, tool_instance)

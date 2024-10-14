@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="resources" class="section">
+    <div class="container">
+        <h1>Project Resources</h1>
+        <p>This project makes use of several tools, libraries, and datasets to build and manage the iFixit Knowledge Graph. Below is an overview of the key resources used:</p>
+
+        <section class="resource-section">
+            <h2>Libraries & Frameworks</h2>
+            <ul>
+                <li>
+                    <h3><a href="https://owlready2.readthedocs.io/">Owlready2</a></h3>
+                    <p>Owlready2 is used for creating and manipulating OWL ontologies. It enables reasoning, querying, and modifying ontologies using Python. This library powers the ontology representation and validation in the project.</p>
+                </li>
+                <li>
+                    <h3><a href="https://rdflib.dev/">RDFLib</a></h3>
+                    <p>RDFLib is a Python library used for working with RDF (Resource Description Framework) data. It allows us to create a knowledge graph, manage triples, and execute SPARQL queries over the graph.</p>
+                </li>
+                <li>
+                    <h3><a href="https://flask.palletsprojects.com/">Flask</a></h3>
+                    <p>Flask is a lightweight web framework for Python. It's used to create the web interface that allows users to interact with the knowledge graph and ontology via a browser.</p>
+                </li>
+                <li>
+                    <h3><a href="https://fontawesome.com/">FontAwesome</a></h3>
+                    <p>FontAwesome provides the icons used throughout the web interface, improving the visual layout and user experience.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="resource-section light-background">
+            <h2>Data Sources</h2>
+            <ul>
+                <li>
+                    <h3><a href="https://github.com/iFixit">iFixit Dataset</a></h3>
+                    <p>The iFixit dataset is a collection of repair guides and manuals sourced from the iFixit community. It includes detailed steps, tools, and parts information for repairing various devices.</p>
+                </li>
+                <li>
+                    <h3>Custom Ontology</h3>
+                    <p>A custom ontology is built from the iFixit dataset to represent procedures, items, parts, tools, and steps. This ontology is created using OWLready2 and is key to understanding the structure of repair guides in a semantic way.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="resource-section">
+            <h2>Additional Resources & Tutorials</h2>
+            <ul>
+                <li>
+                    <h3><a href="https://owlready2.readthedocs.io/en/latest/onto.html">Owlready2 Ontology Guide</a></h3>
+                    <p>A tutorial on creating and managing OWL ontologies using Owlready2. This guide was fundamental in structuring the ontology used in this project.</p>
+                </li>
+                <li>
+                    <h3><a href="https://rdflib.readthedocs.io/en/stable/gettingstarted.html">RDFLib Documentation</a></h3>
+                    <p>This documentation covers how to create and query RDF graphs using RDFLib, which was used to implement the knowledge graph and handle SPARQL queries.</p>
+                </li>
+                <li>
+                    <h3><a href="https://flask.palletsprojects.com/en/2.0.x/tutorial/">Flask Web Framework Tutorial</a></h3>
+                    <p>A comprehensive tutorial on building web applications using Flask. This resource helped in building the interface for interacting with the ontology and knowledge graph.</p>
+                </li>
+                <li>
+                    <h3><a href="https://developers.google.com/chart">Google Charts</a></h3>
+                    <p>Although optional, Google Charts can be used to visualize the data in the knowledge graph. This might be used for future visualization enhancements.</p>
+                </li>
+            </ul>
+        </section>
+    </div>
+</section>
+{% endblock %}

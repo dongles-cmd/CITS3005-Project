@@ -1,0 +1,67 @@
+<!--Home Page-->
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <h1>Welcome to the iFixit Knowledge Graph</h1>
+        <p>Browse, search, and explore repair procedures using our interactive knowledge graph.</p>
+        <a href="/search" class="cta-button">Get Started</a>
+    </div>
+</section>
+
+<section id="overview" class="section">
+    <div class="container">
+        <h2>Project Overview</h2>
+        <p>This project is part of the CITS3005 course and is worth 30% of the final grade, due October 18, 2024. It focuses on building a knowledge graph and ontology for the <strong>iFixit</strong> dataset, representing repair procedures for various devices.</p>
+        <p>The project involves:</p>
+        <ul>
+            <li>Creating an ontology to describe concepts like procedures, items, tools, and steps.</li>
+            <li>Populating the ontology with data from the iFixit dataset and running meaningful queries.</li>
+            <li>Building a lightweight application (command-line or Flask-based) to browse and search the knowledge graph.</li>
+            <li>Writing a user manual and report outlining the design and execution process.</li>
+        </ul>
+    </div>
+</section>
+
+<section id="features" class="section light-background">
+    <div class="container">
+        <h2>Features</h2>
+        <ul>
+            <li><i class="fas fa-tools"></i> <strong>Ontology:</strong> Describes procedures, tools, items, and steps, enforcing rules like tool usage and part-subprocedure relationships.</li>
+            <li><i class="fas fa-search"></i> <strong>Knowledge Graph:</strong> Populated with iFixit data, searchable via SPARQL queries.</li>
+            <li><i class="fas fa-chart-network"></i> <strong>Search:</strong> Find procedures, items, tools, and steps using keyword or structured search.</li>
+            <li><i class="fas fa-exclamation-triangle"></i> <strong>Error Checking:</strong> Automatically identify inconsistencies in the data based on the ontology.</li>
+        </ul>
+    </div>
+</section>
+
+<section id="resources" class="section">
+    <div class="container">
+        <h2>Project Resources</h2>
+        <ul>
+            <li><a href="https://owlready2.readthedocs.io/">Owlready2</a> for ontology management and reasoning</li>
+            <li><a href="https://rdflib.dev/">RDFLib</a> for knowledge graph management and SPARQL queries</li>
+            <li><a href="https://flask.palletsprojects.com/">Flask</a> for building the web interface</li>
+            <li><a href="https://github.com/iFixit">iFixit Data</a> for the knowledge base</li>
+        </ul>
+    </div>
+</section>
+
+<section id="manual" class="section light-background">
+    <div class="container">
+        <h2>User Manual</h2>
+        <p>Learn how to use the iFixit Knowledge Graph application, form queries, and interpret the output. The manual includes step-by-step instructions and a detailed schema overview.</p>
+        <a href="/user-manual" class="cta-button">View User Manual</a>
+    </div>
+</section>
+
+<section id="report" class="section">
+    <div class="container">
+        <h2>Project Report</h2>
+        <p>The project report explains the design choices, tools used, and time spent on various tasks. It also provides an overview of the collaboration if you worked in pairs.</p>
+        <a href="/report" class="cta-button">View Project Report</a>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="search-section">
+    <div class="container">
+        <h1>Search the iFixit Knowledge Graph</h1>
+        <p>Enter a search term and select whether you want to search the knowledge graph or the ontology.</p>
+        <form method="POST" action="/search">
+            <label for="query">Search Term:</label>
+            <input type="text" id="query" name="query" placeholder="Enter search term..." required>
+
+            <label for="type">Search Type:</label>
+            <select id="type" name="type">
+                <option value="graph">Knowledge Graph</option>
+                <option value="ontology">Ontology</option>
+            </select>
+
+            <button type="submit" class="cta-button">Search</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

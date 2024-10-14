@@ -1,0 +1,407 @@
+/* Custom CSS mimicking the iFixit style */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #0055aa;
+    padding: 15px;
+}
+
+header .logo img {
+    height: 40px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero {
+    background-color: #e9f5ff;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    padding: 10px 20px;
+    background-color: #0055aa;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.features {
+    background-color: #fff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.features ul li {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.features ul li i {
+    color: #0055aa;
+    margin-right: 10px;
+}
+
+.search-section {
+    padding: 50px 0;
+    background-color: #e9f5ff;
+    text-align: center;
+}
+
+.search-section h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.search-section form {
+    display: inline-block;
+    text-align: left;
+}
+
+.search-section label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.search-section input, .search-section select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-section .cta-button {
+    padding: 10px 20px;
+    background-color: #0055aa;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.search-results {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.search-results ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.search-results ul li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.logo img {
+    height: 50px; /* Adjust height as needed */
+    width: auto;
+}
+
+header {
+    background-color: #0055aa; /* iFixit blue */
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0055aa;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo img {
+    height: 50px;
+    width: auto;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    margin: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+}
+
+main {
+    padding: 50px 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    color: #0055aa;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 0;
+    background-color: #e9f5ff;
+}
+
+.hero .cta-button {
+    padding: 15px 25px;
+    background-color: #0055aa;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.hero .cta-button:hover {
+    background-color: #003f7f;
+}
+
+.section {
+    padding: 50px 0;
+}
+
+.section.light-background {
+    background-color: #f4f4f4;
+}
+
+.section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.section ul li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.section ul li i {
+    color: #0055aa;
+    margin-right: 10px;
+}
+
+.cta-button {
+    padding: 10px 20px;
+    background-color: #0055aa;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background-color: #003f7f;
+}
+
+footer {
+    background-color: #0055aa;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* General styling for sections */
+.section {
+    padding: 50px 0;
+}
+
+.section.light-background {
+    background-color: #f4f4f4;
+}
+
+.resource-section h2 {
+    color: #0055aa;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.resource-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.resource-section ul li {
+    margin-bottom: 30px;
+}
+
+.resource-section ul li h3 {
+    font-size: 20px;
+    color: #0055aa;
+}
+
+.resource-section ul li p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.resource-section ul li a {
+    text-decoration: none;
+    color: #0055aa;
+}
+
+.resource-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.logo-container {
+    display: flex; /* Use flexbox to align items in a row */
+    align-items: center; /* Center logos vertically */
+}
+
+.logo-img {
+    max-height: 50px; /* Adjust height as needed */
+    margin-right: 10px; /* Space between logos */
+}
+
+.uwa-logo {
+    max-height: 50px; /* Ensure UWA logo is the same height as iFixit logo */
+}
+
+
+/* Styles for larger logo */
+.large-logo {
+    width: 150px; /* Adjust size as needed */
+}
+
+.uwa-logo {
+    width: 120px; /* Adjust size as needed */
+}
+
+/* Sticky header to remain at the top when scrolling */
+.sticky-header {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: 0px 4px 2px -2px gray; /* Add slight shadow for effect */
+    padding: 10px 0;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px 12px;
+}
+
+.nav-links a:hover {
+    background-color: #0073e6;
+    color: white;
+    border-radius: 4px;
+}
+
+/* Footer styles */
+footer {
+    background-color: #f8f8f8;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+
+footer a {
+    color: #0073e6;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+

@@ -1,0 +1,46 @@
+<!--Base layout for the site-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="sticky-header">
+        <div class="container">
+            <!-- Logo and navigation links -->
+            <div class="logo-container">
+                <a href="/" class="logo">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="iFixit Logo" class="logo-img large-logo">
+                </a>
+                <a href="/" class="logo">
+                    <img src="{{ url_for('static', filename='images/uwa.png') }}" alt="UWA Logo" class="logo-img uwa-logo">
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/search">Search</a></li>
+                    <li><a href="/user-manual">User Manual</a></li>
+                    <li><a href="/report">Project Report</a></li>
+                    <li><a href="/resources">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CITS3005 - iFixit Knowledge Graph Project</p>
+            <p>University of Western Australia | Contact: <a href="mailto:23857377@student.uwa.edu.au">info@uwa.edu.au</a></p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="search-results">
+    <div class="container">
+        <h1>Search Results for "{{ query }}"</h1>
+
+        {% if results %}
+            <ul>
+                {% for result in results %}
+                    <li>{{ result }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No results found.</p>
+        {% endif %}
+
+        <a href="/search" class="cta-button">New Search</a>
+    </div>
+</section>
+{% endblock %}
