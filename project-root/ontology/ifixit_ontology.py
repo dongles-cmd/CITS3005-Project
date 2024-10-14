@@ -171,7 +171,7 @@ with onto:
                 tool_id = tool['Url']
                 tool_name = tool['Name']
                 if not tool_id:
-                    tool_id = tool_name
+                    tool_id = tool_name.replace(' ', '_')
                 tool_instance = get_or_create_instance(onto.Tool, tool_id)
                 toolbox_name_url[tool_name] = tool_id
                 safe_append(tool_instance.has_name, tool_name)
