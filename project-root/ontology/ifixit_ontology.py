@@ -35,7 +35,6 @@ with onto:
         domain = [Step]
         range = [str]
 
-
     # Define object properties
     class uses_tool(ObjectProperty):
         domain = [Thing]    # Both Procedure and Step can use tools
@@ -74,9 +73,6 @@ with onto:
         domain = [Tool]
         range = [Procedure]
 
-
-    # Define relationships 
-
     """A sub-procedure of a procedure must be a procedure for the same item or a part of that item. 
         Sub-procedures share the same item."""
     Procedure.is_a.append(
@@ -84,15 +80,17 @@ with onto:
         sub_procedure_of.only(procedure_for.some(Item))
         )     
     
+    """Inference rule where if two procedures are for the same item, then they are sub-procedures of each other"""
     sub_procedure_rule = Imp()
     sub_procedure_rule.set_as_rule("""Procedure(?p1), Item(?i), procedure_for(?p1, ?i), 
-                                Procedure(?p2), procedure_for(?p2, ?i)->
-                                sub_procedure_of(?p1, ?p2), sub_procedure_of(?p2, ?p1)""")
+                                      Procedure(?p2), procedure_for(?p2, ?i)->
+                                      sub_procedure_of(?p1, ?p2), sub_procedure_of(?p2, ?p1)""")
 
+    """Inference rule where if a procedure is for both a part and an item, then the part is a part of the item"""
     part_of_rule = Imp()
-    part_of_rule.set_as_rule("""Procedure(?p), Part(?i), procedure_for(?p, ?i), Item(?i1), procedure_for(?p, ?i1) ->
-                            part_of(?i, ?i1)
-    """)
+    part_of_rule.set_as_rule("""Procedure(?p), Part(?i), procedure_for(?p, ?i), 
+                                Item(?i1), procedure_for(?p, ?i1) ->
+                                part_of(?i, ?i1)""")
 
     """A Procedure uses tools that are in its toolbox."""
     Procedure.is_a.append(uses_tool.only(in_toolbox.some(Procedure)))  # Tools in the Procedure's toolbox
@@ -226,13 +224,13 @@ with onto:
     # Sync the reasoner
     sync_reasoner(infer_property_values=True)
 
-    # Save the updated ontology
-    onto.save(file=KNOWLEDGE_GRAPH, format='rdfxml')
-    logger.info(f"Knowledge graph saved successfully as '{KNOWLEDGE_GRAPH}'.")
+# Save the updated ontology
+onto.save(file=KNOWLEDGE_GRAPH, format='rdfxml')
+logger.info(f"Knowledge graph saved successfully as '{KNOWLEDGE_GRAPH}'.")
 
-    print(f"Procedures {len(list(onto.Procedure.instances()))}")
-    print(f"Items {len(list(onto.Item.instances()))}")
-    print(f"Tools {len(list(onto.Tool.instances()))}")
-    print(f"Parts {len(list(onto.Part.instances()))}")
-    print(f"Steps {len(list(onto.Step.instances()))}")
-    print(f"Images {len(list(onto.Image.instances()))}")
+print(f"Procedures {len(list(onto.Procedure.instances()))}")
+print(f"Items {len(list(onto.Item.instances()))}")
+print(f"Tools {len(list(onto.Tool.instances()))}")
+print(f"Parts {len(list(onto.Part.instances()))}")
+print(f"Steps {len(list(onto.Step.instances()))}")
+print(f"Images {len(list(onto.Image.instances()))}")
