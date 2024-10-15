@@ -4,10 +4,6 @@ from config import KNOWLEDGE_GRAPH
 
 app = Flask(__name__)
 
-# Load the RDF graph and procedures at the start of the application
-graph = load_graph(KNOWLEDGE_GRAPH)
-procedure_data = extract_procedures(graph)
-
 # Route for the home page
 @app.route('/')
 def index():
@@ -22,7 +18,7 @@ def search():
     
     if query:
         # Perform the fuzzy search using search logic
-        all_results = fuzzy_search_procedures(query, KNOWLEDGE_GRAPH)
+        all_results = search_procedures(query)
         
         # Slice results based on pagination
         start = (page - 1) * per_page

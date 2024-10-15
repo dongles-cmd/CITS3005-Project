@@ -57,13 +57,11 @@ def filter_duplicated_matches(duplicated_matches):
     
     return list(filtered_matches)
 
-def main():
+def search_procedures(query):
     g = get_ontology(KNOWLEDGE_GRAPH).load()
     data = extract_procedures(g)
-    matches = fuzzy_search(query="ram", procedure_data=data)
+    matches = fuzzy_search(query=query, procedure_data=data)
     return matches
 
 if __name__ == "__main__":
-    results = main()
-    for i in results:
-        print(i)
+    print(search_procedures(query="Dell"))
