@@ -60,7 +60,8 @@ def init_ontology(verbose=False):
             """Enforce that each step has a sequential order, e.g., step 1 comes before step 2. """
             domain = [Step]
             range = [Step]
-        
+            transitive = True
+
         class in_toolbox(ObjectProperty):
             """Ensure that if a tool is used in a step, it must be in the toolbox of the procedure. """
             domain = [Tool]
@@ -84,6 +85,16 @@ def init_ontology(verbose=False):
         part_of_rule.set_as_rule("""Procedure(?p), Part(?i), procedure_for(?p, ?i), 
                                     Item(?i1), procedure_for(?p, ?i1) ->
                                     part_of(?i, ?i1)""")
+                
+        # precedes_rule = Imp()
+        # precedes_rule.set_as_rule("""
+        #     Step(?s1), Step(?s2), Procedure(?p), 
+        #     has_step(?p, ?s1), has_step(?p, ?s2),
+        #     has_order(?s1, ?o1), has_order(?s2, ?o2),
+        #     subtract(?o1, ?o2, 1)
+        #     -> 
+        #     precedes(?s1, ?s2)
+        # """)
 
         """A Procedure uses tools that are in its toolbox."""
         Procedure.is_a.append(uses_tool.only(in_toolbox.some(Procedure)))  # Tools in the Procedure's toolbox
@@ -96,7 +107,6 @@ def init_ontology(verbose=False):
         Step.is_a.append(uses_tool.only(in_toolbox.some(Procedure)))  # Step tools must be in Procedure's toolbox
 
         """Step relationships."""
-        Step.is_a.append(precedes.only(Step))  # Each step has a predecessor
         Step.is_a.append(has_text.some(str))  # Each step has some text description
 
     # Save the ontology

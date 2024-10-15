@@ -4,6 +4,6 @@ Run init.py from the project root directory to:
 - Check SHACL constraints
 - Launch the applications
 
-By default init.py will run with minimal output, use -inspectionmode for verbose output and breaks between each process
+By default init.py will run with minimal output, use -inspectmode for verbose output and breaks between each process
 
 Please read the user manual before using the app

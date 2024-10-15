@@ -9,18 +9,18 @@ if __name__ == '__main__':
     # Parse arguments
     parser = argparse.ArgumentParser(
         description='Construct an ontology and knowledge graph for subset of Myfixit data and initialize a user app',
-        usage='python3 init.py -inspectionmode')
+        usage='python3 init.py -inspectmode')
     
-    parser.add_argument('-inspectionmode', help="Run verbose", action='store_true')
+    parser.add_argument('-inspectmode', help="Run verbose", action='store_true')
     args = parser.parse_args()
 
-    if args.inspectionmode:
+    if args.inspectmode:
         ifixit_ontology.init_ontology(verbose=True)
         populate_graph.populate(verbose=True)
         check_shacl.check(verbose=True)
         output_kg.print_procedure_relationships()
         sparql_queries.run_queries()
-        app.run_app()
+        app.run_app(verbose=True)
     else:
         ifixit_ontology.init_ontology()
         populate_graph.populate()
