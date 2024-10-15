@@ -1,7 +1,7 @@
 import argparse
 from ontology import ifixit_ontology, populate_graph, check_shacl
 from graph import output_kg, sparql_queries
-from app import app
+# from app import app
 from config import *
 from owlready2 import *
 
@@ -20,9 +20,9 @@ if __name__ == '__main__':
         check_shacl.check(verbose=True)
         output_kg.print_procedure_relationships()
         sparql_queries.run_queries()
-        app.run_app(verbose=True)
+        # app.run_app(verbose=True)
     else:
         ifixit_ontology.init_ontology()
         populate_graph.populate()
         check_shacl.check()
-        app.run_app()
+        # app.run_app()
