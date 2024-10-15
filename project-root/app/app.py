@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from app.search_logic import fuzzy_search_procedures, extract_procedures, load_graph
+from app.search_logic import search_procedures, extract_procedures
 from config import KNOWLEDGE_GRAPH
 
 app = Flask(__name__)

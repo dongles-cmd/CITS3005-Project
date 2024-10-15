@@ -24,7 +24,7 @@ def extract_procedures(graph):
     
     return results
 
-# # Fuzzy search function based on tags
+# Fuzzy search function based on tags
 def fuzzy_search(query, procedure_data):
     # Prepare a list of all tags for fuzzy matching
     all_tags = [tag for proc in procedure_data for tag in proc['tags']]
@@ -60,7 +60,7 @@ def filter_duplicated_matches(duplicated_matches):
 def main():
     g = get_ontology(KNOWLEDGE_GRAPH).load()
     data = extract_procedures(g)
-    matches = fuzzy_search(query="Dell Laptop", procedure_data=data)
+    matches = fuzzy_search(query="ram", procedure_data=data)
     return matches
 
 if __name__ == "__main__":
