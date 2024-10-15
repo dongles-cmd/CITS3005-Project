@@ -16,6 +16,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)  # Create a logger
 
 def print_procedure_relationships(onto):
+    graph = get_ontology(KNOWLEDGE_GRAPH).load()
     for procedure in onto.Procedure.instances():
         logger.info(f"Procedure: {procedure}")
         
@@ -45,7 +46,3 @@ def print_procedure_relationships(onto):
 
         for procedure in procedure.sub_procedure_of:
             logger.info(f"Procedure is a sub-procedure of: {procedure}")
-
-# Call the function to print relationships
-graph = get_ontology(KNOWLEDGE_GRAPH).load()
-print_procedure_relationships(graph)

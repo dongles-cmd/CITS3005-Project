@@ -53,5 +53,5 @@ def report():
 def resources():
     return render_template('resources.html')
 
-if __name__ == '__main__':
-    app.run(debug=True)
+def run_app(debug=False):
+    app.run(debug=debug)

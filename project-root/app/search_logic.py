@@ -1,5 +1,5 @@
 from rdflib import Graph
-from fuzzywuzzy import process
+# from fuzzywuzzy import process
 
 # Load your RDF/XML knowledge graph
 def load_graph(file_path):
