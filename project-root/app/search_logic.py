@@ -64,4 +64,5 @@ def search_procedures(query):
     return matches
 
 if __name__ == "__main__":
-    print(search_procedures(query="Dell"))
+    for i in search_procedures(query="cd"):
+        print(i)

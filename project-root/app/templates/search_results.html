@@ -1,31 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section class="search-results">
+<section class="search-results-section">
     <div class="container">
-        <h1>Results for "{{ query }}"</h1>
-        
+        <h1>Search Results for "{{ query }}"</h1>
+
         {% if results %}
-            <ul class="search-results-list">
+            <ul class="search-results">
                 {% for result in results %}
                     <li class="result-item">
-                        <a href="/procedure/{{ result.procedure_id }}" class="result-link">
-                            <img src="{{ result.image_url }}" alt="{{ result.procedure_name }}" class="result-image">
-                            <div class="result-info">
-                                <span class="result-name">{{ result.procedure_name }}</span>
-                                <p>Related to: {{ result.item_name }}</p>
-                            </div>
+                        <a href="{{ result[1] }}" class="result-link">
+                            <img src="{{ result[2] }}" alt="{{ result[0] }}" class="result-image">
+                            <span class="result-name">{{ result[0] }}</span>
                         </a>
                     </li>
                 {% endfor %}
             </ul>
             
-            {% if has_more %}
-                <div class="load-more">
-                    <a href="/search?q={{ query }}&page={{ page + 1 }}" class="cta-button">Load More</a>
-                </div>
-            {% endif %}
-            
+            <div class="pagination">
+                {% if page > 1 %}
+                    <a href="?q={{ query }}&page={{ page - 1 }}" class="pagination-previous">Previous</a>
+                {% endif %}
+                {% if has_more %}
+                    <a href="?q={{ query }}&page={{ page + 1 }}" class="pagination-next">Next</a>
+                {% endif %}
+            </div>
+
         {% else %}
             <p>No results found for "{{ query }}". Please try another search term.</p>
         {% endif %}

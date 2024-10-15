@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
-from app.search_logic import search_procedures, extract_procedures
-from config import KNOWLEDGE_GRAPH
+from app.search_logic import search_procedures
 
 app = Flask(__name__)
 
@@ -39,15 +38,13 @@ def search():
 def user_manual():
     return render_template('user_manual.html')
 
-# Route for the project report
-@app.route('/report')
-def report():
-    return render_template('report.html')
-
 # Route for the resources page
 @app.route('/resources')
 def resources():
     return render_template('resources.html')
 
-def run_app(debug=False):
+def run_app(debug=True):
     app.run(debug=debug)
+
+if __name__ == "__main__":
+    run_app()
