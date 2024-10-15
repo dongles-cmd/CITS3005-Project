@@ -1,58 +1,69 @@
-from rdflib import Graph
-# from fuzzywuzzy import process
+from fuzzywuzzy import process
+from config import KNOWLEDGE_GRAPH
+from owlready2 import get_ontology
 
-# Load your RDF/XML knowledge graph
-def load_graph(file_path):
-    graph = Graph()
-    graph.parse(file_path, format="xml")
-    return graph
-
-# Function to extract 'procedure_for' relationships
+# Extract procedure details including the first image if it exists
 def extract_procedures(graph):
-    query = """
-    PREFIX ifixit: <http://test.org/ifixit.com#>
-    
-    SELECT ?procedure ?procedure_name ?item_name
-    WHERE {
-        ?procedure a ifixit:Procedure ;
-                   ifixit:has_name ?procedure_name ;
-                   ifixit:procedure_for ?item .
-        ?item ifixit:has_name ?item_name .
-    }
-    """
-    
-    results = graph.query(query)
-    procedure_data = []
-    
-    for row in results:
-        procedure_data.append({
-            "procedure": str(row.procedure),
-            "procedure_name": str(row.procedure_name),
-            "item_name": str(row.item_name)
-        })
-    
-    return procedure_data
+    results = []
 
-# Fuzzy search function
-def fuzzy_search_procedures(query, procedure_data, limit=20):
-    # Extract item names for fuzzy matching
-    item_names = [proc['item_name'] for proc in procedure_data]
+    # Iterate over all procedures in the ontology
+    for procedure in graph.Procedure.instances():
+        procedure_name = str(procedure.has_name).strip("[]'")
+        tags = procedure_name.lower().split(" ")
+        procedure_link = procedure.iri
+
+        # Find the first image (None if no image)
+        image = None
+        for step in procedure.has_step:
+            for img in step.has_image:
+                image = str(img.iri).removeprefix("http://test.org/ifixit.com#")
+                break
+            if image is not None: break
+    
+        results.append({'name':procedure_name, 'link':procedure_link, 'tags':tags, 'image':image})
+    
+    return results
+
+# # Fuzzy search function based on tags
+def fuzzy_search(query, procedure_data):
+    # Prepare a list of all tags for fuzzy matching
+    all_tags = [tag for proc in procedure_data for tag in proc['tags']]
     
     # Get top matches using fuzzy matching
-    matches = process.extract(query, item_names, limit=limit)
+    matches = process.extract(query, all_tags)
     
-    # Prepare matched results with procedure links
+    # Prepare matched results with procedure links and images
     matched_procedures = []
     for match in matches:
-        item_name, score = match
+        tag_name, score = match
         for proc in procedure_data:
-            if proc['item_name'] == item_name:
+            if tag_name in proc['tags']:  # Check if the tag matches
                 matched_procedures.append({
-                    "procedure_name": proc['procedure_name'],
-                    "procedure_link": proc['procedure'],
-                    "item_name": proc['item_name'],
+                    "name": proc['name'],
+                    "link": proc['link'],
+                    "image": proc['image'],
                     "score": score
                 })
-                break
     
-    return matched_procedures
+    return filter_duplicated_matches(matched_procedures)
+
+# Filter the matches to remove duplicates and keep the matching ones
+def filter_duplicated_matches(duplicated_matches):
+    filtered_matches = set()
+    for m in duplicated_matches:
+        # Close enough match
+        if m['score'] >= 90:
+            filtered_matches.add((m['name'], m['link'], m['image']))
+    
+    return list(filtered_matches)
+
+def main():
+    g = get_ontology(KNOWLEDGE_GRAPH).load()
+    data = extract_procedures(g)
+    matches = fuzzy_search(query="Dell Laptop", procedure_data=data)
+    return matches
+
+if __name__ == "__main__":
+    results = main()
+    for i in results:
+        print(i)
