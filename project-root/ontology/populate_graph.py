@@ -126,9 +126,11 @@ def populate(verbose=False):
     # Save the updated ontology
     onto.save(file=KNOWLEDGE_GRAPH, format='rdfxml')
     logger.info(f"\nKnowledge graph saved successfully as '{KNOWLEDGE_GRAPH}'.")
-    print(f"Procedures {len(list(onto.Procedure.instances()))}")
-    print(f"Items {len(list(onto.Item.instances()))}")
-    print(f"Tools {len(list(onto.Tool.instances()))}")
-    print(f"Parts {len(list(onto.Part.instances()))}")
-    print(f"Steps {len(list(onto.Step.instances()))}")
-    print(f"Images {len(list(onto.Image.instances()))}")
+    if verbose:
+        print(f"Procedures {len(list(onto.Procedure.instances()))}")
+        print(f"Items {len(list(onto.Item.instances()))}")
+        print(f"Tools {len(list(onto.Tool.instances()))}")
+        print(f"Parts {len(list(onto.Part.instances()))}")
+        print(f"Steps {len(list(onto.Step.instances()))}")
+        print(f"Images {len(list(onto.Image.instances()))}")
+        input("\nPress any key to continue...")

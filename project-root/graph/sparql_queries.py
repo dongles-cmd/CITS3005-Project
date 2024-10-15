@@ -82,3 +82,5 @@ def run_queries():
     print("\nPotentially hazardous procedures:")
     for result in g.query(query):
         print(f"Procedures [{result['procedure_name']}] may be potentially hazardous")
+
+    input("\nPress any key to continue...")

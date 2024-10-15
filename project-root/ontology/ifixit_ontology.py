@@ -101,4 +101,22 @@ def init_ontology(verbose=False):
 
     # Save the ontology
     onto.save(file=ONTOLOGY)
+    
+    if verbose:
+        print("\nOntology Classes:")
+        for cls in onto.classes():
+            print(f"- Class: {cls.name}")
+            for subclass in cls.subclasses():
+                print(f"  - Subclass: {subclass.name}")
+
+        print("\nObject Properties:")
+        for prop in onto.object_properties():
+            print(f"- Object Property: {prop.name} ({set(prop.domain)} >> {set(prop.range)})")
+
+        print("\nData Properties:")
+        for prop in onto.data_properties():
+            print(f"- Object Property: {prop.name} ({set(prop.domain)} >> {set(prop.range)})")
+
+        input("\nPress any key to continue...")
+
     print(f".owl ontology file saved to {ONTOLOGY}")
