@@ -1,6 +1,7 @@
 import argparse
 from ontology import ifixit_ontology, populate_graph, check_shacl
 from graph import output_kg, sparql_queries
+# from app import app
 
 if __name__ == '__main__':
     # Parse arguments
@@ -15,5 +16,7 @@ if __name__ == '__main__':
     ifixit_ontology.init_ontology(verbose=args.v)
     populate_graph.populate(verbose=args.v)
     check_shacl.check(verbose=args.v)
-    output_kg.print_procedure_relationships()
-    sparql_queries.run_queries()
+    if args.v:
+        output_kg.print_procedure_relationships()
+        sparql_queries.run_queries()
+    #Run app
