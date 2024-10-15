@@ -9,11 +9,20 @@ def extract_procedures(graph):
     # Iterate over all procedures in the ontology
     for procedure in graph.Procedure.instances():
         procedure_name = str(procedure.has_name).strip("[]'")
-        tags = procedure_name.lower().split(" ")
+        tag = procedure_name.lower().split(" ")
         procedure_link = procedure.iri
 
         # Find the first image (None if no image)
         image = None
+
+        tags = set()
+        for item in procedure.procedure_for:
+            tags.add(str(item.iri).removeprefix("http://test.org/ifixit.com#").replace("_", " "))
+        for p in tag:
+            tags.add(p)
+        
+        tags = list(tags)
+
         for step in procedure.has_step:
             for img in step.has_image:
                 image = str(img.iri).removeprefix("http://test.org/ifixit.com#")
@@ -52,7 +61,7 @@ def filter_duplicated_matches(duplicated_matches):
     filtered_matches = set()
     for m in duplicated_matches:
         # Close enough match
-        if m['score'] >= 90:
+        if m['score'] >= 96:
             filtered_matches.add((m['name'], m['link'], m['image']))
     
     return list(filtered_matches)
