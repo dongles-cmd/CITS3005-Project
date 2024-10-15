@@ -1,0 +1,20 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://test.org/ifixit.com#> .
+
+ex:ProcedureShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Procedure ;
+    sh:property [
+        sh:path ex:procedure_for ;
+        sh:minCount 1 ;
+        sh:message "A Procedure must have at least one procedure_for relationship." ;
+    ] .
+
+ex:PartShape
+    a sh:NodeShape ;
+    sh:targetClass ex:Part ;
+    sh:property [
+        sh:path ex:part_of ;
+        sh:minCount 1 ;
+        sh:message "A Part must be part_of at least one Item." ;
+    ] .

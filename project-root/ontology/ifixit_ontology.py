@@ -4,7 +4,9 @@
 from owlready2 import *
 import json
 import logging
-from config import DATASET, ONTOLOGY, KNOWLEDGE_GRAPH
+from pyshacl import validate
+from rdflib import Graph
+from config import DATASET, ONTOLOGY, KNOWLEDGE_GRAPH, SHACL_CONSTRAINTS
 
 # basic logging for error checking
 logging.basicConfig(level=logging.INFO)
@@ -109,7 +111,6 @@ with onto:
 # Save the ontology
 onto.save(file=ONTOLOGY)
 
-# Use subset of PC.json dataset (e.g. "Dell Latitude" PCs)
 onto = get_ontology(ONTOLOGY).load()
 with open(DATASET, 'r') as file:
     data = json.load(file)
@@ -223,6 +224,14 @@ with onto:
     
     # Sync the reasoner
     sync_reasoner(infer_property_values=True)
+
+data_graph = Graph()
+data_graph.parse(KNOWLEDGE_GRAPH)
+shacl_graph = Graph()
+shacl_graph.parse(SHACL_CONSTRAINTS, format='ttl')
+conforms, results_graph, results_text = validate(data_graph, shacl_graph=shacl_graph, inference='both')
+print('\n')
+print(results_text)
 
 # Save the updated ontology
 onto.save(file=KNOWLEDGE_GRAPH, format='rdfxml')
