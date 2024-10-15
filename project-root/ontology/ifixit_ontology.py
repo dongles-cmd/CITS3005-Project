@@ -103,8 +103,8 @@ def init_ontology(verbose=False):
         Step.is_a.append(precedes.only(Step))  # Each step has a predecessor
         Step.is_a.append(has_text.some(str))  # Each step has some text description
 
-    # Save the ontology
-    onto.save(file=ONTOLOGY)
+        # Save the ontology
+        onto.save(file=ONTOLOGY)
 
     if verbose:
         print("\nOntology Classes:")
@@ -124,3 +124,5 @@ def init_ontology(verbose=False):
         input("\nPress any key to continue...")
 
     print(f".owl ontology file saved to {ONTOLOGY}")
+
+init_ontology(verbose=False)
