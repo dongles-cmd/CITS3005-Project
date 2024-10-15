@@ -64,10 +64,6 @@
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
 </owl:DatatypeProperty>
 
-<owl:Class rdf:about="#Tool">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
 <owl:Class rdf:about="#Procedure">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <rdfs:subClassOf>
@@ -108,6 +104,18 @@
   </rdfs:subClassOf>
 </owl:Class>
 
+<owl:Class rdf:about="#Item">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Part">
+  <rdfs:subClassOf rdf:resource="#Item"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Tool">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
 <owl:Class rdf:about="#Step">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <rdfs:subClassOf>
@@ -145,14 +153,6 @@
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Item">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Part">
-  <rdfs:subClassOf rdf:resource="#Item"/>
-</owl:Class>
-
 <swrl:Variable rdf:about="urn:swrl#p1"/>
 
 <swrl:Variable rdf:about="urn:swrl#i"/>
@@ -163,118 +163,105 @@
 
 <swrl:Variable rdf:about="urn:swrl#i1"/>
 
-<swrl:Imp>
-  <swrl:body>
-    <rdf:Description>
-      <rdf:first>
-        <swrl:ClassAtom>
-          <swrl:classPredicate rdf:resource="#Procedure"/>
-          <swrl:argument1 rdf:resource="urn:swrl#p"/>
-        </swrl:ClassAtom>
-      </rdf:first>
-      <rdf:rest>
-        <rdf:Description>
-          <rdf:first>
-            <swrl:ClassAtom>
-              <swrl:classPredicate rdf:resource="#Part"/>
-              <swrl:argument1 rdf:resource="urn:swrl#i"/>
-            </swrl:ClassAtom>
-          </rdf:first>
-          <rdf:rest>
-            <rdf:Description>
-              <rdf:first>
-                <swrl:IndividualPropertyAtom>
-                  <swrl:propertyPredicate rdf:resource="#procedure_for"/>
-                  <swrl:argument1 rdf:resource="urn:swrl#p"/>
-                  <swrl:argument2 rdf:resource="urn:swrl#i"/>
-                </swrl:IndividualPropertyAtom>
-              </rdf:first>
-              <rdf:rest>
-                <rdf:Description>
-                  <rdf:first>
-                    <swrl:ClassAtom>
-                      <swrl:classPredicate rdf:resource="#Item"/>
-                      <swrl:argument1 rdf:resource="urn:swrl#i1"/>
-                    </swrl:ClassAtom>
-                  </rdf:first>
-                  <rdf:rest>
-                    <rdf:Description>
-                      <rdf:first>
-                        <swrl:IndividualPropertyAtom>
-                          <swrl:propertyPredicate rdf:resource="#procedure_for"/>
-                          <swrl:argument1 rdf:resource="urn:swrl#p"/>
-                          <swrl:argument2 rdf:resource="urn:swrl#i1"/>
-                        </swrl:IndividualPropertyAtom>
-                      </rdf:first>
-                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                    </rdf:Description>
-                  </rdf:rest>
-                </rdf:Description>
-              </rdf:rest>
-            </rdf:Description>
-          </rdf:rest>
-        </rdf:Description>
-      </rdf:rest>
-    </rdf:Description>
-  </swrl:body>
-  <swrl:head>
-    <rdf:Description>
-      <rdf:first>
-        <swrl:IndividualPropertyAtom>
-          <swrl:propertyPredicate rdf:resource="#part_of"/>
-          <swrl:argument1 rdf:resource="urn:swrl#i"/>
-          <swrl:argument2 rdf:resource="urn:swrl#i1"/>
-        </swrl:IndividualPropertyAtom>
-      </rdf:first>
-      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-    </rdf:Description>
-  </swrl:head>
-</swrl:Imp>
+<swrl:Variable rdf:about="urn:swrl#s1"/>
+
+<swrl:Variable rdf:about="urn:swrl#s2"/>
+
+<swrl:Variable rdf:about="urn:swrl#o1"/>
+
+<swrl:Variable rdf:about="urn:swrl#o2"/>
 
 <swrl:Imp>
   <swrl:body>
     <rdf:Description>
       <rdf:first>
         <swrl:ClassAtom>
-          <swrl:classPredicate rdf:resource="#Procedure"/>
-          <swrl:argument1 rdf:resource="urn:swrl#p1"/>
+          <swrl:classPredicate rdf:resource="#Step"/>
+          <swrl:argument1 rdf:resource="urn:swrl#s1"/>
         </swrl:ClassAtom>
       </rdf:first>
       <rdf:rest>
         <rdf:Description>
           <rdf:first>
             <swrl:ClassAtom>
-              <swrl:classPredicate rdf:resource="#Item"/>
-              <swrl:argument1 rdf:resource="urn:swrl#i"/>
+              <swrl:classPredicate rdf:resource="#Step"/>
+              <swrl:argument1 rdf:resource="urn:swrl#s2"/>
             </swrl:ClassAtom>
           </rdf:first>
           <rdf:rest>
             <rdf:Description>
               <rdf:first>
-                <swrl:IndividualPropertyAtom>
-                  <swrl:propertyPredicate rdf:resource="#procedure_for"/>
-                  <swrl:argument1 rdf:resource="urn:swrl#p1"/>
-                  <swrl:argument2 rdf:resource="urn:swrl#i"/>
-                </swrl:IndividualPropertyAtom>
+                <swrl:ClassAtom>
+                  <swrl:classPredicate rdf:resource="#Procedure"/>
+                  <swrl:argument1 rdf:resource="urn:swrl#p"/>
+                </swrl:ClassAtom>
               </rdf:first>
               <rdf:rest>
                 <rdf:Description>
                   <rdf:first>
-                    <swrl:ClassAtom>
-                      <swrl:classPredicate rdf:resource="#Procedure"/>
-                      <swrl:argument1 rdf:resource="urn:swrl#p2"/>
-                    </swrl:ClassAtom>
+                    <swrl:IndividualPropertyAtom>
+                      <swrl:propertyPredicate rdf:resource="#has_step"/>
+                      <swrl:argument1 rdf:resource="urn:swrl#p"/>
+                      <swrl:argument2 rdf:resource="urn:swrl#s1"/>
+                    </swrl:IndividualPropertyAtom>
                   </rdf:first>
                   <rdf:rest>
                     <rdf:Description>
                       <rdf:first>
                         <swrl:IndividualPropertyAtom>
-                          <swrl:propertyPredicate rdf:resource="#procedure_for"/>
-                          <swrl:argument1 rdf:resource="urn:swrl#p2"/>
-                          <swrl:argument2 rdf:resource="urn:swrl#i"/>
+                          <swrl:propertyPredicate rdf:resource="#has_step"/>
+                          <swrl:argument1 rdf:resource="urn:swrl#p"/>
+                          <swrl:argument2 rdf:resource="urn:swrl#s2"/>
                         </swrl:IndividualPropertyAtom>
                       </rdf:first>
-                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                      <rdf:rest>
+                        <rdf:Description>
+                          <rdf:first>
+                            <swrl:DatavaluedPropertyAtom>
+                              <swrl:propertyPredicate rdf:resource="#has_order"/>
+                              <swrl:argument1 rdf:resource="urn:swrl#s1"/>
+                              <swrl:argument2 rdf:resource="urn:swrl#o1"/>
+                            </swrl:DatavaluedPropertyAtom>
+                          </rdf:first>
+                          <rdf:rest>
+                            <rdf:Description>
+                              <rdf:first>
+                                <swrl:DatavaluedPropertyAtom>
+                                  <swrl:propertyPredicate rdf:resource="#has_order"/>
+                                  <swrl:argument1 rdf:resource="urn:swrl#s2"/>
+                                  <swrl:argument2 rdf:resource="urn:swrl#o2"/>
+                                </swrl:DatavaluedPropertyAtom>
+                              </rdf:first>
+                              <rdf:rest>
+                                <rdf:Description>
+                                  <rdf:first>
+                                    <swrl:BuiltinAtom>
+                                      <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#subtract"/>
+                                      <swrl:arguments>
+                                        <rdf:Description>
+                                          <rdf:first rdf:resource="urn:swrl#o1"/>
+                                          <rdf:rest>
+                                            <rdf:Description>
+                                              <rdf:first rdf:resource="urn:swrl#o2"/>
+                                              <rdf:rest>
+                                                <rdf:Description>
+                                                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</rdf:first>
+                                                </rdf:Description>
+                                              </rdf:rest>
+                                            </rdf:Description>
+                                          </rdf:rest>
+                                        </rdf:Description>
+                                      </swrl:arguments>
+                                    </swrl:BuiltinAtom>
+                                  </rdf:first>
+                                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                </rdf:Description>
+                              </rdf:rest>
+                            </rdf:Description>
+                          </rdf:rest>
+                        </rdf:Description>
+                      </rdf:rest>
                     </rdf:Description>
                   </rdf:rest>
                 </rdf:Description>
@@ -289,23 +276,12 @@
     <rdf:Description>
       <rdf:first>
         <swrl:IndividualPropertyAtom>
-          <swrl:propertyPredicate rdf:resource="#sub_procedure_of"/>
-          <swrl:argument1 rdf:resource="urn:swrl#p1"/>
-          <swrl:argument2 rdf:resource="urn:swrl#p2"/>
+          <swrl:propertyPredicate rdf:resource="#precedes"/>
+          <swrl:argument1 rdf:resource="urn:swrl#s1"/>
+          <swrl:argument2 rdf:resource="urn:swrl#s2"/>
         </swrl:IndividualPropertyAtom>
       </rdf:first>
-      <rdf:rest>
-        <rdf:Description>
-          <rdf:first>
-            <swrl:IndividualPropertyAtom>
-              <swrl:propertyPredicate rdf:resource="#sub_procedure_of"/>
-              <swrl:argument1 rdf:resource="urn:swrl#p2"/>
-              <swrl:argument2 rdf:resource="urn:swrl#p1"/>
-            </swrl:IndividualPropertyAtom>
-          </rdf:first>
-          <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-        </rdf:Description>
-      </rdf:rest>
+      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
     </rdf:Description>
   </swrl:head>
 </swrl:Imp>
@@ -609,124 +585,92 @@
     <rdf:Description>
       <rdf:first>
         <swrl:ClassAtom>
-          <swrl:classPredicate rdf:resource="#Procedure"/>
-          <swrl:argument1 rdf:resource="urn:swrl#p1"/>
+          <swrl:classPredicate rdf:resource="#Step"/>
+          <swrl:argument1 rdf:resource="urn:swrl#s1"/>
         </swrl:ClassAtom>
       </rdf:first>
       <rdf:rest>
         <rdf:Description>
           <rdf:first>
             <swrl:ClassAtom>
-              <swrl:classPredicate rdf:resource="#Item"/>
-              <swrl:argument1 rdf:resource="urn:swrl#i"/>
+              <swrl:classPredicate rdf:resource="#Step"/>
+              <swrl:argument1 rdf:resource="urn:swrl#s2"/>
             </swrl:ClassAtom>
           </rdf:first>
           <rdf:rest>
             <rdf:Description>
               <rdf:first>
-                <swrl:IndividualPropertyAtom>
-                  <swrl:propertyPredicate rdf:resource="#procedure_for"/>
-                  <swrl:argument1 rdf:resource="urn:swrl#p1"/>
-                  <swrl:argument2 rdf:resource="urn:swrl#i"/>
-                </swrl:IndividualPropertyAtom>
-              </rdf:first>
-              <rdf:rest>
-                <rdf:Description>
-                  <rdf:first>
-                    <swrl:ClassAtom>
-                      <swrl:classPredicate rdf:resource="#Procedure"/>
-                      <swrl:argument1 rdf:resource="urn:swrl#p2"/>
-                    </swrl:ClassAtom>
-                  </rdf:first>
-                  <rdf:rest>
-                    <rdf:Description>
-                      <rdf:first>
-                        <swrl:IndividualPropertyAtom>
-                          <swrl:propertyPredicate rdf:resource="#procedure_for"/>
-                          <swrl:argument1 rdf:resource="urn:swrl#p2"/>
-                          <swrl:argument2 rdf:resource="urn:swrl#i"/>
-                        </swrl:IndividualPropertyAtom>
-                      </rdf:first>
-                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                    </rdf:Description>
-                  </rdf:rest>
-                </rdf:Description>
-              </rdf:rest>
-            </rdf:Description>
-          </rdf:rest>
-        </rdf:Description>
-      </rdf:rest>
-    </rdf:Description>
-  </swrl:body>
-  <swrl:head>
-    <rdf:Description>
-      <rdf:first>
-        <swrl:IndividualPropertyAtom>
-          <swrl:propertyPredicate rdf:resource="#sub_procedure_of"/>
-          <swrl:argument1 rdf:resource="urn:swrl#p1"/>
-          <swrl:argument2 rdf:resource="urn:swrl#p2"/>
-        </swrl:IndividualPropertyAtom>
-      </rdf:first>
-      <rdf:rest>
-        <rdf:Description>
-          <rdf:first>
-            <swrl:IndividualPropertyAtom>
-              <swrl:propertyPredicate rdf:resource="#sub_procedure_of"/>
-              <swrl:argument1 rdf:resource="urn:swrl#p2"/>
-              <swrl:argument2 rdf:resource="urn:swrl#p1"/>
-            </swrl:IndividualPropertyAtom>
-          </rdf:first>
-          <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-        </rdf:Description>
-      </rdf:rest>
-    </rdf:Description>
-  </swrl:head>
-</swrl:Imp>
-
-<swrl:Imp>
-  <swrl:body>
-    <rdf:Description>
-      <rdf:first>
-        <swrl:ClassAtom>
-          <swrl:classPredicate rdf:resource="#Procedure"/>
-          <swrl:argument1 rdf:resource="urn:swrl#p"/>
-        </swrl:ClassAtom>
-      </rdf:first>
-      <rdf:rest>
-        <rdf:Description>
-          <rdf:first>
-            <swrl:ClassAtom>
-              <swrl:classPredicate rdf:resource="#Part"/>
-              <swrl:argument1 rdf:resource="urn:swrl#i"/>
-            </swrl:ClassAtom>
-          </rdf:first>
-          <rdf:rest>
-            <rdf:Description>
-              <rdf:first>
-                <swrl:IndividualPropertyAtom>
-                  <swrl:propertyPredicate rdf:resource="#procedure_for"/>
+                <swrl:ClassAtom>
+                  <swrl:classPredicate rdf:resource="#Procedure"/>
                   <swrl:argument1 rdf:resource="urn:swrl#p"/>
-                  <swrl:argument2 rdf:resource="urn:swrl#i"/>
-                </swrl:IndividualPropertyAtom>
+                </swrl:ClassAtom>
               </rdf:first>
               <rdf:rest>
                 <rdf:Description>
                   <rdf:first>
-                    <swrl:ClassAtom>
-                      <swrl:classPredicate rdf:resource="#Item"/>
-                      <swrl:argument1 rdf:resource="urn:swrl#i1"/>
-                    </swrl:ClassAtom>
+                    <swrl:IndividualPropertyAtom>
+                      <swrl:propertyPredicate rdf:resource="#has_step"/>
+                      <swrl:argument1 rdf:resource="urn:swrl#p"/>
+                      <swrl:argument2 rdf:resource="urn:swrl#s1"/>
+                    </swrl:IndividualPropertyAtom>
                   </rdf:first>
                   <rdf:rest>
                     <rdf:Description>
                       <rdf:first>
                         <swrl:IndividualPropertyAtom>
-                          <swrl:propertyPredicate rdf:resource="#procedure_for"/>
+                          <swrl:propertyPredicate rdf:resource="#has_step"/>
                           <swrl:argument1 rdf:resource="urn:swrl#p"/>
-                          <swrl:argument2 rdf:resource="urn:swrl#i1"/>
+                          <swrl:argument2 rdf:resource="urn:swrl#s2"/>
                         </swrl:IndividualPropertyAtom>
                       </rdf:first>
-                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                      <rdf:rest>
+                        <rdf:Description>
+                          <rdf:first>
+                            <swrl:DatavaluedPropertyAtom>
+                              <swrl:propertyPredicate rdf:resource="#has_order"/>
+                              <swrl:argument1 rdf:resource="urn:swrl#s1"/>
+                              <swrl:argument2 rdf:resource="urn:swrl#o1"/>
+                            </swrl:DatavaluedPropertyAtom>
+                          </rdf:first>
+                          <rdf:rest>
+                            <rdf:Description>
+                              <rdf:first>
+                                <swrl:DatavaluedPropertyAtom>
+                                  <swrl:propertyPredicate rdf:resource="#has_order"/>
+                                  <swrl:argument1 rdf:resource="urn:swrl#s2"/>
+                                  <swrl:argument2 rdf:resource="urn:swrl#o2"/>
+                                </swrl:DatavaluedPropertyAtom>
+                              </rdf:first>
+                              <rdf:rest>
+                                <rdf:Description>
+                                  <rdf:first>
+                                    <swrl:BuiltinAtom>
+                                      <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#subtract"/>
+                                      <swrl:arguments>
+                                        <rdf:Description>
+                                          <rdf:first rdf:resource="urn:swrl#o1"/>
+                                          <rdf:rest>
+                                            <rdf:Description>
+                                              <rdf:first rdf:resource="urn:swrl#o2"/>
+                                              <rdf:rest>
+                                                <rdf:Description>
+                                                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</rdf:first>
+                                                </rdf:Description>
+                                              </rdf:rest>
+                                            </rdf:Description>
+                                          </rdf:rest>
+                                        </rdf:Description>
+                                      </swrl:arguments>
+                                    </swrl:BuiltinAtom>
+                                  </rdf:first>
+                                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                </rdf:Description>
+                              </rdf:rest>
+                            </rdf:Description>
+                          </rdf:rest>
+                        </rdf:Description>
+                      </rdf:rest>
                     </rdf:Description>
                   </rdf:rest>
                 </rdf:Description>
@@ -741,9 +685,9 @@
     <rdf:Description>
       <rdf:first>
         <swrl:IndividualPropertyAtom>
-          <swrl:propertyPredicate rdf:resource="#part_of"/>
-          <swrl:argument1 rdf:resource="urn:swrl#i"/>
-          <swrl:argument2 rdf:resource="urn:swrl#i1"/>
+          <swrl:propertyPredicate rdf:resource="#precedes"/>
+          <swrl:argument1 rdf:resource="urn:swrl#s1"/>
+          <swrl:argument2 rdf:resource="urn:swrl#s2"/>
         </swrl:IndividualPropertyAtom>
       </rdf:first>
       <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>

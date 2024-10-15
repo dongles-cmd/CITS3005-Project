@@ -25,7 +25,7 @@ def run_queries():
     for result in g.query(query):
         print(f"Procedure [{result['procedure_name']}], number of steps [{result['step_count']}]")
 
-    # Get names of items with more than 10 procedures written for them
+    # Get names of items with more than 3 procedures written for them
     query = """
         PREFIX ex: <http://test.org/ifixit.com#>
 
@@ -35,9 +35,9 @@ def run_queries():
             ?item ex:has_name ?item_name .
         }
         GROUP BY ?item
-        HAVING (COUNT(?procedure) > 10)
+        HAVING (COUNT(?procedure) > 3)
     """
-    print("\nItems with more than 10 procedures:")
+    print("\nItems with more than 3 procedures:")
     for result in g.query(query):
         print(f"Item [{result['item_name']}], number of procedures [{result['procedure_count']}]")
 
