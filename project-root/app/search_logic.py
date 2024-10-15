@@ -24,7 +24,7 @@ def extract_procedures(graph):
     
     return results
 
-# # Fuzzy search function based on tags
+# Fuzzy search function based on tags
 def fuzzy_search(query, procedure_data):
     # Prepare a list of all tags for fuzzy matching
     all_tags = [tag for proc in procedure_data for tag in proc['tags']]
