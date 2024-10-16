@@ -50,7 +50,7 @@ def procedure_details(procedure_iri):
     return render_template('procedure_details.html', procedure=procedure)
 
 @app.route('/add_data', methods=['GET', 'POST'])
-def edit_procedure_route():
+def add_data_route():
     if request.method == 'POST':
         class_type = request.form.get('classType')
         unique_id = request.form.get(f"{class_type}[unique_id]")
@@ -218,11 +218,11 @@ def edit_procedure_route():
                         flash("Image added successfully!", 'success')
 
             # Redirect back to the form after adding or updating
-            return redirect(url_for('edit_procedure_route'))
+            return redirect(url_for('add_data_route'))
 
         except Exception as e:
             flash(f"An error occurred: {str(e)}", 'danger')
-            return redirect(url_for('edit_procedure_route'))
+            return redirect(url_for('add_data_route'))
 
     return render_template('add_to_database.html')
 
