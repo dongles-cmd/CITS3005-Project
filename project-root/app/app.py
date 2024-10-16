@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory, flash
 from app.search_logic import search_procedures
 from app.procedure_data import get_procedure_details
 from config import BASE_URI, ONTOLOGY, USER_MANUAL
@@ -49,17 +49,185 @@ def procedure_details(procedure_iri):
     
     return render_template('procedure_details.html', procedure=procedure)
 
-@app.route('/add-procedure', methods=['GET', 'POST'])
-def add_procedure_route():
+@app.route('/add_data', methods=['GET', 'POST'])
+def edit_procedure_route():
     if request.method == 'POST':
+        class_type = request.form.get('classType')
+        unique_id = request.form.get(f"{class_type}[unique_id]")
+
+        # Load the ontology
+        onto = get_ontology(BASE_URI).load()
+
         try:
-            # Process form data here
-            # If successful, redirect to a success page or another appropriate action
-            return redirect(url_for('success_page'))  # Replace with your success page
+            # Check if instance already exists
+            existing_instance = onto.search_one(iri=f"{BASE_URI}{unique_id}")
+
+            if class_type == 'Procedure':
+                if existing_instance:  # If the instance exists, update it
+                    procedure_for = request.form.get('Procedure[procedure_for]')
+                    has_name = request.form.get('Procedure[has_name]')
+                    procedure_uses_tool = request.form.get('Procedure[procedure_uses_tool]', '')
+                    has_step = request.form.get('Procedure[has_step]', '')
+
+                    # Update the existing procedure
+                    existing_instance.procedure_for = procedure_for
+                    existing_instance.has_name = has_name
+                    if procedure_uses_tool:
+                        existing_instance.procedure_uses_tool.append(onto.Tool(procedure_uses_tool))
+                    if has_step:
+                        step_instance = onto.search_one(iri=has_step)
+                        if step_instance:
+                            existing_instance.has_step.append(step_instance)
+
+                    flash("Procedure updated successfully!", 'success')
+                else:  # If the instance does not exist, create a new one
+                    procedure_for = request.form['Procedure[procedure_for]']
+                    has_name = request.form['Procedure[has_name]']
+
+                    # Validate required fields
+                    if not procedure_for or not has_name:
+                        flash("Procedure must have 'procedure_for' relation and a name.", 'danger')
+                    else:
+                        new_procedure = onto.Procedure(unique_id=unique_id, procedure_for=procedure_for, has_name=has_name)
+                        if has_step:
+                            step_instance = onto.search_one(iri=has_step)
+                            if step_instance:
+                                new_procedure.has_step.append(step_instance)
+                        flash("Procedure added successfully!", 'success')
+
+            elif class_type == 'Step':
+                if existing_instance:  # If the instance exists, update it
+                    has_text = request.form.get('Step[has_text]')
+                    has_image = request.form.get('Step[has_image]', '')
+                    step_uses_tool = request.form.get('Step[step_uses_tool]', '')
+                    procedure = request.form.get('Step[procedure]')
+
+                    # Update the existing step
+                    existing_instance.has_text = has_text
+                    if has_image:
+                        existing_instance.has_image.append(onto.Image(has_image))
+                    if step_uses_tool:
+                        existing_instance.step_uses_tool.append(onto.Tool(step_uses_tool))
+
+                    flash("Step updated successfully!", 'success')
+                else:  # If the instance does not exist, create a new one
+                    has_text = request.form['Step[has_text]']
+                    procedure = request.form['Step[procedure]']
+
+                    # Validate required fields
+                    if not has_text or not procedure:
+                        flash("Step must have text and be linked to a procedure.", 'danger')
+                    else:
+                        procedure_instance = onto.search_one(iri=procedure)
+                        if procedure_instance:
+                            new_step = onto.Step(unique_id=unique_id, has_text=has_text)
+                            if has_image:
+                                image_instance = onto.search_one(iri=has_image)
+                                if image_instance:
+                                    new_step.has_image.append(image_instance)
+                            if step_uses_tool:
+                                tool_instance = onto.search_one(iri=step_uses_tool)
+                                if tool_instance:
+                                    new_step.step_uses_tool.append(tool_instance)
+                            procedure_instance.has_step.append(new_step)
+                            flash("Step added successfully!", 'success')
+                        else:
+                            flash("Procedure not found for the step.", 'danger')
+
+            elif class_type == 'Part':
+                if existing_instance:  # If the instance exists, update it
+                    part_of = request.form.get('Part[part_of]')
+                    has_name = request.form.get('Part[has_name]')
+
+                    # Update the existing part
+                    existing_instance.part_of = part_of
+                    existing_instance.has_name = has_name
+
+                    flash("Part updated successfully!", 'success')
+                else:  # If the instance does not exist, create a new one
+                    part_of = request.form['Part[part_of]']
+                    has_name = request.form['Part[has_name]']
+
+                    # Validate required fields
+                    if not part_of or not has_name:
+                        flash("Part must have 'part_of' relation and a name.", 'danger')
+                    else:
+                        new_part = onto.Part(unique_id=unique_id, part_of=part_of, has_name=has_name)
+                        flash("Part added successfully!", 'success')
+
+            elif class_type == 'Tool':
+                if existing_instance:  # If the instance exists, update it
+                    in_toolbox = request.form.get('Tool[in_toolbox]')
+                    has_name = request.form.get('Tool[has_name]')
+
+                    # Update the existing tool
+                    existing_instance.in_toolbox = in_toolbox
+                    existing_instance.has_name = has_name
+
+                    flash("Tool updated successfully!", 'success')
+                else:  # If the instance does not exist, create a new one
+                    in_toolbox = request.form['Tool[in_toolbox]']
+                    has_name = request.form['Tool[has_name]']
+
+                    # Validate required fields
+                    if not in_toolbox or not has_name:
+                        flash("Tool must have 'in_toolbox' relation and a name.", 'danger')
+                    else:
+                        procedure_instance = onto.search_one(iri=in_toolbox)
+                        if procedure_instance:
+                            new_tool = onto.Tool(unique_id=unique_id, has_name=has_name)
+                            new_tool.in_toolbox.append(procedure_instance)
+                            flash("Tool added successfully!", 'success')
+                        else:
+                            flash("Procedure not found for the toolbox.", 'danger')
+
+            elif class_type == 'Item':
+                if existing_instance:  # If the instance exists, update it
+                    has_name = request.form.get('Item[has_name]')
+
+                    # Update the existing item
+                    existing_instance.has_name = has_name
+
+                    flash("Item updated successfully!", 'success')
+                else:  # If the instance does not exist, create a new one
+                    has_name = request.form['Item[has_name]']
+
+                    # Validate required fields
+                    if not has_name:
+                        flash("Item must have a name.", 'danger')
+                    else:
+                        new_item = onto.Item(unique_id=unique_id, has_name=has_name)
+                        flash("Item added successfully!", 'success')
+
+            elif class_type == 'Image':
+                if existing_instance:  # If the instance exists, update it
+                    has_name = request.form.get('Image[has_name]')
+
+                    # Update the existing image
+                    existing_instance.has_name = has_name
+
+                    flash("Image updated successfully!", 'success')
+                else:  # If the instance does not exist, create a new one
+                    has_name = request.form['Image[has_name]']
+
+                    # Validate required fields
+                    if not has_name:
+                        flash("Image must have a name.", 'danger')
+                    else:
+                        new_image = onto.Image(unique_id=unique_id, has_name=has_name)
+                        flash("Image added successfully!", 'success')
+
+            # Redirect back to the form after adding or updating
+            return redirect(url_for('edit_procedure_route'))
+
         except Exception as e:
-            # Log the exception if needed
-            return redirect(url_for('failure_page'))  # Redirect to failure page
-    return render_template('add_procedure.html')
+            flash(f"An error occurred: {str(e)}", 'danger')
+            return redirect(url_for('edit_procedure_route'))
+
+    return render_template('add_to_database.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 @app.route('/success')
 def success_page():

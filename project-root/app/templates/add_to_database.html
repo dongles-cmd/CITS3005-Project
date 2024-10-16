@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Edit Database</h2>
+<form method="POST" id="edit-form">
+    <label for="classType">Select Class to Add:</label>
+    <select id="classType" name="classType" onchange="showFields(this.value)">
+        <option value="">--Select a Class--</option>
+        <option value="Procedure">Procedure</option>
+        <option value="Step">Step</option>
+        <option value="Part">Part</option>
+        <option value="Tool">Tool</option>
+        <option value="Item">Item</option>
+        <option value="Image">Image</option>
+    </select>
+
+    <div id="form-fields"></div>
+    
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+function showFields(classType) {
+    const formFields = document.getElementById('form-fields');
+    formFields.innerHTML = ''; // Clear previous fields
+
+    if (classType === 'Procedure') {
+        formFields.innerHTML = `
+            <label for="Procedure[unique_id]">Unique ID:</label>
+            <input type="text" name="Procedure[unique_id]" required>
+            <label for="Procedure[procedure_for]">Procedure For:</label>
+            <input type="text" name="Procedure[procedure_for]" required>
+            <label for="Procedure[procedure_uses_tool]">Uses Tool (optional):</label>
+            <input type="text" name="Procedure[procedure_uses_tool]">
+            <label for="Procedure[has_name]">Name:</label>
+            <input type="text" name="Procedure[has_name]" required>
+            <label for="Procedure[has_step]">Step:</label>
+            <input type="text" name="Procedure[has_step]">
+        `;
+    } else if (classType === 'Step') {
+        formFields.innerHTML = `
+            <label for="Step[unique_id]">Unique ID:</label>
+            <input type="text" name="Step[unique_id]" required>
+            <label for="Step[has_text]">Text:</label>
+            <input type="text" name="Step[has_text]" required>
+            <label for="Step[has_image]">Image (optional):</label>
+            <input type="text" name="Step[has_image]">
+            <label for="Step[step_uses_tool]">Uses Tool (optional):</label>
+            <input type="text" name="Step[step_uses_tool]">
+            <label for="Step[procedure]">Procedure:</label>
+            <input type="text" name="Step[procedure]" required>
+        `;
+    } else if (classType === 'Part') {
+        formFields.innerHTML = `
+            <label for="Part[unique_id]">Unique ID:</label>
+            <input type="text" name="Part[unique_id]" required>
+            <label for="Part[part_of]">Part Of:</label>
+            <input type="text" name="Part[part_of]" required>
+            <label for="Part[has_name]">Name:</label>
+            <input type="text" name="Part[has_name]" required>
+        `;
+    } else if (classType === 'Tool') {
+        formFields.innerHTML = `
+            <label for="Tool[unique_id]">Unique ID:</label>
+            <input type="text" name="Tool[unique_id]" required>
+            <label for="Tool[in_toolbox]">In Toolbox (Procedure):</label>
+            <input type="text" name="Tool[in_toolbox]" required>
+            <label for="Tool[has_name]">Name:</label>
+            <input type="text" name="Tool[has_name]" required>
+        `;
+    } else if (classType === 'Item') {
+        formFields.innerHTML = `
+            <label for="Item[unique_id]">Unique ID:</label>
+            <input type="text" name="Item[unique_id]" required>
+            <label for="Item[has_name]">Name:</label>
+            <input type="text" name="Item[has_name]" required>
+        `;
+    } else if (classType === 'Image') {
+        formFields.innerHTML = `
+            <label for="Image[unique_id]">Unique ID:</label>
+            <input type="text" name="Image[unique_id]" required>
+            <label for="Image[has_name]">Name:</label>
+            <input type="text" name="Image[has_name]" required>
+        `;
+    }
+}
+</script>
+{% endblock %}
