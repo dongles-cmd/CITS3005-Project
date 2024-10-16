@@ -9,6 +9,8 @@ In this project, we use a small subset of data from the iFixit dataset of proced
 
 The schema of our ontology defines the following core classes, representing the key objects in the iFixit dataset:  
 
+![Ontology Schema](images/schema-white.png)
+
 - **Procedure:** `Thing`
 - **Item:** `Thing`
 - **Part:** _(subclass of)_ `Item`
