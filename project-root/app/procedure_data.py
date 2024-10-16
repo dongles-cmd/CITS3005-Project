@@ -72,7 +72,8 @@ def get_procedure_details(procedure_iri="http://test.org/ifixit.com#https://www.
             steps,
             # [{'step_number':step_number, 'description':str(description), 'images':images, 'tools': tools}]
         "tools": toolbox,
-        "procedure_of_for_part_of": procedure_part
+        "procedure_of_for_part_of": procedure_part,
+        "subprocedure_for": subprocedure_for
     }
 
     return procedure_details

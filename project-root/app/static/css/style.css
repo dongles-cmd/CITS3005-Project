@@ -453,3 +453,30 @@ footer .btn:hover {
     border-radius: 4px;
     padding: 5px;
 }
+
+/* Add these styles to your CSS file */
+
+.warning-box {
+    background-color: #ffcccb; /* Light red background */
+    border: 1px solid #ff0000; /* Red border */
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex; /* Flex to align icon and text */
+    align-items: center;
+}
+
+.warning-icon {
+    width: 20px; /* Set width of the icon */
+    height: 20px; /* Set height of the icon */
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.inferred-classes {
+    margin-bottom: 20px; /* Space between sections */
+}
+
+.inferred-list {
+    list-style-type: disc; /* Bullet points for list */
+    margin-left: 20px; /* Indent for nested lists */
+}
+

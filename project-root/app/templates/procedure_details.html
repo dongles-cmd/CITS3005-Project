@@ -6,6 +6,39 @@
     <div class="container">
         <h1>{{ procedure.name }}</h1>
 
+        <!-- Inferred Classes Section -->
+        <section class="inferred-classes">
+            <h2>Inferred Relationships</h2>
+
+            <!-- Subprocedure of Section -->
+            {% if procedure.subprocedure_for %}
+                <h3>Subprocedures for:</h3>
+                <ul>
+                    {% for sp in procedure.subprocedure_for %}
+                        <li>{{ sp }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <!-- Procedure for -> Part of Section -->
+            {% if procedure.procedure_of_for_part_of %}
+                <h3>Procedure for:</h3>
+                <ul class="inferred-list">
+                    {% for item, parts in procedure.procedure_of_for_part_of.items() %}
+                        <li>
+                            <strong>{{ item }}</strong>
+                            <ul>
+                                {% for part in parts %}
+                                    <li>Part of: {{ part }}</li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </section>
+
+        <!-- Tools Required Section -->
         <section class="procedure-tools">
             <h2>Tools Required</h2>
             <ul class="tools-list">
@@ -15,11 +48,20 @@
             </ul>
         </section>
 
+        <!-- Procedure Steps Section -->
         <section class="procedure-steps">
             <h2>Procedure Steps</h2>
             {% for step in procedure.steps %}
                 <div class="procedure-step">
-                    <h3>Step {{ step.step_number }}: {{ step.title }}</h3>
+                    <h3>Step {{ step.step_number }}</h3>
+                    
+                    {% if step.warning %}
+                        <div class="warning-box">
+                            <img src="path/to/warning-icon.png" alt="Warning Icon" class="warning-icon">
+                            <p>Warning: This step requires caution!</p>
+                        </div>
+                    {% endif %}
+
                     <p>{{ step.description }}</p>
                     
                     {% if step.images %}
