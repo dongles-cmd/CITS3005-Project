@@ -1,3 +1,4 @@
+# Authors: Lewei Xu (23709058), Marc Labouchardiere (23857377)
 import json
 import logging
 from config import DATASET, ONTOLOGY, KNOWLEDGE_GRAPH
@@ -68,14 +69,13 @@ def populate(verbose=False):
                     toolbox_name_url[tool_name] = tool_id
                     safe_append(tool_instance.has_name, tool_name)
                     safe_append(tool_instance.in_toolbox, procedure_instance)
-                    # inverser property will be automatically defined
-                    # safe_append(procedure_instance.procedure_uses_tool, tool_instance)
+                    # inverse property will be automatically defined
+                    safe_append(procedure_instance.procedure_uses_tool, tool_instance)
 
                 # Process steps
                 for step in procedure.get('Steps', []):
                     step_id = str(step['StepId'])
                     step_instance = onto.Step(step_id)
-                    safe_append(step_instance.has_order, step['Order'])
                     safe_append(step_instance.has_text, step['Text_raw'])
                     safe_append(procedure_instance.has_step, step_instance)
 

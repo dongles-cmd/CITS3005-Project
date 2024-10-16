@@ -1,3 +1,4 @@
+# Authors: Lewei Xu (23709058), Marc Labouchardiere (23857377)
 # Python script to load and manage the ontology (uses OWLReady2)
 from owlready2 import *
 from config import ONTOLOGY, BASE_URI
@@ -19,9 +20,6 @@ def init_ontology(verbose=False):
         class has_name(DataProperty):
             domain = [Thing]
             range = [str]
-        class has_order(DataProperty):
-            domain = [Step]
-            range = [int]
         class has_text(DataProperty):
             domain = [Step]
             range = [str]

@@ -1,0 +1,136 @@
+[
+{
+    "Title": "Dell OptiPlex FX170 RAM  Replacement",
+    "Ancestors": [
+        "Dell Desktop",
+        "Desktop PC",
+        "PC",
+        "Root"
+    ],
+    "Guidid": 36709,
+    "Category": "Dell OptiPlex FX170",
+    "Toolbox": [
+        {
+            "Name": "ph0 phillips screwdriver",
+            "Url": "http://www.ifixit.com/Tools/Phillips-0-Screwdriver/IF145-005",
+            "Thumbnail": "https://da2lh5cs8ikqj.cloudfront.net/cart-products/RRATSvQqRgZQRGVQ.mini"
+        },
+        {
+            "Name": "spudger",
+            "Url": "http://www.ifixit.com/Tools/Spudger/IF145-002",
+            "Thumbnail": "https://da2lh5cs8ikqj.cloudfront.net/cart-products/fIQ3oZSjd1yLgqpX.mini"
+        }
+    ],
+    "Url": "https://www.ifixit.com/Guide/Dell+OptiPlex+FX170+RAM++Replacement/36709",
+    "Steps": [
+        {
+            "Order": 0,
+            "Lines": [
+                {
+                    "Text": "with the base stand facing upwards , unscrew the 6 mm phillips 2 screw ."
+                },
+                {
+                    "Text": "pull the base stand straight up from the device ."
+                }
+            ],
+            "Text_raw": "With the base stand facing upwards, unscrew the 6mm Phillips #2 screw. Pull the base stand straight up from the device.",
+            "Images": [
+                "https://d3nevzfk7ii3be.cloudfront.net/igi/eKB1Pr3Xoi1kBLyD.standard"
+            ],
+            "StepId": 81967,
+            "Tools_extracted": [
+                "ph0 phillips screwdriver"
+            ]
+        },
+        {
+            "Order": 1,
+            "Lines": [
+                {
+                    "Text": "unscrew and remove the eight 4 mm phillips 0 screws ( four on top , four on bottom ) from the top and bottom of the device ."
+                }
+            ],
+            "Text_raw": "Unscrew and remove the eight 4mm Phillips #0 screws (four on top, four on bottom) from the top and bottom of the device.",
+            "Images": [
+                "https://d3nevzfk7ii3be.cloudfront.net/igi/Ksrjub4PqrM2QNiJ.standard",
+                "https://d3nevzfk7ii3be.cloudfront.net/igi/52ZEPDdcKgJVmZSV.standard"
+            ],
+            "StepId": 81996,
+            "Tools_extracted": [
+                "ph0 phillips screwdriver"
+            ]
+        },
+        {
+            "Order": 2,
+            "Lines": [
+                {
+                    "Text": "run the flat side of the spudger along the entire line of the case starting from the back where the power plug and a small screw are located ."
+                },
+                {
+                    "Text": "use care to not apply excessive force that could damage retaining clips while running the spudger along the case ."
+                }
+            ],
+            "Text_raw": "Run the flat side of the spudger along the entire line of the case starting from the back where the power plug and a small screw are located. Use care to not apply excessive force that could damage retaining clips while running the spudger along the case.",
+            "Images": [
+                "https://d3nevzfk7ii3be.cloudfront.net/igi/vkj3jdWuKuYi2TLI.standard",
+                "https://d3nevzfk7ii3be.cloudfront.net/igi/nCSSIqVcCgMCZIMT.standard",
+                "https://d3nevzfk7ii3be.cloudfront.net/igi/aBSF16YNTQrKUI42.standard"
+            ],
+            "StepId": 82008,
+            "Tools_extracted": [
+                "spudger"
+            ]
+        },
+        {
+            "Order": 3,
+            "Lines": [
+                {
+                    "Text": "once the clips have been released , gently disengage the cover from the rest of case by pulling in opposite directions ."
+                }
+            ],
+            "Text_raw": "Once the clips have been released, gently disengage the cover from the rest of case by pulling in opposite directions.",
+            "Images": [
+                "https://d3nevzfk7ii3be.cloudfront.net/igi/XHCtTYmDgHUWhr4X.standard",
+                "https://d3nevzfk7ii3be.cloudfront.net/igi/rIyPRqLIrCjcDH4S.standard"
+            ],
+            "StepId": 82013,
+            "Tools_extracted": [
+                "NA"
+            ]
+        },
+        {
+            "Order": 4,
+            "Lines": [
+                {
+                    "Text": "using fingers , push the clips on either side of the ram . the ram will pop up at a 45 degree angle when both clips are disengaged ."
+                }
+            ],
+            "Text_raw": "Using fingers, push the clips on either side of the RAM. The RAM will pop up at a 45 degree angle when both clips are disengaged.",
+            "Images": [
+                "https://d3nevzfk7ii3be.cloudfront.net/igi/X6BXbmL4bbPw5tlj.standard",
+                "https://d3nevzfk7ii3be.cloudfront.net/igi/ywE5JpWF4icKlWdj.standard"
+            ],
+            "StepId": 81959,
+            "Tools_extracted": [
+                "NA"
+            ]
+        },
+        {
+            "Order": 5,
+            "Lines": [
+                {
+                    "Text": "lift and pull out the ram ."
+                }
+            ],
+            "Text_raw": "Lift and pull out the RAM.",
+            "Images": [
+                "https://d3nevzfk7ii3be.cloudfront.net/igi/N2beTNrGB4a53OMk.standard"
+            ],
+            "StepId": 81962,
+            "Tools_extracted": [
+                "NA"
+            ]
+        }
+    ],
+    "Subject": "RAM"
+}
+]

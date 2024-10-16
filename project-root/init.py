@@ -1,3 +1,4 @@
+# Authors: Lewei Xu (23709058), Marc Labouchardiere (23857377)
 import argparse
 from ontology import ifixit_ontology, populate_graph, check_shacl
 from graph import output_kg, sparql_queries

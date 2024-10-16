@@ -1,5 +1,5 @@
+# Authors: Lewei Xu (23709058), Marc Labouchardiere (23857377)
 # Python script with SPARQL queries (find procedures, items, etc.)
-# NOTE: Run `python3 -m graph.sparql_queries` in /project-root
 
 from rdflib import Graph
 from config import KNOWLEDGE_GRAPH
@@ -47,12 +47,15 @@ def run_queries():
 
         SELECT ?procedure_name ?tool_name
         WHERE {
-            ?procedure ex:uses_tool ?tool ;
-                    ex:has_name ?procedure_name .
-            ?tool ex:has_name ?tool_name .
+            # Select procedures and their associated tools from the toolbox
+            ?procedure ex:has_name ?procedure_name .
+            ?tool ex:has_name ?tool_name ;
+                ex:in_toolbox ?procedure.
+
+            # Ensure that the selected tool is NOT used in any step of the procedure
             FILTER NOT EXISTS {
                 ?procedure ex:has_step ?step .
-                ?step ex:uses_tool ?tool .
+                ?step ex:step_uses_tool ?tool .
             }
         }
     """
@@ -84,3 +87,6 @@ def run_queries():
         print(f"Procedures [{result['procedure_name']}] may be potentially hazardous")
 
     input("\nPress any key to continue...")
+
+if __name__ == "__main__":
+    run_queries()

@@ -1,3 +1,4 @@
+# Authors: Lewei Xu (23709058), Marc Labouchardiere (23857377)
 from pyshacl import validate
 from rdflib import Graph
 from config import SHACL_CONSTRAINTS, KNOWLEDGE_GRAPH
