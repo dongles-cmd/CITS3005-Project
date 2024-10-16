@@ -40,8 +40,8 @@ def print_procedure_relationships():
             logger.info(f"\tProcedure uses tool: {tool}")
             logger.info(f"\t{tool} in toolbox")
 
-        for step in procedure.has_step:
-            logger.info(f"\tStep: {step}, Order: {step.has_order}, Text: {step.has_text}")
+        for n, step in enumerate(procedure.has_step):
+            logger.info(f"\tStep: {step}, Order: {n} Text: {step.has_text}")
 
             for tool in step.step_uses_tool:
 

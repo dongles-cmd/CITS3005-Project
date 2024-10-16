@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
 from app.search_logic import search_procedures
+from app.procedure_data import get_procedure_details
+from config import BASE_URI
 
 app = Flask(__name__)
 
@@ -33,14 +35,16 @@ def search():
     # Render the initial search form if no query is provided
     return render_template('search.html')
 
-# Route for displaying procedure details
-@app.route('/procedure/<path:procedure_iri>')
+# Route for displaying the procedure details
+@app.route('/procedure/<path:procedure_iri>', methods=['GET'])
 def procedure_details(procedure_iri):
-    # Placeholder to query the knowledge graph for procedure details based on IRI
-    procedure_data = get_procedure_details(procedure_iri)
-
-    # Render the details page
-    return render_template('procedure_details.html', procedure=procedure_data)
+    procedure_iri = f"{BASE_URI}{procedure_iri}"  # Build the full IRI if needed
+    procedure = get_procedure_details(procedure_iri)
+    
+    if procedure is None:
+        return render_template('404.html'), 404  # Handle case if procedure not found
+    
+    return render_template('procedure_details.html', procedure=procedure)
 
 # Route for the user manual
 @app.route('/user-manual')

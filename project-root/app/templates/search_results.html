@@ -9,7 +9,7 @@
             <ul class="search-results">
                 {% for result in results %}
                     <li class="result-item">
-                        <a href="{{ result[1] }}" class="result-link">
+                        <a href="/procedure/{{ result[1] | replace('http://test.org/ifixit.com#', '') }}">{{ result[0] }}</a>
                             <img src="{{ result[2] }}" alt="{{ result[0] }}" class="result-image">
                             <span class="result-name">{{ result[0] }}</span>
                         </a>
