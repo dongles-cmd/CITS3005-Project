@@ -1,53 +1,86 @@
-Authors: Lewei Xu (23709058), Marc Labouchardiere (23857377)
+# User Manual  
+*Authors: Lewei Xu (23709058), Marc Labouchardiere (23857377)*  
 
-# User Manual
-In this project, we use a small subset of data from the iFixit Dataset of procedures to demonstrate searching, adding, updating and deleting procedures using ontologies and knowledge graphs.
+In this project, we use a small subset of data from the iFixit dataset of procedures to demonstrate searching, adding, updating, and deleting procedures using ontologies and knowledge graphs.
 
-## Overview of Schema and Ontology Rules
-The schema of our ontology involves defining classes for each of the types of objects that appear in the iFixit dataset:
-    - Procedure: Thing
-    - Item: Thing
-    - Part: (subclass of) Item 
-    - Tool: Thing
-    - Step: Thing
-    - Image: Thing
+---
 
-These are the basic building blocks of our knowledge base, all relevant objects can be expressed as one of these classes. Next, we need to define the relationships between classes, as well as some constraints:
-    - step_uses_tool (Step >> Tool)
-        - Minimum relations is 0, a step may not necessarily use a tool
-        - There is a theoretical maximum as if there are too many tools used in one step, then the step should be split into multiple smaller steps, however this will not be considered here
-        - However, each tool must be in the toolbox of the procedure
-    - has_step (Procedure >> Step)
-        - Minumum relations is 1, a procedure must have at least one step
-        - There is a theoretical maximum as if there are too many steps in a procedure, the procedure most likely isn't very well written, but we won't consider this situation.
-    - has_image (Step >> Image) (Some procedures have images, but they are not included in the JSON dataset)
-        - Minimum relations is 0, a step does not necessarily have to have an image
-    - sub_procedure_of (Procedure >> Procedure)
-        - Only occurs when two procedures are for the same item of for part of an item
-    - procedure_for (Procedure >> Item)
-        - Minimum relations is 1, each procedure must be for at least one item, otherwise it is not a valid procedure
-    - part_of (Item >> Item)
-        - Minimum relations is 1, an item must be a part of at least one other item
-        - This property is transitive, if an item 1 is a part of another item 2 and that item is a part of another item 3, then item 1 is a part of item 3 as well by definition
-    - in_toolbox (Tool >> Procedure)
-        - Minimum relations is 1, if a tool exists, it must be in at least one procedure toolbox otherwise it is redundant data
-    - procedure_uses_tool (Procedure >> Tool) (inverse of in_toolbox)
-        - Minimum relations is 0, a procedure may not need any tools
+## Overview of Schema and Ontology Rules  
 
-In addition to these relations between objects, certain objects also have data attributes:
-    - has_name (Thing >> str)
-        - Each procedure, item, part and tool has a name attributed to it, that is a string
-    - has_text (Step >> str)
-        - Each step has a text description of the contents of the step
+The schema of our ontology defines the following core classes, representing the key objects in the iFixit dataset:  
 
-For each class, we need to use a unique URI to initialize an instance to ensure consistency across the knowledge graph. When we inspected the json dataset, we found that this was especially an issue for tool, where the naming of the tool was inconsistent between step and procedure.
-    - Procedure: use the URL to the procedure as the unique URI
-    - Item: there is no URL for this, however the name of the item was found to be consistent throughout the dataset
-    - Part: same as with Item
-    - Tool: use the URL of the tool a the unique URI, some tools did not have a URL, so we default to the tool name
-    - Step: use the unique step ID associated with each step, this allows multiple procedures to use the same step without duplicates
-    - Image: use the URL of the image as the unique URI
+- **Procedure:** `Thing`
+- **Item:** `Thing`
+- **Part:** _(subclass of)_ `Item`
+- **Tool:** `Thing`
+- **Step:** `Thing`
+- **Image:** `Thing`
 
-## How to Form Queries and Examples
+These are the foundational building blocks of our knowledge base, where all relevant objects can be expressed as one of these classes. Next, we define the relationships between these classes and set constraints for these relationships.
 
-## How to Add, Remove and Update Data
+### Key Relationships and Constraints  
+- **`step_uses_tool`**: `(Step → Tool)`  
+    - **Minimum relations**: 0 (A step may not necessarily use a tool)  
+    - **Maximum relations**: Theoretically, too many tools in one step would indicate a need to split it into smaller steps, but we do not enforce this here.  
+    - **Constraint**: Every tool used in a step must belong to the procedure's toolbox.  
+      
+- **`has_step`**: `(Procedure → Step)`  
+    - **Minimum relations**: 1 (A procedure must have at least one step)  
+    - **Maximum relations**: Although having too many steps could indicate poor procedure design, we do not enforce any upper limit.  
+
+- **`has_image`**: `(Step → Image)`  
+    - **Minimum relations**: 0 (Steps may not necessarily include an image)  
+
+- **`sub_procedure_of`**: `(Procedure → Procedure)`  
+    - This occurs when two procedures are for the same item or part of an item.
+
+- **`procedure_for`**: `(Procedure → Item)`  
+    - **Minimum relations**: 1 (Every procedure must be for at least one item; otherwise, it's invalid).  
+
+- **`part_of`**: `(Item → Item)`  
+    - **Minimum relations**: 1 (An item must be a part of at least one other item).  
+    - **Constraint**: This property is **transitive**. If Item 1 is part of Item 2, and Item 2 is part of Item 3, then Item 1 is also part of Item 3.  
+
+- **`in_toolbox`**: `(Tool → Procedure)`  
+    - **Minimum relations**: 1 (A tool must be included in at least one procedure's toolbox, or it's considered redundant).  
+
+- **`procedure_uses_tool`**: `(Procedure → Tool)` _(inverse of `in_toolbox`)_  
+    - **Minimum relations**: 0 (A procedure may not need any tools).
+
+### Data Attributes for Classes  
+In addition to relationships, specific objects have data attributes that store relevant information:
+
+- **`has_name`**: `(Thing → str)`  
+    - Every **procedure**, **item**, **part**, and **tool** has a `name` attribute, represented as a string.  
+
+- **`has_text`**: `(Step → str)`  
+    - Each **step** has a text description of its contents.
+
+---
+
+## URI Structure for Unique Instances  
+
+To ensure consistency across our knowledge graph, each class instance must use a unique URI. The following rules apply:
+
+- **Procedure**: Use the procedure's URL as its unique URI.
+- **Item**: Use the item’s name (which is consistent in the dataset) as its unique identifier.
+- **Part**: Follow the same method as for items.
+- **Tool**: Use the URL of the tool if available. If a tool lacks a URL, default to its name.
+- **Step**: Use the unique step ID associated with each step. This allows multiple procedures to share steps without duplicates.
+- **Image**: Use the image's URL as its unique URI.
+
+---
+
+## How to Form Queries and Examples  
+
+This section provides guidelines for forming SPARQL queries to retrieve information from the knowledge graph. The following are examples of typical queries:
+
+### Example 1: Retrieving All Steps for a Procedure
+```sparql
+SELECT ?step
+WHERE {
+    ?procedure a :Procedure .
+    ?procedure :has_step ?step .
+    ?step :has_text ?text .
+    FILTER (?procedure = <procedure_uri>)
+}
