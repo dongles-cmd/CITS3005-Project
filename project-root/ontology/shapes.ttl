@@ -1,20 +1,44 @@
+@prefix kg: <http://example.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix ex: <http://test.org/ifixit.com#> .
 
-ex:ProcedureShape
-    a sh:NodeShape ;
-    sh:targetClass ex:Procedure ;
+kg:ProcedureShape a sh:NodeShape ;
+    sh:targetClass kg:Procedure ;
     sh:property [
-        sh:path ex:procedure_for ;
+        sh:path kg:has_step ;
         sh:minCount 1 ;
-        sh:message "A Procedure must have at least one procedure_for relationship." ;
+        sh:message "A Procedure must have at least one Step." ;
+    ] ;
+    sh:property [
+        sh:path kg:procedure_for ;
+        sh:minCount 1 ;
+        sh:message "A Procedure must be for at least one Item." ;
     ] .
 
-ex:PartShape
-    a sh:NodeShape ;
-    sh:targetClass ex:Part ;
+kg:StepShape a sh:NodeShape ;
+    sh:targetClass kg:Step ;
     sh:property [
-        sh:path ex:part_of ;
+        sh:path kg:has_text ;
         sh:minCount 1 ;
-        sh:message "A Part must be part_of at least one Item." ;
+        sh:message "A Step must have some text description." ;
+    ] ;
+    sh:property [
+        sh:path kg:has_order ;
+        sh:minCount 1 ;
+        sh:message "A Step must have at least one order." ;
+    ] .
+
+kg:PartShape a sh:NodeShape ;
+    sh:targetClass kg:Part ;
+    sh:property [
+        sh:path kg:part_of ;
+        sh:minCount 1 ;
+        sh:message "Each part must be part of at least one item."
+    ] .
+
+kg:ToolShape a sh:NodeShape ;
+    sh:targetClass kg:Tool ;
+    sh:property [
+        sh:path kg:in_toolbox ;
+        sh:minCount 1 ;
+        sh:message "Each tool must be in at least one toolbox of a procedure."
     ] .
