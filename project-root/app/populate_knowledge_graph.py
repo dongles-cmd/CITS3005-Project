@@ -1,7 +1,6 @@
-import json
 import logging
 from owlready2 import *
-from config import ONTOLOGY, KNOWLEDGE_GRAPH
+from config import KNOWLEDGE_GRAPH
 
 # Helper functions
 def safe_append(property_list, value):
