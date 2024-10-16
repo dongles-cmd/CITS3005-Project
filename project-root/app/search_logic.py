@@ -1,5 +1,5 @@
 from fuzzywuzzy import process
-from config import KNOWLEDGE_GRAPH
+from config import KNOWLEDGE_GRAPH, BASE_URI
 from owlready2 import get_ontology
 
 # Extract procedure details including the first image if it exists
@@ -17,7 +17,7 @@ def extract_procedures(graph):
 
         tags = set()
         for item in procedure.procedure_for:
-            tags.add(str(item.iri).removeprefix("http://test.org/ifixit.com#").replace("_", " "))
+            tags.add(str(item.iri).removeprefix(BASE_URI).replace("_", " "))
         for p in tag:
             tags.add(p)
         
@@ -25,7 +25,7 @@ def extract_procedures(graph):
 
         for step in procedure.has_step:
             for img in step.has_image:
-                image = str(img.iri).removeprefix("http://test.org/ifixit.com#")
+                image = str(img.iri).removeprefix(BASE_URI)
                 break
             if image is not None: break
     

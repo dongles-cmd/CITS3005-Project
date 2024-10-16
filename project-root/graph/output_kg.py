@@ -56,3 +56,7 @@ def print_procedure_relationships():
 
     print(f"\nKnowledge graph readable output saved to {PROCEDURE_RELATIONSHIP} for inspection")
     input("\nPress any key to continue...")
+
+
+if __name__ == "__main__":
+    print_procedure_relationships()

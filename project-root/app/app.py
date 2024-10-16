@@ -33,6 +33,15 @@ def search():
     # Render the initial search form if no query is provided
     return render_template('search.html')
 
+# Route for displaying procedure details
+@app.route('/procedure/<path:procedure_iri>')
+def procedure_details(procedure_iri):
+    # Placeholder to query the knowledge graph for procedure details based on IRI
+    procedure_data = get_procedure_details(procedure_iri)
+
+    # Render the details page
+    return render_template('procedure_details.html', procedure=procedure_data)
+
 # Route for the user manual
 @app.route('/user-manual')
 def user_manual():
