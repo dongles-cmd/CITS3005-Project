@@ -5,5 +5,8 @@
     <div class="manual-content">
       {{ manual_html | safe }}  <!-- Ensure HTML is rendered safely -->
     </div>
+    <div class="code-block">
+      <pre>{{ query | safe }}</pre>
+    </div>
   </div>
 {% endblock %}

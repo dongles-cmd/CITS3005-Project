@@ -2,18 +2,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section class="hero">
-    <div class="container">
-        <h1>Welcome to the iFixit Knowledge Graph</h1>
-        <p>Browse, search, and explore repair procedures using our interactive knowledge graph.</p>
-        <a href="/search" class="cta-button">Get Started</a>
+<section class="hero" style="background: linear-gradient(to right, #f7f7f7, #e2e2e2); padding: 40px 0;">
+    <div class="container" style="text-align: center;">
+        <h1 style="margin-top: 20px; font-family: 'Roboto', sans-serif; font-size: 2.5rem;">Welcome to the iFixit Knowledge Graph</h1>
+        <p style="font-size: 1.2rem; color: #555;">Browse, search, and explore repair procedures using our interactive knowledge graph.</p>
+        <a href="/search" class="cta-button" style="background-color: #0071bc; color: white; padding: 12px 20px; font-size: 1.2rem; border-radius: 5px; text-decoration: none; transition: 0.3s;">Get Started</a>
     </div>
 </section>
 
-<section id="overview" class="section">
+<section id="overview" class="section" style="padding: 40px 0;">
     <div class="container">
-        <h2>Project Overview</h2>
-        <p>This project is part of the CITS3005 course and is worth 30% of the final grade, due October 18, 2024. It focuses on building a knowledge graph and ontology for the <strong>iFixit</strong> dataset, representing repair procedures for various devices.</p>
+        <h2 style="font-family: 'Open Sans', sans-serif; font-size: 2rem; color: #333;">Project Overview</h2>
+        <p style="color: #666;">This project is part of the CITS3005 course and is worth 30% of the final grade, due October 18, 2024. It focuses on building a knowledge graph and ontology for the <strong>iFixit</strong> dataset, representing repair procedures for various devices.</p>
         <p>The project involves:</p>
         <ul>
             <li>Creating an ontology to describe concepts like procedures, items, tools, and steps.</li>
@@ -24,53 +24,38 @@
     </div>
 </section>
 
-<section id="features" class="section light-background">
+<section id="features" class="section light-background" style="padding: 40px 0; background-color: #f9f9f9;">
     <div class="container">
-        <h2>Features</h2>
-        <ul>
-            <li><i class="fas fa-tools"></i> <strong>Ontology:</strong> Describes procedures, tools, items, and steps, enforcing rules like tool usage and part-subprocedure relationships.</li>
-            <li><i class="fas fa-search"></i> <strong>Knowledge Graph:</strong> Populated with iFixit data, searchable via SPARQL queries.</li>
-            <li><i class="fas fa-chart-network"></i> <strong>Search:</strong> Find procedures, items, tools, and steps using keyword or structured search.</li>
-            <li><i class="fas fa-exclamation-triangle"></i> <strong>Error Checking:</strong> Automatically identify inconsistencies in the data based on the ontology.</li>
+        <h2 style="font-family: 'Open Sans', sans-serif; font-size: 2rem; color: #333;">Features</h2>
+        <ul style="list-style: none; padding: 0;">
+            <li style="font-size: 1.1rem; margin-bottom: 10px;"><i class="fas fa-tools" style="color: #0071bc;"></i> <strong>Ontology:</strong> Describes procedures, tools, items, and steps, enforcing rules like tool usage and part-subprocedure relationships.</li>
+            <li style="font-size: 1.1rem; margin-bottom: 10px;"><i class="fas fa-search" style="color: #0071bc;"></i> <strong>Knowledge Graph:</strong> Populated with iFixit data, searchable via SPARQL queries.</li>
+            <li style="font-size: 1.1rem; margin-bottom: 10px;"><i class="fas fa-chart-network" style="color: #0071bc;"></i> <strong>Search:</strong> Find procedures, items, tools, and steps using keyword or structured search.</li>
+            <li style="font-size: 1.1rem; margin-bottom: 10px;"><i class="fas fa-exclamation-triangle" style="color: #0071bc;"></i> <strong>Error Checking:</strong> Automatically identify inconsistencies in the data based on the ontology.</li>
         </ul>
     </div>
 </section>
 
-<section id="resources" class="section">
+<section id="resources" class="section" style="padding: 40px 0;">
     <div class="container">
-        <h2>Project Resources</h2>
+        <h2 style="font-family: 'Open Sans', sans-serif; font-size: 2rem; color: #333;">Project Resources</h2>
         <ul>
-            <li><a href="https://owlready2.readthedocs.io/">Owlready2</a> for ontology management and reasoning</li>
-            <li><a href="https://rdflib.dev/">RDFLib</a> for knowledge graph management and SPARQL queries</li>
-            <li><a href="https://flask.palletsprojects.com/">Flask</a> for building the web interface</li>
-            <li><a href="https://github.com/iFixit">iFixit Data</a> for the knowledge base</li>
+            <li><a href="https://owlready2.readthedocs.io/" target="_blank" style="color: #0071bc;">Owlready2</a> for ontology management and reasoning</li>
+            <li><a href="https://rdflib.dev/" target="_blank" style="color: #0071bc;">RDFLib</a> for knowledge graph management and SPARQL queries</li>
+            <li><a href="https://flask.palletsprojects.com/" target="_blank" style="color: #0071bc;">Flask</a> for building the web interface</li>
+            <li><a href="https://github.com/iFixit" target="_blank" style="color: #0071bc;">iFixit Data</a> for the knowledge base</li>
         </ul>
     </div>
 </section>
 
-<section id="manual" class="section light-background">
+<section id="manual" class="section light-background" style="padding: 40px 0; background-color: #f9f9f9;">
     <div class="container">
-        <h2>User Manual</h2>
+        <h2 style="font-family: 'Open Sans', sans-serif; font-size: 2rem; color: #333;">User Manual</h2>
         <p>Learn how to use the iFixit Knowledge Graph application, form queries, and interpret the output. The manual includes step-by-step instructions and a detailed schema overview.</p>
-        <a href="/user-manual" class="cta-button">View User Manual</a>
+        <a href="/user-manual" class="cta-button" style="background-color: #0071bc; color: white; padding: 12px 20px; font-size: 1.2rem; border-radius: 5px; text-decoration: none; transition: 0.3s;">View User Manual</a>
     </div>
 </section>
 
 {% endblock %}
 
-<script>
-    const form = document.querySelector('form');
-    form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-
-        const formData = new FormData(form);
-        const response = await fetch('/search', {
-            method: 'POST',
-            body: formData
-        });
-
-        const results = await response.json();
-        const resultsDiv = document.getElementById('results');
-        resultsDiv.innerHTML = JSON.stringify(results, null, 2);
-    });
-</script>
+<!-- Adjust spacing, font, and button styling using CSS or in-line styles -->

@@ -9,14 +9,16 @@
             <ul class="search-results">
                 {% for result in results %}
                     <li class="result-item">
-                        <a href="/procedure/{{ result[1] | replace('http://test.org/ifixit.com#', '') }}">{{ result[0] }}</a>
-                            <img src="{{ result[2] }}" alt="{{ result[0] }}" class="result-image">
-                            <span class="result-name">{{ result[0] }}</span>
+                        <a href="/procedure/{{ result[1] | replace('http://test.org/ifixit.com#', '') }}">
+                            <div class="result-content">
+                                <img src="{{ result[2] }}" alt="{{ result[0] }}" class="result-image">
+                                <span class="result-name">{{ result[0] }}</span>
+                            </div>
                         </a>
                     </li>
                 {% endfor %}
             </ul>
-            
+
             <div class="pagination">
                 {% if page > 1 %}
                     <a href="?q={{ query }}&page={{ page - 1 }}" class="pagination-previous">Previous</a>

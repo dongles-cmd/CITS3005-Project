@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 from app.search_logic import search_procedures
 from app.procedure_data import get_procedure_details
 from config import BASE_URI, ONTOLOGY, USER_MANUAL
@@ -81,6 +81,11 @@ def user_manual():
 
     # Render the HTML in the template
     return render_template('user_manual.html', manual_html=manual_html)
+
+# Route to serve images from the 'images/' directory in the root project
+@app.route('/images/<path:filename>')
+def serve_images(filename):
+    return send_from_directory('../images', filename)
 
 # Route for the resources page
 @app.route('/resources')
