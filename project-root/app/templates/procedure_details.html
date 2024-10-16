@@ -1,21 +1,14 @@
 <!-- templates/procedure_details.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ procedure.name }} - Procedure Details</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="procedure-details">
     <div class="container">
-        <header>
-            <h1>{{ procedure.name }}</h1>
-        </header>
+        <h1>{{ procedure.name }}</h1>
 
         <section class="procedure-tools">
             <h2>Tools Required</h2>
-            <ul>
+            <ul class="tools-list">
                 {% for tool in procedure.tools %}
                     <li>{{ tool }}</li>
                 {% endfor %}
@@ -26,20 +19,20 @@
             <h2>Procedure Steps</h2>
             {% for step in procedure.steps %}
                 <div class="procedure-step">
-                    <h3>Step {{ step.step_number }}</h3>
+                    <h3>Step {{ step.step_number }}: {{ step.title }}</h3>
                     <p>{{ step.description }}</p>
                     
                     {% if step.images %}
                         <div class="step-images">
                             {% for image in step.images %}
-                                <img src="{{ image }}" alt="Step {{ step.step_number }} image">
+                                <img src="{{ image }}" alt="Step {{ step.step_number }} image" class="responsive-image">
                             {% endfor %}
                         </div>
                     {% endif %}
-
+                    
                     {% if step.tools %}
                         <p><strong>Tools used in this step:</strong></p>
-                        <ul>
+                        <ul class="tools-list">
                             {% for tool in step.tools %}
                                 <li>{{ tool }}</li>
                             {% endfor %}
@@ -49,5 +42,5 @@
             {% endfor %}
         </section>
     </div>
-</body>
-</html>
+</section>
+{% endblock %}
