@@ -3,37 +3,10 @@ import logging
 from config import DATASET, ONTOLOGY, KNOWLEDGE_GRAPH
 from owlready2 import *
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
-# Load the already saved ontology
-onto = get_ontology(ONTOLOGY).load()
-with open(DATASET, 'r') as file:
-    data = json.load(file)
-
-# Cache to store instances and avoid repeated `search_one` calls
-instance_cache = {}
-
 def safe_append(property_list, value):
     """"Helper function for checking and appending to avoid duplication."""
     if value not in property_list:
         property_list.append(value)
-
-def get_or_create_instance(cls, identifier):
-    """Helper function to create/get new/existing instance."""
-    if identifier in instance_cache:
-        return instance_cache[identifier]
-    
-    base_uri = onto.base_iri  # Get base IRI of the ontology
-    existing_instance = onto.search_one(iri=f"{base_uri}{identifier}")
-    
-    if existing_instance: 
-        instance_cache[identifier] = existing_instance
-        return existing_instance
-    else: 
-        new_instance = cls(identifier)
-        instance_cache[identifier] = new_instance
-        return new_instance
 
 def check_in_toolbox(tool_name, toolbox_name_url):
     """Function to match tool name with names in toolbox"""
@@ -47,6 +20,14 @@ def check_in_toolbox(tool_name, toolbox_name_url):
     return matches
 
 def populate(verbose=False):
+    logging.basicConfig(level=logging.INFO)
+    logger = logging.getLogger(__name__)
+
+    # Load the already saved ontology
+    onto = get_ontology(ONTOLOGY).load()
+    with open(DATASET, 'r') as file:
+        data = json.load(file)
+
     with onto:
         # Use unique identifier (preferably URL for URI), then set the attribute name for pretty print name
         for procedure in data:
@@ -56,23 +37,23 @@ def populate(verbose=False):
 
                 # Process procedure using its URL as a unique identifier
                 procedure_url = procedure['Url']
-                procedure_instance = get_or_create_instance(onto.Procedure, procedure_url)
+                procedure_instance = onto.Procedure(procedure_url)
                 safe_append(procedure_instance.has_name, procedure['Title'])
 
                 # Process item category of procedure
                 item_name = procedure['Category'].replace(' ', '_').replace('"', '-Inch').strip("'")     # Prevent serialisation errors
-                item_instance = get_or_create_instance(onto.Item, item_name)
+                item_instance = onto.Item(item_name)
                 safe_append(item_instance.has_name, procedure['Category'])
                 safe_append(procedure_instance.procedure_for, item_instance)
 
                 for ancestor_name in procedure['Ancestors']:
-                    ancestor_instance = get_or_create_instance(onto.Item, ancestor_name.replace(' ', '_').replace('"', '-Inch').strip("'"))
+                    ancestor_instance = onto.Item(ancestor_name.replace(' ', '_').replace('"', '-Inch').strip("'"))
                     # safe_append(procedure_instance.procedure_for, ancestor_instance)
                     safe_append(item_instance.part_of, ancestor_instance)
                 
                 # Process part (subject or procedure)
                 part_name = procedure['Subject'].replace('"', '-Inch').strip("'").replace(' ', '_')
-                part_instance = get_or_create_instance(onto.Part, part_name)
+                part_instance = onto.Part(part_name)
                 safe_append(part_instance.has_name, procedure['Subject'])
                 # safe_append(part_instance.part_of, item_instance)
                 safe_append(procedure_instance.procedure_for, part_instance)
@@ -83,22 +64,24 @@ def populate(verbose=False):
                     tool_name = tool['Name']
                     if not tool_id:
                         tool_id = tool_name.replace(' ', '_')
-                    tool_instance = get_or_create_instance(onto.Tool, tool_id)
+                    tool_instance = onto.Tool(tool_id)
                     toolbox_name_url[tool_name] = tool_id
                     safe_append(tool_instance.has_name, tool_name)
-                    safe_append(procedure_instance.uses_tool, tool_instance)
+                    safe_append(tool_instance.in_toolbox, procedure_instance)
+                    # inverser property will be automatically defined
+                    # safe_append(procedure_instance.procedure_uses_tool, tool_instance)
 
                 # Process steps
                 for step in procedure.get('Steps', []):
                     step_id = str(step['StepId'])
-                    step_instance = get_or_create_instance(onto.Step, step_id)
+                    step_instance = onto.Step(step_id)
                     safe_append(step_instance.has_order, step['Order'])
                     safe_append(step_instance.has_text, step['Text_raw'])
                     safe_append(procedure_instance.has_step, step_instance)
 
                     # Process images for the step
                     for image_url in step.get('Images', []):
-                        image_instance = get_or_create_instance(onto.Image, image_url)
+                        image_instance = onto.Image(image_url)
                         safe_append(step_instance.has_image, image_instance)
                     
                     # Process tools extracted in the step (ensuring tools are in the toolbox)
@@ -111,8 +94,8 @@ def populate(verbose=False):
                             logger.warning(f"Tool '{tool_name}' extracted in step but not in toolbox for procedure {procedure['Title']}")
                             continue
                         for tool_id in tool_ids:
-                            tool_instance = get_or_create_instance(onto.Tool, tool_id)
-                            safe_append(step_instance.uses_tool, tool_instance)
+                            tool_instance = onto.Tool(tool_id)
+                            safe_append(step_instance.step_uses_tool, tool_instance)
             
             except KeyError as e:
                 logger.error(f"Missing field {str(e)} in procedure {procedure.get('Title', 'Unknown')}")
@@ -124,7 +107,7 @@ def populate(verbose=False):
 
     # Save the updated ontology
     onto.save(file=KNOWLEDGE_GRAPH, format='rdfxml')
-    logger.info(f"\nKnowledge graph saved successfully as '{KNOWLEDGE_GRAPH}'.")
+    logger.info(f"\nKnowledge graph saved successfully to '{KNOWLEDGE_GRAPH}'.")
     if verbose:
         print(f"Procedures {len(list(onto.Procedure.instances()))}")
         print(f"Items {len(list(onto.Item.instances()))}")

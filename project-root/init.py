@@ -19,4 +19,4 @@ if __name__ == '__main__':
     if args.v:
         output_kg.print_procedure_relationships()
         sparql_queries.run_queries()
-    #Run app
+    # app.run_app()
