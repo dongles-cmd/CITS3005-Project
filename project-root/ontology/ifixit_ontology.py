@@ -46,11 +46,6 @@ def init_ontology(verbose=False):
             domain = [Item] 
             range = [Item]
             transitive = True
-        class precedes(ObjectProperty):
-            """Enforce that each step has a sequential order, e.g., step 1 comes before step 2. """
-            domain = [Step]
-            range = [Step]
-            transitive = True
         class in_toolbox(ObjectProperty):
             """Ensure that if a tool is used in a step, it must be in the toolbox of the procedure. """
             domain = [Tool]
