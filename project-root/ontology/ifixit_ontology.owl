@@ -102,7 +102,7 @@
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#procedure_for"/>
-      <owl:someValuesFrom rdf:resource="#Item"/>
+      <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:subClassOf>

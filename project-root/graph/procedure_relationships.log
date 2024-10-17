@@ -1,35 +1,37 @@
-2024-10-17 10:13:51,406 - INFO - Procedure: ifixit_knowledge_graph.https://www.ifixit.com/Guide/Dell+OptiPlex+FX170+RAM++Replacement/36709
-2024-10-17 10:13:51,406 - INFO - 	Procedure for: ifixit_knowledge_graph.Dell_OptiPlex_FX170
-2024-10-17 10:13:51,407 - INFO - 			Part of: ifixit_knowledge_graph.Dell_Desktop
-2024-10-17 10:13:51,407 - INFO - 			Part of: ifixit_knowledge_graph.Desktop_PC
-2024-10-17 10:13:51,407 - INFO - 			Part of: ifixit_knowledge_graph.PC
-2024-10-17 10:13:51,407 - INFO - 			Part of: ifixit_knowledge_graph.Root
-2024-10-17 10:13:51,407 - INFO - 	Procedure for: ifixit_knowledge_graph.RAM
-2024-10-17 10:13:51,407 - INFO - 			Part of: ifixit_knowledge_graph.Dell_OptiPlex_FX170
-2024-10-17 10:13:51,408 - INFO - 			Part of: ifixit_knowledge_graph.RAM
-2024-10-17 10:13:51,409 - INFO - 	Procedure uses tool: ifixit_knowledge_graph.http://www.ifixit.com/Tools/Phillips-0-Screwdriver/IF145-005
-2024-10-17 10:13:51,409 - INFO - 	ifixit_knowledge_graph.http://www.ifixit.com/Tools/Phillips-0-Screwdriver/IF145-005 in toolbox
-2024-10-17 10:13:51,409 - INFO - 	Procedure uses tool: ifixit_knowledge_graph.http://www.ifixit.com/Tools/Spudger/IF145-002
-2024-10-17 10:13:51,409 - INFO - 	ifixit_knowledge_graph.http://www.ifixit.com/Tools/Spudger/IF145-002 in toolbox
-2024-10-17 10:13:51,409 - INFO - 	Step: ifixit_knowledge_graph.81967, Order: 0 Text: ['With the base stand facing upwards, unscrew the 6mm Phillips #2 screw. Pull the base stand straight up from the device.']
-2024-10-17 10:13:51,409 - INFO - 		Uses Tool: ifixit_knowledge_graph.http://www.ifixit.com/Tools/Phillips-0-Screwdriver/IF145-005
-2024-10-17 10:13:51,410 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/eKB1Pr3Xoi1kBLyD.standard
-2024-10-17 10:13:51,410 - INFO - 	Step: ifixit_knowledge_graph.81996, Order: 1 Text: ['Unscrew and remove the eight 4mm Phillips #0 screws (four on top, four on bottom) from the top and bottom of the device.']
-2024-10-17 10:13:51,410 - INFO - 		Uses Tool: ifixit_knowledge_graph.http://www.ifixit.com/Tools/Phillips-0-Screwdriver/IF145-005
-2024-10-17 10:13:51,411 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/Ksrjub4PqrM2QNiJ.standard
-2024-10-17 10:13:51,411 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/52ZEPDdcKgJVmZSV.standard
-2024-10-17 10:13:51,411 - INFO - 	Step: ifixit_knowledge_graph.82008, Order: 2 Text: ['Run the flat side of the spudger along the entire line of the case starting from the back where the power plug and a small screw are located. Use care to not apply excessive force that could damage retaining clips while running the spudger along the case.']
-2024-10-17 10:13:51,412 - INFO - 		Uses Tool: ifixit_knowledge_graph.http://www.ifixit.com/Tools/Spudger/IF145-002
-2024-10-17 10:13:51,412 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/vkj3jdWuKuYi2TLI.standard
-2024-10-17 10:13:51,412 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/nCSSIqVcCgMCZIMT.standard
-2024-10-17 10:13:51,412 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/aBSF16YNTQrKUI42.standard
-2024-10-17 10:13:51,413 - INFO - 	Step: ifixit_knowledge_graph.82013, Order: 3 Text: ['Once the clips have been released, gently disengage the cover from the rest of case by pulling in opposite directions.']
-2024-10-17 10:13:51,413 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/XHCtTYmDgHUWhr4X.standard
-2024-10-17 10:13:51,413 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/rIyPRqLIrCjcDH4S.standard
-2024-10-17 10:13:51,413 - INFO - 	Step: ifixit_knowledge_graph.81959, Order: 4 Text: ['Using fingers, push the clips on either side of the RAM. The RAM will pop up at a 45 degree angle when both clips are disengaged.']
-2024-10-17 10:13:51,415 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/X6BXbmL4bbPw5tlj.standard
-2024-10-17 10:13:51,415 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/ywE5JpWF4icKlWdj.standard
-2024-10-17 10:13:51,415 - INFO - 	Step: ifixit_knowledge_graph.81962, Order: 5 Text: ['Lift and pull out the RAM.']
-2024-10-17 10:13:51,416 - INFO - 		Uses Image: ifixit_knowledge_graph.https://d3nevzfk7ii3be.cloudfront.net/igi/N2beTNrGB4a53OMk.standard
-2024-10-17 10:13:51,416 - INFO - 	Procedure is a sub-procedure of: ifixit_knowledge_graph.https://www.ifixit.com/Guide/Dell+OptiPlex+FX170+RAM++Replacement/36709
-2024-10-17 10:13:51,416 - INFO - Procedure: ifixit_knowledge_graph.UWU
+2024-10-17 22:30:45,781 - INFO - Procedure: ifixit_ontology.https://www.ifixit.com/Guide/Dell+OptiPlex+FX170+RAM++Replacement/36709
+2024-10-17 22:30:45,781 - INFO - 	Procedure for: ifixit_ontology.Dell_OptiPlex_FX170
+2024-10-17 22:30:45,782 - INFO - 			Part of: ifixit_ontology.Dell_Desktop
+2024-10-17 22:30:45,782 - INFO - 			Part of: ifixit_ontology.Desktop_PC
+2024-10-17 22:30:45,782 - INFO - 			Part of: ifixit_ontology.PC
+2024-10-17 22:30:45,782 - INFO - 			Part of: ifixit_ontology.Root
+2024-10-17 22:30:45,782 - INFO - 	Procedure for: ifixit_ontology.RAM
+2024-10-17 22:30:45,783 - INFO - 			Part of: ifixit_ontology.RAM
+2024-10-17 22:30:45,783 - INFO - 			Part of: ifixit_ontology.Dell_OptiPlex_FX170
+2024-10-17 22:30:45,783 - INFO - 			Part of: ifixit_ontology.RAM
+2024-10-17 22:30:45,783 - INFO - 			Part of: ifixit_ontology.Dell_OptiPlex_FX170
+2024-10-17 22:30:45,784 - INFO - 	Procedure uses tool: ifixit_ontology.http://www.ifixit.com/Tools/Phillips-0-Screwdriver/IF145-005
+2024-10-17 22:30:45,784 - INFO - 	ifixit_ontology.http://www.ifixit.com/Tools/Phillips-0-Screwdriver/IF145-005 in toolbox
+2024-10-17 22:30:45,784 - INFO - 	Procedure uses tool: ifixit_ontology.http://www.ifixit.com/Tools/Spudger/IF145-002
+2024-10-17 22:30:45,784 - INFO - 	ifixit_ontology.http://www.ifixit.com/Tools/Spudger/IF145-002 in toolbox
+2024-10-17 22:30:45,785 - INFO - 	Step: ifixit_ontology.81967, Order: 0 Text: ['With the base stand facing upwards, unscrew the 6mm Phillips #2 screw. Pull the base stand straight up from the device.']
+2024-10-17 22:30:45,785 - INFO - 		Uses Tool: ifixit_ontology.http://www.ifixit.com/Tools/Phillips-0-Screwdriver/IF145-005
+2024-10-17 22:30:45,785 - INFO - 		Uses Image: ifixit_ontology.https://d3nevzfk7ii3be.cloudfront.net/igi/eKB1Pr3Xoi1kBLyD.standard
+2024-10-17 22:30:45,785 - INFO - 	Step: ifixit_ontology.81996, Order: 1 Text: ['Unscrew and remove the eight 4mm Phillips #0 screws (four on top, four on bottom) from the top and bottom of the device.']
+2024-10-17 22:30:45,786 - INFO - 		Uses Tool: ifixit_ontology.http://www.ifixit.com/Tools/Phillips-0-Screwdriver/IF145-005
+2024-10-17 22:30:45,786 - INFO - 		Uses Image: ifixit_ontology.https://d3nevzfk7ii3be.cloudfront.net/igi/Ksrjub4PqrM2QNiJ.standard
+2024-10-17 22:30:45,786 - INFO - 		Uses Image: ifixit_ontology.https://d3nevzfk7ii3be.cloudfront.net/igi/52ZEPDdcKgJVmZSV.standard
+2024-10-17 22:30:45,786 - INFO - 	Step: ifixit_ontology.82008, Order: 2 Text: ['Run the flat side of the spudger along the entire line of the case starting from the back where the power plug and a small screw are located. Use care to not apply excessive force that could damage retaining clips while running the spudger along the case.']
+2024-10-17 22:30:45,787 - INFO - 		Uses Tool: ifixit_ontology.http://www.ifixit.com/Tools/Spudger/IF145-002
+2024-10-17 22:30:45,787 - INFO - 		Uses Image: ifixit_ontology.https://d3nevzfk7ii3be.cloudfront.net/igi/vkj3jdWuKuYi2TLI.standard
+2024-10-17 22:30:45,787 - INFO - 		Uses Image: ifixit_ontology.https://d3nevzfk7ii3be.cloudfront.net/igi/nCSSIqVcCgMCZIMT.standard
+2024-10-17 22:30:45,787 - INFO - 		Uses Image: ifixit_ontology.https://d3nevzfk7ii3be.cloudfront.net/igi/aBSF16YNTQrKUI42.standard
+2024-10-17 22:30:45,787 - INFO - 	Step: ifixit_ontology.82013, Order: 3 Text: ['Once the clips have been released, gently disengage the cover from the rest of case by pulling in opposite directions.']
+2024-10-17 22:30:45,788 - INFO - 		Uses Image: ifixit_ontology.https://d3nevzfk7ii3be.cloudfront.net/igi/XHCtTYmDgHUWhr4X.standard
+2024-10-17 22:30:45,788 - INFO - 		Uses Image: ifixit_ontology.https://d3nevzfk7ii3be.cloudfront.net/igi/rIyPRqLIrCjcDH4S.standard
+2024-10-17 22:30:45,788 - INFO - 	Step: ifixit_ontology.81959, Order: 4 Text: ['Using fingers, push the clips on either side of the RAM. The RAM will pop up at a 45 degree angle when both clips are disengaged.']
+2024-10-17 22:30:45,788 - INFO - 		Uses Image: ifixit_ontology.https://d3nevzfk7ii3be.cloudfront.net/igi/X6BXbmL4bbPw5tlj.standard
+2024-10-17 22:30:45,788 - INFO - 		Uses Image: ifixit_ontology.https://d3nevzfk7ii3be.cloudfront.net/igi/ywE5JpWF4icKlWdj.standard
+2024-10-17 22:30:45,788 - INFO - 	Step: ifixit_ontology.81962, Order: 5 Text: ['Lift and pull out the RAM.']
+2024-10-17 22:30:45,789 - INFO - 		Uses Image: ifixit_ontology.https://d3nevzfk7ii3be.cloudfront.net/igi/N2beTNrGB4a53OMk.standard
+2024-10-17 22:30:45,789 - INFO - 	Procedure is a sub-procedure of: ifixit_ontology.https://www.ifixit.com/Guide/Dell+OptiPlex+FX170+RAM++Replacement/36709
+2024-10-17 22:30:45,789 - INFO - 	Procedure is a sub-procedure of: ifixit_ontology.https://www.ifixit.com/Guide/Dell+OptiPlex+FX170+RAM++Replacement/36709

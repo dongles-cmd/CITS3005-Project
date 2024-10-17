@@ -7,7 +7,7 @@ from owlready2 import *
 import markdown
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'
+app.secret_key = 'whatever'
 
 # Route for the home page
 @app.route('/')
@@ -193,7 +193,7 @@ def serve_images(filename):
 def resources():
     return render_template('resources.html')
 
-def run_app(debug=True):
+def run_app(debug=False):
     app.run(debug=debug)
 
 if __name__ == "__main__":
