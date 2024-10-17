@@ -3,7 +3,7 @@ from app.search_logic import search_procedures
 from app.procedure_data import get_procedure_details
 from config import BASE_URI, KNOWLEDGE_GRAPH, USER_MANUAL
 from app.populate_knowledge_graph import add_procedure
-from owlready2 import get_ontology
+from owlready2 import *
 import markdown
 
 app = Flask(__name__)
@@ -80,7 +80,7 @@ def edit_data_route():
                 # Delete Class
                 class_instance = onto.search_one(iri=f"{BASE_URI}{class_uri}")
                 if class_instance:
-                    class_instance.destroy()  # Use destroy to remove the instance
+                    destroy_entity(class_instance)  # Use destroy to remove the instance
                     flash(f"Class instance {class_uri} has been deleted.")
                 else:
                     flash(f"Class instance {class_uri} not found!")

@@ -331,11 +331,6 @@
   <rdf:type rdf:resource="#Procedure"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#FUCK">
-  <rdf:type rdf:resource="#Procedure"/>
-  <has_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FUCKME</has_name>
-</owl:NamedIndividual>
-
 <owl:NamedIndividual rdf:about="#FUCKME">
   <rdf:type rdf:resource="#Item"/>
 </owl:NamedIndividual>
