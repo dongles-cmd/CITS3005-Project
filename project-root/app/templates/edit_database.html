@@ -11,16 +11,12 @@
 <body>
     <h1>Edit Knowledge Graph</h1>
     
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
-    /
+    <p>Class names: ["Procedure", "Item", "Part", "Tool", "Step", "Image"]</p>
+    <p>Relations: ["has_name", "has_text", "step_uses_tool", "has_step", "has_image",
+    "sub_procedure_of", "procedure_for", "part_of", "in_toolbox", "procedure_uses_tool"]</p>
+    <p>Please read the user manual for more in depth explanation. </p>
+    <p>Note that when inputting into fields "class name" and "relation", the string must be an exact match to the ones specified above.</p>
+
     <h2>Add or Delete Class Instance</h2>
     <form method="POST">
         <input type="hidden" name="action" value="class_instance">
@@ -51,6 +47,17 @@
         <button type="submit" name="submit" value="add_relation">Add Relation</button>
         <button type="submit" name="submit" value="delete_relation">Delete Relation</button>
     </form>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul style="list-style-type: none; padding: 0;">  <!-- Remove bullet points -->
+            {% for message in messages %}
+                <li style="font-size: 30px; color: red;">{{ message }}</li>  <!-- Make text bigger and red -->
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
 </body>
 </html>
 
