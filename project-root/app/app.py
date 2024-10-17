@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, send_from_directory, flash
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 from app.search_logic import search_procedures
 from app.procedure_data import get_procedure_details
 from config import BASE_URI, ONTOLOGY, USER_MANUAL
@@ -49,7 +49,7 @@ def procedure_details(procedure_iri):
     
     return render_template('procedure_details.html', procedure=procedure)
 
-@app.route('/add_data', methods=['GET', 'POST'])
+@app.route('/add-data', methods=['GET', 'POST'])
 def add_data_route():
     if request.method == 'POST':
         class_type = request.form.get('classType')
@@ -79,21 +79,21 @@ def add_data_route():
                         if step_instance:
                             existing_instance.has_step.append(step_instance)
 
-                    flash("Procedure updated successfully!", 'success')
+                    return redirect(url_for('success_page'))
                 else:  # If the instance does not exist, create a new one
                     procedure_for = request.form['Procedure[procedure_for]']
                     has_name = request.form['Procedure[has_name]']
 
                     # Validate required fields
                     if not procedure_for or not has_name:
-                        flash("Procedure must have 'procedure_for' relation and a name.", 'danger')
+                        return redirect(url_for('failure_page'))
                     else:
                         new_procedure = onto.Procedure(unique_id=unique_id, procedure_for=procedure_for, has_name=has_name)
                         if has_step:
                             step_instance = onto.search_one(iri=has_step)
                             if step_instance:
                                 new_procedure.has_step.append(step_instance)
-                        flash("Procedure added successfully!", 'success')
+                        return redirect(url_for('success_page'))
 
             elif class_type == 'Step':
                 if existing_instance:  # If the instance exists, update it
@@ -109,14 +109,14 @@ def add_data_route():
                     if step_uses_tool:
                         existing_instance.step_uses_tool.append(onto.Tool(step_uses_tool))
 
-                    flash("Step updated successfully!", 'success')
+                    return redirect(url_for('success_page'))
                 else:  # If the instance does not exist, create a new one
                     has_text = request.form['Step[has_text]']
                     procedure = request.form['Step[procedure]']
 
                     # Validate required fields
                     if not has_text or not procedure:
-                        flash("Step must have text and be linked to a procedure.", 'danger')
+                        return redirect(url_for('failure_page'))
                     else:
                         procedure_instance = onto.search_one(iri=procedure)
                         if procedure_instance:
@@ -130,9 +130,9 @@ def add_data_route():
                                 if tool_instance:
                                     new_step.step_uses_tool.append(tool_instance)
                             procedure_instance.has_step.append(new_step)
-                            flash("Step added successfully!", 'success')
+                            return redirect(url_for('success_page'))
                         else:
-                            flash("Procedure not found for the step.", 'danger')
+                            return redirect(url_for('failure_page'))
 
             elif class_type == 'Part':
                 if existing_instance:  # If the instance exists, update it
@@ -143,17 +143,17 @@ def add_data_route():
                     existing_instance.part_of = part_of
                     existing_instance.has_name = has_name
 
-                    flash("Part updated successfully!", 'success')
+                    return redirect(url_for('success_page'))
                 else:  # If the instance does not exist, create a new one
                     part_of = request.form['Part[part_of]']
                     has_name = request.form['Part[has_name]']
 
                     # Validate required fields
                     if not part_of or not has_name:
-                        flash("Part must have 'part_of' relation and a name.", 'danger')
+                        return redirect(url_for('failure_page'))
                     else:
                         new_part = onto.Part(unique_id=unique_id, part_of=part_of, has_name=has_name)
-                        flash("Part added successfully!", 'success')
+                        return redirect(url_for('success_page'))
 
             elif class_type == 'Tool':
                 if existing_instance:  # If the instance exists, update it
@@ -164,22 +164,22 @@ def add_data_route():
                     existing_instance.in_toolbox = in_toolbox
                     existing_instance.has_name = has_name
 
-                    flash("Tool updated successfully!", 'success')
+                    return redirect(url_for('success_page'))
                 else:  # If the instance does not exist, create a new one
                     in_toolbox = request.form['Tool[in_toolbox]']
                     has_name = request.form['Tool[has_name]']
 
                     # Validate required fields
                     if not in_toolbox or not has_name:
-                        flash("Tool must have 'in_toolbox' relation and a name.", 'danger')
+                        return redirect(url_for('failure_page'))
                     else:
                         procedure_instance = onto.search_one(iri=in_toolbox)
                         if procedure_instance:
                             new_tool = onto.Tool(unique_id=unique_id, has_name=has_name)
                             new_tool.in_toolbox.append(procedure_instance)
-                            flash("Tool added successfully!", 'success')
+                            return redirect(url_for('success_page'))
                         else:
-                            flash("Procedure not found for the toolbox.", 'danger')
+                            return redirect(url_for('failure_page'))
 
             elif class_type == 'Item':
                 if existing_instance:  # If the instance exists, update it
@@ -188,16 +188,16 @@ def add_data_route():
                     # Update the existing item
                     existing_instance.has_name = has_name
 
-                    flash("Item updated successfully!", 'success')
+                    return redirect(url_for('success_page'))
                 else:  # If the instance does not exist, create a new one
                     has_name = request.form['Item[has_name]']
 
                     # Validate required fields
                     if not has_name:
-                        flash("Item must have a name.", 'danger')
+                        return redirect(url_for('failure_page'))
                     else:
                         new_item = onto.Item(unique_id=unique_id, has_name=has_name)
-                        flash("Item added successfully!", 'success')
+                        return redirect(url_for('success_page'))
 
             elif class_type == 'Image':
                 if existing_instance:  # If the instance exists, update it
@@ -206,28 +206,25 @@ def add_data_route():
                     # Update the existing image
                     existing_instance.has_name = has_name
 
-                    flash("Image updated successfully!", 'success')
+                    return redirect(url_for('success_page'))
                 else:  # If the instance does not exist, create a new one
                     has_name = request.form['Image[has_name]']
 
                     # Validate required fields
                     if not has_name:
-                        flash("Image must have a name.", 'danger')
+                        return redirect(url_for('failure_page'))
                     else:
                         new_image = onto.Image(unique_id=unique_id, has_name=has_name)
-                        flash("Image added successfully!", 'success')
+                        return redirect(url_for('success_page'))
 
             # Redirect back to the form after adding or updating
             return redirect(url_for('add_data_route'))
 
         except Exception as e:
-            flash(f"An error occurred: {str(e)}", 'danger')
-            return redirect(url_for('add_data_route'))
+            return redirect(url_for('failure_page'))
 
     return render_template('add_to_database.html')
 
-if __name__ == '__main__':
-    app.run(debug=True)
 
 @app.route('/success')
 def success_page():
