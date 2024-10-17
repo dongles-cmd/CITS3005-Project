@@ -537,3 +537,13 @@ footer .btn:hover {
     margin: 0 auto;
 }
 
+.message-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.message-list li {
+    font-size: 20px;   /* Increase font size */
+    color: red;        /* Set the text color to red */
+    font-weight: bold; /* Optional: make the text bold */
+}

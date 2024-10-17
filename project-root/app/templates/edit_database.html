@@ -1,65 +1,60 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Data</title>
-</head>
-<body>
-    <h1>Edit Knowledge Graph</h1>
-    
-    <p>Class names: ["Procedure", "Item", "Part", "Tool", "Step", "Image"]</p>
-    <p>Relations: ["has_name", "has_text", "step_uses_tool", "has_step", "has_image",
-    "sub_procedure_of", "procedure_for", "part_of", "in_toolbox", "procedure_uses_tool"]</p>
-    <p>Please read the user manual for more in depth explanation. </p>
-    <p>Note that when inputting into fields "class name" and "relation", the string must be an exact match to the ones specified above.</p>
-
-    <h2>Add or Delete Class Instance</h2>
-    <form method="POST">
-        <input type="hidden" name="action" value="class_instance">
+<section class="edit-data-hero">
+    <div class="container centered-box">
+        <h1>Edit Knowledge Graph</h1>
         
-        <label for="class_name">Class Name:</label>
-        <input type="text" name="class_name" required>
-        
-        <label for="class_uri">Class URI:</label>
-        <input type="text" name="class_uri" required>
+        <p>Class names: ["Procedure", "Item", "Part", "Tool", "Step", "Image"]</p>
+        <p>Relations: ["has_name", "has_text", "step_uses_tool", "has_step", "has_image",
+        "sub_procedure_of", "procedure_for", "part_of", "in_toolbox", "procedure_uses_tool"]</p>
+        <p>Please read the user manual for more in-depth explanation.</p>
+        <p>Note that when inputting into fields "class name" and "relation", the string must be an exact match to the ones specified above.</p>
 
-        <button type="submit" name="submit" value="add_class">Add Class</button>
-        <button type="submit" name="submit" value="delete_class">Delete Class</button>
-    </form>
+        <div class="form-section">
+            <h2>Add or Delete Class Instance</h2>
+            <form method="POST">
+                <input type="hidden" name="action" value="class_instance">
 
-    <h2>Add or Delete Relation</h2>
-    <form method="POST">
-        <input type="hidden" name="action" value="relation">
-        
-        <label for="obj1">Object 1:</label>
-        <input type="text" name="obj1" required>
-        
-        <label for="relation">Relation:</label>
-        <input type="text" name="relation" required>
-        
-        <label for="obj2">Object 2:</label>
-        <input type="text" name="obj2" required>
+                <label for="class_name">Class Name:</label>
+                <input type="text" name="class_name" required>
 
-        <button type="submit" name="submit" value="add_relation">Add Relation</button>
-        <button type="submit" name="submit" value="delete_relation">Delete Relation</button>
-    </form>
+                <label for="class_uri">Class URI:</label>
+                <input type="text" name="class_uri" required>
 
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul style="list-style-type: none; padding: 0;">  <!-- Remove bullet points -->
-            {% for message in messages %}
-                <li style="font-size: 30px; color: red;">{{ message }}</li>  <!-- Make text bigger and red -->
-            {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
+                <button type="submit" name="submit" value="add_class" class="cta-button">Add Class</button>
+                <button type="submit" name="submit" value="delete_class" class="cta-button">Delete Class</button>
+            </form>
+        </div>
 
-</body>
-</html>
+        <div class="form-section">
+            <h2>Add or Delete Relation</h2>
+            <form method="POST">
+                <input type="hidden" name="action" value="relation">
 
+                <label for="obj1">Object 1:</label>
+                <input type="text" name="obj1" required>
 
+                <label for="relation">Relation:</label>
+                <input type="text" name="relation" required>
+
+                <label for="obj2">Object 2:</label>
+                <input type="text" name="obj2" required>
+
+                <button type="submit" name="submit" value="add_relation" class="cta-button">Add Relation</button>
+                <button type="submit" name="submit" value="delete_relation" class="cta-button">Delete Relation</button>
+            </form>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="message-list">  <!-- No bullet points -->
+                {% for message in messages %}
+                    <li>{{ message }}</li>  <!-- Red and larger text -->
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+</section>
 {% endblock %}
