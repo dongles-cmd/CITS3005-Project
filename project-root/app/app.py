@@ -1,12 +1,13 @@
-from flask import Flask, render_template, request, redirect, url_for, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory, flash
 from app.search_logic import search_procedures
 from app.procedure_data import get_procedure_details
-from config import BASE_URI, ONTOLOGY, USER_MANUAL
+from config import BASE_URI, KNOWLEDGE_GRAPH, USER_MANUAL
 from app.populate_knowledge_graph import add_procedure
 from owlready2 import get_ontology
 import markdown
 
 app = Flask(__name__)
+app.secret_key = 'your_secret_key'
 
 # Route for the home page
 @app.route('/')
@@ -49,181 +50,85 @@ def procedure_details(procedure_iri):
     
     return render_template('procedure_details.html', procedure=procedure)
 
-@app.route('/add-data', methods=['GET', 'POST'])
-def add_data_route():
+def check_constraints():
+    pass
+
+@app.route('/edit-data', methods=['GET', 'POST'])
+def edit_data_route():
     if request.method == 'POST':
-        class_type = request.form.get('classType')
-        unique_id = request.form.get(f"{class_type}[unique_id]")
+        onto = get_ontology(KNOWLEDGE_GRAPH).load()
+        action = request.form.get('action')
+        submit_type = request.form.get('submit')
 
-        # Load the ontology
-        onto = get_ontology(BASE_URI).load()
+        if action == 'class_instance':
+            class_name = request.form.get('class_name')
+            class_uri = request.form.get('class_uri')
+            classes = ["Procedure", "Item", "Part", "Tool", "Step", "Image"]
 
-        try:
-            # Check if instance already exists
-            existing_instance = onto.search_one(iri=f"{BASE_URI}{unique_id}")
+            if class_name not in classes:
+                flash(f"Class type does not exist!")
+            elif submit_type == 'add_class':
+                # Add Class
+                existing_instance = onto.search_one(iri=f"{BASE_URI}{class_uri}")
+                if existing_instance:
+                    flash(f"Class instance {class_uri} already exists!")
+                else:
+                    class_to_add = getattr(onto, class_name)
+                    class_instance = class_to_add(class_uri)
+                    flash(f"Class {class_name} added with URI {class_uri}!")
+            elif submit_type == 'delete_class':
+                # Delete Class
+                class_instance = onto.search_one(iri=f"{BASE_URI}{class_uri}")
+                if class_instance:
+                    class_instance.destroy()  # Use destroy to remove the instance
+                    flash(f"Class instance {class_uri} has been deleted.")
+                else:
+                    flash(f"Class instance {class_uri} not found!")
 
-            if class_type == 'Procedure':
-                if existing_instance:  # If the instance exists, update it
-                    procedure_for = request.form.get('Procedure[procedure_for]')
-                    has_name = request.form.get('Procedure[has_name]')
-                    procedure_uses_tool = request.form.get('Procedure[procedure_uses_tool]', '')
-                    has_step = request.form.get('Procedure[has_step]', '')
+        # Adding or Deleting a relation
+        elif action == 'relation':
+            obj1 = request.form.get('obj1')
+            relation = request.form.get('relation')
+            obj2 = request.form.get('obj2')
 
-                    # Update the existing procedure
-                    existing_instance.procedure_for = procedure_for
-                    existing_instance.has_name = has_name
-                    if procedure_uses_tool:
-                        existing_instance.procedure_uses_tool.append(onto.Tool(procedure_uses_tool))
-                    if has_step:
-                        step_instance = onto.search_one(iri=has_step)
-                        if step_instance:
-                            existing_instance.has_step.append(step_instance)
+            # Fetch instances of the objects
+            obj1_instance = onto.search_one(iri=f"{BASE_URI}{obj1}")
+            obj2_instance = onto.search_one(iri=f"{BASE_URI}{obj2}")
+            
+            # Available properties (relations)
+            properties = ["has_name", "has_text", "step_uses_tool", "has_step", "has_image", 
+                          "sub_procedure_of", "procedure_for", "part_of", "in_toolbox", "procedure_uses_tool"]
 
-                    return redirect(url_for('success_page'))
-                else:  # If the instance does not exist, create a new one
-                    procedure_for = request.form['Procedure[procedure_for]']
-                    has_name = request.form['Procedure[has_name]']
+            if relation not in properties:
+                flash("Relation does not exist!")
+            elif not obj1_instance:
+                flash(f"{obj1} does not exist, add it to the knowledge graph first.")
+            elif relation == "has_name" or relation == "has_text":
+                relation_property = getattr(onto, relation, None)
+                if submit_type == 'add_relation':
+                    relation_property[obj1_instance].append(obj2)
+                    flash(f"Successfully added relation {relation} between {obj1} and {obj2}.")
+                elif submit_type == 'delete_relation':
+                    if obj2_instance in relation_property[obj1_instance]:
+                        relation_property[obj1_instance].remove(obj2)
+                        flash(f"Successfully removed relation {relation} between {obj1} and {obj2}.")
+            elif not obj2_instance:
+                flash(f"{obj2} does not exist, add it to the knowledge graph first.")
+            else:
+                relation_property = getattr(onto, relation, None)
+                if submit_type == 'add_relation':
+                    relation_property[obj1_instance].append(obj2_instance)
+                    flash(f"Successfully added relation {relation} between {obj1} and {obj2}.")
+                elif submit_type == 'delete_relation':
+                    if obj2_instance in relation_property[obj1_instance]:
+                        relation_property[obj1_instance].remove(obj2_instance)
+                        flash(f"Successfully removed relation {relation} between {obj1} and {obj2}.")
 
-                    # Validate required fields
-                    if not procedure_for or not has_name:
-                        return redirect(url_for('failure_page'))
-                    else:
-                        new_procedure = onto.Procedure(unique_id=unique_id, procedure_for=procedure_for, has_name=has_name)
-                        if has_step:
-                            step_instance = onto.search_one(iri=has_step)
-                            if step_instance:
-                                new_procedure.has_step.append(step_instance)
-                        return redirect(url_for('success_page'))
+        # Save the changes to the ontology
+        onto.save(file=KNOWLEDGE_GRAPH)
+        return redirect(url_for('edit_data_route'))
 
-            elif class_type == 'Step':
-                if existing_instance:  # If the instance exists, update it
-                    has_text = request.form.get('Step[has_text]')
-                    has_image = request.form.get('Step[has_image]', '')
-                    step_uses_tool = request.form.get('Step[step_uses_tool]', '')
-                    procedure = request.form.get('Step[procedure]')
-
-                    # Update the existing step
-                    existing_instance.has_text = has_text
-                    if has_image:
-                        existing_instance.has_image.append(onto.Image(has_image))
-                    if step_uses_tool:
-                        existing_instance.step_uses_tool.append(onto.Tool(step_uses_tool))
-
-                    return redirect(url_for('success_page'))
-                else:  # If the instance does not exist, create a new one
-                    has_text = request.form['Step[has_text]']
-                    procedure = request.form['Step[procedure]']
-
-                    # Validate required fields
-                    if not has_text or not procedure:
-                        return redirect(url_for('failure_page'))
-                    else:
-                        procedure_instance = onto.search_one(iri=procedure)
-                        if procedure_instance:
-                            new_step = onto.Step(unique_id=unique_id, has_text=has_text)
-                            if has_image:
-                                image_instance = onto.search_one(iri=has_image)
-                                if image_instance:
-                                    new_step.has_image.append(image_instance)
-                            if step_uses_tool:
-                                tool_instance = onto.search_one(iri=step_uses_tool)
-                                if tool_instance:
-                                    new_step.step_uses_tool.append(tool_instance)
-                            procedure_instance.has_step.append(new_step)
-                            return redirect(url_for('success_page'))
-                        else:
-                            return redirect(url_for('failure_page'))
-
-            elif class_type == 'Part':
-                if existing_instance:  # If the instance exists, update it
-                    part_of = request.form.get('Part[part_of]')
-                    has_name = request.form.get('Part[has_name]')
-
-                    # Update the existing part
-                    existing_instance.part_of = part_of
-                    existing_instance.has_name = has_name
-
-                    return redirect(url_for('success_page'))
-                else:  # If the instance does not exist, create a new one
-                    part_of = request.form['Part[part_of]']
-                    has_name = request.form['Part[has_name]']
-
-                    # Validate required fields
-                    if not part_of or not has_name:
-                        return redirect(url_for('failure_page'))
-                    else:
-                        new_part = onto.Part(unique_id=unique_id, part_of=part_of, has_name=has_name)
-                        return redirect(url_for('success_page'))
-
-            elif class_type == 'Tool':
-                if existing_instance:  # If the instance exists, update it
-                    in_toolbox = request.form.get('Tool[in_toolbox]')
-                    has_name = request.form.get('Tool[has_name]')
-
-                    # Update the existing tool
-                    existing_instance.in_toolbox = in_toolbox
-                    existing_instance.has_name = has_name
-
-                    return redirect(url_for('success_page'))
-                else:  # If the instance does not exist, create a new one
-                    in_toolbox = request.form['Tool[in_toolbox]']
-                    has_name = request.form['Tool[has_name]']
-
-                    # Validate required fields
-                    if not in_toolbox or not has_name:
-                        return redirect(url_for('failure_page'))
-                    else:
-                        procedure_instance = onto.search_one(iri=in_toolbox)
-                        if procedure_instance:
-                            new_tool = onto.Tool(unique_id=unique_id, has_name=has_name)
-                            new_tool.in_toolbox.append(procedure_instance)
-                            return redirect(url_for('success_page'))
-                        else:
-                            return redirect(url_for('failure_page'))
-
-            elif class_type == 'Item':
-                if existing_instance:  # If the instance exists, update it
-                    has_name = request.form.get('Item[has_name]')
-
-                    # Update the existing item
-                    existing_instance.has_name = has_name
-
-                    return redirect(url_for('success_page'))
-                else:  # If the instance does not exist, create a new one
-                    has_name = request.form['Item[has_name]']
-
-                    # Validate required fields
-                    if not has_name:
-                        return redirect(url_for('failure_page'))
-                    else:
-                        new_item = onto.Item(unique_id=unique_id, has_name=has_name)
-                        return redirect(url_for('success_page'))
-
-            elif class_type == 'Image':
-                if existing_instance:  # If the instance exists, update it
-                    has_name = request.form.get('Image[has_name]')
-
-                    # Update the existing image
-                    existing_instance.has_name = has_name
-
-                    return redirect(url_for('success_page'))
-                else:  # If the instance does not exist, create a new one
-                    has_name = request.form['Image[has_name]']
-
-                    # Validate required fields
-                    if not has_name:
-                        return redirect(url_for('failure_page'))
-                    else:
-                        new_image = onto.Image(unique_id=unique_id, has_name=has_name)
-                        return redirect(url_for('success_page'))
-
-            # Redirect back to the form after adding or updating
-            return redirect(url_for('add_data_route'))
-
-        except Exception as e:
-            return redirect(url_for('failure_page'))
-
-    return render_template('add_to_database.html')
+    return render_template('edit_database.html')
 
 
 @app.route('/success')

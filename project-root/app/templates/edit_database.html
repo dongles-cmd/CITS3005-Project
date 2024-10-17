@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Data</title>
+</head>
+<body>
+    <h1>Edit Knowledge Graph</h1>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    /
+    <h2>Add or Delete Class Instance</h2>
+    <form method="POST">
+        <input type="hidden" name="action" value="class_instance">
+        
+        <label for="class_name">Class Name:</label>
+        <input type="text" name="class_name" required>
+        
+        <label for="class_uri">Class URI:</label>
+        <input type="text" name="class_uri" required>
+
+        <button type="submit" name="submit" value="add_class">Add Class</button>
+        <button type="submit" name="submit" value="delete_class">Delete Class</button>
+    </form>
+
+    <h2>Add or Delete Relation</h2>
+    <form method="POST">
+        <input type="hidden" name="action" value="relation">
+        
+        <label for="obj1">Object 1:</label>
+        <input type="text" name="obj1" required>
+        
+        <label for="relation">Relation:</label>
+        <input type="text" name="relation" required>
+        
+        <label for="obj2">Object 2:</label>
+        <input type="text" name="obj2" required>
+
+        <button type="submit" name="submit" value="add_relation">Add Relation</button>
+        <button type="submit" name="submit" value="delete_relation">Delete Relation</button>
+    </form>
+</body>
+</html>
+
+
+{% endblock %}

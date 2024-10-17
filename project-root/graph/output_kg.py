@@ -50,7 +50,7 @@ def print_procedure_relationships():
                 logger.info(f"\t\tUses Image: {image}")
 
         for sub_procedure in procedure.sub_procedure_of:
-            logger.info(f"Procedure is a sub-procedure of: {sub_procedure}")
+            logger.info(f"\tProcedure is a sub-procedure of: {sub_procedure}")
 
     logger.handlers[0].flush()
 
