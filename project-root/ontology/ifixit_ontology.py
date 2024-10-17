@@ -66,7 +66,7 @@ def init_ontology(verbose=False):
         """A Procedure uses tools that are in its toolbox."""
         Procedure.is_a.append(procedure_uses_tool.only(in_toolbox.some(Procedure)))
         Procedure.is_a.append(has_step.min(1))  # A procedure must have at least one step
-        Procedure.is_a.append(procedure_for.some(Item))  # A procedure must be for at least one item
+        Procedure.is_a.append(procedure_for.min(1))  # A procedure must be for at least one item
 
         """Procedure has at least one Step. """
         Procedure.is_a.append(has_step.some(Step))

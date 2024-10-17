@@ -51,6 +51,7 @@ def populate(verbose=False):
                     ancestor_instance = onto.Item(ancestor_name.replace(' ', '_').replace('"', '-Inch').strip("'"))
                     # safe_append(procedure_instance.procedure_for, ancestor_instance)
                     safe_append(item_instance.part_of, ancestor_instance)
+                    safe_append(ancestor_instance.has_name, ancestor_name)
                 
                 # Process part (subject or procedure)
                 part_name = procedure['Subject'].replace('"', '-Inch').strip("'").replace(' ', '_')
