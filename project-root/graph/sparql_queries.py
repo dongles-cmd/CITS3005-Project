@@ -59,7 +59,7 @@ def run_queries():
             }
         }
     """
-    print("\nProcedures with tools in toolbox in mentioned in any step:")
+    print("\nProcedures with tools in toolbox not mentioned in any step:")
     for result in g.query(query):
         print(f"Procedure [{result['procedure_name']}] has tool [{result['tool_name']}] in toolbox but not in any steps")
 

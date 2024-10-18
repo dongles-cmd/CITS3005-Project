@@ -96,13 +96,13 @@ From the diagram of the ontology above, we can see the available paths that we t
 
 ### Example 1: Retrieving All Steps For a Procedure
 ```sparql
-PREFIX ex: <http://test.org/ifixit.com#>
-SELECT ?step_text
-WHERE {
-    ?procedure a ex:Procedure ;
-        ex:has_step ?step .
-    ?step ex:has_text ?step_text
-    FILTER (?procedure = <procedure_uri>)
+PREFIX ex: <http://test.org/ifixit.com#>  
+SELECT ?step_text  
+WHERE {  
+    ?procedure a ex:Procedure ;  
+        ex:has_step ?step .  
+    ?step ex:has_text ?step_text  
+    FILTER (?procedure = <procedure_uri>)  
 }
 ```
 We use the procedure's URL as the URI, so if the URL for a procedure is known, we can get all the steps of a procedure. In this specific example, we are outputting the raw text describing each step. Alternatively, we can remove the FILTER to output the steps for every procedure.
@@ -122,13 +122,13 @@ Similarly, we can get all the tools a specific procedure uses.
 
 ### Example 3: Finding Complicated Procedures
 ```sparql
-PREFIX ex: <http://test.org/ifixit.com#>
-SELECT ?procedure_name (COUNT(DISTINCT ?step) AS ?step_count) (COUNT(DISTINCT ?tool) AS ?tool_count)
-WHERE {
-    ?procedure a ex:Procedure ;
-    ex:has_step ?step ;
-    ex:has_name ?procedure_name ;
-    ex:procedure_uses_tool ?tool .
+PREFIX ex: <http://test.org/ifixit.com#><br>
+SELECT ?procedure_name (COUNT(DISTINCT ?step) AS ?step_count) (COUNT(DISTINCT ?tool) AS ?tool_count)<br>
+WHERE {<br>
+    ?procedure a ex:Procedure ;<br>
+    ex:has_step ?step ;<br>
+    ex:has_name ?procedure_name ;<br>
+    ex:procedure_uses_tool ?tool .<br>
 }
 GROUP BY ?procedure
 HAVING (COUNT(DISTINCT ?step) > 20) && (COUNT(DISTINCT ?tool) > 5)
