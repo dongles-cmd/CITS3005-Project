@@ -13,5 +13,6 @@ def pretty_print_json(input_file):
 
     print(f"Pretty-printed JSON saved to {output_file}")
 
-input_file = 'desktop_pcs.json'
-pretty_print_json(input_file)
+if __name__ == "__main__":
+    input_file = 'desktop_pcs.json'
+    pretty_print_json(input_file)

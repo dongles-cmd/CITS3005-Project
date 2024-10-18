@@ -1,3 +1,4 @@
+# Authors: Lewei Xu (23709058), Marc Labouchardiere (23857377)
 from config import KNOWLEDGE_GRAPH, PROCEDURE_RELATIONSHIP
 from owlready2 import get_ontology
 import logging

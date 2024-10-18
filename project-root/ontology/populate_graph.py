@@ -70,7 +70,7 @@ def populate(verbose=False):
                     toolbox_name_url[tool_name] = tool_id
                     safe_append(tool_instance.has_name, tool_name)
                     safe_append(tool_instance.in_toolbox, procedure_instance)
-                    # inverse property will be automatically defined
+
                     safe_append(procedure_instance.procedure_uses_tool, tool_instance)
 
                 # Process steps
@@ -117,3 +117,6 @@ def populate(verbose=False):
         print(f"Steps {len(list(onto.Step.instances()))}")
         print(f"Images {len(list(onto.Image.instances()))}")
         input("\nPress any key to continue...")
+
+if __name__ == "__main__":
+    populate(verbose=True)

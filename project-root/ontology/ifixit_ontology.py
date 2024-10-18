@@ -114,3 +114,6 @@ def init_ontology(verbose=False):
         input("\nPress any key to continue...")
 
     print(f".owl ontology file saved to {ONTOLOGY}")
+
+if __name__ == "__main__":
+    init_ontology(verbose=True)
