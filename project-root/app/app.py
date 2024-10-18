@@ -1,8 +1,8 @@
+# Authors: Lewei Xu (23709058), Marc Labouchardiere (23857377)
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory, flash
 from app.search_logic import search_procedures
 from app.procedure_data import get_procedure_details
 from config import BASE_URI, KNOWLEDGE_GRAPH, USER_MANUAL
-from app.populate_knowledge_graph import add_procedure
 from owlready2 import *
 import markdown
 

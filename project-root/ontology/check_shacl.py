@@ -13,3 +13,6 @@ def check(verbose=False):
     print(results_text)
     if verbose:
         input("\nPress any key to continue...")
+
+if __name__ == "__main__":
+    check(verbose=True)

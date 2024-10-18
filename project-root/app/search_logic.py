@@ -1,3 +1,4 @@
+# Authors: Lewei Xu (23709058), Marc Labouchardiere (23857377)
 from fuzzywuzzy import process
 from config import KNOWLEDGE_GRAPH, BASE_URI
 from owlready2 import get_ontology
@@ -42,8 +43,6 @@ def extract_procedures(graph):
 
 #         toolbox = []
 #         for in_toolbox in tool.in_toolbox:
-
-
 
 # Fuzzy search function based on tags
 def fuzzy_search(query, procedure_data):
