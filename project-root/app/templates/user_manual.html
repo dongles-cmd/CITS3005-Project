@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div class="container">
+  <div class="container dark-theme">
     <div class="manual-content">
-      {{ manual_html | safe }}  <!-- Ensure HTML is rendered safely -->
+      {{ manual_html | safe }} 
     </div>
     <div class="code-block">
-      <pre>{{ query | safe }}</pre>
+      <pre class="vscode-dark">{{ query | safe }}</pre>
     </div>
   </div>
 {% endblock %}

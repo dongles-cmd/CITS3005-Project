@@ -547,3 +547,105 @@ footer .btn:hover {
     color: red;        /* Set the text color to red */
     font-weight: bold; /* Optional: make the text bold */
 }
+
+/* Dark theme container styling */
+.container.dark-theme {
+    background-color: #1e1e1e;
+    color: #dcdcdc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Styling for the manual content */
+  .manual-content {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    padding: 10px;
+  }
+  
+  /* Code block styling similar to Visual Studio Code dark theme */
+  pre.vscode-dark {
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: "Fira Code", Consolas, "Courier New", monospace;
+    overflow-x: auto;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Code syntax highlighting */
+  pre.vscode-dark code {
+    color: #9cdcfe; /* General text color */
+  }
+  
+  /* Code block specific styles */
+  pre.vscode-dark .keyword {
+    color: #569cd6;
+  }
+  
+  pre.vscode-dark .string {
+    color: #ce9178;
+  }
+  
+  pre.vscode-dark .function {
+    color: #dcdcaa;
+  }
+  
+  pre.vscode-dark .comment {
+    color: #6a9955;
+    font-style: italic;
+  }
+  
+  /* Scrollbar styling to match VS Code */
+  pre.vscode-dark::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  pre.vscode-dark::-webkit-scrollbar-thumb {
+    background-color: #3e3e3e;
+    border-radius: 10px;
+  }
+  
+  pre.vscode-dark::-webkit-scrollbar-track {
+    background-color: #2e2e2e;
+  }
+  
+  /* Optional: make links in the manual content more visible */
+  .manual-content a {
+    color: #569cd6;
+    text-decoration: underline;
+  }
+  
+  .manual-content a:hover {
+    color: #dcdcaa;
+  }
+  
+  /* Add padding and margins for better readability */
+  .manual-content p,
+  .manual-content h1, h2, h3, h4, h5 {
+    margin-bottom: 15px;
+    color: #d4d4d4;
+  }
+  
+  .manual-content code {
+    background-color: #252526;
+    color: #c586c0;
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+  
+  /* Ensure buttons and interactive elements look in line with the theme */
+  button {
+    background-color: #007acc;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+  }
+  
+  button:hover {
+    background-color: #005f99;
+  }
+  

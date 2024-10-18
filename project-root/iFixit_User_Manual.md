@@ -9,12 +9,12 @@
 4. [Axioms and Ontology Rules](#4-axioms-and-ontology-rules)
 5. [Example Queries](#5-example-queries)
 6. [Data Management](#6-data-management)
-7. [Running the Application](#running-the-application)
+7. [Running the Application](#7-running-the-application)
 8. [Troubleshooting Guide](#8-troubleshooting-guide)
 
 ---
 
-## 1. Introduction
+# 1. Introduction
 
 ### Overview of the Project
 
@@ -493,6 +493,166 @@ Inference rules or logical constraints can be added to the knowledge graph to en
         imp = Imp()
         imp.set_as_rule("""Procedure(?p) ^ procedure:procedure_for(?p, ?d) ^ Device(?d) -> exists(?p, procedure:hasImage)""")
     ```
+
+# 7. Running the Application
+
+## Starting the Flask Application
+
+The Flask application can be started by running the command `python3 -m app.app`. This will start the Flask application with the currently existing knowledge graph. Note that running the Flask application directly will require an existing knowledge graph stored in the `graph/ifixit_knowledge_graph.rdf` directory. 
+
+If this file does not exist, you can re-initialise the knowledge graph by running the command `python3 init.py` from the project root directory. Alternatively, you can run `python3 init.py -a` which starts the app with a fresh initialisation of the knowledge graph.
+
+Once the Flask application has started, you will see something like this:
+
+![Flask Application Start](<images/7/1.png>)
+
+## Accessing the Application
+
+Once the Flask application is running, you can access it in your preferred web browser at the URL:
+
+[http://localhost:5000/](http://localhost:5000/)
+
+This should take you to the homepage of the iFixit Knowledge Graph interface, where you can browse and update procedures.
+
+![Home Page of Flask Application](<images/7/2.png>)
+
+## User Interface Overview
+
+The graphical user interface is designed for easy querying and updating of the underlying knowledge graph.
+
+### Navigation
+
+The main navigation menu is located at the top of the page, providing access to:
+
+- **Home**: The landing page, offering an overview of the project and search options. You can reach it by clicking on "Home" or the iFixit or UWA logos.
+- **Search**: A dedicated page where you can input search terms to find specific procedures related to items, tools, or parts.
+- **Edit Data**: A form allowing users to submit new procedures, edit existing entries, or delete entries from the knowledge graph.
+- **User Manual**: A page where you can view this user manual, rendered from markdown to HTML.
+
+### Search Functionality
+
+The search functionality is a core feature of the interface. It allows users to search for specific procedures by entering a query into the search bar. The system uses a fuzzy search algorithm to find relevant matches based on `Procedure:procedure_for`, `Procedure:has_name`, and keywords in the procedure name.
+
+![Search Bar](<images/7/3.png>)
+
+**Tip**: For best results when searching for a procedure, use a singular keyword. For example, if searching for "Dell OptiPlex FX170 Heat Sink Replacement", try the following queries:
+
+- `Dell OptiPlex FX170 Heat Sink Replacement`
+- `Dell OptiPlex FX170`
+- `Heat Sink`
+- `Dell`
+- `OptiPlex`
+- `FX170`
+
+![Search Results](<images/7/4.png>)
+
+### Editing the Database
+
+You can edit the knowledge graph data via the **Edit Data** page. Upon accessing this page, you will see something like this:
+
+![Edit Data Page](<images/7/5.png>)
+
+The **Edit Data** page allows you to add or delete class instances and relations between existing class instances.
+
+#### Adding and Deleting Class Instances
+
+To add a class instance, specify the type of class in the "Class Name" field and the URI of the class in the "Class URI" field, then click the `Add Class` button. Ensure the class type matches one of the following:
+
+- `Procedure`
+- `Item`
+- `Part`
+- `Tool`
+- `Step`
+- `Image`
+
+If the class type does not exist, an error will be raised:
+
+![Class Type Error](<images/7/6.png>)
+
+Using a unique URI for each class is recommended, though not enforced. We suggest the following:
+
+- `Procedure`, `Tool`, and `Image` should use their URL for their URI.
+- `Step` should use its unique Step ID.
+
+To delete a class instance, input the same information as above and click the `Delete Class` button. The class instance must already exist to be deleted. For example, to add a new step with step ID 12239:
+
+![Adding a Step](<images/7/7.png>)
+
+If the class instance already exists, a warning will appear:
+
+![Warning for Existing Class](<images/7/8.png>)
+
+Otherwise, a success message will appear. To delete the class instance, input the same details and click `Delete Class`.
+
+#### Adding and Deleting Relations
+
+To add a relation between existing class instances, specify the unique URI for each class instance in the "Object 1" and "Object 2" fields. Also, specify the name of the relation in the "Relation" field. The relation name must match one of the following:
+
+- `has_name`
+- `has_text`
+- `step_uses_tool`
+- `has_step`
+- `has_image`
+- `sub_procedure_of`
+- `procedure_for`
+- `part_of`
+- `in_toolbox`
+- `procedure_uses_tool`
+
+For example, to add the relation "has_text" to the class instance Step with URI 12239:
+
+![Adding Relation](<images/7/9.png>)
+
+The page will flash a success or failure message:
+
+![Success or Failure Message](<images/7/10.png>)
+
+### Maintaining Constraints
+
+Each time a class or relation is added, the application checks a pre-determined set of constraints to detect violations. We recommend resolving any constraint violations before proceeding.
+
+For example, adding a new class instance of type `Procedure`:
+
+![Adding Procedure](<images/7/11.png>)
+
+A success (or failure) message will appear, along with any constraint violations. Procedures, as defined in the ontology, must have at least one step, an item the procedure is for, and a name.
+
+To resolve constraint violations, add the required relations as indicated in the messages. For example, to resolve a missing `has_step` relation:
+
+![Resolving Constraint](<images/7/13.png>)
+
+A success (or failure) message will appear. The missing `has_step` relation will disappear once resolved:
+
+![Constraint Resolved](<images/7/14.png>)
+
+### User Manual
+
+Clicking the `User Manual` option will display this file in-app.
+
+![User Manual](<images/7/15.png>)
+
+### Browsing Procedures
+
+When browsing, the application presents each procedure with detailed information, such as:
+
+- **Procedure Name**: The title of the procedure.
+- **Inferred Relationships**: Classes and relationships inferred by the reasoner, such as `Item:part_of` and `Procedure:sub_procedure_of`.
+- **Tools Required**: A list of tools required for the procedure.
+- **Steps**: A list of steps for completing the procedure, including images and tools (if applicable). A caution message will appear if a step is hazardous.
+
+![Procedure Information](<images/7/16.png>)
+![Sample Procedure](<images/7/17.png>)
+
+### Error Identification in Data
+
+The application uses a pre-loaded subset of data from the MyFixit dataset in JSON format. Formatting of the data ensures no major errors, as each procedure has at least one step, a name, and an associated item. Steps in a procedure's toolbox are matched to raw text descriptions of tools used in steps.
+
+A challenge identified is that tools in a step are often abbreviated. For instance, a procedure's toolbox might list "ph00 Phillips Screwdriver", but a step might only mention "screwdriver" or "Phillips screwdriver". Instead of counting non-exact matches as errors, the system checks if the toolbox contains the words used in a step's tool name.
+
+For example, "screwdriver" matches "ph00 Phillips Screwdriver", but "ph0 Phillips Screwdriver" would not. This leniency allows for more accurate tool matching. Testing across several datasets showed that tools mentioned in steps were indeed in the toolbox. However, some tools listed in the toolbox were not mentioned in any steps, which could indicate optional tools. 
+
+A SPARQL query has been written to list any such errors (refer to Example 6 in Part 5: Example Queries).
+
 
 # 8. Troubleshooting Guide
 
