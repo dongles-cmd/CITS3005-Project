@@ -66,15 +66,13 @@ def init_ontology(verbose=False):
         """A Procedure uses tools that are in its toolbox."""
         Procedure.is_a.append(procedure_uses_tool.only(in_toolbox.some(Procedure)))
         Procedure.is_a.append(has_step.min(1))  # A procedure must have at least one step
-        Procedure.is_a.append(procedure_for.some(Item))  # A procedure must be for at least one item
+        Procedure.is_a.append(procedure_for.min(1))  # A procedure must be for at least one item
 
         """Procedure has at least one Step. """
         Procedure.is_a.append(has_step.some(Step))
 
         """A Step uses tools, but only those in the Procedure's toolbox."""
         Step.is_a.append(step_uses_tool.some(Tool) & step_uses_tool.only(in_toolbox.some(Procedure)))
-        # Step.is_a.append(precedes.only(Step))  # Each step has a predecessor
-        # Step.is_a.append(has_order.exactly(1, int))  # Each step must have exactly one order
         Step.is_a.append(has_text.exactly(1, str))  # Each step must have exactly one text description
 
         """A tool must appear in at least one toolbox"""

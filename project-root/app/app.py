@@ -7,7 +7,7 @@ from owlready2 import *
 import markdown
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'
+app.secret_key = 'whatever'
 
 # Route for the home page
 @app.route('/')
@@ -50,26 +50,58 @@ def procedure_details(procedure_iri):
     
     return render_template('procedure_details.html', procedure=procedure)
 
-def check_constraints():
-    pass
+# Check current knowledge graph against constraints
+def check_constraints(onto):
+    for procedure in onto.Procedure.instances():
+        if not procedure.has_step:
+            flash(f"Procedure '{procedure}' is missing a 'has_step' relation (must have at least one step).")
+        
+        if not procedure.procedure_for:
+            flash(f"Procedure '{procedure}' is missing a 'procedure_for' relation (must be for at least one item).")
+        
+        if not procedure.has_name:
+            flash(f"Procedure '{procedure}' is missing a 'has_name' relation (must have a human readable name).")
+    
+    for step in onto.Step.instances():
+        if len(step.has_text) == 0:
+            flash(f"Step '{step}' is missing a 'has_text' relation (must have exactly one text description).")
+        if len(step.has_text) > 1:
+            flash(f"Step '{step}' has too many 'has_text' relations (current has {len(step.has_text)}, must have exactly 1).")
+    
+    for tool in onto.Tool.instances():
+        if not tool.in_toolbox:
+            flash(f"Tool '{tool}' is missing a 'in_toolbox' relation (must be in at least one procedure toolbox).")
+        if not tool.has_name:
+            flash(f"Tool '{tool}' is missing a 'has_name' relation (must have a human readable name).")
+    
+    for part in onto.Part.instances():
+        if not part.part_of:
+            flash(f"Part '{part}' is missing a 'part_of' relation (must be a part of at least one item).")
+    
+    for item in onto.Item.instances():
+        if not item.has_name:
+            flash(f"Item/part '{item}' is missing a 'has_name' relation (must have a human readable name).")
 
+# Route for adding/deleting class instances and relations
 @app.route('/edit-data', methods=['GET', 'POST'])
 def edit_data_route():
+    onto = get_ontology(KNOWLEDGE_GRAPH).load()
     if request.method == 'POST':
-        onto = get_ontology(KNOWLEDGE_GRAPH).load()
         action = request.form.get('action')
         submit_type = request.form.get('submit')
 
+        # If adding/deleting a class instance
         if action == 'class_instance':
             class_name = request.form.get('class_name')
             class_uri = request.form.get('class_uri')
             classes = ["Procedure", "Item", "Part", "Tool", "Step", "Image"]
+            existing_instance = onto.search_one(iri=f"{BASE_URI}{class_uri}")
 
             if class_name not in classes:
+                # Check if exact match exists
                 flash(f"Class type does not exist!")
             elif submit_type == 'add_class':
-                # Add Class
-                existing_instance = onto.search_one(iri=f"{BASE_URI}{class_uri}")
+                # Add class
                 if existing_instance:
                     flash(f"Class instance {class_uri} already exists!")
                 else:
@@ -77,15 +109,13 @@ def edit_data_route():
                     class_instance = class_to_add(class_uri)
                     flash(f"Class {class_name} added with URI {class_uri}!")
             elif submit_type == 'delete_class':
-                # Delete Class
-                class_instance = onto.search_one(iri=f"{BASE_URI}{class_uri}")
-                if class_instance:
-                    destroy_entity(class_instance)  # Use destroy to remove the instance
+                if existing_instance:
+                    destroy_entity(existing_instance)  # Use destroy to remove the instance
                     flash(f"Class instance {class_uri} has been deleted.")
                 else:
-                    flash(f"Class instance {class_uri} not found!")
+                    flash(f"Class instance {class_uri} doesnt exist!")
 
-        # Adding or Deleting a relation
+        # If adding/deleting a relation
         elif action == 'relation':
             obj1 = request.form.get('obj1')
             relation = request.form.get('relation')
@@ -104,17 +134,22 @@ def edit_data_route():
             elif not obj1_instance:
                 flash(f"{obj1} does not exist, add it to the knowledge graph first.")
             elif relation == "has_name" or relation == "has_text":
+                # Intercept here if object 1 exists but object 2 does not have to exist for data property
                 relation_property = getattr(onto, relation, None)
                 if submit_type == 'add_relation':
                     relation_property[obj1_instance].append(obj2)
                     flash(f"Successfully added relation {relation} between {obj1} and {obj2}.")
                 elif submit_type == 'delete_relation':
-                    if obj2_instance in relation_property[obj1_instance]:
+                    if obj2 in relation_property[obj1_instance]:
                         relation_property[obj1_instance].remove(obj2)
                         flash(f"Successfully removed relation {relation} between {obj1} and {obj2}.")
+                    else: 
+                        flash(f"Relation doesn't exist!")
+
             elif not obj2_instance:
                 flash(f"{obj2} does not exist, add it to the knowledge graph first.")
             else:
+                # Check if object 2 exists before deleting/adding relation
                 relation_property = getattr(onto, relation, None)
                 if submit_type == 'add_relation':
                     relation_property[obj1_instance].append(obj2_instance)
@@ -123,21 +158,17 @@ def edit_data_route():
                     if obj2_instance in relation_property[obj1_instance]:
                         relation_property[obj1_instance].remove(obj2_instance)
                         flash(f"Successfully removed relation {relation} between {obj1} and {obj2}.")
+                    else:
+                        flash(f"Relation doesn't exist!")
 
-        # Save the changes to the ontology
-        onto.save(file=KNOWLEDGE_GRAPH)
+        # Sync reasoner for inferred relationships, check constraints and save to file
+        with onto:
+            sync_reasoner(infer_property_values=True)
+            check_constraints(onto)
+            onto.save(file=KNOWLEDGE_GRAPH)
         return redirect(url_for('edit_data_route'))
 
     return render_template('edit_database.html')
-
-
-@app.route('/success')
-def success_page():
-    return render_template('success.html')
-
-@app.route('/failure')
-def failure_page():
-    return render_template('failure.html')
 
 # Route for the user manual
 @app.route('/user-manual')
@@ -162,7 +193,7 @@ def serve_images(filename):
 def resources():
     return render_template('resources.html')
 
-def run_app(debug=True):
+def run_app(debug=False):
     app.run(debug=debug)
 
 if __name__ == "__main__":
