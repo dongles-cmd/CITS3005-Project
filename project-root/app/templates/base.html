@@ -1,3 +1,4 @@
+<!-- Written by: Marc Labouchardiere (23857377) and Lewei Xu (23709058)-->
 <!--Base layout for the site-->
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
+<body class="{% if dark_mode %}dark-mode{% endif %}">
     <header class="sticky-header">
         <div class="container">
             <div class="logo-container">

@@ -716,3 +716,11 @@ The script `/ontology/populate_graph.py` is used to parse the input JSON file an
 ## Help! Why are the programs not running?
 
 Ensure you are running all the programs from the `/project-root` directory, as many scripts import from that location. You can also try running a command to display a log of all entries in the knowledge graph.
+
+## How to execute test data?
+
+Run `python3 init.py -v -a` to construct ontology/knowledge graph on the test dataset `/data/desktop_pcs.json`. 
+
+## Why are there so many datasets?
+
+We have included multiple datsets for your convenience. You may test and validate the knowledge graph/ontology by changing which dataset the knowledge graph is built on. You can do this by updating `config.py`.

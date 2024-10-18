@@ -1,18 +1,35 @@
-<!-- templates/procedure_details.html -->
+<!-- Written by: Marc Labouchardiere (23857377) and Lewei Xu (23709058)-->
+<!-- Page for displaying the contents of a procedure, from procedure_data.py. -->
 {% extends 'base.html' %}
 
 {% block content %}
+<head>
+    <style>
+        .header-primary {
+            color: #1d4ed8;
+        }
+
+        .header-secondary {
+            color: #1e3a8a;
+        }
+
+        .header-tertiary {
+            color: #3b82f6; 
+        }
+
+    </style>
+</head>
 <section class="procedure-details">
     <div class="container">
-        <h1>{{ procedure.name }}</h1>
+        <h1 class="header-primary">{{ procedure.name }}</h1>
 
         <!-- Inferred Classes Section -->
         <section class="inferred-classes">
-            <h2>Inferred Relationships</h2>
+            <h2 class="header-secondary">Inferred Relationships</h2>
 
             <!-- Subprocedure of Section -->
             {% if procedure.subprocedure_for %}
-                <h3>Subprocedures for:</h3>
+                <h3 class="header-tertiary">Subprocedures for:</h3>
                 <ul>
                     {% for sp in procedure.subprocedure_for %}
                         <li>{{ sp }}</li>
@@ -22,7 +39,7 @@
 
             <!-- Procedure for -> Part of Section -->
             {% if procedure.procedure_of_for_part_of %}
-                <h3>Procedure for:</h3>
+                <h3 class="header-tertiary">Procedure for:</h3>
                 <ul class="inferred-list">
                     {% for item, parts in procedure.procedure_of_for_part_of.items() %}
                         <li>
@@ -40,7 +57,7 @@
 
         <!-- Tools Required Section -->
         <section class="procedure-tools">
-            <h2>Tools Required</h2>
+            <h2 class="header-secondary">Tools Required</h2>
             <ul class="tools-list">
                 {% for tool in procedure.tools %}
                     <li>{{ tool }}</li>
@@ -50,10 +67,10 @@
 
         <!-- Procedure Steps Section -->
         <section class="procedure-steps">
-            <h2>Procedure Steps</h2>
+            <h2 class="header-secondary">Procedure Steps</h2>
             {% for step in procedure.steps %}
                 <div class="procedure-step">
-                    <h3>Step {{ step.step_number }}</h3>
+                    <h3 class="header-tertiary">Step {{ step.step_number }}</h3>
                     
                     {% if step.warning %}
                         <div class="warning-box">

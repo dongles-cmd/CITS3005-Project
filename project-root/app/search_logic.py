@@ -34,16 +34,6 @@ def extract_procedures(graph):
     
     return results
 
-# def extract_tools(graph):
-#     results = []
-#     for tool in graph.Tool.instances():
-#         tool_name = str(tool.has_name).strip("[]'")
-#         tag = tool_name.lower().split(" ")
-#         tool_link = tool.iri
-
-#         toolbox = []
-#         for in_toolbox in tool.in_toolbox:
-
 # Fuzzy search function based on tags
 def fuzzy_search(query, procedure_data):
     # Prepare a list of all tags for fuzzy matching

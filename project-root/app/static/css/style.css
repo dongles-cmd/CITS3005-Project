@@ -389,7 +389,6 @@ footer .btn {
     border-radius: 5px;}
 footer .btn:hover {
     background-color: #0056b3;}
-
 /* static/style.css */
 
 /* General page styling */
@@ -397,63 +396,43 @@ footer .btn:hover {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #ffffff;
-}
-
+    background-color: #ffffff;}
 /* Procedure details page */
 .procedure-details h1 {
     font-size: 2.5rem;
     color: #333;
-    margin-bottom: 20px;
-}
-
+    margin-bottom: 20px;}
 .procedure-tools, .procedure-steps {
-    margin-top: 40px;
-}
-
+    margin-top: 40px;}
 .tools-list {
     list-style: none;
-    padding-left: 0;
-}
-
+    padding-left: 0;}
 .tools-list li {
     font-size: 1.2rem;
-    margin-bottom: 5px;
-}
-
+    margin-bottom: 5px;}
 /* Procedure steps */
 .procedure-step {
     border-top: 1px solid #e5e5e5;
-    padding: 20px 0;
-}
-
+    padding: 20px 0;}
 .procedure-step h3 {
     font-size: 1.8rem;
     margin-bottom: 10px;
-    color: #007bff;
-}
-
+    color: #007bff;}
 .procedure-step p {
     font-size: 1rem;
-    line-height: 1.6;
-}
-
+    line-height: 1.6;}
 /* Step images */
 .step-images {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 10px;
-}
-
+    margin-top: 10px;}
 .responsive-image {
     max-width: 100%;
     height: auto;
     border: 1px solid #ddd;
     border-radius: 4px;
-    padding: 5px;
-}
-
+    padding: 5px;}
 /* Add these styles to your CSS file */
 
 .warning-box {
@@ -462,109 +441,74 @@ footer .btn:hover {
     padding: 10px;
     margin-bottom: 20px;
     display: flex; /* Flex to align icon and text */
-    align-items: center;
-}
-
+    align-items: center;}
 .warning-icon {
     width: 20px; /* Set width of the icon */
     height: 20px; /* Set height of the icon */
-    margin-right: 10px; /* Space between icon and text */
-}
-
+    margin-right: 10px; /* Space between icon and text */}
 .inferred-classes {
-    margin-bottom: 20px; /* Space between sections */
-}
-
+    margin-bottom: 20px; /* Space between sections */}
 .inferred-list {
     list-style-type: disc; /* Bullet points for list */
-    margin-left: 20px; /* Indent for nested lists */
-}
-
+    margin-left: 20px; /* Indent for nested lists */}
 .search-results {
     list-style-type: none;
     padding: 0;
-    margin: 0;
-}
-
+    margin: 0;}
 .result-item {
     display: flex;
     align-items: center;
     padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
+    border-bottom: 1px solid #ddd;}
 .result-content {
     display: flex;
-    align-items: center;
-}
-
+    align-items: center;}
 .result-image {
     width: 60px;
     height: 60px;
     margin-right: 15px;
     border-radius: 4px;
-    object-fit: cover;
-}
-
+    object-fit: cover;}
 .result-name {
     font-size: 16px;
-    font-weight: bold;
-}
-
+    font-weight: bold;}
 .pagination {
     display: flex;
     justify-content: space-between;
-    margin: 20px 0;
-}
-
+    margin: 20px 0;}
 .pagination a {
     text-decoration: none;
     padding: 10px 15px;
     background-color: #007bff;
     color: white;
-    border-radius: 4px;
-}
-
+    border-radius: 4px;}
 .pagination a:hover {
-    background-color: #0056b3;
-}
-
-
+    background-color: #0056b3;}
 .manual-content img {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 0 auto;
-}
-
+    margin: 0 auto;}
 .message-list {
     list-style-type: none;
-    padding: 0;
-}
-
+    padding: 0;}
 .message-list li {
     font-size: 20px;   /* Increase font size */
     color: red;        /* Set the text color to red */
-    font-weight: bold; /* Optional: make the text bold */
-}
-
+    font-weight: bold; /* Optional: make the text bold */}
 /* Dark theme container styling */
 .container.dark-theme {
     background-color: #1e1e1e;
     color: #dcdcdc;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Styling for the manual content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);}
+/* Styling for the manual content */
   .manual-content {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    padding: 10px;
-  }
-  
-  /* Code block styling similar to Visual Studio Code dark theme */
+    padding: 10px;}
+/* Code block styling similar to Visual Studio Code dark theme */
   pre.vscode-dark {
     background-color: #1e1e1e;
     color: #d4d4d4;
@@ -572,80 +516,60 @@ footer .btn:hover {
     border-radius: 8px;
     font-family: "Fira Code", Consolas, "Courier New", monospace;
     overflow-x: auto;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Code syntax highlighting */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);}
+/* Code syntax highlighting */
   pre.vscode-dark code {
-    color: #9cdcfe; /* General text color */
-  }
-  
-  /* Code block specific styles */
+    color: #9cdcfe; /* General text color */}
+/* Code block specific styles */
   pre.vscode-dark .keyword {
-    color: #569cd6;
-  }
-  
-  pre.vscode-dark .string {
-    color: #ce9178;
-  }
-  
-  pre.vscode-dark .function {
-    color: #dcdcaa;
-  }
-  
-  pre.vscode-dark .comment {
+    color: #569cd6;}
+pre.vscode-dark .string {
+    color: #ce9178;}
+pre.vscode-dark .function {
+    color: #dcdcaa;}
+pre.vscode-dark .comment {
     color: #6a9955;
-    font-style: italic;
-  }
-  
-  /* Scrollbar styling to match VS Code */
+    font-style: italic;}
+/* Scrollbar styling to match VS Code */
   pre.vscode-dark::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  pre.vscode-dark::-webkit-scrollbar-thumb {
+    width: 8px;}
+pre.vscode-dark::-webkit-scrollbar-thumb {
     background-color: #3e3e3e;
-    border-radius: 10px;
-  }
-  
-  pre.vscode-dark::-webkit-scrollbar-track {
-    background-color: #2e2e2e;
-  }
-  
-  /* Optional: make links in the manual content more visible */
+    border-radius: 10px;}
+pre.vscode-dark::-webkit-scrollbar-track {
+    background-color: #2e2e2e;}
+/* Optional: make links in the manual content more visible */
   .manual-content a {
     color: #569cd6;
-    text-decoration: underline;
-  }
-  
-  .manual-content a:hover {
-    color: #dcdcaa;
-  }
-  
-  /* Add padding and margins for better readability */
+    text-decoration: underline;}
+.manual-content a:hover {
+    color: #dcdcaa;}
+/* Add padding and margins for better readability */
   .manual-content p,
   .manual-content h1, h2, h3, h4, h5 {
     margin-bottom: 15px;
-    color: #d4d4d4;
-  }
-  
-  .manual-content code {
+    color: #d4d4d4;}
+.manual-content code {
     background-color: #252526;
     color: #c586c0;
     padding: 2px 4px;
-    border-radius: 4px;
-  }
-  
-  /* Ensure buttons and interactive elements look in line with the theme */
+    border-radius: 4px;}
+/* Ensure buttons and interactive elements look in line with the theme */
   button {
     background-color: #007acc;
     color: #ffffff;
     border: none;
     padding: 10px 15px;
-    border-radius: 4px;
-  }
-  
-  button:hover {
-    background-color: #005f99;
-  }
-  
+    border-radius: 4px;}
+button:hover {
+    background-color: #005f99;}
+
+/* Default light mode styles */
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+
+/* Other dark mode styles */

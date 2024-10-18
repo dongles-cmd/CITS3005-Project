@@ -12,6 +12,7 @@ def check(verbose=False):
     conforms, results_graph, results_text = validate(data_graph, shacl_graph=shacl_graph, inference='both')
     print(results_text)
     if verbose:
+        print(f"Results graph: {results_graph}")
         input("\nPress any key to continue...")
 
 if __name__ == "__main__":

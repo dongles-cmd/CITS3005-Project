@@ -37,7 +37,7 @@ def search():
         return render_template('search_results.html', results=results, query=query, page=page, has_more=has_more)
     
     # Render the initial search form if no query is provided
-    return render_template('search.html')
+    return render_template('search.html', dark_mode=False)
 
 # Route for displaying the procedure details
 @app.route('/procedure/<path:procedure_iri>', methods=['GET'])
@@ -181,7 +181,7 @@ def user_manual():
     manual_html = markdown.markdown(content)
 
     # Render the HTML in the template
-    return render_template('user_manual.html', manual_html=manual_html)
+    return render_template('user_manual.html', manual_html=manual_html, dark_mode=True)
 
 # Route to serve images from the 'images/' directory in the root project
 @app.route('/images/<path:filename>')
