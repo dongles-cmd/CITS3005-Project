@@ -8,9 +8,9 @@
 3. [Overview of the Schema](#3-overview-of-the-schema)
 4. [Axioms and Ontology Rules](#4-axioms-and-ontology-rules)
 5. [Example Queries](#5-example-queries)
-6. [Data Management](#data-management)
+6. [Data Management](#6-data-management)
 7. [Running the Application](#running-the-application)
-8. [Troubleshooting Guide](#troubleshooting-guide)
+8. [Troubleshooting Guide](#8-troubleshooting-guide)
 
 ---
 
@@ -493,3 +493,66 @@ Inference rules or logical constraints can be added to the knowledge graph to en
         imp = Imp()
         imp.set_as_rule("""Procedure(?p) ^ procedure:procedure_for(?p, ?d) ^ Device(?d) -> exists(?p, procedure:hasImage)""")
     ```
+
+# 8. Troubleshooting Guide
+
+## Where do I find the required dependencies?
+
+This project uses many third-party libraries, such as `flask`, `fuzzywuzzy`, and `owlready2` to name a few. These dependencies can be found in `requirements.txt`. To install the required dependencies, run the command in the `/project-root` directory:
+
+```bash
+pip install -r requirements.txt
+```
+
+
+## How do I rebuild the knowledge graph?
+
+To rebuild the knowledge graph, centrally run the appropriate command. Inspect the output to ensure that no errors occurred during the recreation of the knowledge graph.
+
+`init.py` will automatically run the scripts `/ontology/ifixit_ontology.py` and `/ontology/populate_graph.py`, which are responsible for creating the schema and then building the knowledge graph from the input JSON file.
+
+## How do I run the flask app?
+
+To run the app, execute the command from the `/project-root` directory. Alternatively, you can rebuild the knowledge graph before running the flask application by using the `[-a]` app flag.
+
+## Where do I see the flask app?
+
+Once the flask server is running, you can view the application in your preferred browser by navigating to:
+
+[http://localhost:5000/](http://localhost:5000/)
+
+This will direct you to the homepage of the website. Successfully running the flask server should prompt you to visit the website.
+
+![Prompt to visit website](<images/8/1.png>)
+
+## What does init.py do?
+
+Running the appropriate command from the `/project-root` directory will:
+
+- Generate the OWL ontology for the iFixit database.
+- Populate the ontology.
+- Check SHACL constraints.
+- Run SPARQL queries.
+- Launch the application.
+
+By default, `init.py` will run with minimal output. Use the `[-v]` option for verbose output, which provides a breakdown between each process. Please ensure you have read the user manual before using the app.
+
+## What does config.py do?
+
+`config.py` is a file accessible by all scripts. It contains the relative paths (from `/project-root`) to the necessary configuration files for the knowledge graph and ontology. You can modify values in this file to quickly change input/output files and other configurations.
+
+## What dataset is being used?
+
+We are using a subset of the `PC.json` dataset provided by [MyFixit-Dataset](https://github.com/rub-ksv/MyFixit-Dataset). This subset contains approximately 100 procedures, allowing us to easily verify and run our scripts. The subset is stored in `/data/desktop_pcs.json`.
+
+## How is the raw data being represented?
+
+In the `/data` directory, there is a script named `pretty_print.py`, which properly spaces and indents the input JSON files. This script can be used to make the data more human-readable, which has been done with our chosen dataset.
+
+## How is the data being parsed?
+
+The script `/ontology/populate_graph.py` is used to parse the input JSON file and output the data into the knowledge graph. This script also provides simple error checking by logging any inconsistencies with the input data.
+
+## Help! Why are the programs not running?
+
+Ensure you are running all the programs from the `/project-root` directory, as many scripts import from that location. You can also try running a command to display a log of all entries in the knowledge graph.
