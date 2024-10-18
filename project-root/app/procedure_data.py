@@ -4,7 +4,7 @@ import re
 
 
 # Placeholder function for getting procedure details (you will implement this)
-def get_procedure_details(procedure_iri="http://test.org/ifixit.com#https://www.ifixit.com/Guide/Dell+OptiPlex+FX170+RAM++Replacement/36709"):
+def get_procedure_details(procedure_iri):
     # Implement the logic here to retrieve details of the procedure using its IRI
     # This function should return a dictionary with all necessary details like:
     # - Name
@@ -80,5 +80,5 @@ def get_procedure_details(procedure_iri="http://test.org/ifixit.com#https://www.
 
 
 if __name__ == "__main__":
-    p = get_procedure_details()
+    p = get_procedure_details(procedure_iri="http://test.org/ifixit.com#https://www.ifixit.com/Guide/Dell+OptiPlex+FX170+RAM++Replacement/36709")
     print(p)

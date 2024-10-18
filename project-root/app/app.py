@@ -193,7 +193,7 @@ def serve_images(filename):
 def resources():
     return render_template('resources.html')
 
-def run_app(debug=False):
+def run_app(debug=True):
     app.run(debug=debug)
 
 if __name__ == "__main__":
